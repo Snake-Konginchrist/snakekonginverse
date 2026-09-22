@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+
+/* 设计令牌是唯一配色入口；后台可切换强调色，无需修改组件。 */
+:root {
+  --paper: #f8f9fc;
+  --surface: #ffffff;
+  --ink: #17243c;
+  --muted: #657086;
+  --line: #dfe4ee;
+  --accent: #254ce5;
+  --accent-soft: #e9eeff;
+  --font-body: 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-display: 'Avenir Next', 'Helvetica Neue', 'PingFang SC', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, monospace;
+}
+[data-accent='green'] {
+  --accent: #176354;
+  --accent-soft: #e4f3ec;
+}
+[data-accent='violet'] {
+  --accent: #7940b8;
+  --accent-soft: #f0e9fb;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 28px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+button,
+summary,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  background: var(--accent);
+  color: white;
+}
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+.shell {
+  width: min(1200px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.section {
+  padding-block: 64px;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 48px;
+  padding: 14px 23px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.button-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.button-primary:hover {
+  filter: brightness(0.92);
+  transform: translateY(-2px);
+}
+.text-link {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+.text-link:hover {
+  color: var(--accent);
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 20px;
+  z-index: 100;
+  padding: 12px;
+  background: var(--ink);
+  color: white;
+}
+.skip-link:focus {
+  top: 12px;
+}
+@media (max-width: 760px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+  .section {
+    padding-block: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

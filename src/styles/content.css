@@ -1,0 +1,194 @@
+/* 内容模块共用阅读节奏，避免文章样式覆盖官网导航及 CMS 控件。 */
+.empty-state {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  padding: 36px;
+  background: var(--surface);
+  border: 1px dashed #ced6e7;
+  border-radius: 10px;
+}
+.empty-state > svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.empty-state h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.empty-state p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.empty-mark {
+  margin-left: auto;
+  white-space: nowrap;
+  font: 9px var(--font-mono);
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.entry-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.entry-card:hover {
+  border-color: var(--accent);
+}
+.entry-cover {
+  position: relative;
+  aspect-ratio: 3/2;
+  background: var(--accent-soft);
+}
+.entry-cover img {
+  object-fit: cover;
+}
+.entry-card-body {
+  padding: 24px;
+}
+.entry-card h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 20px;
+  margin-block: 13px;
+}
+.entry-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 13px;
+}
+.entry-card .eyebrow {
+  font-size: 9px;
+}
+.archive {
+  min-height: 65vh;
+}
+.archive > .eyebrow {
+  color: var(--accent);
+  margin-top: 20px;
+}
+.archive h1,
+.article h1 {
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 550;
+  letter-spacing: -1.5px;
+  margin-top: 20px;
+}
+.archive-intro {
+  color: var(--muted);
+  margin: 20px 0 48px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+.article {
+  max-width: 850px;
+}
+.article-header {
+  padding-block: 50px 35px;
+}
+.article-header > p:last-child {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 24px;
+}
+.article-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 35px;
+}
+.prose {
+  max-width: 800px;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  line-height: 2;
+}
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  margin-block: 1.2em;
+}
+.prose h2 {
+  font-size: 28px;
+  margin-block: 1.8em 0.7em;
+}
+.prose h3 {
+  font-size: 22px;
+  margin-block: 1.5em 0.5em;
+}
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.prose ul {
+  list-style: disc;
+  padding-left: 1.5em;
+}
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.5em;
+}
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+  color: var(--muted);
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+.prose pre {
+  overflow-x: auto;
+  padding: 20px;
+  background: var(--ink);
+  color: white;
+  border-radius: 8px;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  color: var(--accent);
+}
+.preview-banner {
+  background: #fff0c9;
+  color: #55400d;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 13px;
+}
+@media (max-width: 760px) {
+  .empty-state {
+    padding: 24px;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .empty-mark {
+    display: none;
+  }
+  .entry-grid {
+    grid-template-columns: 1fr;
+  }
+  .article-header {
+    padding-top: 36px;
+  }
+  .article-header > p:last-child {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "snakekonginverse",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "cms:types": "payload generate:types",
+    "cms:importmap": "payload generate:importmap",
+    "db:migrate": "payload migrate",
+    "db:migration": "payload migrate:create",
+    "seed": "tsx --env-file=.env scripts/seed.ts",
+    "test": "tsx --test tests/unit/*.test.ts",
+    "test:e2e": "playwright test",
+    "check:lines": "node scripts/check-lines.mjs",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm check:lines",
+    "test:cms": "tsx --env-file=.env scripts/verify-cms.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "3.90.1",
+    "@payloadcms/next": "3.90.1",
+    "@payloadcms/richtext-lexical": "3.90.1",
+    "@payloadcms/translations": "3.90.1",
+    "graphql": "16.14.2",
+    "lucide-react": "1.47.0",
+    "next": "16.3.5",
+    "payload": "3.90.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "prettier": "3.9.8",
+    "tailwindcss": "^4",
+    "tsx": "4.23.15",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.8.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
