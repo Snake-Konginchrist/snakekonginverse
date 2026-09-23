@@ -73,27 +73,6 @@
   font-size: 33px;
   color: #ffffffc4;
 }
-.orbit-coordinate {
-  position: absolute;
-  left: 10%;
-  right: 6%;
-  font: 8px var(--font-mono);
-  letter-spacing: 1.5px;
-  color: #7f8ba5;
-}
-.orbit-coordinate.top {
-  top: 5%;
-}
-.orbit-coordinate.bottom {
-  bottom: 4%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.orbit-coordinate.bottom span {
-  font-size: 25px;
-  color: var(--accent);
-}
 .satellite {
   position: absolute;
   width: 13px;
@@ -114,27 +93,6 @@
   left: 11%;
   background: #a0aed4;
 }
-.orbit-label {
-  position: absolute;
-  padding: 9px 12px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  font: 9px var(--font-mono);
-  color: #5b6c96;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 14px #263c6410;
-}
-.label-code {
-  top: 24%;
-  left: 6%;
-  transform: rotate(-7deg);
-}
-.label-story {
-  bottom: 22%;
-  right: 1%;
-  transform: rotate(7deg);
-}
 @media (max-width: 760px) {
   .orbit-art {
     max-width: 420px;
@@ -142,8 +100,5 @@
   }
   .orbit-core > span:first-child {
     font-size: 116px;
-  }
-  .orbit-coordinate.top {
-    top: 6%;
   }
 }

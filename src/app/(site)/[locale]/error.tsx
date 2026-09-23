@@ -1,14 +1,17 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 /** 不向访客暴露数据库错误和连接信息；提供明确、可操作的重试入口。 */
 export default function ErrorPage({ reset }: { reset: () => void }) {
+  const t = useTranslations('errors');
   return (
     <section className="shell section archive">
-      <p className="eyebrow">CONNECTION INTERRUPTED</p>
-      <h1>暂时没有连接上。</h1>
-      <p className="archive-intro">内容暂时无法读取，请稍后重试。</p>
+      <p className="eyebrow">{t('connectionEyebrow')}</p>
+      <h1>{t('connectionTitle')}</h1>
+      <p className="archive-intro">{t('connectionDescription')}</p>
       <button className="button button-primary" onClick={reset}>
-        重新加载
+        {t('retry')}
       </button>
     </section>
   );

@@ -1,19 +1,21 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowUpRight, Feather } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { Entry } from '@/payload-types';
+import { Link } from '@/i18n/navigation';
 
 /** 空内容是正常状态；不使用示例作品、假时间或虚构阅读量填充布局。 */
 export function EntryList({ entries }: { entries: Entry[] }) {
+  const t = useTranslations('archive');
   if (!entries.length)
     return (
       <div className="empty-state">
         <Feather size={30} strokeWidth={1.2} />
         <div>
-          <h3>故事，正在酝酿。</h3>
-          <p>这里还没有已发布的内容。下一次相遇，也许会有新的发现。</p>
+          <h3>{t('emptyTitle')}</h3>
+          <p>{t('emptyDescription')}</p>
         </div>
-        <span className="empty-mark">TO BE CONTINUED ↗</span>
+        <span className="empty-mark">{t('emptyMark')}</span>
       </div>
     );
   return (

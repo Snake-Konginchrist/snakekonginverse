@@ -90,14 +90,19 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale:
+    | ('false' | 'none' | 'null')
+    | false
+    | null
+    | ('zh-CN' | 'zh-TW' | 'en' | 'ja')
+    | ('zh-CN' | 'zh-TW' | 'en' | 'ja')[];
   globals: {
     'site-settings': SiteSetting;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
-  locale: null;
+  locale: 'zh-CN' | 'zh-TW' | 'en' | 'ja';
   widgets: {
     collections: CollectionsWidget;
   };

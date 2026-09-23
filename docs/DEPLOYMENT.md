@@ -1,7 +1,7 @@
 # Ubuntu 原生部署（无 Docker）
 
 浏览器 → 可选 Cloudflare → Nginx HTTPS → Node.js 127.0.0.1:3000 → PostgreSQL。
-以下以 `/var/www/snakekonginverse`、系统用户 `snakeverse` 为例。请替换域名与数据库密码。
+以下以 `/var/www/snakekonginverse`、系统用户 `snakeverse` 和域名 `snakekongin.com` 为例。请替换数据库密码。
 
 ## 环境与目录
 
@@ -26,7 +26,7 @@ sudo -u postgres createdb --owner=snakeverse snakekonginverse
 NODE_ENV=production
 DATABASE_URL=postgresql://snakeverse:URL_ENCODED_PASSWORD@127.0.0.1:5432/snakekonginverse
 PAYLOAD_SECRET=REPLACE_WITH_OPENSSL_RAND_HEX_32
-NEXT_PUBLIC_SITE_URL=https://example.com
+NEXT_PUBLIC_SITE_URL=https://snakekongin.com
 MEDIA_DIR=/var/lib/snakekonginverse/media
 ```
 
@@ -66,7 +66,7 @@ curl -I http://127.0.0.1:3000
 
 ## Nginx 与 HTTPS
 
-修改 `deploy/nginx.conf` 的域名，放入站点配置目录并启用。
+将 `deploy/nginx.conf` 放入站点配置目录并启用；配置已包含 `snakekongin.com` 和 `www.snakekongin.com`。
 执行 `sudo nginx -t` 后 `sudo systemctl reload nginx`。
 示例先提供 HTTP。用服务器现有证书流程或 Certbot 配置 HTTPS，验证后将 HTTP 重定向至 HTTPS。
 Cloudflare 使用 Full (strict)，不要 Flexible，不要缓存 `/admin`、`/api`、`/preview` 或管理员会话。

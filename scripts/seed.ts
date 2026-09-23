@@ -12,26 +12,19 @@ try {
       layout: [
         {
           blockType: 'hero',
-          eyebrow: 'SNAKE KONGINCHRIST / PERSONAL UNIVERSE',
-          title: '把想象，\n写进现实。',
+          eyebrow: 'INDEPENDENT DEVELOPER / SK STUDIO',
+          title: '把产品做出来，\n也保留一点幻想。',
           description:
-            '你好，我是 Snake Konginchrist。\n在代码与故事之间，构建自己的小宇宙。\n这里收藏我的技术探索、同人创作，以及沿途的思考。',
-          linkLabel: '探索我的宇宙',
-          href: '/#explore',
+            '我是 Snake Konginchrist，做移动产品、AI 工具和研究。\n这里记录正在构建的东西，以及让我继续好奇的事。',
+          linkLabel: '看看正在做的',
+          href: '/projects',
         },
+        { blockType: 'collection', title: '最新手记', source: 'journal', limit: 3 },
         {
           blockType: 'portals',
-          title: '不止一种热爱。',
-          description: '理性构建，感性创作。\n三个入口，通向同一个我。',
+          title: '从这里开始',
+          description: '项目、创作、手记。',
         },
-        {
-          blockType: 'statement',
-          eyebrow: 'THE MIND BEHIND THE VERSE',
-          title: '认真写代码，也认真做梦。',
-          description:
-            '技术是把想法变成现实的工具，创作是让世界多一种可能的方式。在这里，不用在开发者与创作者之间做选择。',
-        },
-        { blockType: 'collection', title: '最近写下的。', source: 'journal', limit: 3 },
       ],
     },
     {
@@ -40,19 +33,19 @@ try {
       layout: [
         {
           blockType: 'hero',
-          eyebrow: 'HELLO, I’M SNAKE KONGINCHRIST',
-          title: '始于好奇，\n忠于热爱。',
+          eyebrow: 'INDEPENDENT DEVELOPER / RESEARCHER',
+          title: '做产品，\n也做研究。',
           description:
-            'Snake + Kongin + Verse。\nKongin 是一个完整的词，Verse 是容纳代码、角色、故事和想法的个人宇宙。',
-          linkLabel: '看看我在探索什么',
-          href: '/#explore',
+            '我是 Snake Konginchrist，和 SK Studio 一起做移动产品与 AI 工具，也在研究分布式优化。\n这里是工作之外的个人记录。',
+          linkLabel: '看正在做的产品',
+          href: '/projects',
         },
         {
           blockType: 'statement',
-          eyebrow: 'ABOUT THIS SPACE',
-          title: '这里不只有一种身份。',
+          eyebrow: 'WHAT I AM WORKING ON',
+          title: '把复杂的东西，做成有人愿意用的东西。',
           description:
-            '这个网站记录技术与创作的交集。作品、文章与同人故事会逐步发布，每一部分都留下属于自己的位置。',
+            '公开方向包括移动端产品、AI 与 agent 工具、研究型实验，也会给角色和故事留一块空间。',
         },
       ],
     },
@@ -76,7 +69,7 @@ try {
       data: {
         brand: 'SnakeKonginVerse',
         author: 'Snake Konginchrist',
-        description: '代码、故事，以及想象力的另一面。Snake Konginchrist 的个人宇宙。',
+        description: '独立开发者 Snake Konginchrist 的产品、研究与个人记录。',
         accent: 'blue',
         navigation: [
           { label: '首页', href: '/' },
@@ -85,7 +78,10 @@ try {
           { label: '手记', href: '/journal' },
           { label: '关于', href: '/about' },
         ],
-        socials: [],
+        socials: [
+          { label: 'GitHub', href: 'https://github.com/Snake-Konginchrist' },
+          { label: 'X / @SnakeKongin', href: 'https://x.com/SnakeKongin' },
+        ],
       },
     });
   }

@@ -5,6 +5,7 @@ export const seo: Field = {
   name: 'seo',
   label: '搜索引擎展示',
   type: 'group',
+  localized: true,
   fields: [
     { name: 'title', label: 'SEO 标题', type: 'text' },
     { name: 'description', label: 'SEO 摘要', type: 'textarea', maxLength: 180 },

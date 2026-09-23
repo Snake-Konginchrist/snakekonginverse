@@ -2,14 +2,19 @@ import 'server-only';
 import { cache } from 'react';
 import { getPayload } from 'payload';
 import config from '@payload-config';
+import type { Locale } from '@/i18n/routing';
 
 /** 仅缓存同一次服务端请求；发布后下一次访问立即读取新数据。 */
 export const cms = cache(() => getPayload({ config }));
-export const getSettings = cache(async () =>
-  (await cms()).findGlobal({ slug: 'site-settings', overrideAccess: false }),
+export const getSettings = cache(async (locale?: Locale) =>
+  (await cms()).findGlobal({
+    slug: 'site-settings',
+    overrideAccess: false,
+    ...(locale ? { locale } : {}),
+  }),
 );
 
-export const getPage = cache(async (path: string) => {
+export const getPage = cache(async (path: string, locale?: Locale) => {
   const result = await (
     await cms()
   ).find({
@@ -17,6 +22,7 @@ export const getPage = cache(async (path: string) => {
     where: { path: { equals: path } },
     limit: 1,
     overrideAccess: false,
+    ...(locale ? { locale } : {}),
   });
   return result.docs[0] ?? null;
 });
@@ -33,7 +39,7 @@ export const kindLabels: Record<ContentKind, string> = {
 };
 
 /** 显式启用访问控制：Payload Local API 默认绕过权限，不能用于公开查询。 */
-export async function getEntries(kind: ContentKind, limit = 9, page = 1) {
+export async function getEntries(kind: ContentKind, limit = 9, page = 1, locale?: Locale) {
   return (await cms()).find({
     collection: 'entries',
     where: { kind: { equals: kind } },
@@ -41,9 +47,10 @@ export async function getEntries(kind: ContentKind, limit = 9, page = 1) {
     limit,
     page,
     overrideAccess: false,
+    ...(locale ? { locale } : {}),
   });
 }
-export async function getEntry(kind: ContentKind, slug: string) {
+export async function getEntry(kind: ContentKind, slug: string, locale?: Locale) {
   const result = await (
     await cms()
   ).find({
@@ -51,6 +58,7 @@ export async function getEntry(kind: ContentKind, slug: string) {
     where: { and: [{ kind: { equals: kind } }, { slug: { equals: slug } }] },
     limit: 1,
     overrideAccess: false,
+    ...(locale ? { locale } : {}),
   });
   return result.docs[0] ?? null;
 }

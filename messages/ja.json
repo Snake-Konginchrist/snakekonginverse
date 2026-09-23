@@ -1,0 +1,196 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "creations": "創作",
+    "journal": "ノート",
+    "about": "概要",
+    "links": "リンクと仕事",
+    "recommendations": "リソース",
+    "communities": "コミュニティ",
+    "contact": "連絡先",
+    "identities": "プロフィール",
+    "changelog": "更新履歴",
+    "discussion": "公開ディスカッション",
+    "more": "その他",
+    "keepInTouch": "つながる",
+    "menu": "メニュー"
+  },
+  "common": {
+    "skipToContent": "本文へ移動",
+    "admin": "コンテンツ管理",
+    "backHome": "ホームへ戻る",
+    "backTo": "{section}へ戻る",
+    "previous": "前へ",
+    "next": "次へ",
+    "viewAll": "すべて見る",
+    "visitWork": "プロジェクトを見る",
+    "latest": "LATEST FROM THE VERSE",
+    "explore": "EXPLORE",
+    "waysIn": "A FEW WAYS IN",
+    "language": "言語"
+  },
+  "footer": {
+    "eyebrow": "LET’S CONNECT",
+    "headline": "何かを作っているなら、話しましょう。",
+    "empty": "連絡先は準備中です。まずはこの小さな宇宙を見ていってください。",
+    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+  },
+  "hero": { "about": "自分について", "footnote": "探索を続ける · 好奇心のままに" },
+  "portals": {
+    "aria": "個人コンテンツへの入口",
+    "products": "プロダクトと実験",
+    "productsEnglish": "PRODUCTS & RESEARCH",
+    "productsDescription": "モバイルプロダクト、AIツール、研究プロジェクト。",
+    "creations": "キャラクターと物語",
+    "creationsEnglish": "CHARACTERS & STORIES",
+    "creationsDescription": "ファン作品、キャラクター、成長中の想像力。",
+    "journal": "記録と思索",
+    "journalEnglish": "NOTES & OBSERVATIONS",
+    "journalDescription": "開発メモ、ツールの観察、日々の考え。",
+    "journalArt": "Note to self.",
+    "creationsArt": "もうひとつの世界",
+    "productsArt": "{ idea → real }"
+  },
+  "archive": {
+    "explore": "EXPLORE THE VERSE / {kind}",
+    "intro": "丁寧に作ったものと、残しておきたい考え。",
+    "emptyTitle": "物語は準備中です。",
+    "emptyDescription": "まだ公開されたコンテンツはありません。次の訪問で新しい発見があるかもしれません。",
+    "emptyMark": "TO BE CONTINUED ↗"
+  },
+  "errors": {
+    "connectionEyebrow": "CONNECTION INTERRUPTED",
+    "connectionTitle": "接続できませんでした。",
+    "connectionDescription": "コンテンツを読み込めません。一度あとでお試しください。",
+    "retry": "再読み込み",
+    "notFoundEyebrow": "404 / OUTSIDE THE ORBIT",
+    "notFoundTitle": "この宇宙にはまだ座標がありません。",
+    "notFoundDescription": "ページが公開されていないか、移動した可能性があります。"
+  },
+  "preview": {
+    "banner": "下書きプレビュー · 管理者のみ表示 · 編集画面に戻るにはこのページを閉じてください"
+  },
+  "contentKinds": { "projects": "プロジェクト", "creations": "創作", "journal": "ノート" },
+  "directory": {
+    "links": {
+      "eyebrow": "LINKS & WORK",
+      "title": "作っているもの。",
+      "description": "公開中のプロダクト、プロジェクト、コードを一つのドメインにまとめています。",
+      "products": {
+        "eyebrow": "MY PRODUCTS",
+        "title": "進行中のプロダクト",
+        "description": "確認できる公開プロダクトをここに掲載しています。詳細ページはCMSで管理します。"
+      },
+      "publicWork": {
+        "eyebrow": "PUBLIC WORK",
+        "title": "コードと公開資料",
+        "description": "ソースコード、実験、研究記録はGitHubから辿れます。"
+      }
+    },
+    "recommendations": {
+      "eyebrow": "RECOMMENDATIONS & RESOURCES",
+      "title": "役に立つリンクを残す。",
+      "description": "このサイトで実際に使っている公開ツールとドキュメントから始めます。",
+      "tools": {
+        "eyebrow": "TOOLS & REFERENCES",
+        "title": "ここで使っている公開ツール",
+        "description": "実際に使っている、または直接関係する資料を記録しています。"
+      }
+    },
+    "communities": {
+      "eyebrow": "COMMUNITIES & COLLABORATION",
+      "title": "一緒に作る。",
+      "description": "現在の公開入口はプロジェクトリポジトリとソーシャルプラットフォームです。",
+      "collaboration": {
+        "eyebrow": "COLLABORATION",
+        "title": "コミュニティと協働",
+        "description": "公開で確認できる協働方法だけを掲載しています。存在しないグループは作りません。"
+      }
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+      "title": "つながる。",
+      "description": "プロダクト、AI、研究、協働については、以下の公開チャンネルから連絡できます。",
+      "channels": {
+        "eyebrow": "PUBLIC CHANNELS",
+        "title": "公開チャンネル",
+        "description": "公開プロフィールへのリンクです。存在しないメールやプライベートグループは掲載しません。"
+      }
+    },
+    "identities": {
+      "eyebrow": "IDENTITIES",
+      "title": "一人の人、いくつかの入口。",
+      "description": "個人名、サイトブランド、各プラットフォームのアカウントをまとめています。",
+      "names": {
+        "eyebrow": "IDENTITIES",
+        "title": "使っている名前",
+        "description": "各プラットフォームで同じ公開アイデンティティを使っています。"
+      }
+    },
+    "changelog": {
+      "eyebrow": "CHANGELOG",
+      "title": "この小さな宇宙の変化。",
+      "description": "サイトの構成、公開セクション、編集方針の変更を記録します。",
+      "releases": {
+        "eyebrow": "RELEASES",
+        "title": "バージョン履歴",
+        "description": "このサイトの変更履歴です。プロダクトのリリースノートとは別です。"
+      }
+    },
+    "discussion": {
+      "eyebrow": "PUBLIC DISCUSSION",
+      "title": "考えを公開する。",
+      "description": "現在の公開ディスカッションはGitHubとXで行っています。",
+      "join": {
+        "eyebrow": "JOIN THE CONVERSATION",
+        "title": "公開の会話に参加する",
+        "description": "プロジェクトの協働はGitHub、開発メモや短い考えはXからどうぞ。"
+      }
+    }
+  },
+  "socials": {
+    "email": {
+      "title": "Email",
+      "description": "プロジェクトと協働の正式な連絡先。",
+      "meta": "developer@skstudio.cn"
+    },
+    "github": {
+      "title": "GitHub",
+      "description": "ソースコード、プロジェクト、研究実験。",
+      "meta": "github.com/Snake-Konginchrist"
+    },
+    "x": {
+      "title": "X / @SnakeKongin",
+      "description": "開発、AIツール、公開ディスカッション。",
+      "meta": "x.com/SnakeKongin"
+    },
+    "pending": "リンクを設定",
+    "configured": "設定済み"
+  },
+  "socialMatrix": {
+    "eyebrow": "SOCIAL MATRIX",
+    "title": "いつものプラットフォームで見つけてください。",
+    "description": "確認済みのアカウントは直接開き、その他は本物のプロフィールリンクを設定するための枠を残しています。"
+  },
+  "cms": {
+    "home": {
+      "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
+      "heroTitle": "プロダクトを作り、\n少しの驚きも残す。",
+      "heroDescription": "Snake Konginchristです。モバイルプロダクト、AIツール、研究プロジェクトを作っています。\nここには進行中のものと、好奇心を保つ問いを記録します。",
+      "heroLink": "作っているものを見る",
+      "collectionTitle": "最新のノート",
+      "portalsTitle": "ここから始める",
+      "portalsDescription": "プロジェクト、創作、ノート。"
+    },
+    "about": {
+      "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
+      "heroTitle": "プロダクトを作り、\n研究もする。",
+      "heroDescription": "Snake Konginchristです。SK StudioでモバイルプロダクトとAIツールを作り、分散最適化も研究しています。\nこれは仕事の外側にある個人の記録です。",
+      "heroLink": "プロダクトを見る",
+      "statementEyebrow": "WHAT I AM WORKING ON",
+      "statementTitle": "複雑なものを、人が使いたいものに変える。",
+      "statementDescription": "モバイルプロダクト、AIとエージェントツール、研究実験、そしてキャラクターと物語のための余白を作っています。"
+    }
+  }
+}

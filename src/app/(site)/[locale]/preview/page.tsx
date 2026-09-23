@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { cms } from '@/lib/content';
 import { BlockRenderer } from '@/components/blocks/renderer';
 import { EntryDetail } from '@/components/entry-detail';
+import { hasLocale, type Locale } from '@/i18n/routing';
 
 export const metadata: Metadata = { title: '草稿预览', robots: { index: false, follow: false } };
 
@@ -18,13 +20,15 @@ export default async function Preview({
   if (!user) redirect('/admin/login');
   const { collection, id } = await searchParams;
   if (!id || !/^\d+$/.test(id) || !['pages', 'entries'].includes(collection ?? '')) notFound();
-  const banner = (
-    <aside className="preview-banner">草稿预览 · 仅登录管理员可见 · 关闭此页返回编辑器</aside>
-  );
+  const t = await getTranslations('preview');
+  const localeParam = await getLocale();
+  const locale: Locale = hasLocale(localeParam) ? localeParam : 'zh-CN';
+  const banner = <aside className="preview-banner">{t('banner')}</aside>;
   if (collection === 'pages') {
     const doc = await payload.findByID({
       collection: 'pages',
       id,
+      locale,
       draft: true,
       overrideAccess: false,
       user,
@@ -41,6 +45,7 @@ export default async function Preview({
   const doc = await payload.findByID({
     collection: 'entries',
     id,
+    locale,
     draft: true,
     overrideAccess: false,
     user,

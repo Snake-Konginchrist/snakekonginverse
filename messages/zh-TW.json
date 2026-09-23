@@ -1,0 +1,194 @@
+{
+  "navigation": {
+    "home": "首頁",
+    "projects": "專案",
+    "creations": "創作",
+    "journal": "手記",
+    "about": "關於",
+    "links": "連結與專案",
+    "recommendations": "推薦與資源",
+    "communities": "社群與協作",
+    "contact": "聯絡方式",
+    "identities": "其他身份",
+    "changelog": "更新記錄",
+    "discussion": "公開交流",
+    "more": "更多",
+    "keepInTouch": "保持聯絡",
+    "menu": "導覽"
+  },
+  "common": {
+    "skipToContent": "跳到正文",
+    "admin": "內容管理",
+    "backHome": "回到首頁",
+    "backTo": "返回{section}",
+    "previous": "上一頁",
+    "next": "下一頁",
+    "viewAll": "查看全部",
+    "visitWork": "查看專案",
+    "latest": "LATEST FROM THE VERSE",
+    "explore": "EXPLORE",
+    "waysIn": "A FEW WAYS IN",
+    "language": "語言"
+  },
+  "footer": {
+    "eyebrow": "LET’S CONNECT",
+    "headline": "如果你也在做東西，來聊聊。",
+    "empty": "聯絡方式即將更新，先在這個小宇宙裡逛逛吧。",
+    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+  },
+  "hero": { "about": "關於我", "footnote": "向下探索 · 隨好奇心出發" },
+  "portals": {
+    "aria": "個人內容入口",
+    "products": "產品與實驗",
+    "productsEnglish": "PRODUCTS & RESEARCH",
+    "productsDescription": "行動產品、AI 工具和研究專案。",
+    "creations": "角色與故事",
+    "creationsEnglish": "CHARACTERS & STORIES",
+    "creationsDescription": "同人、角色，以及仍在成長的想像。",
+    "journal": "記錄與思考",
+    "journalEnglish": "NOTES & OBSERVATIONS",
+    "journalDescription": "開發過程、工具觀察和日常想法。",
+    "journalArt": "Note to self.",
+    "creationsArt": "另一個世界",
+    "productsArt": "{ idea → real }"
+  },
+  "archive": {
+    "explore": "EXPLORE THE VERSE / {kind}",
+    "intro": "一些認真做的事，一些值得留下的想法。",
+    "emptyTitle": "故事正在醞釀。",
+    "emptyDescription": "這裡還沒有已發佈的內容。下一次相遇，也許會有新的發現。",
+    "emptyMark": "TO BE CONTINUED ↗"
+  },
+  "errors": {
+    "connectionEyebrow": "CONNECTION INTERRUPTED",
+    "connectionTitle": "暫時沒有連線。",
+    "connectionDescription": "內容暫時無法讀取，請稍後再試。",
+    "retry": "重新載入",
+    "notFoundEyebrow": "404 / OUTSIDE THE ORBIT",
+    "notFoundTitle": "這片宇宙還沒有座標。",
+    "notFoundDescription": "頁面可能尚未發佈，或已經換了地址。"
+  },
+  "preview": { "banner": "草稿預覽 · 僅登入管理員可見 · 關閉此頁返回編輯器" },
+  "contentKinds": { "projects": "技術專案", "creations": "同人創作", "journal": "文字手記" },
+  "directory": {
+    "links": {
+      "eyebrow": "LINKS & WORK",
+      "title": "正在做的東西。",
+      "description": "把公開可訪問的產品、專案和程式碼入口放在同一頁，從一個網域找到正在發生的工作。",
+      "products": {
+        "eyebrow": "MY PRODUCTS",
+        "title": "正在做的產品",
+        "description": "把公開資料中已確認的產品放在這裡，專案詳情仍由 CMS 管理。"
+      },
+      "publicWork": {
+        "eyebrow": "PUBLIC WORK",
+        "title": "程式碼與公開資料",
+        "description": "專案原始碼、實驗和研究記錄統一從 GitHub 進入。"
+      }
+    },
+    "recommendations": {
+      "eyebrow": "RECOMMENDATIONS & RESOURCES",
+      "title": "留下真正有用的連結。",
+      "description": "先從這個網站實際使用的公開工具和文件開始。",
+      "tools": {
+        "eyebrow": "TOOLS & REFERENCES",
+        "title": "這個網站使用的公開工具",
+        "description": "先記錄實際使用或直接相關的公開資料，之後再按真實體驗補充推薦。"
+      }
+    },
+    "communities": {
+      "eyebrow": "COMMUNITIES & COLLABORATION",
+      "title": "一起把事情做出來。",
+      "description": "目前公開入口集中在專案儲存庫與社交平台。",
+      "collaboration": {
+        "eyebrow": "COLLABORATION",
+        "title": "社群與協作",
+        "description": "目前公開交流以專案協作和社交平台為主，不虛構不存在的群組。"
+      }
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+      "title": "保持聯絡。",
+      "description": "如果想聊產品、AI 工具、研究或合作，可以從下面的公開帳號開始。",
+      "channels": {
+        "eyebrow": "PUBLIC CHANNELS",
+        "title": "公開入口",
+        "description": "帳號和連結均指向公開主頁，不在網站裡虛構信箱或私密群組。"
+      }
+    },
+    "identities": {
+      "eyebrow": "IDENTITIES",
+      "title": "同一個人，不同的入口。",
+      "description": "把個人署名、網站品牌和平台帳號放在一起。",
+      "names": {
+        "eyebrow": "IDENTITIES",
+        "title": "我使用的名字",
+        "description": "不同平台使用同一組公開身份，方便找到真正的主頁。"
+      }
+    },
+    "changelog": {
+      "eyebrow": "CHANGELOG",
+      "title": "這個小宇宙如何變化。",
+      "description": "記錄網站結構、公開欄目和內容方向的變化。",
+      "releases": {
+        "eyebrow": "RELEASES",
+        "title": "版本記錄",
+        "description": "這是網站本身的更新日誌，不等同於產品發佈日誌。"
+      }
+    },
+    "discussion": {
+      "eyebrow": "PUBLIC DISCUSSION",
+      "title": "把想法放到公開處。",
+      "description": "目前討論發生在 GitHub 和 X，之後可以再接入站內留言或論壇。",
+      "join": {
+        "eyebrow": "JOIN THE CONVERSATION",
+        "title": "參與公開討論",
+        "description": "專案協作適合從 GitHub 開始，開發過程和即時想法可以在 X 找到。"
+      }
+    }
+  },
+  "socials": {
+    "email": {
+      "title": "Email",
+      "description": "合作、專案和其他正式聯絡。",
+      "meta": "developer@skstudio.cn"
+    },
+    "github": {
+      "title": "GitHub",
+      "description": "原始碼、專案和研究實驗。",
+      "meta": "github.com/Snake-Konginchrist"
+    },
+    "x": {
+      "title": "X / @SnakeKongin",
+      "description": "開發過程、AI 工具和公開討論。",
+      "meta": "x.com/SnakeKongin"
+    },
+    "pending": "待設定",
+    "configured": "已設定"
+  },
+  "socialMatrix": {
+    "eyebrow": "SOCIAL MATRIX",
+    "title": "在你常用的平台找到我。",
+    "description": "已確認的帳號直接開啟，其餘平台保留圖示位置，之後填入真實主頁。"
+  },
+  "cms": {
+    "home": {
+      "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
+      "heroTitle": "把產品做出來，\n也保留一點幻想。",
+      "heroDescription": "我是 Snake Konginchrist，做行動產品、AI 工具和研究。\n這裡記錄正在建構的東西，以及讓我繼續好奇的事。",
+      "heroLink": "看看正在做的",
+      "collectionTitle": "最新手記",
+      "portalsTitle": "從這裡開始",
+      "portalsDescription": "專案、創作、手記。"
+    },
+    "about": {
+      "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
+      "heroTitle": "做產品，\n也做研究。",
+      "heroDescription": "我是 Snake Konginchrist，和 SK Studio 一起做行動產品與 AI 工具，也在研究分散式最佳化。\n這裡是工作之外的個人記錄。",
+      "heroLink": "看正在做的產品",
+      "statementEyebrow": "WHAT I AM WORKING ON",
+      "statementTitle": "把複雜的東西，做成有人願意使用的東西。",
+      "statementDescription": "公開方向包括行動端產品、AI 與 agent 工具、研究型實驗，也會給角色和故事留一塊空間。"
+    }
+  }
+}

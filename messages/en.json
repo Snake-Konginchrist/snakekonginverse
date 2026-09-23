@@ -1,0 +1,410 @@
+{
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "creations": "Creations",
+    "journal": "Journal",
+    "about": "About",
+    "links": "Links & Work",
+    "recommendations": "Resources",
+    "communities": "Communities",
+    "contact": "Contact",
+    "identities": "Identities",
+    "changelog": "Changelog",
+    "discussion": "Discussion",
+    "more": "More",
+    "keepInTouch": "Keep in touch",
+    "menu": "Menu"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "admin": "Content admin",
+    "backHome": "Back home",
+    "backTo": "Back to {section}",
+    "previous": "Previous",
+    "next": "Next",
+    "viewAll": "View all",
+    "visitWork": "Visit project",
+    "latest": "LATEST FROM THE VERSE",
+    "explore": "EXPLORE",
+    "waysIn": "A FEW WAYS IN",
+    "language": "Language"
+  },
+  "footer": {
+    "eyebrow": "LET’S CONNECT",
+    "headline": "If you are making something too, let’s talk.",
+    "empty": "Contact links are coming soon. Have a look around first.",
+    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+  },
+  "hero": {
+    "about": "About me",
+    "footnote": "Keep exploring · Follow your curiosity"
+  },
+  "portals": {
+    "aria": "Personal content entry points",
+    "products": "Products & experiments",
+    "productsEnglish": "PRODUCTS & RESEARCH",
+    "productsDescription": "Mobile products, AI tools and research projects.",
+    "creations": "Characters & stories",
+    "creationsEnglish": "CHARACTERS & STORIES",
+    "creationsDescription": "Fan work, characters and ideas still taking shape.",
+    "journal": "Notes & observations",
+    "journalEnglish": "NOTES & OBSERVATIONS",
+    "journalDescription": "Build notes, tool observations and everyday thoughts.",
+    "journalArt": "Note to self.",
+    "creationsArt": "Another world",
+    "productsArt": "{ idea → real }"
+  },
+  "archive": {
+    "explore": "EXPLORE THE VERSE / {kind}",
+    "intro": "Some things made with care, and some thoughts worth keeping.",
+    "emptyTitle": "Stories are taking shape.",
+    "emptyDescription": "Nothing has been published here yet. Perhaps the next visit will bring something new.",
+    "emptyMark": "TO BE CONTINUED ↗"
+  },
+  "errors": {
+    "connectionEyebrow": "CONNECTION INTERRUPTED",
+    "connectionTitle": "The connection is taking a break.",
+    "connectionDescription": "This content is temporarily unavailable. Please try again shortly.",
+    "retry": "Reload",
+    "notFoundEyebrow": "404 / OUTSIDE THE ORBIT",
+    "notFoundTitle": "This part of the universe has no coordinates yet.",
+    "notFoundDescription": "The page may not be published, or it may have moved."
+  },
+  "preview": {
+    "banner": "Draft preview · Admin access only · Close this page to return to the editor"
+  },
+  "contentKinds": { "projects": "Projects", "creations": "Creations", "journal": "Journal" },
+  "directory": {
+    "links": {
+      "eyebrow": "LINKS & WORK",
+      "title": "Things in progress.",
+      "description": "Products, projects and code in one place, so one domain can lead you to the work in motion.",
+      "products": {
+        "eyebrow": "MY PRODUCTS",
+        "title": "Products in progress",
+        "description": "Confirmed public products live here; detailed project pages remain managed by the CMS.",
+        "flagsay": {
+          "title": "Flagsay",
+          "description": "An AI app for learning languages through photos, stories and everyday things.",
+          "meta": "flagsay.com"
+        },
+        "era": {
+          "title": "Era Workshop",
+          "description": "An app for custom eras and date naming.",
+          "meta": "App Store"
+        },
+        "gourmet": {
+          "title": "GourmetLens",
+          "description": "A personal memory of dishes eaten and restaurants visited.",
+          "meta": "App Store"
+        },
+        "medtrace": {
+          "title": "MedTrace",
+          "description": "An offline-first personal health timeline.",
+          "meta": "medtrace.skstudio.cn"
+        },
+        "scholar": {
+          "title": "SK Scholar",
+          "description": "An AI research assistant for literature reviews, reading and writing.",
+          "meta": "scholar.skstudio.cn"
+        }
+      },
+      "publicWork": {
+        "eyebrow": "PUBLIC WORK",
+        "title": "Code & public notes",
+        "description": "Source code, experiments and research notes start from GitHub.",
+        "github": {
+          "title": "Snake-Konginchrist / GitHub",
+          "description": "Open-source projects, AI tools, mobile experiments and research code.",
+          "meta": "github.com/Snake-Konginchrist"
+        }
+      }
+    },
+    "recommendations": {
+      "eyebrow": "RECOMMENDATIONS & RESOURCES",
+      "title": "Keep the useful links.",
+      "description": "This is the recommendations page from the reference structure, starting with tools and docs used by this site.",
+      "tools": {
+        "eyebrow": "TOOLS & REFERENCES",
+        "title": "Public tools used here",
+        "description": "A short list of tools and references that are actually used or directly relevant; more will follow real experience.",
+        "next": {
+          "title": "Next.js Documentation",
+          "description": "Framework, routing and rendering documentation for the frontend.",
+          "meta": "nextjs.org/docs"
+        },
+        "payload": {
+          "title": "Payload CMS Documentation",
+          "description": "CMS documentation for pages, entries, drafts and media.",
+          "meta": "payloadcms.com/docs"
+        },
+        "postgres": {
+          "title": "PostgreSQL Documentation",
+          "description": "Database documentation for site content and configuration.",
+          "meta": "postgresql.org/docs"
+        }
+      }
+    },
+    "communities": {
+      "eyebrow": "COMMUNITIES & COLLABORATION",
+      "title": "Make things together.",
+      "description": "The public collaboration entry points are currently project repositories and social platforms.",
+      "collaboration": {
+        "eyebrow": "COLLABORATION",
+        "title": "Communities & collaboration",
+        "description": "Public collaboration currently happens through projects and social platforms; no groups are invented here.",
+        "studio": {
+          "title": "SK Studio",
+          "description": "Mobile products, AI tools and research projects with a co-founder.",
+          "meta": "PRODUCT STUDIO"
+        },
+        "openSource": {
+          "title": "Open-source collaboration",
+          "description": "Join through issues, discussions and contributions in public repositories.",
+          "meta": "GITHUB"
+        },
+        "ai": {
+          "title": "AI & indie development",
+          "description": "AI tools, Codex experiments and the indie development process on X.",
+          "meta": "X / @SnakeKongin"
+        }
+      }
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+      "title": "Keep in touch.",
+      "description": "For product, AI, research or collaboration conversations, start with one of the public channels below.",
+      "channels": {
+        "eyebrow": "PUBLIC CHANNELS",
+        "title": "Public entry points",
+        "description": "These links point to public profiles; no private email or group is invented here."
+      }
+    },
+    "identities": {
+      "eyebrow": "IDENTITIES",
+      "title": "One person, different entry points.",
+      "description": "Personal names, the site brand and platform accounts in one place.",
+      "names": {
+        "eyebrow": "IDENTITIES",
+        "title": "Names I use",
+        "description": "The same public identity across platforms, so the real profile is easier to find.",
+        "author": {
+          "title": "Snake Konginchrist",
+          "description": "Personal brand and public byline.",
+          "meta": "AUTHOR"
+        },
+        "site": {
+          "title": "SnakeKonginVerse",
+          "description": "The brand of this personal site.",
+          "meta": "PERSONAL SITE"
+        },
+        "github": {
+          "title": "Snake-Konginchrist",
+          "description": "GitHub account.",
+          "meta": "GITHUB"
+        },
+        "x": {
+          "title": "@SnakeKongin",
+          "description": "X account for development, AI tools and everyday observations.",
+          "meta": "X / TWITTER"
+        }
+      }
+    },
+    "changelog": {
+      "eyebrow": "CHANGELOG",
+      "title": "How this small universe changes.",
+      "description": "A record of changes to the site structure, public sections and editorial direction.",
+      "releases": {
+        "eyebrow": "RELEASES",
+        "title": "Version history",
+        "description": "Changes to this website, separate from product release notes."
+      },
+      "v020": {
+        "title": "0.2.0",
+        "description": "A calmer personal homepage, a single-domain directory, social entry points and public profile pages.",
+        "meta": "2026-09-24"
+      },
+      "v010": {
+        "title": "0.1.0",
+        "description": "Initial Next.js, Payload CMS, content sections, draft preview and native deployment structure.",
+        "meta": "2026-09-22"
+      }
+    },
+    "discussion": {
+      "eyebrow": "PUBLIC DISCUSSION",
+      "title": "Put ideas in public.",
+      "description": "The public discussion entry points are currently GitHub and X; an on-site guestbook or forum can come later.",
+      "join": {
+        "eyebrow": "JOIN THE CONVERSATION",
+        "title": "Join the public conversation",
+        "description": "GitHub is best for project collaboration; X is where development notes and quick thoughts appear."
+      }
+    }
+  },
+  "socials": {
+    "email": {
+      "title": "Email",
+      "description": "Formal contact for projects and collaboration.",
+      "meta": "developer@skstudio.cn"
+    },
+    "github": {
+      "title": "GitHub",
+      "description": "Source code, projects and research experiments.",
+      "meta": "github.com/Snake-Konginchrist"
+    },
+    "x": {
+      "title": "X / @SnakeKongin",
+      "description": "Development, AI tools and public discussion.",
+      "meta": "x.com/SnakeKongin"
+    },
+    "xiaohongshu": {
+      "title": "Xiaohongshu",
+      "description": "Public profile and visual notes.",
+      "meta": "XIAOHONGSHU"
+    },
+    "bilibili": {
+      "title": "Bilibili",
+      "description": "Video and project updates.",
+      "meta": "BILIBILI"
+    },
+    "weibo": {
+      "title": "Weibo",
+      "description": "Public updates and short notes.",
+      "meta": "WEIBO"
+    },
+    "zhihu": {
+      "title": "Zhihu",
+      "description": "Long-form questions and answers.",
+      "meta": "ZHIHU"
+    },
+    "douban": {
+      "title": "Douban",
+      "description": "Books, films and personal interests.",
+      "meta": "DOUBAN"
+    },
+    "wechat": { "title": "WeChat", "description": "Direct social profile.", "meta": "WECHAT" },
+    "qq": { "title": "QQ", "description": "Direct social profile.", "meta": "QQ" },
+    "youtube": {
+      "title": "YouTube",
+      "description": "Video and project updates.",
+      "meta": "YOUTUBE"
+    },
+    "instagram": {
+      "title": "Instagram",
+      "description": "Visual notes and daily life.",
+      "meta": "INSTAGRAM"
+    },
+    "facebook": {
+      "title": "Facebook",
+      "description": "Public profile and updates.",
+      "meta": "FACEBOOK"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "Short video and experiments.",
+      "meta": "TIKTOK"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "description": "Professional profile and collaboration.",
+      "meta": "LINKEDIN"
+    },
+    "reddit": {
+      "title": "Reddit",
+      "description": "Community discussions and interests.",
+      "meta": "REDDIT"
+    },
+    "discord": {
+      "title": "Discord",
+      "description": "Community chat and collaboration.",
+      "meta": "DISCORD"
+    },
+    "telegram": {
+      "title": "Telegram",
+      "description": "Channels and direct contact.",
+      "meta": "TELEGRAM"
+    },
+    "threads": { "title": "Threads", "description": "Short public thoughts.", "meta": "THREADS" },
+    "bluesky": { "title": "Bluesky", "description": "Short public thoughts.", "meta": "BLUESKY" },
+    "mastodon": {
+      "title": "Mastodon",
+      "description": "Federated social profile.",
+      "meta": "MASTODON"
+    },
+    "twitch": {
+      "title": "Twitch",
+      "description": "Live streams and experiments.",
+      "meta": "TWITCH"
+    },
+    "steam": { "title": "Steam", "description": "Games and community profile.", "meta": "STEAM" },
+    "gitee": {
+      "title": "Gitee",
+      "description": "Code and Chinese open-source profile.",
+      "meta": "GITEE"
+    },
+    "medium": {
+      "title": "Medium",
+      "description": "Long-form writing and notes.",
+      "meta": "MEDIUM"
+    },
+    "devto": {
+      "title": "DEV Community",
+      "description": "Developer writing and discussion.",
+      "meta": "DEV.TO"
+    },
+    "substack": {
+      "title": "Substack",
+      "description": "Long-form notes and newsletters.",
+      "meta": "SUBSTACK"
+    },
+    "line": { "title": "LINE", "description": "Direct social profile.", "meta": "LINE" },
+    "kakaotalk": {
+      "title": "KakaoTalk",
+      "description": "Direct social profile.",
+      "meta": "KAKAOTALK"
+    },
+    "niconico": {
+      "title": "Niconico",
+      "description": "Video and creator profile.",
+      "meta": "NICONICO"
+    },
+    "snapchat": {
+      "title": "Snapchat",
+      "description": "Visual social profile.",
+      "meta": "SNAPCHAT"
+    },
+    "pinterest": {
+      "title": "Pinterest",
+      "description": "Visual references and collections.",
+      "meta": "PINTEREST"
+    },
+    "pending": "Configure link",
+    "configured": "Configured"
+  },
+  "socialMatrix": {
+    "eyebrow": "SOCIAL MATRIX",
+    "title": "Find me where you already are.",
+    "description": "Confirmed accounts open directly; the other platforms keep a clear slot for a real profile link later."
+  },
+  "cms": {
+    "home": {
+      "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
+      "heroTitle": "Build the product,\nkeep a little wonder.",
+      "heroDescription": "I’m Snake Konginchrist. I build mobile products, AI tools and research projects.\nThis is where I keep the things in progress and the questions that keep me curious.",
+      "heroLink": "See what I’m making",
+      "collectionTitle": "Latest notes",
+      "portalsTitle": "Start here",
+      "portalsDescription": "Projects, creations and notes."
+    },
+    "about": {
+      "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
+      "heroTitle": "Build products,\ndo research.",
+      "heroDescription": "I’m Snake Konginchrist. With SK Studio I build mobile products and AI tools, while researching distributed optimization.\nThis is the personal record outside the work itself.",
+      "heroLink": "See the products",
+      "statementEyebrow": "WHAT I AM WORKING ON",
+      "statementTitle": "Turn complicated things into things people want to use.",
+      "statementDescription": "My public directions include mobile products, AI and agent tools, research experiments, and a little room for characters and stories."
+    }
+  }
+}

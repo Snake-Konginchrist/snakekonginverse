@@ -1,38 +1,97 @@
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 // 入口文案描述栏目用途，不冒充已经发布的作品或文章。
 const portals = [
   {
     href: '/projects',
-    title: '用代码构建',
-    english: 'BUILD WITH CODE',
-    description: '从灵感到实现，记录软件、工具与技术实验。',
+    title: '产品与实验',
+    english: 'PRODUCTS & RESEARCH',
+    description: '移动产品、AI 工具和研究项目。',
     style: 'code',
     art: '{ idea → real }',
     tag: 'PROJECTS',
   },
   {
     href: '/creations',
-    title: '让热爱生长',
-    english: 'CREATE WITH LOVE',
-    description: '同人、角色与故事，给想象力留一片自由地带。',
+    title: '角色与故事',
+    english: 'CHARACTERS & STORIES',
+    description: '同人、角色，以及仍在生长的想象。',
     style: 'story',
     art: '另一个世界',
     tag: 'CREATIONS',
   },
   {
     href: '/journal',
-    title: '把思考留下',
-    english: 'THINK OUT LOUD',
-    description: '写开发的过程，也写偶尔不着边际的想法。',
+    title: '记录与思考',
+    english: 'NOTES & OBSERVATIONS',
+    description: '开发过程、工具观察和日常想法。',
     style: 'journal',
     art: 'Note to self.',
     tag: 'JOURNAL',
   },
 ];
 
-export function Portals({ title, description }: { title: string; description?: string | null }) {
+export function Portals({
+  title,
+  description,
+  compact = false,
+}: {
+  title: string;
+  description?: string | null;
+  compact?: boolean;
+}) {
+  const t = useTranslations('portals');
+  const localizedPortals = portals.map((item) => ({
+    ...item,
+    title: t(item.style === 'code' ? 'products' : item.style === 'story' ? 'creations' : 'journal'),
+    english: t(
+      item.style === 'code'
+        ? 'productsEnglish'
+        : item.style === 'story'
+          ? 'creationsEnglish'
+          : 'journalEnglish',
+    ),
+    description: t(
+      item.style === 'code'
+        ? 'productsDescription'
+        : item.style === 'story'
+          ? 'creationsDescription'
+          : 'journalDescription',
+    ),
+    art: t(
+      item.style === 'code'
+        ? 'productsArt'
+        : item.style === 'story'
+          ? 'creationsArt'
+          : 'journalArt',
+    ),
+  }));
+  if (compact) {
+    return (
+      <section id="explore" className="home-explore shell">
+        <div className="home-explore-intro">
+          <p className="eyebrow">EXPLORE</p>
+          <h2>{title}</h2>
+          {description && <p>{description}</p>}
+        </div>
+        <nav className="home-quick-links" aria-label={t('aria')}>
+          {localizedPortals.map((item, index) => (
+            <Link key={item.href} href={item.href} className="home-quick-link">
+              <span className="home-quick-link-index">0{index + 1}</span>
+              <span className="home-quick-link-copy">
+                <span className="home-quick-link-title">{item.title}</span>
+                <span className="home-quick-link-tag">{item.tag}</span>
+              </span>
+              <ArrowUpRight size={19} aria-hidden="true" />
+            </Link>
+          ))}
+        </nav>
+      </section>
+    );
+  }
+
   return (
     <section id="explore" className="section shell">
       <div className="section-heading">
@@ -43,7 +102,7 @@ export function Portals({ title, description }: { title: string; description?: s
         <p>{description}</p>
       </div>
       <div className="portal-grid">
-        {portals.map((item) => (
+        {localizedPortals.map((item) => (
           <Link key={item.href} href={item.href} className={`portal-card ${item.style}`}>
             <div className="portal-art" aria-hidden="true">
               <span className="portal-tag">{item.tag}</span>

@@ -1,13 +1,15 @@
-import Link from 'next/link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { Page } from '@/payload-types';
+import { Link } from '@/i18n/navigation';
 import { OrbitArt } from '../orbit-art';
 
 type HeroData = Extract<NonNullable<Page['layout']>[number], { blockType: 'hero' }>;
 /** 标题换行由 CMS 控制，视觉组件不硬编码用户身份和宣传文案。 */
-export function Hero({ block }: { block: HeroData }) {
+export function Hero({ block, compact = false }: { block: HeroData; compact?: boolean }) {
+  const t = useTranslations('hero');
   return (
-    <section className="hero shell">
+    <section className={compact ? 'hero shell home-hero' : 'hero shell'}>
       <div className="hero-copy">
         <p className="eyebrow">
           <span className="status-dot" />
@@ -25,12 +27,14 @@ export function Hero({ block }: { block: HeroData }) {
             <ArrowUpRight size={18} />
           </Link>
           <Link href="/about" className="text-link">
-            关于这个宇宙 <span>↗</span>
+            {t('about')} <span>↗</span>
           </Link>
         </div>
-        <p className="hero-footnote">
-          <ArrowDown size={14} /> 向下探索 · 随好奇心出发
-        </p>
+        {!compact && (
+          <p className="hero-footnote">
+            <ArrowDown size={14} /> {t('footnote')}
+          </p>
+        )}
       </div>
       <OrbitArt />
     </section>

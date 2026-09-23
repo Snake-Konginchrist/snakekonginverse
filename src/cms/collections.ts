@@ -43,7 +43,7 @@ export const Pages: CollectionConfig = {
   access: editorialAccess,
   versions: { drafts: true, maxPerDoc: 20 },
   fields: [
-    { name: 'title', label: '页面名称', type: 'text', required: true },
+    { name: 'title', label: '页面名称', type: 'text', required: true, localized: true },
     {
       name: 'path',
       label: '访问路径',
@@ -58,8 +58,9 @@ export const Pages: CollectionConfig = {
       type: 'blocks',
       blocks: pageBlocks,
       required: true,
+      localized: true,
     },
-    seo,
+    { ...seo },
   ],
 };
 
@@ -75,7 +76,7 @@ export const Entries: CollectionConfig = {
   access: editorialAccess,
   versions: { drafts: true, maxPerDoc: 20 },
   fields: [
-    { name: 'title', label: '标题', type: 'text', required: true },
+    { name: 'title', label: '标题', type: 'text', required: true, localized: true },
     {
       name: 'slug',
       label: 'URL 标识',
@@ -97,16 +98,17 @@ export const Entries: CollectionConfig = {
         { label: '文字手记', value: 'journal' },
       ],
     },
-    { name: 'summary', label: '摘要', type: 'textarea', required: true },
+    { name: 'summary', label: '摘要', type: 'textarea', required: true, localized: true },
     { name: 'cover', label: '封面', type: 'upload', relationTo: 'media' },
     {
       name: 'tags',
       label: '标签',
       type: 'array',
       fields: [{ name: 'label', label: '名称', type: 'text', required: true }],
+      localized: true,
     },
     { name: 'externalURL', label: '作品外链（可选）', type: 'text', validate: validLink },
-    { name: 'content', label: '正文', type: 'richText', required: true },
-    seo,
+    { name: 'content', label: '正文', type: 'richText', required: true, localized: true },
+    { ...seo },
   ],
 };

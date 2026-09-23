@@ -1,0 +1,135 @@
+/* 首页专用样式：保持个人介绍和博客入口轻量，不影响内容内页。 */
+.home-hero {
+  min-height: 540px;
+}
+.home-hero .hero-copy {
+  padding-block: 46px 24px;
+}
+.home-hero .orbit-art {
+  max-width: 500px;
+  justify-self: end;
+}
+.home-explore {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1.25fr);
+  align-items: start;
+  gap: clamp(28px, 8vw, 128px);
+  border-block: 1px solid var(--line);
+  padding-block: 34px 44px;
+}
+.home-explore-intro {
+  padding-top: 8px;
+}
+.home-explore-intro .eyebrow {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.home-explore-intro h2 {
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+.home-explore-intro p:last-child {
+  max-width: 210px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+.home-quick-links {
+  border-top: 1px solid var(--line);
+}
+.home-quick-link {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 70px;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.2s;
+}
+.home-quick-link:hover {
+  color: var(--accent);
+}
+.home-quick-link-index {
+  color: var(--muted);
+  font: 10px var(--font-mono);
+}
+.home-quick-link-copy {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.home-quick-link-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+.home-quick-link-tag {
+  color: var(--muted);
+  font: 9px var(--font-mono);
+  letter-spacing: 1.2px;
+}
+.home-quick-link > svg {
+  color: var(--muted);
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+.home-quick-link:hover > svg {
+  color: currentColor;
+  transform: translate(2px, -2px);
+}
+.home-collection {
+  padding-top: 56px;
+}
+@media (min-width: 1500px) {
+  .home-hero {
+    min-height: 590px;
+  }
+}
+@media (max-width: 1000px) {
+  .home-hero {
+    min-height: 500px;
+  }
+  .home-hero .orbit-art {
+    max-width: 430px;
+  }
+}
+@media (max-width: 760px) {
+  .home-hero .hero-copy {
+    padding-block: 42px 0;
+  }
+  .home-hero .orbit-art {
+    max-width: 340px;
+    margin-top: 2px;
+  }
+  .home-explore {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 30px 20px;
+  }
+  .home-explore-intro {
+    padding-top: 0;
+  }
+  .home-explore-intro h2 {
+    font-size: 25px;
+  }
+  .home-explore-intro p:last-child {
+    margin-top: 8px;
+  }
+  .home-quick-link {
+    min-height: 64px;
+  }
+  .home-quick-link-copy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .home-quick-link-title {
+    font-size: 17px;
+  }
+  .home-collection {
+    padding-top: 40px;
+  }
+}

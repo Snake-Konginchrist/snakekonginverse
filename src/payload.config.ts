@@ -15,6 +15,16 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 export default buildConfig({
   admin: { user: Users.slug, importMap: { baseDir: dirname } },
   i18n: { fallbackLanguage: 'zh', supportedLanguages: { zh, en } },
+  localization: {
+    defaultLocale: 'zh-CN',
+    fallback: true,
+    locales: [
+      { code: 'zh-CN', label: '简体中文' },
+      { code: 'zh-TW', label: '繁體中文' },
+      { code: 'en', label: 'English' },
+      { code: 'ja', label: '日本語' },
+    ],
+  },
   collections: [Users, Pages, Entries, Media],
   globals: [SiteSettings],
   editor: lexicalEditor(),

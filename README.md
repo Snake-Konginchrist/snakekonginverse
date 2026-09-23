@@ -1,6 +1,6 @@
 # SnakeKonginVerse
 
-Snake + Kongin + Verse。Snake Konginchrist 的技术、同人创作与个人品牌网站。
+Snake + Kongin + Verse。Snake Konginchrist 的产品、研究、创作与个人记录网站。
 通过官方 `create-next-app` 在现有根目录初始化，前台与 Payload 后台同仓部署。
 
 ## 技术栈
@@ -24,7 +24,12 @@ pnpm seed
 pnpm dev
 ```
 
-本次初始化已经准备本机 `.env`、独立数据库及初始页面，不要重复覆盖 `.env`。
+本次初始化已经准备本机 `.env`、独立数据库及初始页面，不要重复覆盖 `.env`。生产环境域名为 `https://snakekongin.com`，部署时将 `NEXT_PUBLIC_SITE_URL` 设置为该地址。
+前台使用一个域名，并提供简体中文、繁体中文、英语和日语四种语言。公开地址带语言前缀，
+例如 `/zh-CN/projects`、`/en/about`；直接访问不带前缀的路径会按浏览器语言协商后跳转。
+内容页包括 `/projects`、`/creations`、`/journal`、`/about`，资料与社交功能页包括
+`/links`、`/recommendations`、`/communities`、`/contact`、`/identities`、`/changelog`、`/discussion`。
+首页保持个人主页的密度，详细内容和公开入口在对应页面与页脚展开。
 
 - 前台：<http://localhost:3000>
 - 后台：<http://localhost:3000/admin>，首次访问创建你自己的管理员。
@@ -61,11 +66,11 @@ pnpm test:cms       # 本机真实 CMS 闭环；临时帐号、内容和媒体�
 修改 schema 后执行 `pnpm cms:types && pnpm cms:importmap`，然后生成迁移。
 手写代码不超过 300 行；生成的类型、导入映射、数据库迁移和 lockfile 不人为拆分。
 
-本次已验证：生产构建、3 项 URL 边界测试、桌面／手机 4 项浏览器用例（开发与生产模式）、
-CMS 登录→草稿→预览→发布、媒体上传、中文后台编辑器，以及空数据库首次迁移。
-验证结束后，数据库只保留 2 个初始页面，没有测试管理员、作品或媒体。
+Payload 的 Pages 与 Entries 已开启四语言字段；首页和关于页的首屏文案随语言切换，
+社交目录使用 `react-icons` 的品牌图标。未确认的社交账号只显示为待配置入口，避免生成错误链接。
 
 - [架构说明](docs/ARCHITECTURE.md)
+- [开发模式调试指南](DEVELOPMENT.md)
 - [原生服务器部署](docs/DEPLOYMENT.md)
 - [版本记录](CHANGELOG.md)
 
