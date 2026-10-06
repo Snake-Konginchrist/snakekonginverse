@@ -5,9 +5,28 @@ import zhCN from '../../messages/zh-CN.json';
 import zhTW from '../../messages/zh-TW.json';
 import en from '../../messages/en.json';
 import ja from '../../messages/ja.json';
+import ko from '../../messages/ko.json';
+import es from '../../messages/es.json';
+import fr from '../../messages/fr.json';
+import de from '../../messages/de.json';
+import pt from '../../messages/pt.json';
+import ru from '../../messages/ru.json';
 
-test('四语言的装饰文字正确显示花括号，不触发 ICU 参数解析错误', () => {
-  for (const [locale, messages] of Object.entries({ 'zh-CN': zhCN, 'zh-TW': zhTW, en, ja })) {
+const supportedMessages = {
+  'zh-CN': zhCN,
+  'zh-TW': zhTW,
+  en,
+  ja,
+  ko,
+  es,
+  fr,
+  de,
+  pt,
+  ru,
+};
+
+test('十种语言的装饰文字正确显示花括号，不触发 ICU 参数解析错误', () => {
+  for (const [locale, messages] of Object.entries(supportedMessages)) {
     const t = createTranslator({
       locale,
       messages,
@@ -29,9 +48,9 @@ function messagePaths(value: Record<string, unknown>, prefix = ''): string[] {
     .sort();
 }
 
-test('四种语言有完整相同的键，所有文案可解析且不缺翻译', () => {
+test('十种语言有完整相同的键，所有文案可解析且不缺翻译', () => {
   const expected = messagePaths(zhCN);
-  for (const [locale, messages] of Object.entries({ 'zh-CN': zhCN, 'zh-TW': zhTW, en, ja })) {
+  for (const [locale, messages] of Object.entries(supportedMessages)) {
     assert.deepEqual(messagePaths(messages), expected, locale);
     const t = createTranslator({
       locale,
