@@ -7,7 +7,7 @@
 ## 一次性配置服务器
 
 先按 [部署文档](DEPLOYMENT.md) 完成首次部署，配置真实 `.env` 和站外媒体目录。
-以下示例使用 `/var/www/snakekonginverse`、用户 `snakeverse`、服务 `snakekonginverse.service`。
+以下示例使用 `/var/www/snakekonginverse`、用户 `ubuntu`、服务 `snakekonginverse.service`。
 实际值必须与服务器一致，SSH 登录用户应为运行服务的用户。
 
 服务器必须能够从非交互 SSH 会话找到 Node.js 22.13+、pnpm 12.9.1、`pg_dump`、`flock`、`tar` 和 `curl`。
@@ -17,7 +17,7 @@ Node.js/pnpm 若仅在交互式终端通过 nvm 配置，须先使部署账户�
 准备发布目录并安装 systemd override：
 
 ```bash
-sudo install -d -o snakeverse -g snakeverse /var/www/snakekonginverse/.deploy
+sudo install -d -o ubuntu -g ubuntu /var/www/snakekonginverse/.deploy
 sudo install -d /etc/systemd/system/snakekonginverse.service.d
 sudo cp deploy/automatic-deploy.conf /etc/systemd/system/snakekonginverse.service.d/automatic-deploy.conf
 sudo systemctl daemon-reload
@@ -30,7 +30,7 @@ override 改变工作目录、运行路径与缓存写入路径；原有环境�
 通过 `sudo visudo -f /etc/sudoers.d/snakekonginverse-deploy` 只授权以下服务操作：
 
 ```text
-snakeverse ALL=(root) NOPASSWD: /usr/bin/systemctl stop snakekonginverse.service, /usr/bin/systemctl start snakekonginverse.service
+ubuntu ALL=(root) NOPASSWD: /usr/bin/systemctl stop snakekonginverse.service, /usr/bin/systemctl start snakekonginverse.service
 ```
 
 为 GitHub Actions 建立专用 SSH 密钥，将公钥加入部署用户的 `authorized_keys`。

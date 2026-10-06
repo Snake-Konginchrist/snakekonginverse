@@ -4,8 +4,8 @@ After=network.target postgresql.service
 
 [Service]
 Type=simple
-User=snakeverse
-Group=snakeverse
+User=ubuntu
+Group=ubuntu
 WorkingDirectory=/var/www/snakekonginverse
 Environment=NODE_ENV=production
 EnvironmentFile=/var/www/snakekonginverse/.env

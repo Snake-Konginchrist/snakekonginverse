@@ -16,7 +16,7 @@ Next.js 16.3.8、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Pay
 ```bash
 pnpm install --frozen-lockfile
 cp .env.example .env
-createdb snakekonginverse
+createdb snakekonginverse_db
 # 编辑 .env 的数据库连接，用 openssl rand -hex 32 生成 PAYLOAD_SECRET
 pnpm cms:types
 pnpm cms:importmap

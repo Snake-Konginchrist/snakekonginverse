@@ -1,7 +1,7 @@
 # Ubuntu 原生部署（无 Docker）
 
 浏览器 → 可选 Cloudflare → Nginx HTTPS → Node.js 127.0.0.1:3000 → PostgreSQL。
-以下以 `/var/www/snakekonginverse`、系统用户 `snakeverse` 和域名 `snakekongin.com` 为例。请替换数据库密码。
+以下以 `/var/www/snakekonginverse`、系统用户 `ubuntu` 和域名 `snakekongin.com` 为例。请替换数据库密码。
 
 ## 环境与目录
 
@@ -9,14 +9,13 @@
 数据库只监听本机，为本站建立专属非超级用户。
 
 ```bash
-sudo adduser --system --group --home /var/lib/snakekonginverse snakeverse
-sudo install -d -o snakeverse -g snakeverse /var/www/snakekonginverse
-sudo install -d -o snakeverse -g snakeverse /var/lib/snakekonginverse/media
-sudo -u postgres createuser --pwprompt snakeverse
-sudo -u postgres createdb --owner=snakeverse snakekonginverse
+sudo install -d -o ubuntu -g ubuntu /var/www/snakekonginverse
+sudo install -d -o ubuntu -g ubuntu /var/lib/snakekonginverse/media
+sudo -u postgres createuser --pwprompt snakekongin
+sudo -u postgres createdb --owner=snakekongin snakekonginverse_db
 ```
 
-将代码部署到项目目录，推荐使用 snakeverse 用户安装和构建，保证其可写 `.next`。
+将代码部署到项目目录，推荐使用 ubuntu 用户安装和构建，保证其可写 `.next`。
 
 ## 配置与首次运行
 
@@ -24,7 +23,7 @@ sudo -u postgres createdb --owner=snakeverse snakekonginverse
 
 ```dotenv
 NODE_ENV=production
-DATABASE_URL=postgresql://snakeverse:URL_ENCODED_PASSWORD@127.0.0.1:5432/snakekonginverse
+DATABASE_URL=postgresql://snakekongin:URL_ENCODED_PASSWORD@127.0.0.1:5432/snakekonginverse_db
 PAYLOAD_SECRET=REPLACE_WITH_OPENSSL_RAND_HEX_32
 NEXT_PUBLIC_SITE_URL=https://snakekongin.com
 MEDIA_DIR=/var/lib/snakekonginverse/media
