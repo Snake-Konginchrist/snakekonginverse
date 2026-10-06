@@ -132,13 +132,20 @@ export default async function Page({ params, searchParams }: Props) {
           eyebrow={cmsT('about.heroEyebrow')}
           description={cmsT('about.heroDescription')}
         />
-        <section className="statement shell grid [grid-template-columns:1fr_2.2fr_0.5fr] items-start gap-[30px] [border-block:1px_solid_var(--line)] py-[45px] [margin-block:32px] max-[760px]:[grid-template-columns:1fr] max-[760px]:gap-[18px] max-[760px]:py-[32px]">
-          <p className="eyebrow">{cmsT('about.statementEyebrow')}</p>
-          <div>
+        <section className="statement shell grid [grid-template-columns:minmax(160px,_0.5fr)_minmax(0,_1.5fr)_auto] items-start gap-[40px] [border-block:1px_solid_var(--line)] py-[45px] [margin-block:32px] w-[min(1200px,_calc(100%_-_96px))] mx-[auto] max-[760px]:[grid-template-columns:1fr] max-[760px]:gap-[18px] max-[760px]:py-[32px] max-[760px]:w-[calc(100%_-_40px)] [&_h2]:text-[28px] [&_h2]:font-[500] [&_h2]:leading-[1.6] [&_div_p]:text-[13px] [&_div_p]:leading-[2] [&_div_p]:text-[color:var(--muted)] [&_div_p]:mt-[14px] max-[760px]:[&_h2]:text-[24px] max-[760px]:[&_>_span]:hidden">
+          <p className="pt-[4px] text-[22px] font-[500] tracking-[0.01em] text-[color:var(--muted)]">
+            {cmsT('about.statementEyebrow')}
+          </p>
+          <div className="max-w-[620px]">
             <h2>{cmsT('about.statementTitle')}</h2>
             <p>{cmsT('about.statementDescription')}</p>
           </div>
-          <span aria-hidden="true">✳</span>
+          <span
+            className="justify-self-end text-[48px] text-[color:var(--accent)]"
+            aria-hidden="true"
+          >
+            ✳
+          </span>
         </section>
         <SocialMatrix />
       </>
