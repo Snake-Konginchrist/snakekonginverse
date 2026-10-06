@@ -4,7 +4,8 @@
 }
 .ideal-hero {
   position: relative;
-  min-height: 686px;
+  aspect-ratio: 1800 / 1101;
+  min-height: 0;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
@@ -42,7 +43,7 @@
   letter-spacing: 0.04em;
   font-weight: 700;
   margin: 0;
-  max-width: 620px;
+  max-width: 760px;
 }
 .ideal-copy h1 span {
   display: block;
@@ -148,7 +149,8 @@
 }
 @media (max-width: 760px) {
   .ideal-hero {
-    min-height: 650px;
+    aspect-ratio: auto;
+    min-height: 680px;
   }
   .ideal-copy {
     padding-top: 54px;
