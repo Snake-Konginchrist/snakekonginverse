@@ -12,6 +12,7 @@
 
 服务器必须能够从非交互 SSH 会话找到 Node.js 22.13+、pnpm 12.9.1、`pg_dump`、`flock`、`tar` 和 `curl`。
 Node.js/pnpm 若仅在交互式终端通过 nvm 配置，须先使部署账户的非交互 PATH 可用。
+可在 `.deploy/runtime.env` 中保存 `PATH=/实际/node/bin:/usr/local/bin:/usr/bin:/bin`；部署脚本和 systemd 会使用该路径。
 
 准备发布目录并安装 systemd override：
 
@@ -23,7 +24,7 @@ sudo systemctl daemon-reload
 ```
 
 首次切换前保持当前服务运行；首轮自动部署完成后会创建 `.deploy/current` 并重启服务。
-override 只改变工作目录和缓存写入路径，原有 `EnvironmentFile`、运行用户与启动命令继续使用。
+override 改变工作目录、运行路径与缓存写入路径；原有环境配置与运行用户继续使用。
 `.env` 应位于网站根目录；媒体必须在该目录之外，例如 `/var/lib/snakekonginverse/media`。
 
 通过 `sudo visudo -f /etc/sudoers.d/snakekonginverse-deploy` 只授权以下服务操作：

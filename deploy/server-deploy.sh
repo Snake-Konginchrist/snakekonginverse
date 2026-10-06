@@ -11,6 +11,12 @@ health=${5:?缺少本机健康检查地址}
 [[ $revision =~ ^[a-f0-9]{40}$ ]]
 [[ $health =~ ^http://127\.0\.0\.1:[0-9]+/[a-zA-Z0-9/_-]+$ ]]
 [[ -d $app && -f $app/.env && -f $archive ]]
+if [[ -f $app/.deploy/runtime.env ]]; then
+  # 服务端一次性准备的可信运行路径，使 nvm 安装也可用于非交互 SSH。
+  set -a
+  source "$app/.deploy/runtime.env"
+  set +a
+fi
 for command in node pnpm pg_dump tar flock curl sudo systemctl; do
   command -v "$command" > /dev/null || { echo "服务器缺少 $command" >&2; exit 1; }
 done

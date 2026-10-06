@@ -1,5 +1,10 @@
 # 更新记录
 
+## 0.3.1 — 2026-10-06
+
+- 自动部署与 systemd 共用服务器运行路径，复用 nvm 中的现有 Node.js。
+- Nginx 站点配置统一命名为 snakekongin.com.conf，安装到 conf.d 目录。
+
 ## 0.3.0 — 2026-10-06
 
 - 增加 GitHub Actions + SSH 自动部署：main 推送触发检查、构建、备份、迁移、版本切换和健康检查。

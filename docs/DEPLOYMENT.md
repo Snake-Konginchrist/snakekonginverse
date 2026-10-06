@@ -66,7 +66,7 @@ curl -I http://127.0.0.1:3000
 
 ## Nginx 与 HTTPS
 
-将 `deploy/nginx.conf` 放入站点配置目录并启用；配置已包含 `snakekongin.com` 和 `www.snakekongin.com`。
+将 `deploy/snakekongin.com.conf` 安装为 `/etc/nginx/conf.d/snakekongin.com.conf`；配置已包含 `snakekongin.com` 和 `www.snakekongin.com`。
 执行 `sudo nginx -t` 后 `sudo systemctl reload nginx`。
 示例先提供 HTTP。用服务器现有证书流程或 Certbot 配置 HTTPS，验证后将 HTTP 重定向至 HTTPS。
 Cloudflare 使用 Full (strict)，不要 Flexible，不要缓存 `/admin`、`/api`、`/preview` 或管理员会话。
