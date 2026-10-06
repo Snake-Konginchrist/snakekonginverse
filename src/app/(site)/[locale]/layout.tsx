@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const settings = await getSettings(locale);
   return {
     metadataBase: new URL(requiredEnv('NEXT_PUBLIC_SITE_URL')),
-    title: { default: settings.brand, template: `%s · ${settings.brand}` },
+    title: { default: settings.brand, template: `%s - ${settings.brand}` },
     description: settings.description,
     openGraph: { siteName: settings.brand, locale: locale.replace('-', '_'), type: 'website' },
   };
