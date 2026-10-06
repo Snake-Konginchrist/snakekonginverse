@@ -11,6 +11,22 @@ health=${5:?缺少本机健康检查地址}
 [[ $revision =~ ^[a-f0-9]{40}$ ]]
 [[ $health =~ ^http://127\.0\.0\.1:[0-9]+/[a-zA-Z0-9/_-]+$ ]]
 [[ -d $app && -f $app/.env && -f $archive ]]
+
+# 保留最近版本，避免每次部署都永久占用服务器磁盘。
+release_retention=5
+backup_retention=7
+
+prune_old_directories() {
+  local directory=$1
+  local retention=$2
+  mapfile -t old_directories < <(
+    find "$directory" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort -r | tail -n +$((retention + 1))
+  )
+  for old_directory in "${old_directories[@]}"; do
+    [[ $old_directory =~ ^[0-9]{8}T[0-9]{6}Z-[a-f0-9]{12}-[0-9]+$ ]] || continue
+    rm -rf -- "$directory/$old_directory"
+  done
+}
 if [[ -f $app/.deploy/runtime.env ]]; then
   # 服务端一次性准备的可信运行路径，使 nvm 安装也可用于非交互 SSH。
   set -a
@@ -98,6 +114,8 @@ for attempt in {1..30}; do
     done
   fi
   if (( healthy )); then
+    prune_old_directories "$root/releases" "$release_retention"
+    prune_old_directories "$root/backups" "$backup_retention"
     echo "部署成功：$revision"
     exit 0
   fi
