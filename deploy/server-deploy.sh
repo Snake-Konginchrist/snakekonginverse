@@ -48,6 +48,7 @@ export NODE_ENV=production
 cd "$release"
 pnpm install --frozen-lockfile
 media=$(node deploy/runtime-config.mjs media "$app")
+pnpm exec next typegen
 pnpm check
 pnpm build
 

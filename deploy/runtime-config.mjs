@@ -6,7 +6,7 @@ import { spawnSync } from 'node:child_process';
 const require = createRequire(`${process.cwd()}/package.json`);
 // 与 systemd EnvironmentFile 保持一致，先载入主配置，再补 Next.js 环境文件。
 process.loadEnvFile('.env');
-require('@next/env').loadEnvConfig(process.cwd(), false);
+createRequire(require.resolve('next'))('@next/env').loadEnvConfig(process.cwd(), false);
 for (const key of ['DATABASE_URL', 'PAYLOAD_SECRET', 'NEXT_PUBLIC_SITE_URL', 'MEDIA_DIR']) {
   if (!process.env[key]) throw new Error(`服务器环境配置缺少 ${key}`);
 }
