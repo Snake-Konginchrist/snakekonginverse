@@ -31,7 +31,7 @@ export function IdealHome() {
   return (
     <div className="ideal-home">
       <section className="ideal-hero">
-        <Image className="ideal-landscape" src="/art/hero.png" alt="" fill priority sizes="100vw" />
+        <Image className="ideal-landscape" src="/art/hero.jpg" alt="" fill priority sizes="100vw" />
         <div className="shell ideal-copy">
           <p className="ideal-motto">{t('eyebrow')}</p>
           <h1>
