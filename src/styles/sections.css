@@ -159,7 +159,7 @@
 .site-footer {
   margin-top: 70px;
   padding-block: 57px 24px;
-  background: #edf0f7;
+  background: var(--surface);
   border-top: 1px solid var(--line);
 }
 .footer-top {

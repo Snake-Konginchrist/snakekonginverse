@@ -13,6 +13,14 @@
   --font-display: 'Avenir Next', 'Helvetica Neue', 'PingFang SC', sans-serif;
   --font-mono: 'SFMono-Regular', Consolas, monospace;
 }
+[data-theme='dark'] {
+  --paper: #111722;
+  --surface: #182131;
+  --ink: #edf2ff;
+  --muted: #a7b1c5;
+  --line: #303b50;
+  --accent-soft: #202f62;
+}
 [data-accent='green'] {
   --accent: #176354;
   --accent-soft: #e4f3ec;

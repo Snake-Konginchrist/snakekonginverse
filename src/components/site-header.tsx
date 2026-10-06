@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import type { SiteSetting } from '@/payload-types';
 import { Link } from '@/i18n/navigation';
 import { LocaleSwitcher } from '@/components/locale-switcher';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const moreItems = [
   { key: 'links', href: '/links' },
@@ -59,6 +60,7 @@ export function SiteHeader({ settings }: { settings: SiteSetting }) {
       <Link className="header-contact" href="/contact">
         {t('keepInTouch')} <ArrowUpRight size={15} />
       </Link>
+      <ThemeToggle />
       <LocaleSwitcher />
       <details className="mobile-nav">
         <summary>
