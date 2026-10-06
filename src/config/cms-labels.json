@@ -293,6 +293,12 @@
     "en": "Perspective content",
     "ja": "視点の内容"
   },
+  "作品按实践、求索、创作和行记分类；编辑时只需选择内容类型。": {
+    "zh": "作品按实践、求索、创作和行记分类；编辑时只需选择内容类型。",
+    "zh-TW": "作品按實踐、求索、創作和行記分類；編輯時只需選擇內容類型。",
+    "en": "Choose a type when editing: practice, research, creations, or journal.",
+    "ja": "編集時に実践、探究、創作、行記の種類を選択します。"
+  },
   "眉题": {
     "zh": "眉题",
     "zh-TW": "眉題",

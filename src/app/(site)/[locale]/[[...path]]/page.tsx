@@ -12,6 +12,7 @@ import { ResearchDirection } from '@/components/research-direction';
 import { SocialMatrix } from '@/components/social-matrix';
 import { SectionHero } from '@/components/section-hero';
 import siteConfig from '@/config/site.json';
+import { IdealHome } from '@/components/ideal-home';
 
 type Props = {
   params: Promise<{ locale: string; path?: string[] }>;
@@ -25,12 +26,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const segments = path ?? [];
   const pathname = `/${segments.join('/')}`;
   const titleT = await getTranslations({ locale: localeParam, namespace: 'pageTitles' });
+  const cmsT = await getTranslations({ locale: localeParam, namespace: 'cms' });
   if (segments.length === 1 && isContentKind(segments[0])) {
     const sectionT = await getTranslations({ locale: localeParam, namespace: 'sections' });
     return {
       title: titleT(segments[0]),
       description: sectionT(`${segments[0]}.description`),
       alternates: { canonical: localizedPath(pathname, localeParam) },
+    };
+  }
+  if (pathname === '/') {
+    return {
+      title: titleT('home'),
+      description: cmsT('home.heroDescription'),
+      alternates: { canonical: localizedPath('/', localeParam) },
+    };
+  }
+  if (pathname === '/about') {
+    return {
+      title: titleT('about'),
+      description: cmsT('about.heroDescription'),
+      alternates: { canonical: localizedPath('/about', localeParam) },
     };
   }
   const doc =
@@ -65,6 +81,7 @@ export default async function Page({ params, searchParams }: Props) {
   const kindT = await getTranslations('contentKinds');
   const sectionT = await getTranslations('sections');
   const commonT = await getTranslations('common');
+  const cmsT = await getTranslations('cms');
   if (segments.length === 1 && isContentKind(segments[0])) {
     const kind = segments[0];
     const rawPage = (await searchParams).page ?? '1';
@@ -105,12 +122,33 @@ export default async function Page({ params, searchParams }: Props) {
     return <EntryDetail entry={entry} />;
   }
   const pathname = `/${segments.join('/')}`;
+  if (pathname === '/') return <IdealHome />;
+  if (pathname === '/about') {
+    return (
+      <>
+        <SectionHero
+          section="about"
+          title={cmsT('about.heroTitle')}
+          eyebrow={cmsT('about.heroEyebrow')}
+          description={cmsT('about.heroDescription')}
+        />
+        <section className="statement shell grid [grid-template-columns:1fr_2.2fr_0.5fr] items-start gap-[30px] [border-block:1px_solid_var(--line)] py-[45px] [margin-block:32px] max-[760px]:[grid-template-columns:1fr] max-[760px]:gap-[18px] max-[760px]:py-[32px]">
+          <p className="eyebrow">{cmsT('about.statementEyebrow')}</p>
+          <div>
+            <h2>{cmsT('about.statementTitle')}</h2>
+            <p>{cmsT('about.statementDescription')}</p>
+          </div>
+          <span aria-hidden="true">✳</span>
+        </section>
+        <SocialMatrix />
+      </>
+    );
+  }
   const page = await getPage(pathname, locale);
-  if (!page || (pathname !== '/' && !page.layout?.length)) notFound();
+  if (!page || !page.layout?.length) notFound();
   return (
     <>
       <BlockRenderer blocks={page.layout} pagePath={pathname} />
-      {pathname === '/about' && <SocialMatrix />}
     </>
   );
 }

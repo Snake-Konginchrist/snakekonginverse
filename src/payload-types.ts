@@ -229,6 +229,8 @@ export interface Page {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Choose a type when editing: practice, research, creations, or journal.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "entries".
  */

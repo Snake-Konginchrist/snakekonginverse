@@ -21,7 +21,17 @@ const child = spawn(process.execPath, [nextBin, command, '--hostname', host, '--
   env: process.env,
 });
 
+// pnpm 会先启动这个运行时包装器；显式转发终止信号，确保 Ctrl+C 能关闭 Next。
+let stopping = false;
+for (const signal of ['SIGINT', 'SIGTERM']) {
+  process.on(signal, () => {
+    if (stopping) return;
+    stopping = true;
+    child.kill(signal);
+  });
+}
+
 child.on('exit', (code, signal) => {
-  if (signal) process.kill(process.pid, signal);
+  if (signal && !stopping) process.kill(process.pid, signal);
   process.exitCode = code ?? 1;
 });

@@ -87,10 +87,10 @@ pnpm seed
 pnpm dev
 ```
 
-项目脚本实际执行的是：
+项目脚本通过运行时包装器启动 Next，并把 Ctrl+C 的终止信号转发给 Next：
 
 ```text
-next dev --hostname 127.0.0.1
+node scripts/next-runtime.mjs dev
 ```
 
 看到 `Ready` 后打开：

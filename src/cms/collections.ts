@@ -8,7 +8,10 @@ export const Users: CollectionConfig = {
   slug: 'users',
   labels: { singular: cmsLabel('管理员'), plural: cmsLabel('管理员') },
   auth: true,
-  admin: { useAsTitle: 'email' },
+  admin: {
+    useAsTitle: 'email',
+    group: '系统',
+  },
   access: {
     read: authenticated,
     create: authenticated,
@@ -21,6 +24,7 @@ export const Users: CollectionConfig = {
 export const Media: CollectionConfig = {
   slug: 'media',
   labels: { singular: cmsLabel('媒体'), plural: cmsLabel('媒体库') },
+  admin: { group: '内容' },
   access: { read: publicRead, create: authenticated, update: authenticated, delete: authenticated },
   // 图片和缩略图统一存入 R2；仅允许栅格图片，避免上传可执行 SVG/HTML。
   upload: {
@@ -44,6 +48,7 @@ export const Pages: CollectionConfig = {
   labels: { singular: cmsLabel('页面'), plural: cmsLabel('页面搭建') },
   admin: {
     useAsTitle: 'title',
+    group: '内容',
     defaultColumns: ['title', 'path', '_status'],
     preview: (data, { locale }) => `/${locale}/preview?collection=pages&id=${data.id}`,
   },
@@ -77,6 +82,8 @@ export const Entries: CollectionConfig = {
   labels: { singular: cmsLabel('作品 / 文章'), plural: cmsLabel('作品与文章') },
   admin: {
     useAsTitle: 'title',
+    group: '内容',
+    description: cmsLabel('作品按实践、求索、创作和行记分类；编辑时只需选择内容类型。'),
     defaultColumns: ['title', 'kind', '_status'],
     preview: (data, { locale }) => `/${locale}/preview?collection=entries&id=${data.id}`,
   },

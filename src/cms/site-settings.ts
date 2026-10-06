@@ -8,6 +8,7 @@ import siteConfig from '@/config/site.json';
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   label: cmsLabel('站点设置'),
+  admin: { group: '站点' },
   access: { read: publicRead, update: authenticated },
   fields: [
     {
