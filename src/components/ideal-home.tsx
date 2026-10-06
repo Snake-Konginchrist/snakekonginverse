@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { ArrowRight, Compass } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { HomeRecentEntries } from './home-recent-entries';
-import { SelectedProducts } from './selected-products';
 import { Link } from '@/i18n/navigation';
 
 export function IdealHome() {
@@ -109,9 +108,6 @@ export function IdealHome() {
           </Link>
         ))}
       </section>
-      <div className="shell mx-auto w-[min(1200px,calc(100%_-_96px))] max-[760px]:w-[calc(100%_-_40px)]">
-        <SelectedProducts compact />
-      </div>
       <HomeRecentEntries />
       <section className="ideal-principles py-[48px] [background:linear-gradient(90deg,_#f1eee5,_#faf8f1)] dark:[background:linear-gradient(90deg,_var(--paper),_var(--surface))] text-[color:var(--ink)] [border-top:1px_solid_var(--line)] [border-bottom:1px_solid_var(--line)] [&_h2]:text-[45px] [&_h2]:[border-left:5px_solid_#b51c26] dark:[&_h2]:border-[var(--accent)] [&_h2]:pl-[16px] max-[760px]:[&_h2]:text-[36px]">
         <div className="shell w-[min(1200px,_calc(100%_-_96px))] mx-[auto] max-[760px]:w-[calc(100%_-_40px)] ideal-principles-inner grid [grid-template-columns:1fr_1.2fr] gap-[60px] [&_div]:[border-left:1px_solid_#a66c62] [&_div]:pl-[42px] [&_div]:grid [&_div]:gap-[14px] [&_div]:text-[18px] [&_div]:leading-[1.8] max-[760px]:[grid-template-columns:1fr] max-[760px]:gap-[24px] max-[760px]:[&_div]:pl-[20px]">
