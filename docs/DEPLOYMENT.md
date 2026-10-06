@@ -73,6 +73,8 @@ Cloudflare 使用 Full (strict)，不要 Flexible，不要缓存 `/admin`、`/ap
 
 ## 更新与备份
 
+推送到 `main` 后自动更新服务器的配置见 [GitHub Actions 自动部署](AUTO_DEPLOYMENT.md)。
+
 更新前备份数据库与媒体，停服务后更新代码，再执行：
 
 ```bash
