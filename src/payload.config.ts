@@ -20,7 +20,13 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** 配置缺失时不静默切换假数据或其他数据库；运行环境由 .env 明确提供。 */
 export default buildConfig({
-  admin: { user: Users.slug, importMap: { baseDir: dirname } },
+  admin: {
+    user: Users.slug,
+    importMap: { baseDir: dirname },
+    components: {
+      header: ['@/components/admin/admin-header#AdminHeader'],
+    },
+  },
   i18n: { supportedLanguages: { zh, 'zh-TW': zhTw, en, ja } },
   localization: {
     fallback: false,

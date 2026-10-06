@@ -6,11 +6,16 @@ import siteConfig from '@/config/site.json';
 /** 区块只描述内容和有限的设计选项，渲染由 components/blocks 独立负责。 */
 const hero: Block = {
   slug: 'hero',
-  labels: { singular: cmsLabel('品牌首屏'), plural: cmsLabel('品牌首屏') },
+  labels: { singular: cmsLabel('个人首屏'), plural: cmsLabel('个人首屏') },
   fields: [
-    { name: 'eyebrow', label: cmsLabel('眉题'), type: 'text', required: true },
-    { name: 'title', label: cmsLabel('主标题（换行分段）'), type: 'textarea', required: true },
-    { name: 'description', label: cmsLabel('简介'), type: 'textarea', required: true },
+    { name: 'eyebrow', label: cmsLabel('身份标签'), type: 'text', required: true },
+    { name: 'title', label: cmsLabel('个人主标题（换行分段）'), type: 'textarea', required: true },
+    {
+      name: 'description',
+      label: cmsLabel('个人介绍与当前方向'),
+      type: 'textarea',
+      required: true,
+    },
     { name: 'linkLabel', label: cmsLabel('按钮文字'), type: 'text', required: true },
     {
       name: 'href',
@@ -64,11 +69,11 @@ const text: Block = {
 };
 const statement: Block = {
   slug: 'statement',
-  labels: { singular: cmsLabel('个人宣言'), plural: cmsLabel('个人宣言') },
+  labels: { singular: cmsLabel('个人观点'), plural: cmsLabel('个人观点') },
   fields: [
-    { name: 'eyebrow', label: cmsLabel('眉题'), type: 'text' },
-    { name: 'title', label: cmsLabel('标题'), type: 'text', required: true },
-    { name: 'description', label: cmsLabel('正文'), type: 'textarea', required: true },
+    { name: 'eyebrow', label: cmsLabel('栏目标签'), type: 'text' },
+    { name: 'title', label: cmsLabel('观点标题'), type: 'text', required: true },
+    { name: 'description', label: cmsLabel('观点内容'), type: 'textarea', required: true },
   ],
 };
 export const pageBlocks: Block[] = [hero, portals, collection, text, statement];
