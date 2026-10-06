@@ -12,18 +12,20 @@ function stripLocaleSuffix(pathname: string): string {
   return base || '/';
 }
 
+/** Cookie 是浏览器持久化状态，不是 React 状态；事件发生后再写入并同源刷新。 */
+function switchLocale(event: MouseEvent<HTMLAnchorElement>, locale: Locale) {
+  event.preventDefault();
+  document.cookie = `NEXT_LOCALE=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  window.location.assign(
+    window.location.pathname + window.location.search + window.location.hash,
+  );
+}
+
 /** 客户端只负责保留当前路径并切换语言，页面内容仍由服务端渲染。 */
 export function LocaleSwitcher() {
   const current = useLocale() as Locale;
   const pathname = stripLocaleSuffix(usePathname());
   const t = useTranslations('common');
-  const switchLocale = (event: MouseEvent<HTMLAnchorElement>, locale: Locale) => {
-    event.preventDefault();
-    document.cookie = `NEXT_LOCALE=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
-    window.location.assign(
-      window.location.pathname + window.location.search + window.location.hash,
-    );
-  };
   return (
     <details className="locale-switcher relative [flex:0_0_auto] text-[color:var(--muted)] text-[11px] [&_summary]:cursor-pointer [&_summary]:list-none [&_summary]:py-[10px] [&_summary::-webkit-details-marker]:hidden [&_summary::after]:[content:'⌄'] [&_summary::after]:[margin-left:5px] [&_summary::after]:text-[12px] max-[760px]:[margin-left:auto] max-[760px]:[margin-right:8px]">
       <summary aria-label={t('language')}>{localeLabels[current]}</summary>
