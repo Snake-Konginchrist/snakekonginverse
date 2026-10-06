@@ -1,7 +1,17 @@
-import { ArrowUpRight, Asterisk } from 'lucide-react';
+import { ArrowUpRight, Asterisk, Link2, Mail } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import type { SiteSetting } from '@/payload-types';
 import Link from 'next/link';
+import { SiGithub, SiX } from 'react-icons/si';
+
+function SocialIcon({ href }: { href: string }) {
+  if (href.includes('github.com')) return <SiGithub aria-hidden="true" size={17} />;
+  if (href.includes('x.com') || href.includes('twitter.com')) {
+    return <SiX aria-hidden="true" size={17} />;
+  }
+  if (href.startsWith('mailto:')) return <Mail aria-hidden="true" size={17} />;
+  return <Link2 aria-hidden="true" size={17} />;
+}
 
 /** 未配置联系方式时保留真实说明，不生成虚构邮箱和社交帐号。 */
 export async function SiteFooter({ settings }: { settings: SiteSetting }) {
@@ -23,6 +33,7 @@ export async function SiteFooter({ settings }: { settings: SiteSetting }) {
           {settings.socials?.length ? (
             settings.socials.map((item) => (
               <a key={item.id} href={item.href} target="_blank" rel="noreferrer">
+                <SocialIcon href={item.href} />
                 {item.label}
                 <ArrowUpRight size={18} />
               </a>

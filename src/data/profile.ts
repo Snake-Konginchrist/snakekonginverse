@@ -77,109 +77,6 @@ export const profileLinks: DirectorySection[] = [
   },
 ];
 
-export const profileCommunities: DirectorySection[] = [
-  {
-    key: 'collaboration',
-    eyebrow: 'COLLABORATION',
-    title: '社群与协作',
-    description: '目前公开的交流方式以项目协作和社交平台为主，不虚构不存在的群组。',
-    items: [
-      {
-        key: 'studio',
-        title: 'SK Studio',
-        description: '与联合创始人一起做移动产品、AI 工具和研究型项目。',
-        meta: 'PRODUCT STUDIO',
-        href: 'https://github.com/Snake-Konginchrist',
-      },
-      {
-        key: 'openSource',
-        title: '开源项目协作',
-        description: '通过公开仓库的 issue、讨论和贡献参与项目。',
-        meta: 'GITHUB',
-        href: 'https://github.com/Snake-Konginchrist',
-      },
-      {
-        key: 'ai',
-        title: 'AI 与独立开发交流',
-        description: '在 X 分享 AI 工具、Codex 体验和独立开发过程。',
-        meta: 'X / @SnakeKongin',
-        href: 'https://x.com/SnakeKongin',
-      },
-    ],
-  },
-];
-
-export const profileRecommendations: DirectorySection[] = [
-  {
-    key: 'tools',
-    eyebrow: 'TOOLS & REFERENCES',
-    title: '这个站点使用的公开工具',
-    description: '先记录实际使用或直接相关的公开资料，之后再按真实体验补充推荐。',
-    items: [
-      {
-        key: 'next',
-        title: 'Next.js Documentation',
-        description: '前台应用使用的 Web 框架与路由、渲染文档。',
-        meta: 'nextjs.org/docs',
-        href: 'https://nextjs.org/docs',
-      },
-      {
-        key: 'payload',
-        title: 'Payload CMS Documentation',
-        description: '页面、文章、草稿预览和媒体管理使用的 CMS 文档。',
-        meta: 'payloadcms.com/docs',
-        href: 'https://payloadcms.com/docs',
-      },
-      {
-        key: 'postgres',
-        title: 'PostgreSQL Documentation',
-        description: '站点内容和配置使用的关系数据库文档。',
-        meta: 'postgresql.org/docs',
-        href: 'https://www.postgresql.org/docs/',
-      },
-    ],
-  },
-];
-
-export const profileIdentities: DirectorySection[] = [
-  {
-    key: 'names',
-    eyebrow: 'IDENTITIES',
-    title: '我使用的名字',
-    description: '不同平台使用同一组公开身份，方便找到真正的主页。',
-    items: [
-      {
-        key: 'author',
-        title: 'Snake Konginchrist',
-        description: '个人品牌和公开署名。',
-        meta: 'AUTHOR',
-        href: '/',
-      },
-      {
-        key: 'site',
-        title: 'SnakeKonginVerse',
-        description: '这个个人网站的品牌名称。',
-        meta: 'PERSONAL SITE',
-        href: '/',
-      },
-      {
-        key: 'github',
-        title: 'Snake-Konginchrist',
-        description: 'GitHub 账号。',
-        meta: 'GITHUB',
-        href: 'https://github.com/Snake-Konginchrist',
-      },
-      {
-        key: 'x',
-        title: '@SnakeKongin',
-        description: 'X 账号，分享开发、AI 工具和日常观察。',
-        meta: 'X / TWITTER',
-        href: 'https://x.com/SnakeKongin',
-      },
-    ],
-  },
-];
-
 export const profileSocials: DirectoryItem[] = [
   {
     key: 'email',
@@ -200,7 +97,7 @@ export const profileSocials: DirectoryItem[] = [
   {
     key: 'x',
     translationNamespace: 'socials',
-    title: 'X / @SnakeKongin',
+    title: 'X (Twitter)',
     description: '开发过程、AI 工具和公开讨论。',
     meta: 'x.com/SnakeKongin',
     href: 'https://x.com/SnakeKongin',

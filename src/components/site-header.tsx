@@ -6,12 +6,8 @@ import { LocaleSwitcher } from '@/components/locale-switcher';
 
 const moreItems = [
   { key: 'links', href: '/links' },
-  { key: 'recommendations', href: '/recommendations' },
-  { key: 'communities', href: '/communities' },
   { key: 'contact', href: '/contact' },
-  { key: 'identities', href: '/identities' },
   { key: 'changelog', href: '/changelog' },
-  { key: 'discussion', href: '/discussion' },
 ] as const;
 
 const navKeyByHref: Record<string, string> = {

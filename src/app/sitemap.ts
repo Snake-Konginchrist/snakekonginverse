@@ -10,12 +10,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = requiredEnv('NEXT_PUBLIC_SITE_URL');
   const directoryRoutes = [
     'links',
-    'recommendations',
-    'communities',
     'contact',
-    'identities',
     'changelog',
-    'discussion',
   ];
   const publicRoutes = [...kinds, ...directoryRoutes];
   const result: MetadataRoute.Sitemap = locales.flatMap((locale) => [
