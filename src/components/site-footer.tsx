@@ -13,10 +13,6 @@ function SocialIcon({ href }: { href: string }) {
   return <Link2 aria-hidden="true" size={17} />;
 }
 
-function socialLabel(label: string, href: string) {
-  return href.includes('x.com') || href.includes('twitter.com') ? 'X (Twitter)' : label;
-}
-
 /** 未配置联系方式时保留真实说明，不生成虚构邮箱和社交帐号。 */
 export async function SiteFooter({ settings }: { settings: SiteSetting }) {
   const t = await getTranslations('footer');
@@ -38,7 +34,7 @@ export async function SiteFooter({ settings }: { settings: SiteSetting }) {
             settings.socials.map((item) => (
               <a key={item.id} href={item.href} target="_blank" rel="noreferrer">
                 <SocialIcon href={item.href} />
-                {socialLabel(item.label, item.href)}
+                {item.label}
                 <ArrowUpRight size={18} />
               </a>
             ))
