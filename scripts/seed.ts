@@ -2,6 +2,7 @@ import { getPayload } from 'payload';
 import config from '../src/payload.config';
 import { locales } from '../src/i18n/routing';
 import { isStarterPage, starterPages } from './starter-pages';
+import siteConfig from '../src/config/site.json';
 
 /** 首次初始化只写入品牌页面，不创建帐号、虚构作品，也不覆盖后续编辑内容。 */
 const payload = await getPayload({ config });
@@ -54,21 +55,12 @@ try {
     await payload.updateGlobal({
       slug: 'site-settings',
       data: {
-        brand: 'SnakeKonginVerse',
-        author: 'Snake Konginchrist',
-        description: '独立开发者 Snake Konginchrist 的产品、研究与个人记录。',
-        accent: 'blue',
-        navigation: [
-          { label: '首页', href: '/' },
-          { label: '项目', href: '/projects' },
-          { label: '创作', href: '/creations' },
-          { label: '手记', href: '/journal' },
-          { label: '关于', href: '/about' },
-        ],
-        socials: [
-          { label: 'GitHub', href: 'https://github.com/Snake-Konginchrist' },
-          { label: 'X / @SnakeKongin', href: 'https://x.com/SnakeKongin' },
-        ],
+        brand: siteConfig.brand,
+        author: siteConfig.author,
+        description: siteConfig.description,
+        accent: siteConfig.accent as 'blue' | 'green' | 'violet',
+        navigation: siteConfig.navigation,
+        socials: siteConfig.socials,
       },
     });
   }

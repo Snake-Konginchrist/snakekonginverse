@@ -6,7 +6,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 let clarityInitialized = false;
 
-export function SiteAnalytics({ clarityId, gaId }: { clarityId: string; gaId: string }) {
+export function SiteAnalytics({ clarityId, gaId }: { clarityId?: string; gaId?: string }) {
   const pathname = usePathname();
   const preview = pathname.split('/').includes('preview');
 

@@ -6,7 +6,8 @@ import { BlockRenderer } from '@/components/blocks/renderer';
 import { EntryDetail } from '@/components/entry-detail';
 import { EntryList } from '@/components/entry-list';
 import { Link } from '@/i18n/navigation';
-import { hasLocale, type Locale } from '@/i18n/routing';
+import { hasLocale, localizedPath, type Locale } from '@/i18n/routing';
+import siteConfig from '@/config/site.json';
 
 type Props = {
   params: Promise<{ locale: string; path?: string[] }>;
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: kindT(segments[0]),
       description: archiveT('intro'),
-      alternates: { canonical: `/${localeParam}${pathname}` },
+      alternates: { canonical: localizedPath(pathname, localeParam) },
     };
   }
   const doc =
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ('summary' in doc
         ? doc.summary
         : doc.layout.find((block) => block.blockType === 'hero')?.description),
-    alternates: { canonical: `/${localeParam}${pathname}` },
+    alternates: { canonical: localizedPath(pathname, localeParam) },
   };
 }
 
@@ -57,7 +58,7 @@ export default async function Page({ params, searchParams }: Props) {
     const rawPage = (await searchParams).page ?? '1';
     const page = Number(rawPage);
     if (!Number.isSafeInteger(page) || page < 1) notFound();
-    const result = await getEntries(kind, 9, page, locale);
+    const result = await getEntries(kind, siteConfig.contentPageSize, page, locale);
     if (page > 1 && page > result.totalPages) notFound();
     return (
       <section className="shell section archive">

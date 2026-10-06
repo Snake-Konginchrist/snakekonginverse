@@ -54,7 +54,8 @@ export async function BlockRenderer({ blocks, pagePath }: BlockRendererProps) {
                 </section>
               );
             case 'collection': {
-              const result = await getEntries(block.source, block.limit ?? 3, 1, locale);
+              if (!block.limit) throw new Error('Collection block is missing its display limit');
+              const result = await getEntries(block.source, block.limit, 1, locale);
               // 首页只在确实有内容时展示更新，避免空状态抢走个人介绍的注意力。
               if (isHome && !result.docs.length) return null;
               return (

@@ -1,10 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const baseURL = process.env.TEST_BASE_URL;
+if (!baseURL) throw new Error('Missing required environment variable: TEST_BASE_URL');
+
 /** 复用本地已启动的站点，避免自动化脚本擅自启动第二个数据库实例。 */
 export default defineConfig({
   testDir: './tests/e2e',
   use: {
-    baseURL: process.env.TEST_BASE_URL || 'http://127.0.0.1:3000',
+    baseURL,
     trace: 'retain-on-failure',
   },
   projects: [

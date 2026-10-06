@@ -10,16 +10,17 @@ import { s3Storage } from '@payloadcms/storage-s3';
 import { getR2Settings, requireR2Settings } from './lib/r2-config.mjs';
 import { Entries, Media, Pages, Users } from './cms/collections';
 import { SiteSettings } from './cms/site-settings';
+import { requiredEnv } from './lib/env';
+import siteConfig from './config/site.json';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** 配置缺失时不静默切换假数据或其他数据库；运行环境由 .env 明确提供。 */
 export default buildConfig({
   admin: { user: Users.slug, importMap: { baseDir: dirname } },
-  i18n: { fallbackLanguage: 'zh', supportedLanguages: { zh, en } },
+  i18n: { supportedLanguages: { zh, en } },
   localization: {
-    defaultLocale: 'zh-CN',
-    fallback: true,
+    defaultLocale: siteConfig.defaultLocale as 'zh-CN' | 'zh-TW' | 'en' | 'ja',
     locales: [
       { code: 'zh-CN', label: '简体中文' },
       { code: 'zh-TW', label: '繁體中文' },
@@ -35,14 +36,15 @@ export default buildConfig({
   },
   globals: [SiteSettings],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: requiredEnv('PAYLOAD_SECRET'),
   db: postgresAdapter({
-    pool: { connectionString: process.env.DATABASE_URL || '' },
-    // 开发环境允许同步 schema；生产必须显式执行版本化迁移。
-    push: process.env.NODE_ENV !== 'production',
+    pool: { connectionString: requiredEnv('DATABASE_URL') },
+    // Schema push must be explicit; an old dev database can otherwise block startup
+    // with a destructive-change prompt. Use PAYLOAD_DB_PUSH=true only for a disposable DB.
+    push: process.env.PAYLOAD_DB_PUSH === 'true',
     migrationDir: path.resolve(dirname, 'migrations'),
   }),
   sharp,
-  upload: { limits: { fileSize: 10_000_000 } },
+  upload: { limits: { fileSize: siteConfig.uploadMaxFileSize } },
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
 });

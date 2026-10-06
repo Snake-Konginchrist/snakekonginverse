@@ -1,5 +1,6 @@
 import type { Block } from 'payload';
 import { validLink } from './fields';
+import siteConfig from '@/config/site.json';
 
 /** 区块只描述内容和有限的设计选项，渲染由 components/blocks 独立负责。 */
 const hero: Block = {
@@ -37,7 +38,15 @@ const collection: Block = {
         { label: '文字手记', value: 'journal' },
       ],
     },
-    { name: 'limit', label: '显示条数', type: 'number', min: 1, max: 12, defaultValue: 3 },
+    {
+      name: 'limit',
+      label: '显示条数',
+      type: 'number',
+      min: 1,
+      max: 12,
+      required: true,
+      defaultValue: siteConfig.collectionDefaultLimit,
+    },
   ],
 };
 const text: Block = {

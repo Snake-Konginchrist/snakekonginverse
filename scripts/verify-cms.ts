@@ -4,9 +4,10 @@ import { getPayload } from 'payload';
 import config from '../src/payload.config';
 import sharp from 'sharp';
 import { chromium, expect } from '@playwright/test';
+import { requiredEnv } from '../src/lib/env';
 
 /** 使用临时管理员与临时内容验证真实 HTTP 流程；finally 清理，不留下演示数据。 */
-const origin = process.env.TEST_BASE_URL || 'http://127.0.0.1:3000';
+const origin = requiredEnv('TEST_BASE_URL');
 if (!['localhost', '127.0.0.1'].includes(new URL(origin).hostname)) {
   throw new Error('集成验证只允许本机站点，禁止对生产站点创建测试帐号。');
 }

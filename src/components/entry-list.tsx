@@ -35,9 +35,9 @@ export function EntryList({ entries }: { entries: Entry[] }) {
               </div>
             )}
             <div className="entry-card-body">
-              <p className="eyebrow">
-                {entry.tags?.map((tag) => tag.label).join(' / ') || 'FROM THE VERSE'}
-              </p>
+              {entry.tags?.length ? (
+                <p className="eyebrow">{entry.tags.map((tag) => tag.label).join(' / ')}</p>
+              ) : null}
               <h3>
                 {entry.title}
                 <ArrowUpRight size={18} />

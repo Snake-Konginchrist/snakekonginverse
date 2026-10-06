@@ -16,9 +16,14 @@
   white-space: nowrap;
 }
 .brand-symbol {
-  display: grid;
-  place-items: center;
-  color: var(--accent);
+  display: block;
+  width: 26px;
+  height: 26px;
+  transform: rotate(-4deg);
+  transition: transform 0.2s;
+}
+.brand:hover .brand-symbol {
+  transform: rotate(0deg) translateY(-1px);
 }
 .brand-dot {
   align-self: flex-start;
@@ -28,10 +33,11 @@
 }
 .desktop-nav {
   display: flex;
-  gap: 28px;
+  gap: 22px;
   margin-left: auto;
   font-size: 13px;
   color: var(--muted);
+  white-space: nowrap;
 }
 .desktop-nav a:hover {
   color: var(--accent);

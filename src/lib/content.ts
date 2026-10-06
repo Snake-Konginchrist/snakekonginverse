@@ -3,6 +3,7 @@ import { cache } from 'react';
 import { getPayload } from 'payload';
 import config from '@payload-config';
 import type { Locale } from '@/i18n/routing';
+import siteConfig from '@/config/site.json';
 
 /** 仅缓存同一次服务端请求；发布后下一次访问立即读取新数据。 */
 export const cms = cache(() => getPayload({ config }));
@@ -39,7 +40,12 @@ export const kindLabels: Record<ContentKind, string> = {
 };
 
 /** 显式启用访问控制：Payload Local API 默认绕过权限，不能用于公开查询。 */
-export async function getEntries(kind: ContentKind, limit = 9, page = 1, locale?: Locale) {
+export async function getEntries(
+  kind: ContentKind,
+  limit = siteConfig.contentPageSize,
+  page = 1,
+  locale?: Locale,
+) {
   return (await cms()).find({
     collection: 'entries',
     where: { kind: { equals: kind } },

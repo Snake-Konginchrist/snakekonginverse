@@ -1,4 +1,4 @@
-import { ArrowUpRight, Asterisk } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { SiteSetting } from '@/payload-types';
 import { Link } from '@/i18n/navigation';
@@ -23,10 +23,23 @@ const navKeyByHref: Record<string, string> = {
   ...Object.fromEntries(moreItems.map((item) => [item.href, item.key])),
 };
 
+function FlagMark() {
+  return (
+    <svg className="brand-symbol" viewBox="0 0 32 32" role="img" aria-label="四色旗">
+      <rect width="32" height="32" rx="5" fill="currentColor" />
+      <path d="M2 2h14v14H2z" fill="#176354" />
+      <path d="M16 2h14v14H16z" fill="#254ce5" />
+      <path d="M2 16h14v14H2z" fill="#f1c84b" />
+      <path d="M16 16h14v14H16z" fill="#c94b3f" />
+    </svg>
+  );
+}
+
 /** 原生 details 提供移动导航，无额外客户端状态且支持键盘操作。 */
 export function SiteHeader({ settings }: { settings: SiteSetting }) {
   const t = useTranslations('navigation');
-  const items = settings.navigation ?? [];
+  if (!settings.navigation) throw new Error('Site navigation is not configured');
+  const items = settings.navigation;
   const visibleMoreItems = moreItems.filter(
     (item) => !items.some((candidate) => candidate.href === item.href),
   );
@@ -34,9 +47,7 @@ export function SiteHeader({ settings }: { settings: SiteSetting }) {
   return (
     <header className="site-header shell">
       <Link href="/" className="brand" aria-label={`${settings.brand} 首页`}>
-        <span className="brand-symbol">
-          <Asterisk size={26} strokeWidth={1.5} />
-        </span>
+        <FlagMark />
         <span>{settings.brand}</span>
         <span className="brand-dot">®</span>
       </Link>
@@ -46,16 +57,7 @@ export function SiteHeader({ settings }: { settings: SiteSetting }) {
             {navKeyByHref[item.href] ? t(navKeyByHref[item.href]) : item.label}
           </Link>
         ))}
-        <details className="header-more">
-          <summary>{t('more')}</summary>
-          <div className="header-more-menu">
-            {visibleMoreItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {t(item.key)}
-              </Link>
-            ))}
-          </div>
-        </details>
+        <Link href="/links">{t('links')}</Link>
       </nav>
       <Link className="header-contact" href="/contact">
         {t('keepInTouch')} <ArrowUpRight size={15} />

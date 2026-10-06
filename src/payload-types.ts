@@ -186,7 +186,7 @@ export interface Page {
     | {
         title: string;
         source: 'projects' | 'creations' | 'journal';
-        limit?: number | null;
+        limit: number;
         id?: string | null;
         blockName?: string | null;
         blockType: 'collection';
@@ -581,20 +581,16 @@ export interface SiteSetting {
   author: string;
   description: string;
   accent: 'blue' | 'green' | 'violet';
-  navigation?:
-    | {
-        label: string;
-        href: string;
-        id?: string | null;
-      }[]
-    | null;
-  socials?:
-    | {
-        label: string;
-        href: string;
-        id?: string | null;
-      }[]
-    | null;
+  navigation: {
+    label: string;
+    href: string;
+    id?: string | null;
+  }[];
+  socials: {
+    label: string;
+    href: string;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }

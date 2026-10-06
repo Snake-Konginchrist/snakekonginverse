@@ -1,11 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { cms, kinds } from '@/lib/content';
-import { locales } from '@/i18n/routing';
+import { locales, localizedPath } from '@/i18n/routing';
+import { requiredEnv } from '@/lib/env';
+import siteConfig from '@/config/site.json';
 
 export const dynamic = 'force-dynamic';
 /** 分页遍历而非固定截取，站点增长后仍覆盖全部已发布内容。 */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const origin = requiredEnv('NEXT_PUBLIC_SITE_URL');
   const directoryRoutes = [
     'links',
     'recommendations',
@@ -17,8 +19,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
   const publicRoutes = [...kinds, ...directoryRoutes];
   const result: MetadataRoute.Sitemap = locales.flatMap((locale) => [
-    { url: `${origin}/${locale}` },
-    ...publicRoutes.map((route) => ({ url: `${origin}/${locale}/${route}` })),
+    { url: `${origin}${localizedPath('/', locale)}` },
+    ...publicRoutes.map((route) => ({ url: `${origin}${localizedPath(`/${route}`, locale)}` })),
   ]);
   const payload = await cms();
   for (const collection of ['pages', 'entries'] as const) {
@@ -28,14 +30,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const batch = await payload.find({
         collection,
         page,
-        limit: 100,
+        limit: siteConfig.sitemapPageSize,
         depth: 0,
         overrideAccess: false,
       });
       for (const doc of batch.docs) {
         const pathname = 'path' in doc ? doc.path : `/${doc.kind}/${doc.slug}`;
         for (const locale of locales) {
-          result.push({ url: `${origin}/${locale}${pathname}`, lastModified: doc.updatedAt });
+          result.push({ url: `${origin}${localizedPath(pathname, locale)}`, lastModified: doc.updatedAt });
         }
       }
       more = batch.hasNextPage;
