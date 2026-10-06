@@ -102,6 +102,22 @@ export const profileSocials: DirectoryItem[] = [
     meta: 'x.com/SnakeKongin',
     href: 'https://x.com/SnakeKongin',
   },
+  {
+    key: 'xiaohongshu',
+    translationNamespace: 'socials',
+    title: '小红书',
+    description: '公开主页与视觉记录。',
+    meta: 'XIAOHONGSHU',
+    href: 'https://www.xiaohongshu.com/user/profile/6007fc8a000000000101e9af',
+  },
+  {
+    key: 'bilibili',
+    translationNamespace: 'socials',
+    title: '哔哩哔哩',
+    description: '视频与项目更新。',
+    meta: 'BILIBILI',
+    href: 'https://space.bilibili.com/3461571323889732',
+  },
 ];
 
 export const profileChangelog: DirectoryItem[] = [

@@ -49,9 +49,9 @@ export const socialPlatforms: SocialPlatform[] = [
   {
     key: 'xiaohongshu',
     icon: SiXiaohongshu,
-    href: 'https://www.xiaohongshu.com/user/profile/9429026270',
+    href: 'https://www.xiaohongshu.com/user/profile/6007fc8a000000000101e9af',
   },
-  { key: 'bilibili', icon: SiBilibili },
+  { key: 'bilibili', icon: SiBilibili, href: 'https://space.bilibili.com/3461571323889732' },
   { key: 'weibo', icon: SiSinaweibo },
   { key: 'zhihu', icon: SiZhihu },
   { key: 'douban', icon: SiDouban },

@@ -17,6 +17,11 @@
   ],
   "socials": [
     { "label": "GitHub", "href": "https://github.com/Snake-Konginchrist" },
-    { "label": "X (Twitter)", "href": "https://x.com/SnakeKongin" }
+    { "label": "X (Twitter)", "href": "https://x.com/SnakeKongin" },
+    {
+      "label": "小红书",
+      "href": "https://www.xiaohongshu.com/user/profile/6007fc8a000000000101e9af"
+    },
+    { "label": "哔哩哔哩", "href": "https://space.bilibili.com/3461571323889732" }
   ]
 }
