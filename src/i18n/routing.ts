@@ -14,13 +14,13 @@ export const localeLabels: Record<Locale, string> = {
 export const routing = defineRouting({
   locales,
   defaultLocale: siteConfig.defaultLocale as (typeof locales)[number],
-  localePrefix: 'always',
+  localePrefix: 'never',
 });
 
 export function hasLocale(value: string): value is Locale {
   return locales.some((locale) => locale === value);
 }
 
-export function localizedPath(pathname: string, locale: Locale): string {
-  return pathname === '/' ? `/${locale}` : `${pathname.replace(/\/$/, '')}/${locale}`;
+export function localizedPath(pathname: string, _locale: Locale): string {
+  return pathname || '/';
 }
