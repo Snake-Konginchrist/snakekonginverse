@@ -3,7 +3,7 @@
 ```text
 src/app/(site)/        前台路由、SEO、认证预览
 src/i18n/              next-intl 路由、语言切换与消息加载
-messages/              简体中文、繁体中文、英语、日语消息
+messages/              英语、简体中文、繁体中文、日语、韩语、西班牙语、法语、德语、葡萄牙语、俄语消息
 src/app/(payload)/     官方后台视图和 REST 适配
 src/cms/               集合、权限、字段校验、区块 schema
 src/components/        按职责拆分的展示组件
@@ -36,9 +36,8 @@ Pages 和 Entries 使用 Payload 草稿与版本历史。预览验证请求 Cook
 
 ## 单域名信息架构
 
-前台保持一个域名：`/[locale]` 是带语言前缀的个人介绍首页，`/[locale]/projects`、
-`/[locale]/creations`、`/[locale]/journal` 和 `/[locale]/about`
-是同一站点下的内容页，不拆分子域名或第二套站点。`/links`、`/communities`、`/contact`、
+前台保持一个域名，公开 URL 不带语言前缀；内部根据用户手动选择或浏览器语言匹配到本地化路由，默认英语。`/` 是个人介绍首页，`/projects`、
+`/creations`、`/journal` 和 `/about` 是同一站点下的内容页，不拆分子域名或第二套站点。`/links`、`/communities`、`/contact`、
 `/recommendations`、`/identities`、`/changelog`、`/discussion` 是代码维护的公开资料与社交功能页，
 对应参考站点里的项目链接、推荐资源、社群协作、联系方式、身份、更新记录和讨论入口。首页只承担身份介绍、最新手记和栏目入口；
 项目、研究、角色创作与社交资料分别在对应页面和页脚展开。

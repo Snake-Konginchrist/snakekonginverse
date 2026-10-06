@@ -1,6 +1,6 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-/* 设计令牌是唯一配色入口；后台可切换强调色，无需修改组件。 */
 :root {
   --paper: #f5f2eb;
   --surface: #fbf9f4;
@@ -9,9 +9,9 @@
   --line: #ded9ce;
   --accent: #ad1421;
   --accent-soft: #f4e5df;
-  --font-body: 'Songti SC', 'Noto Serif CJK SC', 'SimSun', Georgia, serif;
-  --font-display: 'Songti SC', 'Noto Serif CJK SC', 'SimSun', Georgia, serif;
-  --font-mono: 'SFMono-Regular', Consolas, monospace;
+  --font-body: 'Google Sans Variable', 'Noto Serif SC Variable', serif;
+  --font-display: 'Google Sans Variable', 'Noto Serif SC Variable', serif;
+  --font-mono: 'Google Sans Variable', sans-serif;
 }
 [data-theme='dark'] {
   --paper: #191a18;
@@ -22,128 +22,71 @@
   --accent-soft: #44292a;
   --accent: #ed7b73;
 }
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 28px;
-}
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-button {
-  font: inherit;
-  cursor: pointer;
-}
-button,
-summary,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-::selection {
-  background: var(--accent);
-  color: white;
-}
-:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 5px;
-  border-radius: 3px;
-}
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-}
-.shell {
-  width: min(1200px, calc(100% - 96px));
-  margin-inline: auto;
-}
-.section {
-  padding-block: 64px;
-}
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  line-height: 1.8;
-}
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  min-height: 48px;
-  padding: 14px 23px;
-  border: 1px solid transparent;
-  border-radius: 7px;
-  font-size: 14px;
-  font-weight: 600;
-  transition:
-    background 0.2s,
-    transform 0.2s;
-}
-.button-primary {
-  background: var(--accent);
-  color: #fff;
-}
-.button-primary:hover {
-  filter: brightness(0.92);
-  transform: translateY(-2px);
-}
-.text-link {
-  display: inline-flex;
-  gap: 14px;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 500;
-}
-.text-link:hover {
-  color: var(--accent);
-}
-.skip-link {
-  position: fixed;
-  top: -100px;
-  left: 20px;
-  z-index: 100;
-  padding: 12px;
-  background: var(--ink);
-  color: white;
-}
-.skip-link:focus {
-  top: 12px;
-}
-@media (max-width: 760px) {
-  .shell {
-    width: calc(100% - 40px);
+@layer base {
+  * {
+    box-sizing: border-box;
   }
-  .section {
-    padding-block: 40px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    scroll-padding-top: 28px;
   }
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    animation: none !important;
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
   }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+  button,
+  summary,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 5px;
+    border-radius: 3px;
+  }
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+html[lang='zh-TW'] {
+  --font-body: 'Google Sans Variable', 'Noto Serif TC Variable', serif;
+  --font-display: 'Google Sans Variable', 'Noto Serif TC Variable', serif;
+}
+html[lang='ja'] {
+  --font-body: 'Google Sans Variable', 'Noto Serif JP Variable', serif;
+  --font-display: 'Google Sans Variable', 'Noto Serif JP Variable', serif;
 }

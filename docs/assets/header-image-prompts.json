@@ -1,0 +1,13 @@
+{
+  "generator": "Built-in image_gen",
+  "identityReference": "public/images/hero.jpg",
+  "layoutReference": "彩旗主题作品集网站概念图.png",
+  "constraints": "Preserve pale cream earth pony, wavy dark-purple mane and tail, sky-blue eyes, black rectangular glasses, green-blue/yellow-red four-square flank insignia. No horn, wings, embedded text, UI or content-card assets. Ultra-wide 3:1 illustration.",
+  "prompts": {
+    "practice": "Practice page: this exact pony is seated at a wooden work desk on the LEFT 42% of a wide panorama, thoughtfully working on a laptop with its forehooves resting naturally on the desk, cozy plant-filled studio, tall windows with Shanghai skyline, books and warm afternoon sunlight. Match top-middle concept panel composition: scene and character on left, quieter shaded room on right 45% for overlaid website text.",
+    "research": "Inquiry/research page: this exact pony is on the RIGHT 40% of a wide panorama in a scholarly observatory study at blue hour, facing LEFT toward a telescope and chalkboard, bookshelves, scientific notes without legible text, warm brass desk lamp, Shanghai city lights outside tall windows, deep navy and warm amber light. Match top-right concept panel composition, preserve quieter shadowed LEFT 45% for text.",
+    "creations": "Creations page: this exact pony leans over an open sketchbook at a wooden art desk in the LEFT 42% of a wide panorama, forehooves on paper, three-quarter face toward viewer with thoughtful gentle expression, art studio with sketches pinned to walls, drawing supplies and an easel, warm lamplight mixed with dusk through window. Match bottom-left concept panel, quieter dark RIGHT 45% for text.",
+    "journal": "Journal page: this exact pony sits at a wooden writing desk on LEFT 42% of a wide panorama, looking down thoughtfully at an open journal, pen resting on paper and a cup nearby, warm table lamp and books; through a large window golden sunset over Shanghai skyline and river. Match bottom-middle concept panel composition, quieter darker RIGHT 45% for text.",
+    "about": "About page: this exact pony in gentle right-facing profile stands on LEFT 38% of a wide panorama, its long wavy purple mane moving in breeze, four-colour flag behind left edge, golden Shanghai city skyline, river and luminous sunset sky spanning center to right. Match bottom-right concept panel composition, leave RIGHT 45% as calm bright cream-gold sky for dark website text."
+  }
+}

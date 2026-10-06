@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest as NextRequestType } from 'next/server';
 import { hasLocale, locales, routing } from './i18n/routing';
+import { detectLocale } from './i18n/detect-locale';
 
 /** 公开 URL 不显示语言；内部根据用户选择重写到 [locale] 路由，后台/API/静态资源保持原路径。 */
 export default function proxy(request: NextRequestType) {
@@ -24,8 +25,10 @@ export default function proxy(request: NextRequestType) {
 
   const selectedLocale = request.cookies.get('NEXT_LOCALE')?.value;
   const locale =
-    selectedLocale && hasLocale(selectedLocale) ? selectedLocale : routing.defaultLocale;
-  const internal = request.nextUrl.clone();
+    selectedLocale && hasLocale(selectedLocale)
+      ? selectedLocale
+      : detectLocale(request.headers.get('accept-language'), routing.defaultLocale);
+  const internal = new URL(request.url);
   internal.pathname = `/${locale}${pathname === '/' ? '' : pathname}`;
   const headers = new Headers(request.headers);
   headers.set('X-NEXT-INTL-LOCALE', locale);

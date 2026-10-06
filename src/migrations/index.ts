@@ -1,6 +1,10 @@
 import * as migration_20260922_061141_initial from './20260922_061141_initial';
 import * as migration_20261006_062902_localized_content from './20261006_062902_localized_content';
 import * as migration_20261006_082543 from './20261006_082543';
+import * as migration_20261006_120655_localized_settings from './20261006_120655_localized_settings';
+import * as migration_20261006_120907_localized_defaults from './20261006_120907_localized_defaults';
+import * as migration_20261006_122433_research_section from './20261006_122433_research_section';
+import * as migration_20261006_220000_common_locales from './20261006_220000_common_locales';
 
 export const migrations = [
   {
@@ -16,6 +20,26 @@ export const migrations = [
   {
     up: migration_20261006_082543.up,
     down: migration_20261006_082543.down,
-    name: '20261006_082543'
+    name: '20261006_082543',
+  },
+  {
+    up: migration_20261006_120655_localized_settings.up,
+    down: migration_20261006_120655_localized_settings.down,
+    name: '20261006_120655_localized_settings',
+  },
+  {
+    up: migration_20261006_120907_localized_defaults.up,
+    down: migration_20261006_120907_localized_defaults.down,
+    name: '20261006_120907_localized_defaults',
+  },
+  {
+    up: migration_20261006_122433_research_section.up,
+    down: migration_20261006_122433_research_section.down,
+    name: '20261006_122433_research_section',
+  },
+  {
+    up: migration_20261006_220000_common_locales.up,
+    down: migration_20261006_220000_common_locales.down,
+    name: '20261006_220000_common_locales',
   },
 ];

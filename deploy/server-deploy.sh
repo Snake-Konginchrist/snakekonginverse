@@ -82,8 +82,8 @@ fi
 ln -s -- "$release" "$root/current-next"
 mv -Tf -- "$root/current-next" "$root/current"
 sudo -n /usr/bin/systemctl start "$service"
-health_base="${health%/*}"
-health_paths=("${health##*/}" "projects/zh-CN" "contact/zh-CN" "links/zh-CN")
+health_base="http://127.0.0.1:$(node -e 'console.log(new URL(process.argv[1]).port)' "$health")"
+health_paths=("" "projects" "research" "about")
 for attempt in {1..30}; do
   healthy=1
   if ! systemctl is-active --quiet "$service"; then
@@ -91,7 +91,10 @@ for attempt in {1..30}; do
   else
     for health_path in "${health_paths[@]}"; do
       status=$(curl --silent --show-error --max-time 5 --output /dev/null --write-out '%{http_code}' "$health_base/$health_path") || status=000
-      [[ $status == 200 ]] || healthy=0
+      if [[ $status != 200 ]]; then
+        healthy=0
+        echo "健康检查未通过：/$health_path HTTP $status" >&2
+      fi
     done
   fi
   if (( healthy )); then
@@ -101,4 +104,6 @@ for attempt in {1..30}; do
   sleep 2
 done
 echo '新版本未通过健康检查，部署标记为失败。' >&2
+systemctl status "$service" --no-pager || true
+journalctl -u "$service" -n 40 --no-pager || true
 exit 1

@@ -1,0 +1,285 @@
+{
+  "checkedOn": "2026-10-06",
+  "policy": "邮箱固定第一，中国平台在前、国际平台在后。组内按最新可核实公开用户规模数值降序；允许月活、周活、日活、注册会员、覆盖用户或订阅数量，不做口径换算。每项记录口径、日期和来源，此排序只用于站点展示，不代表统一口径的行业排名；未核实用户数的放组末。",
+  "platforms": [
+    {
+      "key": "wechat",
+      "group": "china",
+      "period": "2026-Q2",
+      "source": "https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf",
+      "note": "微信与 WeChat 合并月活账号。",
+      "userCount": 1439000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "weibo",
+      "group": "china",
+      "period": "2026-06",
+      "source": "https://www.sec.gov/Archives/edgar/data/1595761/000110465926098504/tm2623262d1_ex99-1.htm",
+      "note": "",
+      "userCount": 561000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "qq",
+      "group": "china",
+      "period": "2026-Q2",
+      "source": "https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf",
+      "note": "移动端 QQ 月活账号。",
+      "userCount": 520000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "bilibili",
+      "group": "china",
+      "period": "2026-Q2",
+      "source": "https://www.sec.gov/Archives/edgar/data/1723690/000119312526371261/d434015dex991.htm",
+      "note": "",
+      "userCount": 371000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "xiaohongshu",
+      "group": "china",
+      "period": "2024-12",
+      "source": "https://www.roifestival.com/ueditor/upload/file/2025/12/18/1766024965114081898.pdf",
+      "note": "小红书与金投赏合作年度报告，披露超过 3.5 亿。",
+      "userCount": 350000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "zhihu",
+      "group": "china",
+      "period": "2026-09",
+      "source": "https://appinchina.co/market/social-media-apps/",
+      "note": "AppInChina 最新中国社交平台指数的月活估计，属于第三方统计。",
+      "userCount": 70793000,
+      "metric": "monthlyActiveUsersChinaEstimate"
+    },
+    {
+      "key": "facebook",
+      "group": "international",
+      "period": "2023-Q4",
+      "source": "https://investor.atmeta.com/investor-news/press-release-details/2024/Meta-Reports-Fourth-Quarter-and-Full-Year-2023-Results-Initiates-Quarterly-Dividend/default.aspx",
+      "note": "最后可核实的官方单平台月活披露；2026 财报公布家族日活，不能用它替代 Facebook 月活。该旧披露不代表 2026 年实测人数。",
+      "userCount": 3070000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "instagram",
+      "group": "international",
+      "period": "2025-09",
+      "source": "https://www.investing.com/news/stock-market-news/meta-ceo-zuckerberg-says-instagram-has-grown-to-3-billion-monthly-active-users-4253781",
+      "note": "Reuters 报道 Zuckerberg 公告。",
+      "userCount": 3000000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "youtube",
+      "group": "international",
+      "period": "2019-05",
+      "source": "https://www.techradar.com/news/over-2-billion-youtube-users-are-logged-in-and-watching-every-month",
+      "note": "最后核实到的精确官方月登录用户下限；2025 官方只称 billions of monthly viewers，未给精确总数。广告覆盖与移动 app 月活不替代全平台月活。",
+      "userCount": 2000000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "tiktok",
+      "group": "international",
+      "period": "2021-09",
+      "source": "https://newsroom.tiktok.com/1-billion-people-on-tiktok?lang=en",
+      "note": "最后核实到的官方精确全球月活下限；当前区域披露不等于全球，第三方估计口径差异较大，未当作官方月活。",
+      "userCount": 1000000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "telegram",
+      "group": "international",
+      "period": "2025",
+      "source": "https://www.telegram.org/press",
+      "note": "官方公告超过 10 亿。",
+      "userCount": 1000000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "snapchat",
+      "group": "international",
+      "period": "2026-Q2",
+      "source": "https://investor.snap.com/overview/default.aspx",
+      "note": "",
+      "userCount": 971000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "pinterest",
+      "group": "international",
+      "period": "2026-Q2",
+      "source": "https://www.nasdaq.com/press-release/pinterest-announces-second-quarter-2026-results-delivers-18-revenue-growth-and-record",
+      "note": "公司发布的季度业绩公告。",
+      "userCount": 640000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "x",
+      "group": "international",
+      "period": "2026-03-31",
+      "source": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026040610/spacexfwp.htm",
+      "note": "最新 SEC 披露：X 与 Grok 合计、尽量去重的注册月活用户；不是 X 单独月活。单平台最新数字未单列，采用该合计作为近似排序依据。",
+      "userCount": 550000000,
+      "metric": "monthlyActiveUsersXAndGrok"
+    },
+    {
+      "key": "threads",
+      "group": "international",
+      "period": "2026-06",
+      "source": "https://about.fb.com/news/2026/06/meta-launching-new-features-500-million-monthly-threads-users/",
+      "note": "",
+      "userCount": 500000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "reddit",
+      "group": "international",
+      "period": "2026-Q2",
+      "source": "https://investor.redditinc.com/news-events/news-releases/news-details/2026/Reddit-Reports-Second-Quarter-2026-Results/default.aspx",
+      "note": "全球周活；同季日活 1.303 亿，采用覆盖更广的周活披露，不转换成月活。",
+      "userCount": 514600000,
+      "metric": "weeklyActiveUsers"
+    },
+    {
+      "key": "discord",
+      "group": "international",
+      "period": "2026-02-09",
+      "source": "https://discord.com/press-releases/discord-launches-teen-by-default-settings-globally",
+      "note": "2026 年官方公告：超过 2 亿月活。",
+      "userCount": 200000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "steam",
+      "group": "international",
+      "period": "2021",
+      "source": "https://partner.steamgames.com/",
+      "note": "官网保留的历史全球月活。",
+      "userCount": 132000000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "kakaotalk",
+      "group": "international",
+      "period": "2026-Q2",
+      "source": "https://uk.investing.com/news/company-news/kakao-q2-2026-slides-record-revenue-operating-profit-surge-36-93CH-4813460",
+      "note": "最新季度业绩演示报道的全球月活；包括韩国。",
+      "userCount": 55300000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "mastodon",
+      "group": "international",
+      "period": "2026-08-25",
+      "source": "https://joinmastodon.org/servers",
+      "note": "可访问服务器网络的月活统计。",
+      "userCount": 671000,
+      "metric": "monthlyActiveUsers"
+    },
+    {
+      "key": "douban",
+      "group": "china",
+      "period": "2026-09",
+      "source": "https://appinchina.co/market/social-media-apps/",
+      "note": "AppInChina 最新中国社交平台指数的月活估计，属于第三方统计。",
+      "userCount": 8744600,
+      "metric": "monthlyActiveUsersChinaEstimate"
+    },
+    {
+      "key": "gitee",
+      "group": "china",
+      "period": "2026-09-17",
+      "source": "https://blog.gitee.com/2026/09/17/gitee-moark-ai-2acwao/",
+      "note": "官方博客转述董事长披露的超过 2000 万注册用户。",
+      "userCount": 20000000,
+      "metric": "registeredUsers"
+    },
+    {
+      "key": "github",
+      "group": "international",
+      "period": "2026-07-29",
+      "source": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+      "note": "Microsoft FY2026 Q4 电话会披露的 GitHub 用户总数。",
+      "userCount": 225000000,
+      "metric": "registeredUsers"
+    },
+    {
+      "key": "linkedin",
+      "group": "international",
+      "period": "2026-04-21",
+      "source": "https://news.linkedin.com/2026/leadership-news",
+      "note": "官方公告：超过 13 亿会员。",
+      "userCount": 1300000000,
+      "metric": "registeredMembers"
+    },
+    {
+      "key": "bluesky",
+      "group": "international",
+      "period": "2026-03-19",
+      "source": "https://bsky.social/about/blog",
+      "note": "官方 Series B 公告：超过 4300 万全球用户。",
+      "userCount": 43000000,
+      "metric": "registeredUsers"
+    },
+    {
+      "key": "twitch",
+      "group": "international",
+      "period": null,
+      "source": null,
+      "note": "尚未核实带可靠来源的最新用户规模；不以访问次数冒充用户数。",
+      "userCount": null,
+      "metric": null
+    },
+    {
+      "key": "medium",
+      "group": "international",
+      "period": "披露未标注日期；核查于 2026-10-06",
+      "source": "https://api.medium.com/about",
+      "note": "官方关于页：每月超过 1 亿读者/用户。",
+      "userCount": 100000000,
+      "metric": "monthlyReaders"
+    },
+    {
+      "key": "devto",
+      "group": "international",
+      "period": "2026-10-06",
+      "source": "https://dev.to/",
+      "note": "官网社区成员计数，核查当天快照。",
+      "userCount": 4132928,
+      "metric": "communityMembers"
+    },
+    {
+      "key": "substack",
+      "group": "international",
+      "period": "披露未标注日期；核查于 2026-10-06",
+      "source": "https://substack.com/about",
+      "note": "官方关于页的超过 500 万付费订阅；同一人可能多次订阅，非去重用户数。",
+      "userCount": 5000000,
+      "metric": "paidSubscriptions"
+    },
+    {
+      "key": "line",
+      "group": "international",
+      "period": "2026-03",
+      "source": "https://www.lycbiz.com/jp/service/line-ads/",
+      "note": "日本月活超过 1 亿；仅日本，不代表全球总人数。",
+      "userCount": 100000000,
+      "metric": "monthlyActiveUsersJapan"
+    },
+    {
+      "key": "niconico",
+      "group": "international",
+      "period": null,
+      "source": null,
+      "note": "尚未核实最新用户或会员总数。",
+      "userCount": null,
+      "metric": null
+    }
+  ]
+}

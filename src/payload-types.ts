@@ -94,15 +94,15 @@ export interface Config {
     | ('false' | 'none' | 'null')
     | false
     | null
-    | ('zh-CN' | 'zh-TW' | 'en' | 'ja')
-    | ('zh-CN' | 'zh-TW' | 'en' | 'ja')[];
+    | ('en' | 'zh-CN' | 'zh-TW' | 'ja' | 'ko' | 'es' | 'fr' | 'de' | 'pt' | 'ru')
+    | ('en' | 'zh-CN' | 'zh-TW' | 'ja' | 'ko' | 'es' | 'fr' | 'de' | 'pt' | 'ru')[];
   globals: {
     'site-settings': SiteSetting;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
-  locale: 'zh-CN' | 'zh-TW' | 'en' | 'ja';
+  locale: 'en' | 'zh-CN' | 'zh-TW' | 'ja' | 'ko' | 'es' | 'fr' | 'de' | 'pt' | 'ru';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -185,7 +185,7 @@ export interface Page {
       }
     | {
         title: string;
-        source: 'projects' | 'creations' | 'journal';
+        source: 'projects' | 'research' | 'creations' | 'journal';
         limit: number;
         id?: string | null;
         blockName?: string | null;
@@ -236,7 +236,7 @@ export interface Entry {
   id: number;
   title: string;
   slug: string;
-  kind: 'projects' | 'creations' | 'journal';
+  kind: 'projects' | 'research' | 'creations' | 'journal';
   summary: string;
   cover?: (number | null) | Media;
   tags?:

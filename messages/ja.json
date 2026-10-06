@@ -1,20 +1,18 @@
 {
   "navigation": {
     "home": "ホーム",
-    "projects": "プロジェクト",
+    "projects": "実践",
     "creations": "創作",
-    "journal": "ノート",
-    "about": "概要",
-    "links": "リンクと仕事",
+    "journal": "記録",
+    "about": "紹介",
     "recommendations": "リソース",
     "communities": "コミュニティ",
-    "contact": "連絡先",
+    "contact": "連絡",
     "identities": "プロフィール",
-    "changelog": "更新履歴",
     "discussion": "公開ディスカッション",
     "more": "その他",
-    "keepInTouch": "つながる",
-    "menu": "メニュー"
+    "menu": "メニュー",
+    "research": "探究"
   },
   "common": {
     "skipToContent": "本文へ移動",
@@ -25,16 +23,28 @@
     "next": "次へ",
     "viewAll": "すべて見る",
     "visitWork": "プロジェクトを見る",
-    "latest": "LATEST FROM THE VERSE",
-    "explore": "EXPLORE",
-    "waysIn": "A FEW WAYS IN",
-    "language": "言語"
+    "latest": "最新の記録",
+    "explore": "探索",
+    "waysIn": "ここから始める",
+    "language": "言語",
+    "open": "開く",
+    "homeLabel": "{brand} ホーム",
+    "flagAlt": "四色旗",
+    "mainNavigation": "メインナビゲーション",
+    "mobileNavigation": "モバイルナビゲーション",
+    "pagination": "コンテンツのページ切り替え",
+    "notFoundTitle": "ページが見つかりません",
+    "brandTagline": "思想 / プロダクト / 創作 / より明るい明日へ。",
+    "products": "実践",
+    "creations": "創作",
+    "journal": "記録",
+    "research": "探究"
   },
   "footer": {
-    "eyebrow": "LET’S CONNECT",
+    "eyebrow": "連絡する",
     "headline": "何かを作っているなら、話しましょう。",
     "empty": "連絡先は準備中です。まずはこの小さな宇宙を見ていってください。",
-    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+    "signature": "役立つものを作り、想像を忘れずに。"
   },
   "hero": {
     "about": "自分について",
@@ -42,119 +52,44 @@
   },
   "portals": {
     "aria": "個人コンテンツへの入口",
-    "products": "プロダクトと実験",
-    "productsEnglish": "PRODUCTS & RESEARCH",
-    "productsDescription": "モバイルプロダクト、AIツール、研究プロジェクト。",
+    "products": "実践",
+    "productsEnglish": "プロダクトと研究",
+    "productsDescription": "プロダクト、起業プロジェクト、個人開発。アイデアを現実へ、公開済みの作品から構築中のプロジェクトまで。",
     "creations": "キャラクターと物語",
-    "creationsEnglish": "CHARACTERS & STORIES",
+    "creationsEnglish": "キャラクターと物語",
     "creationsDescription": "ファン作品、キャラクター、成長中の想像力。",
-    "journal": "記録と思索",
-    "journalEnglish": "NOTES & OBSERVATIONS",
-    "journalDescription": "開発メモ、ツールの観察、日々の考え。",
-    "journalArt": "Note to self.",
+    "journal": "記録",
+    "journalEnglish": "記録と観察",
+    "journalDescription": "記事、エッセイ、研究ノート、起業の振り返り。形になりつつある考えと、実践が理解をどう変えるかを記録します。",
+    "journalArt": "自分へのメモ。",
     "creationsArt": "もうひとつの世界",
     "productsArt": "'{ idea → real }'"
   },
   "archive": {
-    "explore": "EXPLORE THE VERSE / {kind}",
+    "explore": "この世界を探索 / {kind}",
     "intro": "丁寧に作ったものと、残しておきたい考え。",
-    "emptyTitle": "物語は準備中です。",
+    "emptyTitle": "記録は準備中です。",
     "emptyDescription": "まだ公開されたコンテンツはありません。次の訪問で新しい発見があるかもしれません。",
-    "emptyMark": "TO BE CONTINUED ↗"
+    "emptyMark": "つづく ↗"
   },
   "errors": {
-    "connectionEyebrow": "CONNECTION INTERRUPTED",
+    "connectionEyebrow": "接続が中断されました",
     "connectionTitle": "接続できませんでした。",
     "connectionDescription": "コンテンツを読み込めません。一度あとでお試しください。",
     "retry": "再読み込み",
-    "notFoundEyebrow": "404 / OUTSIDE THE ORBIT",
+    "notFoundEyebrow": "404 / 軌道の外",
     "notFoundTitle": "この宇宙にはまだ座標がありません。",
     "notFoundDescription": "ページが公開されていないか、移動した可能性があります。"
   },
   "preview": {
-    "banner": "下書きプレビュー · 管理者のみ表示 · 編集画面に戻るにはこのページを閉じてください"
+    "banner": "下書きプレビュー · 管理者のみ表示 · 編集画面に戻るにはこのページを閉じてください",
+    "title": "下書きプレビュー"
   },
   "contentKinds": {
-    "projects": "プロジェクト",
+    "projects": "実践",
     "creations": "創作",
-    "journal": "ノート"
-  },
-  "directory": {
-    "links": {
-      "eyebrow": "LINKS & WORK",
-      "title": "作っているもの。",
-      "description": "公開中のプロダクト、プロジェクト、コードを一つのドメインにまとめています。",
-      "products": {
-        "eyebrow": "MY PRODUCTS",
-        "title": "進行中のプロダクト",
-        "description": "確認できる公開プロダクトをここに掲載しています。詳細ページはCMSで管理します。"
-      },
-      "publicWork": {
-        "eyebrow": "PUBLIC WORK",
-        "title": "コードと公開資料",
-        "description": "ソースコード、実験、研究記録はGitHubから辿れます。"
-      }
-    },
-    "recommendations": {
-      "eyebrow": "RECOMMENDATIONS & RESOURCES",
-      "title": "役に立つリンクを残す。",
-      "description": "このサイトで実際に使っている公開ツールとドキュメントから始めます。",
-      "tools": {
-        "eyebrow": "TOOLS & REFERENCES",
-        "title": "ここで使っている公開ツール",
-        "description": "実際に使っている、または直接関係する資料を記録しています。"
-      }
-    },
-    "communities": {
-      "eyebrow": "COMMUNITIES & COLLABORATION",
-      "title": "一緒に作る。",
-      "description": "現在の公開入口はプロジェクトリポジトリとソーシャルプラットフォームです。",
-      "collaboration": {
-        "eyebrow": "COLLABORATION",
-        "title": "コミュニティと協働",
-        "description": "公開で確認できる協働方法だけを掲載しています。存在しないグループは作りません。"
-      }
-    },
-    "contact": {
-      "eyebrow": "CONTACT",
-      "title": "つながる。",
-      "description": "プロダクト、AI、研究、協働については、以下の公開チャンネルから連絡できます。",
-      "channels": {
-        "eyebrow": "PUBLIC CHANNELS",
-        "title": "公開チャンネル",
-        "description": "公開プロフィールへのリンクです。存在しないメールやプライベートグループは掲載しません。"
-      }
-    },
-    "identities": {
-      "eyebrow": "IDENTITIES",
-      "title": "一人の人、いくつかの入口。",
-      "description": "個人名、サイトブランド、各プラットフォームのアカウントをまとめています。",
-      "names": {
-        "eyebrow": "IDENTITIES",
-        "title": "使っている名前",
-        "description": "各プラットフォームで同じ公開アイデンティティを使っています。"
-      }
-    },
-    "changelog": {
-      "eyebrow": "CHANGELOG",
-      "title": "この小さな宇宙の変化。",
-      "description": "サイトの構成、公開セクション、編集方針の変更を記録します。",
-      "releases": {
-        "eyebrow": "RELEASES",
-        "title": "バージョン履歴",
-        "description": "このサイトの変更履歴です。プロダクトのリリースノートとは別です。"
-      }
-    },
-    "discussion": {
-      "eyebrow": "PUBLIC DISCUSSION",
-      "title": "考えを公開する。",
-      "description": "現在の公開ディスカッションはGitHubとXで行っています。",
-      "join": {
-        "eyebrow": "JOIN THE CONVERSATION",
-        "title": "公開の会話に参加する",
-        "description": "プロジェクトの協働はGitHub、開発メモや短い考えはXからどうぞ。"
-      }
-    }
+    "journal": "記録",
+    "research": "探究"
   },
   "socials": {
     "email": {
@@ -173,32 +108,178 @@
       "meta": "x.com/SnakeKongin"
     },
     "pending": "リンクを設定",
-    "configured": "設定済み"
+    "configured": "設定済み",
+    "xiaohongshu": {
+      "title": "RED（小紅書）",
+      "description": "公開プロフィールとビジュアル記録。",
+      "meta": "XIAOHONGSHU"
+    },
+    "bilibili": {
+      "title": "bilibili",
+      "description": "動画とプロジェクトの更新。",
+      "meta": "BILIBILI"
+    },
+    "weibo": {
+      "title": "Weibo（微博）",
+      "description": "公開の近況と短い投稿。",
+      "meta": "WEIBO"
+    },
+    "zhihu": {
+      "title": "Zhihu（知乎）",
+      "description": "長文の質問、回答、考察。",
+      "meta": "ZHIHU"
+    },
+    "douban": {
+      "title": "Douban（豆瓣）",
+      "description": "本、映画、個人の趣味。",
+      "meta": "DOUBAN"
+    },
+    "wechat": {
+      "title": "WeChat",
+      "description": "直接連絡できるプロフィール。",
+      "meta": "WECHAT"
+    },
+    "qq": {
+      "title": "QQ",
+      "description": "直接連絡できるプロフィール。",
+      "meta": "QQ"
+    },
+    "youtube": {
+      "title": "YouTube",
+      "description": "動画とプロジェクトの更新。",
+      "meta": "YOUTUBE"
+    },
+    "instagram": {
+      "title": "Instagram",
+      "description": "ビジュアル記録と日々の暮らし。",
+      "meta": "INSTAGRAM"
+    },
+    "facebook": {
+      "title": "Facebook",
+      "description": "公開プロフィールと近況。",
+      "meta": "FACEBOOK"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "短い動画と実験。",
+      "meta": "TIKTOK"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "description": "仕事のプロフィールと協業。",
+      "meta": "LINKEDIN"
+    },
+    "reddit": {
+      "title": "Reddit",
+      "description": "コミュニティの議論と趣味。",
+      "meta": "REDDIT"
+    },
+    "discord": {
+      "title": "Discord",
+      "description": "コミュニティでの交流と共同作業。",
+      "meta": "DISCORD"
+    },
+    "telegram": {
+      "title": "Telegram",
+      "description": "チャンネルと直接の連絡。",
+      "meta": "TELEGRAM"
+    },
+    "threads": {
+      "title": "Threads",
+      "description": "短い考えの共有。",
+      "meta": "THREADS"
+    },
+    "bluesky": {
+      "title": "Bluesky",
+      "description": "短い考えの共有。",
+      "meta": "BLUESKY"
+    },
+    "mastodon": {
+      "title": "Mastodon",
+      "description": "分散型 SNS のプロフィール。",
+      "meta": "MASTODON"
+    },
+    "twitch": {
+      "title": "Twitch",
+      "description": "ライブ配信と実験。",
+      "meta": "TWITCH"
+    },
+    "steam": {
+      "title": "Steam",
+      "description": "ゲームとコミュニティのプロフィール。",
+      "meta": "STEAM"
+    },
+    "gitee": {
+      "title": "Gitee",
+      "description": "コードと中国語圏のオープンソース活動。",
+      "meta": "GITEE"
+    },
+    "medium": {
+      "title": "Medium",
+      "description": "長文の記事とノート。",
+      "meta": "MEDIUM"
+    },
+    "devto": {
+      "title": "DEV Community",
+      "description": "開発者の記事と議論。",
+      "meta": "DEV.TO"
+    },
+    "substack": {
+      "title": "Substack",
+      "description": "長文のノートとニュースレター。",
+      "meta": "SUBSTACK"
+    },
+    "line": {
+      "title": "LINE",
+      "description": "直接連絡できるプロフィール。",
+      "meta": "LINE"
+    },
+    "kakaotalk": {
+      "title": "KakaoTalk",
+      "description": "直接連絡できるプロフィール。",
+      "meta": "KAKAOTALK"
+    },
+    "niconico": {
+      "title": "ニコニコ",
+      "description": "動画とクリエイターのプロフィール。",
+      "meta": "NICONICO"
+    },
+    "snapchat": {
+      "title": "Snapchat",
+      "description": "写真や動画を共有するプロフィール。",
+      "meta": "SNAPCHAT"
+    },
+    "pinterest": {
+      "title": "Pinterest",
+      "description": "ビジュアル資料とコレクション。",
+      "meta": "PINTEREST"
+    }
   },
   "socialMatrix": {
-    "eyebrow": "SOCIAL MATRIX",
+    "eyebrow": "SNS 一覧",
     "title": "いつものプラットフォームで見つけてください。",
     "description": "確認済みのアカウントは直接開き、その他は本物のプロフィールリンクを設定するための枠を残しています。"
   },
   "cms": {
     "home": {
-      "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
+      "heroEyebrow": "個人開発者 / SK STUDIO",
       "heroTitle": "プロダクトを作り、\n少しの驚きも残す。",
-      "heroDescription": "Snake Konginchristです。モバイルプロダクト、AIツール、研究プロジェクトを作っています。\nここには進行中のものと、好奇心を保つ問いを記録します。",
+      "heroDescription": "プロダクトの開発、研究、そして文章や創作。\nアイデアが作品になるまでの過程と、実践の中で出会う問いを記録します。",
       "heroLink": "作っているものを見る",
       "collectionTitle": "最新のノート",
       "portalsTitle": "ここから始める",
       "portalsDescription": "プロジェクト、創作、ノート。"
     },
     "about": {
-      "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
-      "heroTitle": "プロダクトを作り、\n研究もする。",
-      "heroDescription": "Snake Konginchristです。SK StudioでモバイルプロダクトとAIツールを作り、分散最適化も研究しています。\nこれは仕事の外側にある個人の記録です。",
+      "heroEyebrow": "個人開発者 / 研究者",
+      "heroTitle": "人物、価値観、経験",
+      "heroDescription": "プロダクトを開発し、分散最適化を研究し、文章や創作にも取り組んでいます。\nアイデア、実践、考察を記録します。",
       "heroLink": "プロダクトを見る",
-      "statementEyebrow": "WHAT I AM WORKING ON",
+      "statementEyebrow": "取り組んでいること",
       "statementTitle": "複雑なものを、人が使いたいものに変える。",
-      "statementDescription": "モバイルプロダクト、AIとエージェントツール、研究実験、そしてキャラクターと物語のための余白を作っています。"
-    }
+      "statementDescription": "法則を理解し、プロダクトを作り、文章と想像で可能性を探ります。それぞれの道が交わる過程を記録します。"
+    },
+    "siteDescription": "個人開発者 Snake Konginchrist のプロダクト、研究、個人の記録。"
   },
   "ideal": {
     "eyebrow": "四色の旗のもとに",
@@ -218,6 +299,86 @@
     "principle1": "世界を知ることは、行動の自由を得ること。",
     "principle2": "プロダクトを創ることは、思想を現実にすること。",
     "principle3": "文章と想像は、まだ存在しない世界を映し出す。",
-    "signature": "真理 · 探究 · 変革"
+    "signature": "真理 · 探究 · 変革",
+    "researchDescription": "論文、研究プロジェクト、技術の探究。",
+    "researchArt": "問いから始める"
+  },
+  "theme": {
+    "toLight": "ライトテーマに切り替える",
+    "toDark": "ダークテーマに切り替える",
+    "light": "ライトテーマ",
+    "dark": "ダークテーマ"
+  },
+  "pageTitles": {
+    "home": "ホーム",
+    "projects": "実践",
+    "creations": "創作",
+    "journal": "記録",
+    "about": "紹介",
+    "research": "探究"
+  },
+  "sections": {
+    "projects": {
+      "description": "プロダクト、起業プロジェクト、個人開発。アイデアを現実へ、公開済みの作品から構築中のプロジェクトまで。",
+      "question": "何を実現したのか？"
+    },
+    "research": {
+      "description": "研究分野、技術の探究、論文、研究プロジェクト。問い、方法、発見を記録します。",
+      "question": "何を研究しているのか？"
+    },
+    "creations": {
+      "description": "Waving Flag、Celynn Moonlight、ビジュアルデザインと世界観。想像に形を与え、まだ存在しない世界への入口を作ります。",
+      "question": "どんな世界を創っているのか？"
+    },
+    "journal": {
+      "description": "記事、エッセイ、研究ノート、起業の振り返り。形になりつつある考えと、実践が理解をどう変えるかを記録します。",
+      "question": "何を考えているのか？"
+    }
+  },
+  "narrative": {
+    "selectedTitle": "代表的な作品",
+    "selectedDescription": "実際に使えるプロダクトから、アイデアが現実になる過程をたどります。",
+    "recentTitle": "最近の記録",
+    "recentDescription": "実践、探究、創作、思索の最新の記録。",
+    "researchTitle": "研究分野",
+    "researchDirection": "分散最適化",
+    "researchDescription": "分散システムにおける最適化を、問題の定式化、アルゴリズム、実験を通じて探究します。",
+    "aboutTitle": "人物、価値観、経験",
+    "aboutDescription": "法則を理解し、プロダクトを作り、文章と想像で可能性を探ります。それぞれの道が交わる過程を記録します。",
+    "allProducts": "すべてのプロダクトを見る",
+    "inquiryDescription": "論文、研究プロジェクト、技術の探究。",
+    "emptyDescription": "この欄にはまだ記事が公開されていません。新しい内容は公開後に表示されます。"
+  },
+  "products": {
+    "flagsay": {
+      "description": "写真、物語、身近なものを通じて言語を学ぶ AI アプリ。",
+      "title": "Flagsay",
+      "meta": "flagsay.com"
+    },
+    "era": {
+      "description": "独自の紀元や日付の呼び方を設定できるアプリ。",
+      "title": "Era Workshop",
+      "meta": "eraworkshop.com"
+    },
+    "gourmet": {
+      "description": "食べた料理や訪れたお店を記録する、個人の食の思い出。",
+      "title": "GourmetLens",
+      "meta": "gourmetlens.cn"
+    },
+    "medtrace": {
+      "description": "オフラインを中心に使える個人の健康タイムライン。",
+      "title": "MedTrace",
+      "meta": "medtrace.skstudio.cn"
+    },
+    "scholar": {
+      "description": "文献レビュー、論文の読解や執筆を支援する AI 研究アシスタント。",
+      "title": "SK Scholar",
+      "meta": "scholar.skstudio.cn"
+    },
+    "mosaic": {
+      "title": "Rectangular Mosaic",
+      "description": "画像の選択した範囲に矩形モザイクをかけ、プライバシーを保護。",
+      "meta": "rectmosaic.skstudio.cn"
+    }
   }
 }

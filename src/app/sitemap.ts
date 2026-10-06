@@ -8,12 +8,7 @@ export const dynamic = 'force-dynamic';
 /** 分页遍历而非固定截取，站点增长后仍覆盖全部已发布内容。 */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = requiredEnv('NEXT_PUBLIC_SITE_URL');
-  const directoryRoutes = [
-    'links',
-    'contact',
-    'changelog',
-  ];
-  const publicRoutes = [...kinds, ...directoryRoutes];
+  const publicRoutes = kinds;
   const result: MetadataRoute.Sitemap = locales.flatMap((locale) => [
     { url: `${origin}${localizedPath('/', locale)}` },
     ...publicRoutes.map((route) => ({ url: `${origin}${localizedPath(`/${route}`, locale)}` })),
@@ -33,7 +28,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       for (const doc of batch.docs) {
         const pathname = 'path' in doc ? doc.path : `/${doc.kind}/${doc.slug}`;
         for (const locale of locales) {
-          result.push({ url: `${origin}${localizedPath(pathname, locale)}`, lastModified: doc.updatedAt });
+          result.push({
+            url: `${origin}${localizedPath(pathname, locale)}`,
+            lastModified: doc.updatedAt,
+          });
         }
       }
       more = batch.hasNextPage;

@@ -1,0 +1,7 @@
+{
+  "projects": { "image": "/images/headers/practice.webp", "textSide": "right", "tone": "dark" },
+  "research": { "image": "/images/headers/research.webp", "textSide": "left", "tone": "dark" },
+  "creations": { "image": "/images/headers/creations.webp", "textSide": "right", "tone": "dark" },
+  "journal": { "image": "/images/headers/journal.webp", "textSide": "right", "tone": "dark" },
+  "about": { "image": "/images/headers/about.webp", "textSide": "right", "tone": "light" }
+}

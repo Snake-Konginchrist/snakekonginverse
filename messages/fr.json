@@ -1,0 +1,384 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "projects": "Pratique",
+    "creations": "Créations",
+    "journal": "Journal",
+    "about": "À propos",
+    "recommendations": "Ressources",
+    "communities": "Communautés",
+    "contact": "Contact",
+    "identities": "Identités",
+    "discussion": "Discussion",
+    "more": "Plus",
+    "menu": "Menu",
+    "research": "Recherche"
+  },
+  "common": {
+    "skipToContent": "Aller au contenu",
+    "admin": "Administration du contenu",
+    "backHome": "Retour à l’accueil",
+    "backTo": "Retour à {section}",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "viewAll": "Tout voir",
+    "visitWork": "Voir le projet",
+    "latest": "DERNIÈRES NOUVELLES DE L’UNIVERS",
+    "explore": "EXPLORER",
+    "waysIn": "QUELQUES PISTES POUR COMMENCER",
+    "language": "Langue",
+    "open": "Ouvrir",
+    "homeLabel": "Accueil de {brand}",
+    "flagAlt": "Drapeau à quatre couleurs",
+    "mainNavigation": "Navigation principale",
+    "mobileNavigation": "Navigation mobile",
+    "pagination": "Pagination du contenu",
+    "notFoundTitle": "Page introuvable",
+    "brandTagline": "IDÉES / PRODUITS / CRÉATIONS / UN AVENIR MEILLEUR.",
+    "products": "Pratique",
+    "creations": "CRÉATIONS",
+    "journal": "Journal",
+    "research": "Recherche"
+  },
+  "footer": {
+    "eyebrow": "RESTONS EN CONTACT",
+    "headline": "Vous aussi, vous créez quelque chose ? Parlons-en.",
+    "empty": "Les liens de contact arrivent bientôt. En attendant, faites un tour.",
+    "signature": "CRÉER DES CHOSES UTILES. GARDER L’ÉMERVEILLEMENT."
+  },
+  "hero": {
+    "about": "À propos",
+    "footnote": "Continuez à explorer · Suivez votre curiosité"
+  },
+  "portals": {
+    "aria": "Accès aux contenus personnels",
+    "products": "Pratique",
+    "productsEnglish": "PRODUITS ET RECHERCHE",
+    "productsDescription": "Produits, projets et développement indépendant. Des idées mises en pratique, des réalisations publiées aux projets en cours.",
+    "creations": "Personnages et histoires",
+    "creationsEnglish": "PERSONNAGES ET HISTOIRES",
+    "creationsDescription": "Créations de fans, personnages et idées encore en devenir.",
+    "journal": "Journal",
+    "journalEnglish": "NOTES ET OBSERVATIONS",
+    "journalDescription": "Articles, essais, notes de recherche et réflexions sur les projets. Des idées qui prennent forme et une pratique qui fait évoluer la compréhension.",
+    "journalArt": "Note à moi-même.",
+    "creationsArt": "Un autre monde",
+    "productsArt": "'{ idea → real }'"
+  },
+  "archive": {
+    "explore": "EXPLORER L’UNIVERS / {kind}",
+    "intro": "Des choses réalisées avec soin et des idées à garder en mémoire.",
+    "emptyTitle": "Les publications prennent forme.",
+    "emptyDescription": "Rien n’a encore été publié ici. Peut-être y aura-t-il du nouveau lors de votre prochaine visite.",
+    "emptyMark": "À SUIVRE ↗"
+  },
+  "errors": {
+    "connectionEyebrow": "CONNEXION INTERROMPUE",
+    "connectionTitle": "La connexion fait une pause.",
+    "connectionDescription": "Ce contenu est temporairement indisponible. Veuillez réessayer dans un instant.",
+    "retry": "Recharger",
+    "notFoundEyebrow": "404 / HORS ORBITE",
+    "notFoundTitle": "Cette partie de l’univers n’a pas encore de coordonnées.",
+    "notFoundDescription": "La page n’est peut-être pas publiée ou a été déplacée."
+  },
+  "preview": {
+    "banner": "Aperçu du brouillon · Réservé à l’administration · Fermez cette page pour revenir à l’éditeur",
+    "title": "Aperçu du brouillon"
+  },
+  "contentKinds": {
+    "projects": "Pratique",
+    "creations": "Créations",
+    "journal": "Journal",
+    "research": "Recherche"
+  },
+  "socials": {
+    "email": {
+      "title": "E-mail",
+      "description": "Contact officiel pour les projets et les collaborations.",
+      "meta": "developer@skstudio.cn"
+    },
+    "github": {
+      "title": "GitHub",
+      "description": "Code source, projets et expériences de recherche.",
+      "meta": "github.com/Snake-Konginchrist"
+    },
+    "x": {
+      "title": "X (Twitter)",
+      "description": "Développement, outils d’IA et échanges publics.",
+      "meta": "x.com/SnakeKongin"
+    },
+    "xiaohongshu": {
+      "title": "Xiaohongshu",
+      "description": "Profil public et notes visuelles.",
+      "meta": "XIAOHONGSHU"
+    },
+    "bilibili": {
+      "title": "Bilibili",
+      "description": "Vidéos et actualités des projets.",
+      "meta": "BILIBILI"
+    },
+    "weibo": {
+      "title": "Weibo",
+      "description": "Actualités publiques et notes brèves.",
+      "meta": "WEIBO"
+    },
+    "zhihu": {
+      "title": "Zhihu",
+      "description": "Questions et réponses approfondies.",
+      "meta": "ZHIHU"
+    },
+    "douban": {
+      "title": "Douban",
+      "description": "Livres, films et centres d’intérêt personnels.",
+      "meta": "DOUBAN"
+    },
+    "wechat": {
+      "title": "WeChat",
+      "description": "Accès direct au profil social.",
+      "meta": "WECHAT"
+    },
+    "qq": {
+      "title": "QQ",
+      "description": "Accès direct au profil social.",
+      "meta": "QQ"
+    },
+    "youtube": {
+      "title": "YouTube",
+      "description": "Vidéos et actualités des projets.",
+      "meta": "YOUTUBE"
+    },
+    "instagram": {
+      "title": "Instagram",
+      "description": "Notes visuelles et vie quotidienne.",
+      "meta": "INSTAGRAM"
+    },
+    "facebook": {
+      "title": "Facebook",
+      "description": "Profil public et actualités.",
+      "meta": "FACEBOOK"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "Vidéos courtes et expérimentations.",
+      "meta": "TIKTOK"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "description": "Profil professionnel et collaborations.",
+      "meta": "LINKEDIN"
+    },
+    "reddit": {
+      "title": "Reddit",
+      "description": "Discussions communautaires et centres d’intérêt.",
+      "meta": "REDDIT"
+    },
+    "discord": {
+      "title": "Discord",
+      "description": "Échanges communautaires et collaborations.",
+      "meta": "DISCORD"
+    },
+    "telegram": {
+      "title": "Telegram",
+      "description": "Chaînes et contact direct.",
+      "meta": "TELEGRAM"
+    },
+    "threads": {
+      "title": "Threads",
+      "description": "Pensées brèves en public.",
+      "meta": "THREADS"
+    },
+    "bluesky": {
+      "title": "Bluesky",
+      "description": "Pensées brèves en public.",
+      "meta": "BLUESKY"
+    },
+    "mastodon": {
+      "title": "Mastodon",
+      "description": "Profil social fédéré.",
+      "meta": "MASTODON"
+    },
+    "twitch": {
+      "title": "Twitch",
+      "description": "Diffusions en direct et expérimentations.",
+      "meta": "TWITCH"
+    },
+    "steam": {
+      "title": "Steam",
+      "description": "Jeux et profil communautaire.",
+      "meta": "STEAM"
+    },
+    "gitee": {
+      "title": "Gitee",
+      "description": "Code et profil open source chinois.",
+      "meta": "GITEE"
+    },
+    "medium": {
+      "title": "Medium",
+      "description": "Articles longs et notes.",
+      "meta": "MEDIUM"
+    },
+    "devto": {
+      "title": "Communauté DEV",
+      "description": "Articles et échanges entre développeurs.",
+      "meta": "DEV.TO"
+    },
+    "substack": {
+      "title": "Substack",
+      "description": "Articles longs et lettres d’information.",
+      "meta": "SUBSTACK"
+    },
+    "line": {
+      "title": "LINE",
+      "description": "Accès direct au profil social.",
+      "meta": "LINE"
+    },
+    "kakaotalk": {
+      "title": "KakaoTalk",
+      "description": "Accès direct au profil social.",
+      "meta": "KAKAOTALK"
+    },
+    "niconico": {
+      "title": "Niconico",
+      "description": "Vidéos et profil de créateur.",
+      "meta": "NICONICO"
+    },
+    "snapchat": {
+      "title": "Snapchat",
+      "description": "Profil social visuel.",
+      "meta": "SNAPCHAT"
+    },
+    "pinterest": {
+      "title": "Pinterest",
+      "description": "Références visuelles et collections.",
+      "meta": "PINTEREST"
+    },
+    "pending": "Configurer le lien",
+    "configured": "Configuré"
+  },
+  "socialMatrix": {
+    "eyebrow": "RÉSEAUX SOCIAUX",
+    "title": "Retrouvez-moi là où vous êtes déjà.",
+    "description": "Les comptes confirmés ouvrent directement le profil. Les autres plateformes attendent un véritable lien de profil."
+  },
+  "cms": {
+    "home": {
+      "heroEyebrow": "DÉVELOPPEUR INDÉPENDANT / SK STUDIO",
+      "heroTitle": "Créer des produits,\ngarder une part d’émerveillement.",
+      "heroDescription": "Je développe des produits, mène des recherches et réserve une place à l’écriture et à la création.\nJe raconte comment les idées deviennent des projets et les questions qui apparaissent en chemin.",
+      "heroLink": "Voir mes projets en cours",
+      "collectionTitle": "Dernières notes",
+      "portalsTitle": "Commencez ici",
+      "portalsDescription": "Projets, créations et notes."
+    },
+    "about": {
+      "heroEyebrow": "DÉVELOPPEUR INDÉPENDANT / CHERCHEUR",
+      "heroTitle": "Identité, valeurs et expérience",
+      "heroDescription": "Je développe des produits, étudie l’optimisation distribuée et explore l’écriture et la création.\nUn carnet d’idées, de pratiques et de réflexions.",
+      "heroLink": "Voir les produits",
+      "statementEyebrow": "MES PROJETS DU MOMENT",
+      "statementTitle": "Transformer la complexité en choses que l’on a envie d’utiliser.",
+      "statementDescription": "Comprendre les structures, créer des produits et explorer les possibles par l’écriture et l’imagination. Le récit de chemins qui se croisent."
+    },
+    "siteDescription": "Produits, recherches et notes personnelles du développeur indépendant Snake Konginchrist."
+  },
+  "ideal": {
+    "eyebrow": "Sous le drapeau aux quatre couleurs",
+    "title": "Faire entrer les idéaux dans le réel.",
+    "accent": "Faire de la création une pratique.",
+    "description": "Je développe des produits, mène des recherches et crée autour du langage, de l’intelligence, des systèmes et d’un monde en devenir. Ce site retrace cette exploration et ce travail.",
+    "primary": "Découvrir mes projets",
+    "secondary": "À propos",
+    "practice": "Pratique",
+    "research": "Recherche",
+    "creations": "Créations",
+    "journal": "Journal",
+    "practiceDescription": "Les produits relient les idéaux au monde réel.",
+    "creationDescription": "L’écriture et l’art repoussent les limites du possible.",
+    "journalDescription": "Observer en chemin. Penser au cœur du monde.",
+    "principles": "Principes",
+    "principle1": "Comprendre le monde pour gagner la liberté d’agir.",
+    "principle2": "Créer des produits pour donner vie aux idées.",
+    "principle3": "L’écriture et l’imagination révèlent un monde qui n’existe pas encore.",
+    "signature": "Vérité · Recherche · Changement",
+    "researchDescription": "Articles, projets de recherche et exploration technique.",
+    "researchArt": "Commencer par une question"
+  },
+  "theme": {
+    "toLight": "Passer au thème clair",
+    "toDark": "Passer au thème sombre",
+    "light": "Thème clair",
+    "dark": "Thème sombre"
+  },
+  "pageTitles": {
+    "home": "Accueil",
+    "projects": "Pratique",
+    "creations": "Créations",
+    "journal": "Journal",
+    "about": "À propos",
+    "research": "Recherche"
+  },
+  "sections": {
+    "projects": {
+      "description": "Produits, projets et développement indépendant. Des idées mises en pratique, des réalisations publiées aux projets en cours.",
+      "question": "Qu’est-ce qui a été créé ?"
+    },
+    "research": {
+      "description": "Axes de recherche, exploration technique, articles et projets. Une trace des questions, des méthodes et des résultats.",
+      "question": "Quelles recherches sont en cours ?"
+    },
+    "creations": {
+      "description": "Waving Flag, Celynn Moonlight, design visuel et création d’univers. Donner forme à l’imagination et ouvrir la porte à des mondes encore inexistants.",
+      "question": "Quels mondes sont en création ?"
+    },
+    "journal": {
+      "description": "Articles, essais, notes de recherche et réflexions sur les projets. Des idées qui prennent forme et une pratique qui fait évoluer la compréhension.",
+      "question": "Quelles idées prennent forme ?"
+    }
+  },
+  "narrative": {
+    "selectedTitle": "Projets choisis",
+    "selectedDescription": "Commencez par les produits que vous pouvez utiliser et voyez comment les idées prennent vie.",
+    "recentTitle": "Dernières publications",
+    "recentDescription": "Les dernières traces de pratique, de recherche, de création et de réflexion.",
+    "researchTitle": "Axe de recherche",
+    "researchDirection": "Optimisation distribuée",
+    "researchDescription": "Explorer l’optimisation des systèmes distribués par la formulation de problèmes, les algorithmes et l’expérimentation.",
+    "aboutTitle": "Identité, valeurs et expérience",
+    "aboutDescription": "Comprendre les structures, créer des produits et explorer les possibles par l’écriture et l’imagination. Le récit de chemins qui se croisent.",
+    "allProducts": "Voir tous les produits",
+    "inquiryDescription": "Articles, projets de recherche et exploration technique.",
+    "emptyDescription": "Aucun article n’a encore été publié dans cette rubrique. Les nouveaux contenus apparaîtront après publication."
+  },
+  "products": {
+    "flagsay": {
+      "title": "Flagsay",
+      "description": "Une application d’IA pour apprendre les langues avec des photos, des histoires et des objets du quotidien.",
+      "meta": "flagsay.com"
+    },
+    "era": {
+      "title": "Era Workshop",
+      "description": "Une application pour définir des ères et des noms de dates personnalisés.",
+      "meta": "eraworkshop.com"
+    },
+    "gourmet": {
+      "title": "GourmetLens",
+      "description": "Un carnet personnel des plats dégustés et des restaurants visités.",
+      "meta": "gourmetlens.cn"
+    },
+    "medtrace": {
+      "title": "MedTrace",
+      "description": "Une chronologie personnelle de santé conçue pour fonctionner hors ligne.",
+      "meta": "medtrace.skstudio.cn"
+    },
+    "scholar": {
+      "title": "SK Scholar",
+      "description": "Un assistant de recherche IA pour les revues de littérature, la lecture et la rédaction.",
+      "meta": "scholar.skstudio.cn"
+    },
+    "mosaic": {
+      "title": "Rectangular Mosaic",
+      "description": "Protégez votre vie privée en appliquant une mosaïque rectangulaire aux zones choisies d’une image.",
+      "meta": "rectmosaic.skstudio.cn"
+    }
+  }
+}

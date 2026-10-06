@@ -29,8 +29,7 @@ pnpm dev
 ```
 
 本次初始化已经准备本机 `.env`、独立数据库及初始页面，不要重复覆盖 `.env`。生产环境域名为 `https://snakekongin.com`，部署时将 `NEXT_PUBLIC_SITE_URL` 设置为该地址。
-前台使用一个域名，并提供简体中文、繁体中文、英语和日语四种语言。公开地址带语言前缀，
-例如 `/zh-CN/projects`、`/en/about`；直接访问不带前缀的路径会按浏览器语言协商后跳转。
+前台使用一个域名，支持英语（默认）、简体中文、繁体中文、日语、韩语、西班牙语、法语、德语、葡萄牙语和俄语。公开路径不带语言前缀，例如 `/projects`、`/about`。首次访问会按浏览器语言选择受支持的语言，未匹配时使用英语；用户也可以通过页头切换语言，选择会保存在浏览器中并优先使用。
 内容页包括 `/projects`、`/creations`、`/journal`、`/about`，资料与社交功能页包括
 `/links`、`/recommendations`、`/communities`、`/contact`、`/identities`、`/changelog`、`/discussion`。
 首页保持个人主页的密度，详细内容和公开入口在对应页面与页脚展开。
@@ -73,7 +72,7 @@ pnpm test:cms       # 本机真实 CMS 闭环；临时帐号、内容和媒体�
 修改 schema 后执行 `pnpm cms:types && pnpm cms:importmap`，然后生成迁移。
 手写代码不超过 300 行；生成的类型、导入映射、数据库迁移和 lockfile 不人为拆分。
 
-Payload 的 Pages 与 Entries 已开启四语言字段；首页和关于页的首屏文案直接读取 CMS，初始化脚本提供四语言初始内容，
+Payload 的 Pages 与 Entries 支持以上十种语言；初始化脚本为内置页面和站点设置提供对应文案，不会自动翻译已有自定义内容，
 社交目录使用 `react-icons` 的品牌图标。未确认的社交账号只显示为待配置入口，避免生成错误链接。
 
 - [架构说明](docs/ARCHITECTURE.md)

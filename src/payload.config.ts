@@ -4,7 +4,10 @@ import { buildConfig } from 'payload';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { zh } from '@payloadcms/translations/languages/zh';
+import { ja } from '@payloadcms/translations/languages/ja';
+import { zhTw } from '@payloadcms/translations/languages/zhTw';
 import { en } from '@payloadcms/translations/languages/en';
+import { locales, localeLabels } from './i18n/routing';
 import sharp from 'sharp';
 import { s3Storage } from '@payloadcms/storage-s3';
 import { getR2Settings, requireR2Settings } from './lib/r2-config.mjs';
@@ -18,15 +21,11 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 /** 配置缺失时不静默切换假数据或其他数据库；运行环境由 .env 明确提供。 */
 export default buildConfig({
   admin: { user: Users.slug, importMap: { baseDir: dirname } },
-  i18n: { supportedLanguages: { zh, en } },
+  i18n: { supportedLanguages: { zh, 'zh-TW': zhTw, en, ja } },
   localization: {
-    defaultLocale: siteConfig.defaultLocale as 'zh-CN' | 'zh-TW' | 'en' | 'ja',
-    locales: [
-      { code: 'zh-CN', label: '简体中文' },
-      { code: 'zh-TW', label: '繁體中文' },
-      { code: 'en', label: 'English' },
-      { code: 'ja', label: '日本語' },
-    ],
+    fallback: false,
+    defaultLocale: siteConfig.defaultLocale as (typeof locales)[number],
+    locales: locales.map((code) => ({ code, label: localeLabels[code] })),
   },
   collections: [Users, Pages, Entries, Media],
   plugins: [s3Storage({ collections: { media: true }, ...getR2Settings() })],

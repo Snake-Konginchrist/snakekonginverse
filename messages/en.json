@@ -1,20 +1,18 @@
 {
   "navigation": {
     "home": "Home",
-    "projects": "Projects",
+    "projects": "Practice",
     "creations": "Creations",
     "journal": "Journal",
     "about": "About",
-    "links": "Links & Work",
     "recommendations": "Resources",
     "communities": "Communities",
     "contact": "Contact",
     "identities": "Identities",
-    "changelog": "Changelog",
     "discussion": "Discussion",
     "more": "More",
-    "keepInTouch": "Keep in touch",
-    "menu": "Menu"
+    "menu": "Menu",
+    "research": "Inquiry"
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -28,7 +26,19 @@
     "latest": "LATEST FROM THE VERSE",
     "explore": "EXPLORE",
     "waysIn": "A FEW WAYS IN",
-    "language": "Language"
+    "language": "Language",
+    "open": "Open",
+    "homeLabel": "{brand} home",
+    "flagAlt": "Four-colour flag",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "pagination": "Content pagination",
+    "notFoundTitle": "Page not found",
+    "brandTagline": "IDEAS / PRODUCTS / CREATIONS / A BRIGHTER TOMORROW.",
+    "products": "Practice",
+    "creations": "CREATIONS",
+    "journal": "Journal",
+    "research": "Inquiry"
   },
   "footer": {
     "eyebrow": "LET’S CONNECT",
@@ -42,15 +52,15 @@
   },
   "portals": {
     "aria": "Personal content entry points",
-    "products": "Products & experiments",
+    "products": "Practice",
     "productsEnglish": "PRODUCTS & RESEARCH",
-    "productsDescription": "Mobile products, AI tools and research projects.",
+    "productsDescription": "Products, ventures and independent development. Ideas put into practice, from released work to projects under construction.",
     "creations": "Characters & stories",
     "creationsEnglish": "CHARACTERS & STORIES",
     "creationsDescription": "Fan work, characters and ideas still taking shape.",
-    "journal": "Notes & observations",
+    "journal": "Journal",
     "journalEnglish": "NOTES & OBSERVATIONS",
-    "journalDescription": "Build notes, tool observations and everyday thoughts.",
+    "journalDescription": "Articles, essays, research notes and venture reflections. Ideas taking shape, and how practice changes understanding.",
     "journalArt": "Note to self.",
     "creationsArt": "Another world",
     "productsArt": "'{ idea → real }'"
@@ -58,7 +68,7 @@
   "archive": {
     "explore": "EXPLORE THE VERSE / {kind}",
     "intro": "Some things made with care, and some thoughts worth keeping.",
-    "emptyTitle": "Stories are taking shape.",
+    "emptyTitle": "Records are taking shape.",
     "emptyDescription": "Nothing has been published here yet. Perhaps the next visit will bring something new.",
     "emptyMark": "TO BE CONTINUED ↗"
   },
@@ -72,179 +82,14 @@
     "notFoundDescription": "The page may not be published, or it may have moved."
   },
   "preview": {
-    "banner": "Draft preview · Admin access only · Close this page to return to the editor"
+    "banner": "Draft preview · Admin access only · Close this page to return to the editor",
+    "title": "Draft preview"
   },
   "contentKinds": {
-    "projects": "Projects",
+    "projects": "Practice",
     "creations": "Creations",
-    "journal": "Journal"
-  },
-  "directory": {
-    "links": {
-      "eyebrow": "LINKS & WORK",
-      "title": "Things in progress.",
-      "description": "Products, projects and code in one place, so one domain can lead you to the work in motion.",
-      "products": {
-        "eyebrow": "MY PRODUCTS",
-        "title": "Products in progress",
-        "description": "Confirmed public products live here; detailed project pages remain managed by the CMS.",
-        "flagsay": {
-          "title": "Flagsay",
-          "description": "An AI app for learning languages through photos, stories and everyday things.",
-          "meta": "flagsay.com"
-        },
-        "era": {
-          "title": "Era Workshop",
-          "description": "An app for custom eras and date naming.",
-          "meta": "App Store"
-        },
-        "gourmet": {
-          "title": "GourmetLens",
-          "description": "A personal memory of dishes eaten and restaurants visited.",
-          "meta": "App Store"
-        },
-        "medtrace": {
-          "title": "MedTrace",
-          "description": "An offline-first personal health timeline.",
-          "meta": "medtrace.skstudio.cn"
-        },
-        "scholar": {
-          "title": "SK Scholar",
-          "description": "An AI research assistant for literature reviews, reading and writing.",
-          "meta": "scholar.skstudio.cn"
-        }
-      },
-      "publicWork": {
-        "eyebrow": "PUBLIC WORK",
-        "title": "Code & public notes",
-        "description": "Source code, experiments and research notes start from GitHub.",
-        "github": {
-          "title": "Snake-Konginchrist / GitHub",
-          "description": "Open-source projects, AI tools, mobile experiments and research code.",
-          "meta": "github.com/Snake-Konginchrist"
-        }
-      }
-    },
-    "recommendations": {
-      "eyebrow": "RECOMMENDATIONS & RESOURCES",
-      "title": "Keep the useful links.",
-      "description": "This is the recommendations page from the reference structure, starting with tools and docs used by this site.",
-      "tools": {
-        "eyebrow": "TOOLS & REFERENCES",
-        "title": "Public tools used here",
-        "description": "A short list of tools and references that are actually used or directly relevant; more will follow real experience.",
-        "next": {
-          "title": "Next.js Documentation",
-          "description": "Framework, routing and rendering documentation for the frontend.",
-          "meta": "nextjs.org/docs"
-        },
-        "payload": {
-          "title": "Payload CMS Documentation",
-          "description": "CMS documentation for pages, entries, drafts and media.",
-          "meta": "payloadcms.com/docs"
-        },
-        "postgres": {
-          "title": "PostgreSQL Documentation",
-          "description": "Database documentation for site content and configuration.",
-          "meta": "postgresql.org/docs"
-        }
-      }
-    },
-    "communities": {
-      "eyebrow": "COMMUNITIES & COLLABORATION",
-      "title": "Make things together.",
-      "description": "The public collaboration entry points are currently project repositories and social platforms.",
-      "collaboration": {
-        "eyebrow": "COLLABORATION",
-        "title": "Communities & collaboration",
-        "description": "Public collaboration currently happens through projects and social platforms; no groups are invented here.",
-        "studio": {
-          "title": "SK Studio",
-          "description": "Mobile products, AI tools and research projects with a co-founder.",
-          "meta": "PRODUCT STUDIO"
-        },
-        "openSource": {
-          "title": "Open-source collaboration",
-          "description": "Join through issues, discussions and contributions in public repositories.",
-          "meta": "GITHUB"
-        },
-        "ai": {
-          "title": "AI & indie development",
-          "description": "AI tools, Codex experiments and the indie development process on X.",
-          "meta": "X (Twitter)"
-        }
-      }
-    },
-    "contact": {
-      "eyebrow": "CONTACT",
-      "title": "Keep in touch.",
-      "description": "For product, AI, research or collaboration conversations, start with one of the public channels below.",
-      "channels": {
-        "eyebrow": "PUBLIC CHANNELS",
-        "title": "Public entry points",
-        "description": "These links point to public profiles; no private email or group is invented here."
-      }
-    },
-    "identities": {
-      "eyebrow": "IDENTITIES",
-      "title": "One person, different entry points.",
-      "description": "Personal names, the site brand and platform accounts in one place.",
-      "names": {
-        "eyebrow": "IDENTITIES",
-        "title": "Names I use",
-        "description": "The same public identity across platforms, so the real profile is easier to find.",
-        "author": {
-          "title": "Snake Konginchrist",
-          "description": "Personal brand and public byline.",
-          "meta": "AUTHOR"
-        },
-        "site": {
-          "title": "SnakeKonginVerse",
-          "description": "The brand of this personal site.",
-          "meta": "PERSONAL SITE"
-        },
-        "github": {
-          "title": "Snake-Konginchrist",
-          "description": "GitHub account.",
-          "meta": "GITHUB"
-        },
-        "x": {
-          "title": "@SnakeKongin",
-          "description": "X account for development, AI tools and everyday observations.",
-          "meta": "X / TWITTER"
-        }
-      }
-    },
-    "changelog": {
-      "eyebrow": "CHANGELOG",
-      "title": "How this small universe changes.",
-      "description": "A record of changes to the site structure, public sections and editorial direction.",
-      "releases": {
-        "eyebrow": "RELEASES",
-        "title": "Version history",
-        "description": "Changes to this website, separate from product release notes."
-      },
-      "v020": {
-        "title": "0.2.0",
-        "description": "A calmer personal homepage, a single-domain directory, social entry points and public profile pages.",
-        "meta": "2026-09-24"
-      },
-      "v010": {
-        "title": "0.1.0",
-        "description": "Initial Next.js, Payload CMS, content sections, draft preview and native deployment structure.",
-        "meta": "2026-09-22"
-      }
-    },
-    "discussion": {
-      "eyebrow": "PUBLIC DISCUSSION",
-      "title": "Put ideas in public.",
-      "description": "The public discussion entry points are currently GitHub and X; an on-site guestbook or forum can come later.",
-      "join": {
-        "eyebrow": "JOIN THE CONVERSATION",
-        "title": "Join the public conversation",
-        "description": "GitHub is best for project collaboration; X is where development notes and quick thoughts appear."
-      }
-    }
+    "journal": "Journal",
+    "research": "Inquiry"
   },
   "socials": {
     "email": {
@@ -419,7 +264,7 @@
     "home": {
       "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
       "heroTitle": "Build the product,\nkeep a little wonder.",
-      "heroDescription": "I’m Snake Konginchrist. I build mobile products, AI tools and research projects.\nThis is where I keep the things in progress and the questions that keep me curious.",
+      "heroDescription": "Developing products, conducting research, and making room for writing and creative work.\nA record of how ideas become work, and the questions that arise along the way.",
       "heroLink": "See what I’m making",
       "collectionTitle": "Latest notes",
       "portalsTitle": "Start here",
@@ -427,13 +272,14 @@
     },
     "about": {
       "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
-      "heroTitle": "Build products,\ndo research.",
-      "heroDescription": "I’m Snake Konginchrist. With SK Studio I build mobile products and AI tools, while researching distributed optimization.\nThis is the personal record outside the work itself.",
+      "heroTitle": "Identity, values and experience",
+      "heroDescription": "Developing products, researching distributed optimization, and pursuing writing and creative work.\nA record of ideas, practice and reflections.",
       "heroLink": "See the products",
       "statementEyebrow": "WHAT I AM WORKING ON",
       "statementTitle": "Turn complicated things into things people want to use.",
-      "statementDescription": "My public directions include mobile products, AI and agent tools, research experiments, and a little room for characters and stories."
-    }
+      "statementDescription": "Understanding patterns, building products, and exploring possibilities through writing and imagination. A record of how these paths meet."
+    },
+    "siteDescription": "Products, research and personal notes by independent developer Snake Konginchrist."
   },
   "ideal": {
     "eyebrow": "Beneath the four-colour flag",
@@ -453,6 +299,86 @@
     "principle1": "Understand the world to gain the freedom to act.",
     "principle2": "Build products to bring ideas into reality.",
     "principle3": "Writing and imagination make a world not yet here visible.",
-    "signature": "Truth · Inquiry · Change"
+    "signature": "Truth · Inquiry · Change",
+    "researchDescription": "Papers, research projects and technical exploration.",
+    "researchArt": "Begin with a question"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme",
+    "light": "Light theme",
+    "dark": "Dark theme"
+  },
+  "pageTitles": {
+    "home": "Home",
+    "projects": "Practice",
+    "creations": "Creations",
+    "journal": "Journal",
+    "about": "About",
+    "research": "Inquiry"
+  },
+  "sections": {
+    "projects": {
+      "description": "Products, ventures and independent development. Ideas put into practice, from released work to projects under construction.",
+      "question": "What has been built?"
+    },
+    "research": {
+      "description": "Research directions, technical exploration, papers and research projects. A record of questions, methods and findings.",
+      "question": "What is being researched?"
+    },
+    "creations": {
+      "description": "Waving Flag, Celynn Moonlight, visual design and worldbuilding. Giving imagination a form and opening doors to worlds that do not yet exist.",
+      "question": "What worlds are being created?"
+    },
+    "journal": {
+      "description": "Articles, essays, research notes and venture reflections. Ideas taking shape, and how practice changes understanding.",
+      "question": "What is taking shape in thought?"
+    }
+  },
+  "narrative": {
+    "selectedTitle": "Selected work",
+    "selectedDescription": "Start with products people can use, and see how ideas enter the world.",
+    "recentTitle": "Recent entries",
+    "recentDescription": "The latest records of practice, inquiry, creation and reflection.",
+    "researchTitle": "Research direction",
+    "researchDirection": "Distributed optimization",
+    "researchDescription": "Exploring optimization in distributed systems through problem formulation, algorithms and experiments.",
+    "aboutTitle": "Identity, values and experience",
+    "aboutDescription": "Understanding patterns, building products, and exploring possibilities through writing and imagination. A record of how these paths meet.",
+    "allProducts": "See all products",
+    "inquiryDescription": "Papers, research projects and technical exploration.",
+    "emptyDescription": "No entries have been published in this section yet. New content will appear when published."
+  },
+  "products": {
+    "flagsay": {
+      "title": "Flagsay",
+      "description": "An AI app for learning languages through photos, stories and everyday things.",
+      "meta": "flagsay.com"
+    },
+    "era": {
+      "title": "Era Workshop",
+      "description": "An app for custom eras and date naming.",
+      "meta": "eraworkshop.com"
+    },
+    "gourmet": {
+      "title": "GourmetLens",
+      "description": "A personal memory of dishes eaten and restaurants visited.",
+      "meta": "gourmetlens.cn"
+    },
+    "medtrace": {
+      "title": "MedTrace",
+      "description": "An offline-first personal health timeline.",
+      "meta": "medtrace.skstudio.cn"
+    },
+    "scholar": {
+      "title": "SK Scholar",
+      "description": "An AI research assistant for literature reviews, reading and writing.",
+      "meta": "scholar.skstudio.cn"
+    },
+    "mosaic": {
+      "title": "Rectangular Mosaic",
+      "description": "Protect privacy by applying rectangular mosaics to selected image areas.",
+      "meta": "rectmosaic.skstudio.cn"
+    }
   }
 }

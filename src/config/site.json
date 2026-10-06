@@ -3,25 +3,61 @@
   "author": "Snake Konginchrist",
   "description": "独立开发者彩旗飘飘的产品、研究与个人记录。",
   "accent": "blue",
-  "defaultLocale": "zh-CN",
+  "defaultLocale": "en",
   "contentPageSize": 9,
   "sitemapPageSize": 100,
   "uploadMaxFileSize": 10000000,
   "collectionDefaultLimit": 3,
   "navigation": [
-    { "label": "首页", "href": "/" },
-    { "label": "项目", "href": "/projects" },
-    { "label": "创作", "href": "/creations" },
-    { "label": "手记", "href": "/journal" },
-    { "label": "关于", "href": "/about" }
+    {
+      "label": "首页",
+      "href": "/"
+    },
+    {
+      "label": "实践",
+      "href": "/projects"
+    },
+    {
+      "label": "求索",
+      "href": "/research"
+    },
+    {
+      "label": "创作",
+      "href": "/creations"
+    },
+    {
+      "label": "行记",
+      "href": "/journal"
+    },
+    {
+      "label": "关于",
+      "href": "/about"
+    }
   ],
   "socials": [
-    { "label": "GitHub", "href": "https://github.com/Snake-Konginchrist" },
-    { "label": "X (Twitter)", "href": "https://x.com/SnakeKongin" },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/Snake-Konginchrist"
+    },
+    {
+      "label": "X (Twitter)",
+      "href": "https://x.com/SnakeKongin"
+    },
     {
       "label": "小红书",
       "href": "https://www.xiaohongshu.com/user/profile/6007fc8a000000000101e9af"
     },
-    { "label": "哔哩哔哩", "href": "https://space.bilibili.com/3461571323889732" }
+    {
+      "label": "哔哩哔哩",
+      "href": "https://space.bilibili.com/3461571323889732"
+    },
+    {
+      "label": "YouTube",
+      "href": "https://www.youtube.com/@SnakeKongin"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/snakekongin/"
+    }
   ]
 }

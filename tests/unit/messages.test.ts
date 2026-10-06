@@ -18,3 +18,37 @@ test('四语言的装饰文字正确显示花括号，不触发 ICU 参数解析
     assert.equal(t('portals.productsArt'), '{ idea → real }');
   }
 });
+
+function messagePaths(value: Record<string, unknown>, prefix = ''): string[] {
+  return Object.entries(value)
+    .flatMap(([key, child]) =>
+      typeof child === 'string'
+        ? [`${prefix}${key}`]
+        : messagePaths(child as Record<string, unknown>, `${prefix}${key}.`),
+    )
+    .sort();
+}
+
+test('四种语言有完整相同的键，所有文案可解析且不缺翻译', () => {
+  const expected = messagePaths(zhCN);
+  for (const [locale, messages] of Object.entries({ 'zh-CN': zhCN, 'zh-TW': zhTW, en, ja })) {
+    assert.deepEqual(messagePaths(messages), expected, locale);
+    const t = createTranslator({
+      locale,
+      messages,
+      onError: (error) => {
+        throw error;
+      },
+    });
+    for (const key of expected) {
+      assert.ok(
+        t(key as Parameters<typeof t>[0], {
+          brand: 'SnakeKonginverse',
+          section: 'Projects',
+          kind: 'Projects',
+        }).trim(),
+        `${locale}: ${key}`,
+      );
+    }
+  }
+});

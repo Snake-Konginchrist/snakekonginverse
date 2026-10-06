@@ -1,20 +1,18 @@
 {
   "navigation": {
     "home": "首页",
-    "projects": "项目",
+    "projects": "实践",
     "creations": "创作",
-    "journal": "手记",
+    "journal": "行记",
     "about": "关于",
-    "links": "链接与项目",
     "recommendations": "推荐与资源",
     "communities": "社群与协作",
-    "contact": "联系方式",
+    "contact": "联系",
     "identities": "其他身份",
-    "changelog": "更新记录",
     "discussion": "公开交流",
     "more": "更多",
-    "keepInTouch": "保持联系",
-    "menu": "导航"
+    "menu": "导航",
+    "research": "求索"
   },
   "common": {
     "skipToContent": "跳转到正文",
@@ -26,16 +24,27 @@
     "next": "下一页",
     "viewAll": "查看全部",
     "visitWork": "访问作品",
-    "latest": "LATEST FROM THE VERSE",
-    "explore": "EXPLORE",
-    "waysIn": "A FEW WAYS IN",
-    "language": "语言"
+    "latest": "最新记录",
+    "explore": "探索",
+    "waysIn": "从这里开始",
+    "language": "语言",
+    "homeLabel": "{brand} 首页",
+    "flagAlt": "四色旗",
+    "mainNavigation": "主导航",
+    "mobileNavigation": "移动导航",
+    "pagination": "内容分页",
+    "notFoundTitle": "页面未找到",
+    "brandTagline": "思想 / 产品 / 创作 / 更好的明天。",
+    "products": "实践",
+    "creations": "创作",
+    "journal": "行记",
+    "research": "求索"
   },
   "footer": {
-    "eyebrow": "LET’S CONNECT",
+    "eyebrow": "保持联系",
     "headline": "如果你也在做东西，来聊聊。",
     "empty": "联系方式即将更新。先在这个小宇宙里逛逛吧。",
-    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+    "signature": "创造有用之物，保留想象。"
   },
   "hero": {
     "about": "关于我",
@@ -43,209 +52,44 @@
   },
   "portals": {
     "aria": "个人内容入口",
-    "products": "产品与实验",
-    "productsEnglish": "PRODUCTS & RESEARCH",
-    "productsDescription": "移动产品、AI 工具和研究项目。",
+    "products": "实践",
+    "productsEnglish": "产品与研究",
+    "productsDescription": "产品、创业项目与独立开发。把想法投入现实，记录已上线的作品和建设中的项目。",
     "creations": "角色与故事",
-    "creationsEnglish": "CHARACTERS & STORIES",
+    "creationsEnglish": "角色与故事",
     "creationsDescription": "同人、角色，以及仍在生长的想象。",
-    "journal": "记录与思考",
-    "journalEnglish": "NOTES & OBSERVATIONS",
-    "journalDescription": "开发过程、工具观察和日常想法.",
-    "journalArt": "Note to self.",
+    "journal": "行记",
+    "journalEnglish": "记录与观察",
+    "journalDescription": "文章、随笔、研究札记与创业复盘。记录正在形成的想法，也回看实践如何改变认识。",
+    "journalArt": "写给自己。",
     "creationsArt": "另一个世界",
     "productsArt": "'{ idea → real }'"
   },
   "archive": {
-    "explore": "EXPLORE THE VERSE / {kind}",
+    "explore": "探索这个宇宙 / {kind}",
     "intro": "一些认真做的事，一些值得留下的想法。",
-    "emptyTitle": "故事，正在酝酿。",
+    "emptyTitle": "记录正在形成。",
     "emptyDescription": "这里还没有已发布的内容。下一次相遇，也许会有新的发现。",
-    "emptyMark": "TO BE CONTINUED ↗"
+    "emptyMark": "未完待续 ↗"
   },
   "errors": {
-    "connectionEyebrow": "CONNECTION INTERRUPTED",
+    "connectionEyebrow": "连接中断",
     "connectionTitle": "暂时没有连接上。",
     "connectionDescription": "内容暂时无法读取，请稍后重试。",
     "retry": "重新加载",
-    "notFoundEyebrow": "404 / OUTSIDE THE ORBIT",
+    "notFoundEyebrow": "404 / 轨道之外",
     "notFoundTitle": "这片宇宙，还没有坐标。",
     "notFoundDescription": "页面可能尚未发布，或已经换了一个地址。"
   },
   "preview": {
-    "banner": "草稿预览 · 仅登录管理员可见 · 关闭此页返回编辑器"
-  },
-  "directory": {
-    "links": {
-      "eyebrow": "LINKS & WORK",
-      "title": "正在做的东西。",
-      "description": "把公开可访问的产品、项目和代码入口放在同一页，方便从一个域名找到正在发生的工作。",
-      "products": {
-        "eyebrow": "MY PRODUCTS",
-        "title": "正在做的产品",
-        "description": "把公开资料里已经确认的产品放在这里，项目详情仍由 CMS 管理。",
-        "flagsay": {
-          "title": "Flagsay（彩旗说）",
-          "description": "通过照片、故事和身边的事物学习语言的 AI 应用。",
-          "meta": "flagsay.com"
-        },
-        "era": {
-          "title": "Era Workshop（纪元工坊）",
-          "description": "自定义纪元和日期命名的 App。",
-          "meta": "App Store"
-        },
-        "gourmet": {
-          "title": "GourmetLens（美食透镜）",
-          "description": "记录吃过的菜和去过的餐厅，建立自己的食物记忆。",
-          "meta": "App Store"
-        },
-        "medtrace": {
-          "title": "MedTrace（医迹）",
-          "description": "离线优先的个人健康时间线。",
-          "meta": "medtrace.skstudio.cn"
-        },
-        "scholar": {
-          "title": "SK Scholar（彩旗学术）",
-          "description": "面向文献综述、论文阅读和写作的 AI 研究助手。",
-          "meta": "scholar.skstudio.cn"
-        }
-      },
-      "publicWork": {
-        "eyebrow": "PUBLIC WORK",
-        "title": "代码与公开资料",
-        "description": "项目源码、实验和研究记录统一从 GitHub 进入。",
-        "github": {
-          "title": "Snake-Konginchrist / GitHub",
-          "description": "开源项目、AI 工具、移动产品实验和研究代码。",
-          "meta": "github.com/Snake-Konginchrist"
-        }
-      }
-    },
-    "recommendations": {
-      "eyebrow": "RECOMMENDATIONS & RESOURCES",
-      "title": "留下真正有用的链接。",
-      "description": "这里对应参考站点里的推荐栏目，先从这个网站实际使用的公开工具和文档开始。",
-      "tools": {
-        "eyebrow": "TOOLS & REFERENCES",
-        "title": "这个站点使用的公开工具",
-        "description": "先记录实际使用或直接相关的公开资料，之后再按真实体验补充推荐。",
-        "next": {
-          "title": "Next.js Documentation",
-          "description": "前台应用使用的 Web 框架与路由、渲染文档。",
-          "meta": "nextjs.org/docs"
-        },
-        "payload": {
-          "title": "Payload CMS Documentation",
-          "description": "页面、文章、草稿预览和媒体管理使用的 CMS 文档。",
-          "meta": "payloadcms.com/docs"
-        },
-        "postgres": {
-          "title": "PostgreSQL Documentation",
-          "description": "站点内容和配置使用的关系数据库文档。",
-          "meta": "postgresql.org/docs"
-        }
-      }
-    },
-    "communities": {
-      "eyebrow": "COMMUNITIES & COLLABORATION",
-      "title": "一起把事情做出来。",
-      "description": "这里对应参考站点里的社群和协作栏目，当前公开入口集中在项目仓库与社交平台。",
-      "collaboration": {
-        "eyebrow": "COLLABORATION",
-        "title": "社群与协作",
-        "description": "目前公开的交流方式以项目协作和社交平台为主，不虚构不存在的群组。",
-        "studio": {
-          "title": "SK Studio",
-          "description": "与联合创始人一起做移动产品、AI 工具和研究型项目。",
-          "meta": "PRODUCT STUDIO"
-        },
-        "openSource": {
-          "title": "开源项目协作",
-          "description": "通过公开仓库的 issue、讨论和贡献参与项目。",
-          "meta": "GITHUB"
-        },
-        "ai": {
-          "title": "AI 与独立开发交流",
-          "description": "在 X 分享 AI 工具、Codex 体验和独立开发过程。",
-          "meta": "X (Twitter)"
-        }
-      }
-    },
-    "contact": {
-      "eyebrow": "CONTACT",
-      "title": "保持联系。",
-      "description": "如果你想聊产品、AI 工具、研究或合作，可以从下面的公开账号开始。",
-      "channels": {
-        "eyebrow": "PUBLIC CHANNELS",
-        "title": "公开入口",
-        "description": "账号和链接均指向公开主页，不在网站里虚构邮箱或私密群组。"
-      }
-    },
-    "identities": {
-      "eyebrow": "IDENTITIES",
-      "title": "同一个人，不同的入口。",
-      "description": "把个人署名、网站品牌和平台账号放在一起，减少在不同页面之间寻找的成本。",
-      "names": {
-        "eyebrow": "IDENTITIES",
-        "title": "我使用的名字",
-        "description": "不同平台使用同一组公开身份，方便找到真正的主页。",
-        "author": {
-          "title": "Snake Konginchrist",
-          "description": "个人品牌和公开署名。",
-          "meta": "AUTHOR"
-        },
-        "site": {
-          "title": "SnakeKonginVerse",
-          "description": "这个个人网站的品牌名称。",
-          "meta": "PERSONAL SITE"
-        },
-        "github": {
-          "title": "Snake-Konginchrist",
-          "description": "GitHub 账号。",
-          "meta": "GITHUB"
-        },
-        "x": {
-          "title": "@SnakeKongin",
-          "description": "X 账号，分享开发、AI 工具和日常观察。",
-          "meta": "X / TWITTER"
-        }
-      }
-    },
-    "changelog": {
-      "eyebrow": "CHANGELOG",
-      "title": "这个小宇宙怎么变化。",
-      "description": "记录网站结构、公开栏目和内容方向的变化，重要节点会链接回对应页面。",
-      "releases": {
-        "eyebrow": "RELEASES",
-        "title": "版本记录",
-        "description": "这是网站本身的更新日志，不等同于产品发布日志。"
-      },
-      "v020": {
-        "title": "0.2.0",
-        "description": "首页收敛为个人主页，补齐单域名目录、社交入口和公开资料页面。",
-        "meta": "2026-09-24"
-      },
-      "v010": {
-        "title": "0.1.0",
-        "description": "初始化 Next.js、Payload CMS、内容栏目、草稿预览和原生部署结构。",
-        "meta": "2026-09-22"
-      }
-    },
-    "discussion": {
-      "eyebrow": "PUBLIC DISCUSSION",
-      "title": "把想法放到公开处。",
-      "description": "这里对应参考站点里的讨论入口。当前讨论发生在 GitHub 和 X，之后可以再接入站内留言或论坛。",
-      "join": {
-        "eyebrow": "JOIN THE CONVERSATION",
-        "title": "参与公开讨论",
-        "description": "项目协作适合从 GitHub 开始，开发过程和即时想法可以在 X 找到。"
-      }
-    }
+    "banner": "草稿预览 · 仅登录管理员可见 · 关闭此页返回编辑器",
+    "title": "草稿预览"
   },
   "contentKinds": {
-    "projects": "技术项目",
-    "creations": "同人创作",
-    "journal": "文字手记"
+    "projects": "实践",
+    "creations": "创作",
+    "journal": "行记",
+    "research": "求索"
   },
   "socials": {
     "email": {
@@ -412,29 +256,30 @@
     "configured": "已配置"
   },
   "socialMatrix": {
-    "eyebrow": "SOCIAL MATRIX",
+    "eyebrow": "社交平台",
     "title": "在你常用的平台找到我。",
     "description": "已确认的账号直接打开；其余平台先保留图标位，之后填入真实主页。"
   },
   "cms": {
     "home": {
-      "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
+      "heroEyebrow": "独立开发者 / SK STUDIO",
       "heroTitle": "把产品做出来，\n也保留一点幻想。",
-      "heroDescription": "我是 Snake Konginchrist，做移动产品、AI 工具和研究。\n这里记录正在构建的东西，以及让我继续好奇的事。",
+      "heroDescription": "开发产品，开展研究，也为文字与创作留出空间。\n这里记录想法如何成为作品，以及实践中遇到的问题。",
       "heroLink": "看看正在做的",
       "collectionTitle": "最新手记",
       "portalsTitle": "从这里开始",
       "portalsDescription": "项目、创作、手记。"
     },
     "about": {
-      "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
-      "heroTitle": "做产品，\n也做研究。",
-      "heroDescription": "我是 Snake Konginchrist，和 SK Studio 一起做移动产品与 AI 工具，也在研究分布式优化。\n这里是工作之外的个人记录。",
+      "heroEyebrow": "独立开发者 / 研究者",
+      "heroTitle": "身份、价值观与经历",
+      "heroDescription": "开发产品，研究分布式优化，也从事写作与创作。\n这里记录想法、实践和思考。",
       "heroLink": "看正在做的产品",
-      "statementEyebrow": "WHAT I AM WORKING ON",
+      "statementEyebrow": "我正在做的事",
       "statementTitle": "把复杂的东西，做成有人愿意用的东西。",
-      "statementDescription": "公开方向包括移动端产品、AI 与 agent 工具、研究型实验，也会给角色和故事留一块空间。"
-    }
+      "statementDescription": "认识规律，创造产品，也用写作和想象探索可能。这里记录这几条道路如何相遇。"
+    },
+    "siteDescription": "独立开发者彩旗飘飘的产品、研究与个人记录。"
   },
   "ideal": {
     "eyebrow": "生在彩旗下，自是斯黄人",
@@ -454,6 +299,86 @@
     "principle1": "认识世界，是为了获得行动的自由；",
     "principle2": "创造产品，是为了让思想进入现实；",
     "principle3": "写作与想象，则使尚不存在的世界先行显影。",
-    "signature": "求真 · 求索 · 求变"
+    "signature": "求真 · 求索 · 求变",
+    "researchDescription": "论文、研究项目与技术探索。",
+    "researchArt": "从问题出发"
+  },
+  "theme": {
+    "toLight": "切换到浅色主题",
+    "toDark": "切换到深色主题",
+    "light": "浅色主题",
+    "dark": "深色主题"
+  },
+  "pageTitles": {
+    "home": "首页",
+    "projects": "实践",
+    "creations": "创作",
+    "journal": "行记",
+    "about": "关于",
+    "research": "求索"
+  },
+  "sections": {
+    "projects": {
+      "description": "产品、创业项目与独立开发。把想法投入现实，记录已上线的作品和建设中的项目。",
+      "question": "做成了什么？"
+    },
+    "research": {
+      "description": "科研方向、技术探索、论文与研究项目。记录问题、方法与发现。",
+      "question": "在研究什么？"
+    },
+    "creations": {
+      "description": "彩旗飘飘、赛琳月辉、视觉设计与世界观。为想象赋予形象，为尚不存在的世界留下入口。",
+      "question": "创造了什么世界？"
+    },
+    "journal": {
+      "description": "文章、随笔、研究札记与创业复盘。记录正在形成的想法，也回看实践如何改变认识。",
+      "question": "在想什么？"
+    }
+  },
+  "narrative": {
+    "selectedTitle": "代表作品",
+    "selectedDescription": "从已经投入使用的产品开始，看看想法如何进入现实。",
+    "recentTitle": "近期内容",
+    "recentDescription": "实践、求索、创作与行记中的最新记录。",
+    "researchTitle": "研究方向",
+    "researchDirection": "分布式优化",
+    "researchDescription": "探索分布式系统中的优化方法，关注问题建模、算法与实验。",
+    "aboutTitle": "身份、价值观与经历",
+    "aboutDescription": "认识规律，创造产品，也用写作和想象探索可能。这里记录这几条道路如何相遇。",
+    "allProducts": "查看全部产品",
+    "inquiryDescription": "论文、研究项目与技术探索。",
+    "emptyDescription": "这个栏目还没有已发布的记录。新的内容会在发布后出现。"
+  },
+  "products": {
+    "flagsay": {
+      "title": "Flagsay（彩旗说）",
+      "description": "通过照片、故事和身边的事物学习语言的 AI 应用。",
+      "meta": "flagsay.com"
+    },
+    "era": {
+      "title": "Era Workshop（纪元工坊）",
+      "description": "自定义纪元和日期命名的 App。",
+      "meta": "eraworkshop.com"
+    },
+    "gourmet": {
+      "title": "GourmetLens（美食透镜）",
+      "description": "记录吃过的菜和去过的餐厅，建立自己的食物记忆。",
+      "meta": "gourmetlens.cn"
+    },
+    "medtrace": {
+      "title": "MedTrace（医迹）",
+      "description": "离线优先的个人健康时间线。",
+      "meta": "medtrace.skstudio.cn"
+    },
+    "scholar": {
+      "title": "SK Scholar（彩旗学术）",
+      "description": "面向文献综述、论文阅读和写作的 AI 研究助手。",
+      "meta": "scholar.skstudio.cn"
+    },
+    "mosaic": {
+      "title": "Rectangular Mosaic（矩形马赛克）",
+      "description": "在图片选定区域添加矩形马赛克，保护隐私。",
+      "meta": "rectmosaic.skstudio.cn"
+    }
   }
 }

@@ -8,14 +8,11 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteAnalytics } from '@/components/site-analytics';
 import { hasLocale, locales, type Locale } from '@/i18n/routing';
 import { requiredEnv } from '@/lib/env';
+import '@fontsource-variable/noto-serif-sc';
+import '@fontsource-variable/noto-serif-tc';
+import '@fontsource-variable/noto-serif-jp';
+import '@fontsource-variable/google-sans';
 import '@/styles/tokens.css';
-import '@/styles/sections.css';
-import '@/styles/site.css';
-import '@/styles/home.css';
-import '@/styles/directory.css';
-import '@/styles/orbit.css';
-import '@/styles/content.css';
-import '@/styles/ideal.css';
 
 export const dynamic = 'force-dynamic';
 export function generateStaticParams() {
@@ -49,7 +46,10 @@ export default async function SiteLayout({ children, params }: Props) {
     <html lang={locale} data-accent={settings.accent} data-scroll-behavior="smooth">
       <body>
         <NextIntlClientProvider messages={messages}>
-          <a className="skip-link" href="#main">
+          <a
+            className="skip-link fixed [top:-100px] [left:20px] z-[100] p-[12px] bg-[var(--ink)] [color:white] [&:focus]:[top:12px]"
+            href="#main"
+          >
             {t('skipToContent')}
           </a>
           <SiteHeader settings={settings} />
@@ -58,11 +58,11 @@ export default async function SiteLayout({ children, params }: Props) {
         </NextIntlClientProvider>
         {process.env.NODE_ENV === 'production' &&
           (process.env.CLARITY_PROJECT_ID || process.env.GA4_MEASUREMENT_ID) && (
-          <SiteAnalytics
-            clarityId={process.env.CLARITY_PROJECT_ID?.trim()}
-            gaId={process.env.GA4_MEASUREMENT_ID?.trim()}
-          />
-        )}
+            <SiteAnalytics
+              clarityId={process.env.CLARITY_PROJECT_ID?.trim()}
+              gaId={process.env.GA4_MEASUREMENT_ID?.trim()}
+            />
+          )}
       </body>
     </html>
   );

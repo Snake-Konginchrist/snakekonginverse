@@ -17,9 +17,9 @@ export function LocaleSwitcher() {
   const pathname = stripLocaleSuffix(usePathname());
   const t = useTranslations('common');
   return (
-    <details className="locale-switcher">
+    <details className="locale-switcher relative [flex:0_0_auto] text-[color:var(--muted)] text-[11px] [&_summary]:cursor-pointer [&_summary]:list-none [&_summary]:py-[10px] [&_summary::-webkit-details-marker]:hidden [&_summary::after]:[content:'⌄'] [&_summary::after]:[margin-left:5px] [&_summary::after]:text-[12px] max-[760px]:[margin-left:auto] max-[760px]:[margin-right:8px]">
       <summary aria-label={t('language')}>{localeLabels[current]}</summary>
-      <div className="locale-switcher-menu">
+      <div className="locale-switcher-menu absolute [top:38px] [right:0] z-[20] grid [min-width:104px] p-[6px] [border:1px_solid_var(--line)] rounded-[8px] bg-[var(--surface)] [box-shadow:0_14px_35px_#17243c18] [&_a]:p-[8px_10px] [&_a]:rounded-[5px] [&_a]:whitespace-nowrap [&_a:hover]:text-[color:var(--accent)] [&_a:hover]:bg-[var(--accent-soft)] [&_a[aria-current='page']]:text-[color:var(--accent)] [&_a[aria-current='page']]:bg-[var(--accent-soft)]">
         {locales.map((locale) => (
           <Link
             key={locale}

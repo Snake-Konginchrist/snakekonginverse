@@ -1,20 +1,18 @@
 {
   "navigation": {
     "home": "首頁",
-    "projects": "專案",
+    "projects": "實踐",
     "creations": "創作",
-    "journal": "手記",
+    "journal": "行記",
     "about": "關於",
-    "links": "連結與專案",
     "recommendations": "推薦與資源",
     "communities": "社群與協作",
-    "contact": "聯絡方式",
+    "contact": "聯絡",
     "identities": "其他身份",
-    "changelog": "更新記錄",
     "discussion": "公開交流",
     "more": "更多",
-    "keepInTouch": "保持聯絡",
-    "menu": "導覽"
+    "menu": "導覽",
+    "research": "求索"
   },
   "common": {
     "skipToContent": "跳到正文",
@@ -25,16 +23,28 @@
     "next": "下一頁",
     "viewAll": "查看全部",
     "visitWork": "查看專案",
-    "latest": "LATEST FROM THE VERSE",
-    "explore": "EXPLORE",
-    "waysIn": "A FEW WAYS IN",
-    "language": "語言"
+    "latest": "最新記錄",
+    "explore": "探索",
+    "waysIn": "從這裡開始",
+    "language": "語言",
+    "open": "開啟",
+    "homeLabel": "{brand} 首頁",
+    "flagAlt": "四色旗",
+    "mainNavigation": "主導覽",
+    "mobileNavigation": "行動導覽",
+    "pagination": "內容分頁",
+    "notFoundTitle": "找不到頁面",
+    "brandTagline": "思想 / 產品 / 創作 / 更好的明天。",
+    "products": "實踐",
+    "creations": "創作",
+    "journal": "行記",
+    "research": "求索"
   },
   "footer": {
-    "eyebrow": "LET’S CONNECT",
+    "eyebrow": "保持聯絡",
     "headline": "如果你也在做東西，來聊聊。",
     "empty": "聯絡方式即將更新，先在這個小宇宙裡逛逛吧。",
-    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+    "signature": "創造有用之物，保留想像。"
   },
   "hero": {
     "about": "關於我",
@@ -42,119 +52,44 @@
   },
   "portals": {
     "aria": "個人內容入口",
-    "products": "產品與實驗",
-    "productsEnglish": "PRODUCTS & RESEARCH",
-    "productsDescription": "行動產品、AI 工具和研究專案。",
+    "products": "實踐",
+    "productsEnglish": "產品與研究",
+    "productsDescription": "產品、創業專案與獨立開發。把想法投入現實，記錄已上線的作品和建設中的專案。",
     "creations": "角色與故事",
-    "creationsEnglish": "CHARACTERS & STORIES",
+    "creationsEnglish": "角色與故事",
     "creationsDescription": "同人、角色，以及仍在成長的想像。",
-    "journal": "記錄與思考",
-    "journalEnglish": "NOTES & OBSERVATIONS",
-    "journalDescription": "開發過程、工具觀察和日常想法。",
-    "journalArt": "Note to self.",
+    "journal": "行記",
+    "journalEnglish": "記錄與觀察",
+    "journalDescription": "文章、隨筆、研究札記與創業復盤。記錄正在形成的想法，也回看實踐如何改變認識。",
+    "journalArt": "寫給自己。",
     "creationsArt": "另一個世界",
     "productsArt": "'{ idea → real }'"
   },
   "archive": {
-    "explore": "EXPLORE THE VERSE / {kind}",
+    "explore": "探索這個宇宙 / {kind}",
     "intro": "一些認真做的事，一些值得留下的想法。",
-    "emptyTitle": "故事正在醞釀。",
+    "emptyTitle": "記錄正在形成。",
     "emptyDescription": "這裡還沒有已發佈的內容。下一次相遇，也許會有新的發現。",
-    "emptyMark": "TO BE CONTINUED ↗"
+    "emptyMark": "未完待續 ↗"
   },
   "errors": {
-    "connectionEyebrow": "CONNECTION INTERRUPTED",
+    "connectionEyebrow": "連線中斷",
     "connectionTitle": "暫時沒有連線。",
     "connectionDescription": "內容暫時無法讀取，請稍後再試。",
     "retry": "重新載入",
-    "notFoundEyebrow": "404 / OUTSIDE THE ORBIT",
+    "notFoundEyebrow": "404 / 軌道之外",
     "notFoundTitle": "這片宇宙還沒有座標。",
     "notFoundDescription": "頁面可能尚未發佈，或已經換了地址。"
   },
   "preview": {
-    "banner": "草稿預覽 · 僅登入管理員可見 · 關閉此頁返回編輯器"
+    "banner": "草稿預覽 · 僅登入管理員可見 · 關閉此頁返回編輯器",
+    "title": "草稿預覽"
   },
   "contentKinds": {
-    "projects": "技術專案",
-    "creations": "同人創作",
-    "journal": "文字手記"
-  },
-  "directory": {
-    "links": {
-      "eyebrow": "LINKS & WORK",
-      "title": "正在做的東西。",
-      "description": "把公開可訪問的產品、專案和程式碼入口放在同一頁，從一個網域找到正在發生的工作。",
-      "products": {
-        "eyebrow": "MY PRODUCTS",
-        "title": "正在做的產品",
-        "description": "把公開資料中已確認的產品放在這裡，專案詳情仍由 CMS 管理。"
-      },
-      "publicWork": {
-        "eyebrow": "PUBLIC WORK",
-        "title": "程式碼與公開資料",
-        "description": "專案原始碼、實驗和研究記錄統一從 GitHub 進入。"
-      }
-    },
-    "recommendations": {
-      "eyebrow": "RECOMMENDATIONS & RESOURCES",
-      "title": "留下真正有用的連結。",
-      "description": "先從這個網站實際使用的公開工具和文件開始。",
-      "tools": {
-        "eyebrow": "TOOLS & REFERENCES",
-        "title": "這個網站使用的公開工具",
-        "description": "先記錄實際使用或直接相關的公開資料，之後再按真實體驗補充推薦。"
-      }
-    },
-    "communities": {
-      "eyebrow": "COMMUNITIES & COLLABORATION",
-      "title": "一起把事情做出來。",
-      "description": "目前公開入口集中在專案儲存庫與社交平台。",
-      "collaboration": {
-        "eyebrow": "COLLABORATION",
-        "title": "社群與協作",
-        "description": "目前公開交流以專案協作和社交平台為主，不虛構不存在的群組。"
-      }
-    },
-    "contact": {
-      "eyebrow": "CONTACT",
-      "title": "保持聯絡。",
-      "description": "如果想聊產品、AI 工具、研究或合作，可以從下面的公開帳號開始。",
-      "channels": {
-        "eyebrow": "PUBLIC CHANNELS",
-        "title": "公開入口",
-        "description": "帳號和連結均指向公開主頁，不在網站裡虛構信箱或私密群組。"
-      }
-    },
-    "identities": {
-      "eyebrow": "IDENTITIES",
-      "title": "同一個人，不同的入口。",
-      "description": "把個人署名、網站品牌和平台帳號放在一起。",
-      "names": {
-        "eyebrow": "IDENTITIES",
-        "title": "我使用的名字",
-        "description": "不同平台使用同一組公開身份，方便找到真正的主頁。"
-      }
-    },
-    "changelog": {
-      "eyebrow": "CHANGELOG",
-      "title": "這個小宇宙如何變化。",
-      "description": "記錄網站結構、公開欄目和內容方向的變化。",
-      "releases": {
-        "eyebrow": "RELEASES",
-        "title": "版本記錄",
-        "description": "這是網站本身的更新日誌，不等同於產品發佈日誌。"
-      }
-    },
-    "discussion": {
-      "eyebrow": "PUBLIC DISCUSSION",
-      "title": "把想法放到公開處。",
-      "description": "目前討論發生在 GitHub 和 X，之後可以再接入站內留言或論壇。",
-      "join": {
-        "eyebrow": "JOIN THE CONVERSATION",
-        "title": "參與公開討論",
-        "description": "專案協作適合從 GitHub 開始，開發過程和即時想法可以在 X 找到。"
-      }
-    }
+    "projects": "實踐",
+    "creations": "創作",
+    "journal": "行記",
+    "research": "求索"
   },
   "socials": {
     "email": {
@@ -173,32 +108,178 @@
       "meta": "x.com/SnakeKongin"
     },
     "pending": "待設定",
-    "configured": "已設定"
+    "configured": "已設定",
+    "xiaohongshu": {
+      "title": "小紅書",
+      "description": "公開主頁與視覺記錄。",
+      "meta": "XIAOHONGSHU"
+    },
+    "bilibili": {
+      "title": "嗶哩嗶哩",
+      "description": "影片與專案更新。",
+      "meta": "BILIBILI"
+    },
+    "weibo": {
+      "title": "微博",
+      "description": "公開動態與短文。",
+      "meta": "WEIBO"
+    },
+    "zhihu": {
+      "title": "知乎",
+      "description": "長篇問答與思考。",
+      "meta": "ZHIHU"
+    },
+    "douban": {
+      "title": "豆瓣",
+      "description": "書籍、電影與個人興趣。",
+      "meta": "DOUBAN"
+    },
+    "wechat": {
+      "title": "微信",
+      "description": "直接聯絡的社交主頁。",
+      "meta": "WECHAT"
+    },
+    "qq": {
+      "title": "QQ",
+      "description": "直接聯絡的社交主頁。",
+      "meta": "QQ"
+    },
+    "youtube": {
+      "title": "YouTube",
+      "description": "影片與專案更新。",
+      "meta": "YOUTUBE"
+    },
+    "instagram": {
+      "title": "Instagram",
+      "description": "視覺記錄與日常生活。",
+      "meta": "INSTAGRAM"
+    },
+    "facebook": {
+      "title": "Facebook",
+      "description": "公開主頁與動態。",
+      "meta": "FACEBOOK"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "短影片與實驗。",
+      "meta": "TIKTOK"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "description": "職業資料與合作。",
+      "meta": "LINKEDIN"
+    },
+    "reddit": {
+      "title": "Reddit",
+      "description": "社群討論與興趣。",
+      "meta": "REDDIT"
+    },
+    "discord": {
+      "title": "Discord",
+      "description": "社群交流與協作。",
+      "meta": "DISCORD"
+    },
+    "telegram": {
+      "title": "Telegram",
+      "description": "頻道與直接聯絡。",
+      "meta": "TELEGRAM"
+    },
+    "threads": {
+      "title": "Threads",
+      "description": "簡短的公開想法。",
+      "meta": "THREADS"
+    },
+    "bluesky": {
+      "title": "Bluesky",
+      "description": "簡短的公開想法。",
+      "meta": "BLUESKY"
+    },
+    "mastodon": {
+      "title": "Mastodon",
+      "description": "聯邦式社交主頁。",
+      "meta": "MASTODON"
+    },
+    "twitch": {
+      "title": "Twitch",
+      "description": "直播與實驗。",
+      "meta": "TWITCH"
+    },
+    "steam": {
+      "title": "Steam",
+      "description": "遊戲與社群主頁。",
+      "meta": "STEAM"
+    },
+    "gitee": {
+      "title": "Gitee",
+      "description": "程式碼與中文開源主頁。",
+      "meta": "GITEE"
+    },
+    "medium": {
+      "title": "Medium",
+      "description": "長篇寫作與筆記。",
+      "meta": "MEDIUM"
+    },
+    "devto": {
+      "title": "DEV Community",
+      "description": "開發者寫作與討論。",
+      "meta": "DEV.TO"
+    },
+    "substack": {
+      "title": "Substack",
+      "description": "長篇筆記與電子報。",
+      "meta": "SUBSTACK"
+    },
+    "line": {
+      "title": "LINE",
+      "description": "直接聯絡的社交主頁。",
+      "meta": "LINE"
+    },
+    "kakaotalk": {
+      "title": "KakaoTalk",
+      "description": "直接聯絡的社交主頁。",
+      "meta": "KAKAOTALK"
+    },
+    "niconico": {
+      "title": "Niconico",
+      "description": "影片與創作者主頁。",
+      "meta": "NICONICO"
+    },
+    "snapchat": {
+      "title": "Snapchat",
+      "description": "視覺社交主頁。",
+      "meta": "SNAPCHAT"
+    },
+    "pinterest": {
+      "title": "Pinterest",
+      "description": "視覺參考與收藏。",
+      "meta": "PINTEREST"
+    }
   },
   "socialMatrix": {
-    "eyebrow": "SOCIAL MATRIX",
+    "eyebrow": "社交平台",
     "title": "在你常用的平台找到我。",
     "description": "已確認的帳號直接開啟，其餘平台保留圖示位置，之後填入真實主頁。"
   },
   "cms": {
     "home": {
-      "heroEyebrow": "INDEPENDENT DEVELOPER / SK STUDIO",
+      "heroEyebrow": "獨立開發者 / SK STUDIO",
       "heroTitle": "把產品做出來，\n也保留一點幻想。",
-      "heroDescription": "我是 Snake Konginchrist，做行動產品、AI 工具和研究。\n這裡記錄正在建構的東西，以及讓我繼續好奇的事。",
+      "heroDescription": "開發產品，開展研究，也為文字與創作留出空間。\n這裡記錄想法如何成為作品，以及實踐中遇到的問題。",
       "heroLink": "看看正在做的",
       "collectionTitle": "最新手記",
       "portalsTitle": "從這裡開始",
       "portalsDescription": "專案、創作、手記。"
     },
     "about": {
-      "heroEyebrow": "INDEPENDENT DEVELOPER / RESEARCHER",
-      "heroTitle": "做產品，\n也做研究。",
-      "heroDescription": "我是 Snake Konginchrist，和 SK Studio 一起做行動產品與 AI 工具，也在研究分散式最佳化。\n這裡是工作之外的個人記錄。",
+      "heroEyebrow": "獨立開發者 / 研究者",
+      "heroTitle": "身分、價值觀與經歷",
+      "heroDescription": "開發產品，研究分散式最佳化，也從事寫作與創作。\n這裡記錄想法、實踐和思考。",
       "heroLink": "看正在做的產品",
-      "statementEyebrow": "WHAT I AM WORKING ON",
+      "statementEyebrow": "我正在做的事",
       "statementTitle": "把複雜的東西，做成有人願意使用的東西。",
-      "statementDescription": "公開方向包括行動端產品、AI 與 agent 工具、研究型實驗，也會給角色和故事留一塊空間。"
-    }
+      "statementDescription": "認識規律，創造產品，也用寫作和想像探索可能。這裡記錄這幾條道路如何相遇。"
+    },
+    "siteDescription": "獨立開發者彩旗飄飄的產品、研究與個人記錄。"
   },
   "ideal": {
     "eyebrow": "生在彩旗下，自是斯黃人",
@@ -218,6 +299,86 @@
     "principle1": "認識世界，是為了獲得行動的自由；",
     "principle2": "創造產品，是為了讓思想進入現實；",
     "principle3": "寫作與想像，則使尚不存在的世界先行顯影。",
-    "signature": "求真 · 求索 · 求變"
+    "signature": "求真 · 求索 · 求變",
+    "researchDescription": "論文、研究專案與技術探索。",
+    "researchArt": "從問題出發"
+  },
+  "theme": {
+    "toLight": "切換至淺色主題",
+    "toDark": "切換至深色主題",
+    "light": "淺色主題",
+    "dark": "深色主題"
+  },
+  "pageTitles": {
+    "home": "首頁",
+    "projects": "實踐",
+    "creations": "創作",
+    "journal": "行記",
+    "about": "關於",
+    "research": "求索"
+  },
+  "sections": {
+    "projects": {
+      "description": "產品、創業專案與獨立開發。把想法投入現實，記錄已上線的作品和建設中的專案。",
+      "question": "做成了什麼？"
+    },
+    "research": {
+      "description": "科研方向、技術探索、論文與研究專案。記錄問題、方法與發現。",
+      "question": "在研究什麼？"
+    },
+    "creations": {
+      "description": "彩旗飄飄、賽琳月輝、視覺設計與世界觀。為想像賦予形象，為尚不存在的世界留下入口。",
+      "question": "創造了什麼世界？"
+    },
+    "journal": {
+      "description": "文章、隨筆、研究札記與創業復盤。記錄正在形成的想法，也回看實踐如何改變認識。",
+      "question": "在想什麼？"
+    }
+  },
+  "narrative": {
+    "selectedTitle": "代表作品",
+    "selectedDescription": "從已經投入使用的產品開始，看看想法如何進入現實。",
+    "recentTitle": "近期內容",
+    "recentDescription": "實踐、求索、創作與行記中的最新記錄。",
+    "researchTitle": "研究方向",
+    "researchDirection": "分散式最佳化",
+    "researchDescription": "探索分散式系統中的最佳化方法，關注問題建模、演算法與實驗。",
+    "aboutTitle": "身分、價值觀與經歷",
+    "aboutDescription": "認識規律，創造產品，也用寫作和想像探索可能。這裡記錄這幾條道路如何相遇。",
+    "allProducts": "查看全部產品",
+    "inquiryDescription": "論文、研究專案與技術探索。",
+    "emptyDescription": "這個欄目還沒有已發佈的記錄。新的內容會在發佈後出現。"
+  },
+  "products": {
+    "flagsay": {
+      "description": "透過照片、故事和身邊的事物學習語言的 AI 應用。",
+      "title": "Flagsay",
+      "meta": "flagsay.com"
+    },
+    "era": {
+      "description": "自訂紀元和日期命名的 App。",
+      "title": "Era Workshop",
+      "meta": "eraworkshop.com"
+    },
+    "gourmet": {
+      "description": "記錄吃過的菜和去過的餐廳，建立自己的食物記憶。",
+      "title": "GourmetLens",
+      "meta": "gourmetlens.cn"
+    },
+    "medtrace": {
+      "description": "離線優先的個人健康時間線。",
+      "title": "MedTrace",
+      "meta": "medtrace.skstudio.cn"
+    },
+    "scholar": {
+      "description": "面向文獻綜述、論文閱讀和寫作的 AI 研究助手。",
+      "title": "SK Scholar",
+      "meta": "scholar.skstudio.cn"
+    },
+    "mosaic": {
+      "title": "Rectangular Mosaic（矩形馬賽克）",
+      "description": "在圖片選定區域加入矩形馬賽克，保護隱私。",
+      "meta": "rectmosaic.skstudio.cn"
+    }
   }
 }
