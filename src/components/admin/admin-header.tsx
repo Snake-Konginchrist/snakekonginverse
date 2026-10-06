@@ -8,7 +8,7 @@ export function AdminHeader() {
         ✳
       </div>
       <div>
-        <strong>SnakeKonginVerse</strong>
+        <strong>SnakeKonginverse</strong>
         <span>个人主页内容工作台</span>
       </div>
       <div className="sk-admin-header-note">产品 · AI · 分布式优化 · 创作</div>
