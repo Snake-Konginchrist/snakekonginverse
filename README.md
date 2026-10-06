@@ -5,13 +5,13 @@ Snake + Kongin + Verse。Snake Konginchrist 的产品、研究、创作与个人
 
 ## 技术栈
 
-Next.js 16.3.5、React 19.3、TypeScript 严格模式、Tailwind CSS 4.3、Payload CMS 3.90.1、Lexical、PostgreSQL、本地媒体存储。
-使用 pnpm、ESLint、Prettier、Node 测试与 Playwright；部署采用 Node.js + systemd + Nginx，无 Docker。
+Next.js 16.3.8、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Payload CMS 3.90.2、Lexical、PostgreSQL、本地媒体存储。
+使用 pnpm、Oxlint、Prettier、Node 测试与 Playwright；部署采用 Node.js + systemd + Nginx，无 Docker。
 具体版本以 lockfile 为准，GraphQL 保持在 Payload 支持的 16.x。
 
 ## 本地运行
 
-需要 Node.js 22.13+（推荐受支持的 LTS）、pnpm 10.8.0 和 PostgreSQL。
+需要 Node.js 22.13+（推荐受支持的 LTS）、pnpm 12.9.1 和 PostgreSQL。
 
 ```bash
 pnpm install --frozen-lockfile
@@ -36,7 +36,7 @@ pnpm dev
 - 健康检查：`curl -I http://localhost:3000`。
 - 停止服务：在运行终端按 `Ctrl+C`。
 
-`pnpm seed` 只补缺失的品牌页面，不覆盖编辑内容，不创建帐号或虚构作品。
+`pnpm seed` 只补缺失的品牌页面，并为未改动的初始页面补齐尚未编辑的语言，不覆盖编辑内容，不创建帐号或虚构作品。
 开发模式自动同步数据库 schema，生产使用版本化迁移，不能在生产库运行 dev。
 
 ## 内容管理
@@ -66,7 +66,7 @@ pnpm test:cms       # 本机真实 CMS 闭环；临时帐号、内容和媒体�
 修改 schema 后执行 `pnpm cms:types && pnpm cms:importmap`，然后生成迁移。
 手写代码不超过 300 行；生成的类型、导入映射、数据库迁移和 lockfile 不人为拆分。
 
-Payload 的 Pages 与 Entries 已开启四语言字段；首页和关于页的首屏文案随语言切换，
+Payload 的 Pages 与 Entries 已开启四语言字段；首页和关于页的首屏文案直接读取 CMS，初始化脚本提供四语言初始内容，
 社交目录使用 `react-icons` 的品牌图标。未确认的社交账号只显示为待配置入口，避免生成错误链接。
 
 - [架构说明](docs/ARCHITECTURE.md)

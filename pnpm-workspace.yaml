@@ -1,5 +1,30 @@
-ignoredBuiltDependencies:
-  - unrs-resolver
-onlyBuiltDependencies:
-  - sharp
-  - esbuild
+allowBuilds:
+  sharp: true
+  esbuild: true
+  '@swc/core': false
+  '@parcel/watcher': false
+# 仅放行本次升级的精确版本；其他版本仍遵循默认 24 小时发布等待期。
+minimumReleaseAgeExclude:
+  - '@oxlint/binding-android-arm-eabi@1.87.0'
+  - '@oxlint/binding-android-arm64@1.87.0'
+  - '@oxlint/binding-darwin-arm64@1.87.0'
+  - '@oxlint/binding-darwin-x64@1.87.0'
+  - '@oxlint/binding-freebsd-x64@1.87.0'
+  - '@oxlint/binding-linux-arm-gnueabihf@1.87.0'
+  - '@oxlint/binding-linux-arm-musleabihf@1.87.0'
+  - '@oxlint/binding-linux-arm64-gnu@1.87.0'
+  - '@oxlint/binding-linux-arm64-musl@1.87.0'
+  - '@oxlint/binding-linux-ppc64-gnu@1.87.0'
+  - '@oxlint/binding-linux-riscv64-gnu@1.87.0'
+  - '@oxlint/binding-linux-riscv64-musl@1.87.0'
+  - '@oxlint/binding-linux-s390x-gnu@1.87.0'
+  - '@oxlint/binding-linux-x64-gnu@1.87.0'
+  - '@oxlint/binding-linux-x64-musl@1.87.0'
+  - '@oxlint/binding-openharmony-arm64@1.87.0'
+  - '@oxlint/binding-win32-arm64-msvc@1.87.0'
+  - '@oxlint/binding-win32-ia32-msvc@1.87.0'
+  - '@oxlint/binding-win32-x64-msvc@1.87.0'
+  - oxlint@1.87.0
+  - '@formatjs/icu-messageformat-parser@3.5.21'
+  - nanoid@3.3.20
+  - postcss@8.5.29

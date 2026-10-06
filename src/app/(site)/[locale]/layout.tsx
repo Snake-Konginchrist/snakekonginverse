@@ -25,11 +25,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const localeParam = (await params).locale;
   const locale: Locale = hasLocale(localeParam) ? localeParam : 'zh-CN';
   const settings = await getSettings(locale);
-  const t = await getTranslations({ locale, namespace: 'common' });
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
     title: { default: settings.brand, template: `%s · ${settings.brand}` },
-    description: locale === 'zh-CN' ? settings.description : t('explore'),
+    description: settings.description,
     openGraph: { siteName: settings.brand, locale: locale.replace('-', '_'), type: 'website' },
   };
 }
@@ -43,7 +42,7 @@ export default async function SiteLayout({ children, params }: Props) {
   const messages = await getMessages();
   const t = await getTranslations('common');
   return (
-    <html lang={locale} data-accent={settings.accent ?? 'blue'}>
+    <html lang={locale} data-accent={settings.accent ?? 'blue'} data-scroll-behavior="smooth">
       <body>
         <NextIntlClientProvider messages={messages}>
           <a className="skip-link" href="#main">

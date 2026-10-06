@@ -1,11 +1,14 @@
 import { ArrowUpRight, Asterisk } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import type { SiteSetting } from '@/payload-types';
+import Link from 'next/link';
 
 /** 未配置联系方式时保留真实说明，不生成虚构邮箱和社交帐号。 */
-export function SiteFooter({ settings }: { settings: SiteSetting }) {
-  const t = useTranslations('footer');
-  const commonT = useTranslations('common');
+export async function SiteFooter({ settings }: { settings: SiteSetting }) {
+  const t = await getTranslations('footer');
+  const commonT = await getTranslations('common');
+  // oxlint-disable-next-line react/purity -- 动态服务端组件按请求生成年份，不参与客户端 React Compiler。
+  const year = new Date().getFullYear();
   return (
     <footer id="connect" className="site-footer">
       <div className="shell">
@@ -30,10 +33,12 @@ export function SiteFooter({ settings }: { settings: SiteSetting }) {
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} {settings.author}
+            © {year} {settings.author}
           </span>
           <span>{t('signature')}</span>
-          <a href="/admin">{commonT('admin')} ↗</a>
+          <Link href="/admin" prefetch={false}>
+            {commonT('admin')} ↗
+          </Link>
         </div>
       </div>
     </footer>

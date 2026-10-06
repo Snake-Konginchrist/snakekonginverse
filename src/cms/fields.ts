@@ -33,7 +33,11 @@ export function validPagePath(value: unknown): true | string {
   ) {
     return '请填写 / 或 /about/me 形式的小写路径，不要以斜线结尾';
   }
-  if (/^\/(admin|api|projects|creations|journal|preview|_next)(\/|$)/.test(value))
+  if (
+    /^\/(admin|api|projects|creations|journal|preview|_next|links|recommendations|communities|contact|identities|changelog|discussion)(\/|$)/.test(
+      value,
+    )
+  )
     return '此路径由系统保留';
   return true;
 }

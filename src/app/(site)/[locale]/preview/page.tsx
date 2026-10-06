@@ -38,7 +38,7 @@ export default async function Preview({
     return (
       <>
         {banner}
-        <BlockRenderer blocks={doc.layout} />
+        <BlockRenderer blocks={doc.layout} pagePath={doc.path} />
       </>
     );
   }

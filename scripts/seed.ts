@@ -1,64 +1,51 @@
 import { getPayload } from 'payload';
 import config from '../src/payload.config';
-import type { Page } from '../src/payload-types';
+import { locales } from '../src/i18n/routing';
+import { isStarterPage, starterPages } from './starter-pages';
 
 /** 首次初始化只写入品牌页面，不创建帐号、虚构作品，也不覆盖后续编辑内容。 */
 const payload = await getPayload({ config });
 try {
-  const initialPages: { title: string; path: string; layout: Page['layout'] }[] = [
-    {
-      title: '首页',
-      path: '/',
-      layout: [
-        {
-          blockType: 'hero',
-          eyebrow: 'INDEPENDENT DEVELOPER / SK STUDIO',
-          title: '把产品做出来，\n也保留一点幻想。',
-          description:
-            '我是 Snake Konginchrist，做移动产品、AI 工具和研究。\n这里记录正在构建的东西，以及让我继续好奇的事。',
-          linkLabel: '看看正在做的',
-          href: '/projects',
-        },
-        { blockType: 'collection', title: '最新手记', source: 'journal', limit: 3 },
-        {
-          blockType: 'portals',
-          title: '从这里开始',
-          description: '项目、创作、手记。',
-        },
-      ],
-    },
-    {
-      title: '关于这个宇宙',
-      path: '/about',
-      layout: [
-        {
-          blockType: 'hero',
-          eyebrow: 'INDEPENDENT DEVELOPER / RESEARCHER',
-          title: '做产品，\n也做研究。',
-          description:
-            '我是 Snake Konginchrist，和 SK Studio 一起做移动产品与 AI 工具，也在研究分布式优化。\n这里是工作之外的个人记录。',
-          linkLabel: '看正在做的产品',
-          href: '/projects',
-        },
-        {
-          blockType: 'statement',
-          eyebrow: 'WHAT I AM WORKING ON',
-          title: '把复杂的东西，做成有人愿意用的东西。',
-          description:
-            '公开方向包括移动端产品、AI 与 agent 工具、研究型实验，也会给角色和故事留一块空间。',
-        },
-      ],
-    },
-  ];
-  for (const page of initialPages) {
+  for (const starter of starterPages('zh-CN')) {
     const existing = await payload.find({
       collection: 'pages',
-      where: { path: { equals: page.path } },
+      where: { path: { equals: starter.path } },
+      locale: 'zh-CN',
+      draft: true,
       limit: 1,
     });
-    if (!existing.docs.length) {
-      await payload.create({ collection: 'pages', data: { ...page, _status: 'published' } });
-      console.info(`已初始化页面：${page.path}`);
+    let page = existing.docs[0];
+    if (!page) {
+      page = await payload.create({
+        collection: 'pages',
+        locale: 'zh-CN',
+        data: { ...starter, _status: 'published' },
+      });
+      console.info(`已初始化页面：${starter.path}`);
+    }
+    if (page._status !== 'published' || !isStarterPage(page, starter)) continue;
+    for (const locale of locales.filter((value) => value !== 'zh-CN')) {
+      const localized = await payload.findByID({
+        collection: 'pages',
+        id: page.id,
+        locale,
+        fallbackLocale: false,
+        draft: true,
+      });
+      // 已有标题或区块（包括草稿）完全保留，只补尚未开始编辑的语言。
+      if (localized.title || localized.layout?.length) continue;
+      const translated = starterPages(locale).find((item) => item.path === starter.path)!;
+      await payload.update({
+        collection: 'pages',
+        id: page.id,
+        locale,
+        data: {
+          title: translated.title,
+          layout: translated.layout,
+          _status: 'published',
+        },
+      });
+      console.info(`已补初始页面翻译：${starter.path} (${locale})`);
     }
   }
   const settings = await payload.findGlobal({ slug: 'site-settings' });

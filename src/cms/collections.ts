@@ -38,7 +38,7 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'path', '_status'],
-    preview: (data) => `/preview?collection=pages&id=${data.id}`,
+    preview: (data, { locale }) => `/${locale}/preview?collection=pages&id=${data.id}`,
   },
   access: editorialAccess,
   versions: { drafts: true, maxPerDoc: 20 },
@@ -71,7 +71,7 @@ export const Entries: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'kind', '_status'],
-    preview: (data) => `/preview?collection=entries&id=${data.id}`,
+    preview: (data, { locale }) => `/${locale}/preview?collection=entries&id=${data.id}`,
   },
   access: editorialAccess,
   versions: { drafts: true, maxPerDoc: 20 },

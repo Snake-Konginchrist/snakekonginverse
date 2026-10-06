@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { getEntries, getEntry, getPage, isContentKind } from '@/lib/content';
 import { BlockRenderer } from '@/components/blocks/renderer';
 import { EntryDetail } from '@/components/entry-detail';
@@ -20,8 +20,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const segments = path ?? [];
   const pathname = `/${segments.join('/')}`;
   const kindT = await getTranslations({ locale: localeParam, namespace: 'contentKinds' });
-  if (segments.length === 1 && isContentKind(segments[0]))
-    return { title: kindT(segments[0]), alternates: { canonical: `/${localeParam}${pathname}` } };
+  if (segments.length === 1 && isContentKind(segments[0])) {
+    const archiveT = await getTranslations({ locale: localeParam, namespace: 'archive' });
+    return {
+      title: kindT(segments[0]),
+      description: archiveT('intro'),
+      alternates: { canonical: `/${localeParam}${pathname}` },
+    };
+  }
   const doc =
     segments.length === 2 && isContentKind(segments[0])
       ? await getEntry(segments[0], segments[1], localeParam)
@@ -29,7 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!doc) return { title: '页面未找到', robots: { index: false } };
   return {
     title: doc.seo?.title || doc.title,
-    description: doc.seo?.description || undefined,
+    description:
+      doc.seo?.description ||
+      ('summary' in doc
+        ? doc.summary
+        : doc.layout.find((block) => block.blockType === 'hero')?.description),
     alternates: { canonical: `/${localeParam}${pathname}` },
   };
 }

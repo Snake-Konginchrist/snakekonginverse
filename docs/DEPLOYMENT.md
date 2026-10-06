@@ -5,7 +5,7 @@
 
 ## 环境与目录
 
-安装受支持的 Node.js LTS（22.13+）、pnpm 10.8.0、PostgreSQL 和 Nginx。
+安装受支持的 Node.js LTS（22.13+）、pnpm 12.9.1、PostgreSQL 和 Nginx。
 数据库只监听本机，为本站建立专属非超级用户。
 
 ```bash
@@ -78,6 +78,7 @@ Cloudflare 使用 Full (strict)，不要 Flexible，不要缓存 `/admin`、`/ap
 ```bash
 pnpm install --frozen-lockfile
 NODE_ENV=production pnpm db:migrate
+NODE_ENV=production pnpm seed
 pnpm build
 sudo systemctl start snakekonginverse
 curl -I http://127.0.0.1:3000

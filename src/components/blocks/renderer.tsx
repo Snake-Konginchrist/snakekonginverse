@@ -13,58 +13,16 @@ type BlockRendererProps = {
   pagePath?: string;
 };
 
-function localizeStarterBlock(
-  block: Page['layout'][number],
-  pagePath: string | undefined,
-  t: (key: string) => string,
-) {
-  if (pagePath === '/' && block.blockType === 'hero') {
-    return {
-      ...block,
-      eyebrow: t('home.heroEyebrow'),
-      title: t('home.heroTitle'),
-      description: t('home.heroDescription'),
-      linkLabel: t('home.heroLink'),
-    };
-  }
-  if (pagePath === '/' && block.blockType === 'collection') {
-    return { ...block, title: t('home.collectionTitle') };
-  }
-  if (pagePath === '/' && block.blockType === 'portals') {
-    return { ...block, title: t('home.portalsTitle'), description: t('home.portalsDescription') };
-  }
-  if (pagePath === '/about' && block.blockType === 'hero') {
-    return {
-      ...block,
-      eyebrow: t('about.heroEyebrow'),
-      title: t('about.heroTitle'),
-      description: t('about.heroDescription'),
-      linkLabel: t('about.heroLink'),
-    };
-  }
-  if (pagePath === '/about' && block.blockType === 'statement') {
-    return {
-      ...block,
-      eyebrow: t('about.statementEyebrow'),
-      title: t('about.statementTitle'),
-      description: t('about.statementDescription'),
-    };
-  }
-  return block;
-}
-
 /** 服务端区块分发器：schema 决定数据形状，各区块负责自己的 UI。 */
 export async function BlockRenderer({ blocks, pagePath }: BlockRendererProps) {
   const isHome = pagePath === '/';
   const locale = (await getLocale()) as Locale;
   const t = await getTranslations('common');
-  const cmsT = await getTranslations('cms');
 
   return (
     <div className={isHome ? 'home-page' : 'page-content'}>
       {await Promise.all(
-        (blocks ?? []).map(async (rawBlock, index) => {
-          const block = localizeStarterBlock(rawBlock, pagePath, cmsT);
+        (blocks ?? []).map(async (block, index) => {
           const key = block.id ?? index;
           switch (block.blockType) {
             case 'hero':
@@ -79,7 +37,6 @@ export async function BlockRenderer({ blocks, pagePath }: BlockRendererProps) {
                 />
               );
             case 'statement':
-              if (isHome) return null;
               return (
                 <section key={key} className="statement shell">
                   <p className="eyebrow">{block.eyebrow}</p>

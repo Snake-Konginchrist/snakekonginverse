@@ -1,7 +1,7 @@
 # SnakeKonginVerse 开发模式调试指南
 
 这份文档说明如何在本机启动、调试和停止 SnakeKonginVerse。
-项目是 Next.js 16.3.5 + React 19.3 + Payload CMS 3.90.1 + PostgreSQL，使用 pnpm 管理依赖。
+项目是 Next.js 16.3.8 + React 19.3 + Payload CMS 3.90.2 + PostgreSQL，使用 pnpm 管理依赖；类型检查使用 TypeScript 7，代码规范检查使用 Oxlint。
 前台和 Payload 管理后台运行在同一个 Next.js 开发进程中。
 
 ## 一、准备开发环境
@@ -24,7 +24,7 @@ psql --version
 如果 pnpm 版本不同，优先使用项目声明的版本：
 
 ```bash
-corepack prepare pnpm@10.8.0 --activate
+pnpm self-update 12.9.1
 ```
 
 不要把生产数据库连接写进本机开发环境。开发模式会允许 Payload 自动同步 schema，连接生产数据库可能造成不可逆的数据结构变化。
@@ -74,7 +74,9 @@ pnpm cms:importmap
 pnpm seed
 ```
 
-`pnpm seed` 是幂等的，只补缺失内容，不覆盖你已经编辑过的页面，也不会创建测试管理员或虚构作品。
+`pnpm seed` 是幂等的，只补缺失内容，并为未改动的初始页面补齐尚未编辑的语言。
+已有标题、区块或草稿的语言不会覆盖；修改过的页面请在后台自行填写各语言内容。
+不会创建测试管理员或虚构作品。
 
 启动开发服务器：
 

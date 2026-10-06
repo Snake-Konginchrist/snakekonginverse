@@ -20,6 +20,7 @@ const navKeyByHref: Record<string, string> = {
   '/creations': 'creations',
   '/journal': 'journal',
   '/about': 'about',
+  ...Object.fromEntries(moreItems.map((item) => [item.href, item.key])),
 };
 
 /** 原生 details 提供移动导航，无额外客户端状态且支持键盘操作。 */
@@ -67,7 +68,11 @@ export function SiteHeader({ settings }: { settings: SiteSetting }) {
         <nav aria-label="移动导航">
           {mobileItems.map((item) => (
             <Link key={item.href} href={item.href}>
-              {'label' in item ? item.label : t(item.key)}
+              {navKeyByHref[item.href]
+                ? t(navKeyByHref[item.href])
+                : 'label' in item
+                  ? item.label
+                  : t(item.key)}
             </Link>
           ))}
         </nav>
