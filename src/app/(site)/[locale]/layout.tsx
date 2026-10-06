@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { getSettings } from '@/lib/content';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { SiteAnalytics } from '@/components/site-analytics';
 import { hasLocale, locales, type Locale } from '@/i18n/routing';
 import '@/styles/tokens.css';
 import '@/styles/sections.css';
@@ -52,6 +53,12 @@ export default async function SiteLayout({ children, params }: Props) {
           <main id="main">{children}</main>
           <SiteFooter settings={settings} />
         </NextIntlClientProvider>
+        {process.env.NODE_ENV === 'production' && (
+          <SiteAnalytics
+            clarityId={process.env.CLARITY_PROJECT_ID?.trim() ?? ''}
+            gaId={process.env.GA4_MEASUREMENT_ID?.trim() ?? ''}
+          />
+        )}
       </body>
     </html>
   );

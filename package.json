@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "cms:types": "payload generate:types",
     "cms:importmap": "payload generate:importmap",
+    "r2:check": "node --env-file=.env deploy/r2-storage.mjs check",
     "db:migrate": "payload migrate",
     "db:migration": "payload migrate:create",
     "seed": "tsx --env-file=.env scripts/seed.ts",
@@ -22,9 +23,13 @@
     "test:cms": "tsx --env-file=.env scripts/verify-cms.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.1146.0",
+    "@microsoft/clarity": "1.0.2",
+    "@next/third-parties": "16.3.8",
     "@payloadcms/db-postgres": "3.90.2",
     "@payloadcms/next": "3.90.2",
     "@payloadcms/richtext-lexical": "3.90.2",
+    "@payloadcms/storage-s3": "3.90.2",
     "@payloadcms/translations": "3.90.2",
     "graphql": "16.14.2",
     "lucide-react": "1.52.0",

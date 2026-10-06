@@ -47,7 +47,7 @@ done
 export NODE_ENV=production
 cd "$release"
 pnpm install --frozen-lockfile
-media=$(node deploy/runtime-config.mjs media "$app")
+node deploy/runtime-config.mjs run "$app" exec node deploy/r2-storage.mjs check
 pnpm exec next typegen
 pnpm check
 pnpm build
@@ -69,7 +69,7 @@ trap finish EXIT
 sudo -n /usr/bin/systemctl stop "$service"
 stopped=1
 node deploy/runtime-config.mjs backup "$app" "$backup/database.dump"
-tar -czf "$backup/media.tar.gz" -C "$media" .
+node deploy/runtime-config.mjs run "$app" exec node deploy/r2-storage.mjs backup "$backup/r2"
 printf '%s\n' "$revision" > "$release/DEPLOYED_COMMIT"
 migration_started=1
 node deploy/runtime-config.mjs run "$app" db:migrate --yes

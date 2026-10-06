@@ -6,7 +6,7 @@
 
 ## 一次性配置服务器
 
-先按 [部署文档](DEPLOYMENT.md) 完成首次部署，配置真实 `.env` 和站外媒体目录。
+先按 [部署文档](DEPLOYMENT.md) 完成首次部署，配置真实 `.env` 中的数据库及 R2 连接。
 以下示例使用 `/var/www/snakekonginverse`、用户 `ubuntu`、服务 `snakekonginverse.service`。
 实际值必须与服务器一致，SSH 登录用户应为运行服务的用户。
 
@@ -25,7 +25,7 @@ sudo systemctl daemon-reload
 
 首次切换前保持当前服务运行；首轮自动部署完成后会创建 `.deploy/current` 并重启服务。
 override 改变工作目录、运行路径与缓存写入路径；原有环境配置与运行用户继续使用。
-`.env` 应位于网站根目录；媒体必须在该目录之外，例如 `/var/lib/snakekonginverse/media`。
+`.env` 应位于网站根目录；媒体存入 R2，不再需要 `MEDIA_DIR` 或本地媒体目录。
 
 通过 `sudo visudo -f /etc/sudoers.d/snakekonginverse-deploy` 只授权以下服务操作：
 
@@ -34,7 +34,7 @@ ubuntu ALL=(root) NOPASSWD: /usr/bin/systemctl stop snakekonginverse.service, /u
 ```
 
 为 GitHub Actions 建立专用 SSH 密钥，将公钥加入部署用户的 `authorized_keys`。
-该账户须能写网站目录与 `.deploy`，并能读取环境配置和媒体、备份站点数据库。
+该账户须能写网站目录与 `.deploy`，并能读取环境配置、备份站点数据库，并读写本站 R2 存储桶。
 私钥只配置到 GitHub Secrets，不提交到仓库。
 
 ## 配置 GitHub
@@ -59,14 +59,14 @@ ubuntu ALL=(root) NOPASSWD: /usr/bin/systemctl stop snakekonginverse.service, /u
 
 可用 `ssh-keyscan -p 端口 服务器地址` 获取公钥记录，但须与服务器控制台或现有可信 SSH 记录核对指纹。
 工作流强制校验服务器公钥。GitHub 提供已认证的私有仓库 checkout；服务器不需要额外保存仓库访问令牌。
-数据库密码、Payload 密钥等配置只保留在服务器环境文件中。
+数据库密码、Payload 密钥、R2 访问密钥等配置只保留在服务器环境文件中。
 
 ## 每次部署过程
 
 1. 上传该提交的代码归档；GitHub 与服务器分别限制并发部署。
 2. 将服务器现有 `.env`、`.env.*` 复制到私有备份及新发布目录；不覆盖原文件。
-3. 在新目录安装锁定依赖，执行 `pnpm check` 和 `pnpm build`，此时原服务继续运行。
-4. 停止服务，备份数据库、媒体，执行生产迁移和幂等初始化。
+3. 在新目录安装锁定依赖，预检 R2 连接，生成 Next.js 类型并执行 `pnpm check` 和 `pnpm build`，此时原服务继续运行。
+4. 停止服务，备份数据库、R2 对象，执行生产迁移和幂等初始化。
 5. 原子切换 `.deploy/current`，启动服务并检查本机页面返回 HTTP 200。
 
 检查/构建失败不会切换正在运行的版本。迁移前的备份失败会尝试重新启动原服务。
@@ -76,10 +76,10 @@ GitHub Actions 日志会标出部署结果和服务器备份目录。
 
 ## 备份与故障恢复
 
-备份位于 `.deploy/backups/时间戳-提交/`，含环境文件、`database.dump` 和 `media.tar.gz`；
+备份位于 `.deploy/backups/时间戳-提交/`，含环境文件、`database.dump` 和 `r2/`（文件及 `manifest.json` 对象映射）；
 发布代码位于 `.deploy/releases/`。目录默认仅部署用户可访问。
 按磁盘容量安排定期归档和清理；不要删除 `current` 指向的目录或仍需恢复的备份。
 
 失败后先检查 Actions 日志、`journalctl -u snakekonginverse.service` 和备份。
-数据库迁移可能已改变数据结构，不能只切回旧代码：根据迁移兼容性决定继续修复或停服务后恢复匹配的数据库、媒体与代码。
+数据库迁移可能已改变数据结构，不能只切回旧代码：根据迁移兼容性决定继续修复或停服务后恢复匹配的数据库、R2 对象与代码。备份仅保存在本服务器，还需安排异地备份及恢复验证。
 文件语法检查和本机测试不等于真实服务器部署成功；首次上线须实际运行工作流并核对页面、后台和媒体。

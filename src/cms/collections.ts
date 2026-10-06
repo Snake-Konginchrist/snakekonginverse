@@ -1,4 +1,3 @@
-import path from 'node:path';
 import type { CollectionConfig } from 'payload';
 import { authenticated, editorialAccess, publicRead } from './access';
 import { pageBlocks } from './blocks';
@@ -22,10 +21,9 @@ export const Media: CollectionConfig = {
   slug: 'media',
   labels: { singular: '媒体', plural: '媒体库' },
   access: { read: publicRead, create: authenticated, update: authenticated, delete: authenticated },
-  // 生产使用独立持久化目录；仅允许栅格图片，避免上传可执行 SVG/HTML。
+  // 图片和缩略图统一存入 R2；仅允许栅格图片，避免上传可执行 SVG/HTML。
   upload: {
-    // 媒体由运行环境提供，不属于打包输入；避免追踪整个项目目录。
-    staticDir: path.resolve(/* turbopackIgnore: true */ process.env.MEDIA_DIR || 'media'),
+    disableLocalStorage: true,
     mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif'],
     imageSizes: [{ name: 'card', width: 960, height: 640, position: 'centre' }],
   },

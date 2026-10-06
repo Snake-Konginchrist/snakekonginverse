@@ -2,6 +2,10 @@
 
 ## 0.3.0 — 2026-10-06
 
+- 接入 Microsoft Clarity 官方 SDK 与 Next.js 官方 GA4 组件，环境配置按数据库、CMS、网站、R2、统计分组。
+- 媒体存储改用 Cloudflare R2，安装官方推荐的 AWS SDK v3 和 Payload S3 存储适配器，取消本地媒体存储。
+- 本地和服务器共用 R2 环境配置，增加连接预检、媒体元信息迁移和部署前 R2 对象备份。
+- 补充对象存储免费额度对照与厂商官方链接。
 - 数据库名称统一为 snakekonginverse_db，数据库帐号统一为 snakekongin。
 - systemd 服务及 SSH 部署使用现有 ubuntu 用户，同步配置示例和部署文档。
 - 将 SWC 运行缓存放入网站专用的 systemd 缓存目录，适配目录保护。

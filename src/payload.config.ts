@@ -6,6 +6,8 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { zh } from '@payloadcms/translations/languages/zh';
 import { en } from '@payloadcms/translations/languages/en';
 import sharp from 'sharp';
+import { s3Storage } from '@payloadcms/storage-s3';
+import { getR2Settings, requireR2Settings } from './lib/r2-config.mjs';
 import { Entries, Media, Pages, Users } from './cms/collections';
 import { SiteSettings } from './cms/site-settings';
 
@@ -26,6 +28,11 @@ export default buildConfig({
     ],
   },
   collections: [Users, Pages, Entries, Media],
+  plugins: [s3Storage({ collections: { media: true }, ...getR2Settings() })],
+  // 类型及迁移生成无需访问 R2；应用初始化必须有真实的 R2 配置。
+  onInit: async () => {
+    requireR2Settings();
+  },
   globals: [SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

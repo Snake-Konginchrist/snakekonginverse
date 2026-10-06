@@ -36,7 +36,7 @@ pnpm self-update 12.9.1
 ```bash
 # 先在项目根目录执行后续命令
 pnpm install --frozen-lockfile
-createdb snakekonginverse
+createdb snakekonginverse_db
 cp .env.example .env
 ```
 
@@ -45,10 +45,13 @@ cp .env.example .env
 编辑 `.env`，至少确认这些值：
 
 ```dotenv
-DATABASE_URL=postgresql://YOUR_USER:YOUR_PASSWORD@127.0.0.1:5432/snakekonginverse
+DATABASE_URL=postgresql://snakekongin:YOUR_PASSWORD@127.0.0.1:5432/snakekonginverse_db
 PAYLOAD_SECRET=这里放随机长字符串
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-MEDIA_DIR=./media
+R2_BUCKET=snakekonginverse-media
+R2_ENDPOINT=https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com
+R2_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
+R2_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY
 ```
 
 可以使用下面的命令生成 Payload 密钥，然后把输出复制到 `.env`：
@@ -175,7 +178,7 @@ src/payload.config.ts         Payload、PostgreSQL、Lexical 配置
 
 - 页面访问地址冲突：检查 `Pages.path` 是否已经被使用，且不要使用 `/admin`、`/api`、`/preview` 等保留路径；
 - 页面发布后不显示：确认状态是 `published`，不是草稿；
-- 图片上传失败：确认 `MEDIA_DIR` 存在且当前用户可写，文件类型是 JPEG、PNG、WebP 或 AVIF，大小不超过 10 MB；
+- 图片上传失败：先执行 `pnpm r2:check` 确认 R2 连接和令牌权限，文件类型是 JPEG、PNG、WebP 或 AVIF，大小不超过 10 MB；
 - 富文本编辑器异常：重新执行 `pnpm cms:importmap`，然后重启 `pnpm dev`；
 - 字段类型提示不更新：重新执行 `pnpm cms:types`，确认 `src/payload-types.ts` 已更新；
 - 权限异常：检查 `src/cms/access.ts`，不要通过 `overrideAccess: true` 绕过公开读取权限。
@@ -304,4 +307,4 @@ pnpm seed
 pnpm dev
 ```
 
-生产数据库、服务器媒体目录和任何真实内容都不应使用这套重建流程。
+生产数据库、R2 媒体文件和任何真实内容都不应使用这套重建流程。

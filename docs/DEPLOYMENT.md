@@ -10,7 +10,6 @@
 
 ```bash
 sudo install -d -o ubuntu -g ubuntu /var/www/snakekonginverse
-sudo install -d -o ubuntu -g ubuntu /var/lib/snakekonginverse/media
 sudo -u postgres createuser --pwprompt snakekongin
 sudo -u postgres createdb --owner=snakekongin snakekonginverse_db
 ```
@@ -26,13 +25,17 @@ NODE_ENV=production
 DATABASE_URL=postgresql://snakekongin:URL_ENCODED_PASSWORD@127.0.0.1:5432/snakekonginverse_db
 PAYLOAD_SECRET=REPLACE_WITH_OPENSSL_RAND_HEX_32
 NEXT_PUBLIC_SITE_URL=https://snakekongin.com
-MEDIA_DIR=/var/lib/snakekonginverse/media
+R2_BUCKET=snakekonginverse-media
+R2_ENDPOINT=https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com
+R2_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
+R2_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY
 ```
 
 密码特殊字符需 URL 编码。不要提交真实密钥。以下命令在项目根目录执行：
 
 ```bash
 pnpm install --frozen-lockfile
+pnpm r2:check
 NODE_ENV=production pnpm db:migrate
 NODE_ENV=production pnpm seed
 pnpm check
@@ -61,7 +64,7 @@ journalctl -u snakekonginverse -f
 curl -I http://127.0.0.1:3000
 ```
 
-停止：`sudo systemctl stop snakekonginverse`。服务仅可写媒体目录与 `.next` 缓存。
+停止：`sudo systemctl stop snakekonginverse`。服务只需写 `.next` 与 systemd 分配的 SWC 缓存，媒体保存在 R2。
 
 ## Nginx 与 HTTPS
 
@@ -74,10 +77,11 @@ Cloudflare 使用 Full (strict)，不要 Flexible，不要缓存 `/admin`、`/ap
 
 推送到 `main` 后自动更新服务器的配置见 [GitHub Actions 自动部署](AUTO_DEPLOYMENT.md)。
 
-更新前备份数据库与媒体，停服务后更新代码，再执行：
+更新前备份数据库与 R2 对象，停服务后更新代码，再执行：
 
 ```bash
 pnpm install --frozen-lockfile
+pnpm r2:check
 NODE_ENV=production pnpm db:migrate
 NODE_ENV=production pnpm seed
 pnpm build
@@ -85,5 +89,5 @@ sudo systemctl start snakekonginverse
 curl -I http://127.0.0.1:3000
 ```
 
-定时使用 `pg_dump -Fc` 备份数据库，同时备份媒体目录与安全保存的环境配置。
-恢复时数据库、媒体和迁移版本应匹配。远端服务器、TLS 与 Cloudflare 不属于此次本机验证范围。
+定时使用 `pg_dump -Fc` 备份数据库，同时备份 R2 对象与安全保存的环境配置。R2 配置及迁移步骤见 [R2 接入](R2_STORAGE.md)。
+恢复时数据库、媒体和迁移版本应匹配。本机代码检查不能证明远端服务器、TLS 和 R2 读写成功，须分别验证。

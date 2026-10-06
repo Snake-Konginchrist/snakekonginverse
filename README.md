@@ -5,7 +5,9 @@ Snake + Kongin + Verse。Snake Konginchrist 的产品、研究、创作与个人
 
 ## 技术栈
 
-Next.js 16.3.8、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Payload CMS 3.90.2、Lexical、PostgreSQL、本地媒体存储。
+对象存储选型与免费额度：[平台对照文档](docs/OBJECT_STORAGE.md)。
+
+Next.js 16.3.8、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Payload CMS 3.90.2、Lexical、PostgreSQL、Cloudflare R2 媒体存储。
 使用 pnpm、Oxlint、Prettier、Node 测试与 Playwright；部署采用 Node.js + systemd + Nginx，无 Docker。
 具体版本以 lockfile 为准，GraphQL 保持在 Payload 支持的 16.x。
 
@@ -18,6 +20,8 @@ pnpm install --frozen-lockfile
 cp .env.example .env
 createdb snakekonginverse_db
 # 编辑 .env 的数据库连接，用 openssl rand -hex 32 生成 PAYLOAD_SECRET
+# 填写 R2_BUCKET、R2_ENDPOINT、R2_ACCESS_KEY_ID、R2_SECRET_ACCESS_KEY
+pnpm r2:check
 pnpm cms:types
 pnpm cms:importmap
 pnpm seed
@@ -47,6 +51,9 @@ pnpm dev
 4. 保存草稿后使用预览按钮查看，发布后前台下一次请求即可读取。
 5. **媒体库**：支持 JPEG / PNG / WebP / AVIF，最大 10 MB，必须填写图片描述。
 
+图片及缩略图上传到私有 R2 存储桶，通过 CMS 同源文件接口读取；不需要开启存储桶公开访问。
+本地开发同样使用 R2，缺少配置时不会回退本地文件。SDK 与接入步骤见 [R2 配置](docs/R2_STORAGE.md)。
+
 首版提供品牌首屏、探索入口、个人宣言、富文本、内容列表五种区块。
 这是结构化区块编辑器，不是任意拖动像素的画布。
 所有公开内容查询都启用权限检查；草稿预览要求管理员登录。媒体 URL 公开可读。
@@ -72,7 +79,10 @@ Payload 的 Pages 与 Entries 已开启四语言字段；首页和关于页的�
 - [架构说明](docs/ARCHITECTURE.md)
 - [开发模式调试指南](DEVELOPMENT.md)
 - [原生服务器部署](docs/DEPLOYMENT.md)
+- [Clarity 与 GA4 配置](docs/ANALYTICS.md)
+- [Cloudflare R2 接入](docs/R2_STORAGE.md)
+- [对象存储免费额度对照](docs/OBJECT_STORAGE.md)
 - [版本记录](CHANGELOG.md)
 
 首次开放公网前先创建管理员。当前未配置邮件投递，找回密码邮件不会真实发送。
-统计、评论、搜索、自动 URL 重定向和更丰富的区块尚未接入，详见版本记录。
+评论、搜索、自动 URL 重定向和更丰富的区块尚未接入，详见版本记录。
