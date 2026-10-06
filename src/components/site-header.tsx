@@ -57,6 +57,7 @@ export function SiteHeader({ settings }: { settings: SiteSetting }) {
             {navKeyByHref[item.href] ? t(navKeyByHref[item.href]) : item.label}
           </Link>
         ))}
+        <Link href="/contact">{t('contact')}</Link>
         <Link href="/links">{t('links')}</Link>
       </nav>
       <Link className="header-contact" href="/contact">
