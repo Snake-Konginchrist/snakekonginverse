@@ -16,6 +16,13 @@ export default function proxy(request: NextRequestType) {
     }
     const internal = request.nextUrl.clone();
     internal.pathname = `/${locale}${basePath}`;
+    // Keep the rewrite on the public request origin. Behind Nginx, Next can
+    // otherwise derive `localhost:3000` from the upstream Host header and
+    // treat the rewritten destination as an external URL in production.
+    const publicHost = request.headers.get('x-forwarded-host') ?? request.headers.get('host');
+    if (publicHost) internal.host = publicHost;
+    const forwardedProto = request.headers.get('x-forwarded-proto');
+    if (forwardedProto) internal.protocol = `${forwardedProto}:`;
     const headers = new Headers(request.headers);
     headers.set('X-NEXT-INTL-LOCALE', locale);
     headers.set('X-SK-INTERNAL-LOCALE', '1');

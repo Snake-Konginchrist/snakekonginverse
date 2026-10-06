@@ -82,10 +82,19 @@ fi
 ln -s -- "$release" "$root/current-next"
 mv -Tf -- "$root/current-next" "$root/current"
 sudo -n /usr/bin/systemctl start "$service"
+health_base="${health%/*}"
+health_paths=("${health##*/}" "projects/zh-CN" "contact/zh-CN" "links/zh-CN")
 for attempt in {1..30}; do
-  if systemctl is-active --quiet "$service" && \
-    status=$(curl --silent --show-error --max-time 5 --output /dev/null --write-out '%{http_code}' "$health") && \
-    [[ $status == 200 ]]; then
+  healthy=1
+  if ! systemctl is-active --quiet "$service"; then
+    healthy=0
+  else
+    for health_path in "${health_paths[@]}"; do
+      status=$(curl --silent --show-error --max-time 5 --output /dev/null --write-out '%{http_code}' "$health_base/$health_path") || status=000
+      [[ $status == 200 ]] || healthy=0
+    done
+  fi
+  if (( healthy )); then
     echo "部署成功：$revision"
     exit 0
   fi
