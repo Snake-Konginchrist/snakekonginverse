@@ -242,7 +242,11 @@
       }
     }
   },
-  "contentKinds": { "projects": "技术项目", "creations": "同人创作", "journal": "文字手记" },
+  "contentKinds": {
+    "projects": "技术项目",
+    "creations": "同人创作",
+    "journal": "文字手记"
+  },
   "socials": {
     "email": {
       "title": "Email",
@@ -264,38 +268,146 @@
       "description": "公开主页与视觉记录。",
       "meta": "XIAOHONGSHU"
     },
-    "bilibili": { "title": "哔哩哔哩", "description": "视频与项目更新。", "meta": "BILIBILI" },
-    "weibo": { "title": "微博", "description": "公开动态和短记录。", "meta": "WEIBO" },
-    "zhihu": { "title": "知乎", "description": "长文问题与回答。", "meta": "ZHIHU" },
-    "douban": { "title": "豆瓣", "description": "书、电影和个人兴趣。", "meta": "DOUBAN" },
-    "wechat": { "title": "微信", "description": "公开社交主页。", "meta": "WECHAT" },
-    "qq": { "title": "QQ", "description": "公开社交主页。", "meta": "QQ" },
-    "youtube": { "title": "YouTube", "description": "视频与项目更新。", "meta": "YOUTUBE" },
+    "bilibili": {
+      "title": "哔哩哔哩",
+      "description": "视频与项目更新。",
+      "meta": "BILIBILI"
+    },
+    "weibo": {
+      "title": "微博",
+      "description": "公开动态和短记录。",
+      "meta": "WEIBO"
+    },
+    "zhihu": {
+      "title": "知乎",
+      "description": "长文问题与回答。",
+      "meta": "ZHIHU"
+    },
+    "douban": {
+      "title": "豆瓣",
+      "description": "书、电影和个人兴趣。",
+      "meta": "DOUBAN"
+    },
+    "wechat": {
+      "title": "微信",
+      "description": "公开社交主页。",
+      "meta": "WECHAT"
+    },
+    "qq": {
+      "title": "QQ",
+      "description": "公开社交主页。",
+      "meta": "QQ"
+    },
+    "youtube": {
+      "title": "YouTube",
+      "description": "视频与项目更新。",
+      "meta": "YOUTUBE"
+    },
     "instagram": {
       "title": "Instagram",
       "description": "视觉记录与日常生活。",
       "meta": "INSTAGRAM"
     },
-    "facebook": { "title": "Facebook", "description": "公开主页与动态。", "meta": "FACEBOOK" },
-    "tiktok": { "title": "TikTok", "description": "短视频与实验。", "meta": "TIKTOK" },
-    "linkedin": { "title": "LinkedIn", "description": "职业主页与合作。", "meta": "LINKEDIN" },
-    "reddit": { "title": "Reddit", "description": "社区讨论与兴趣。", "meta": "REDDIT" },
-    "discord": { "title": "Discord", "description": "社区聊天与协作。", "meta": "DISCORD" },
-    "telegram": { "title": "Telegram", "description": "频道与直接联系。", "meta": "TELEGRAM" },
-    "threads": { "title": "Threads", "description": "公开短想法。", "meta": "THREADS" },
-    "bluesky": { "title": "Bluesky", "description": "公开短想法。", "meta": "BLUESKY" },
-    "mastodon": { "title": "Mastodon", "description": "联邦社交主页。", "meta": "MASTODON" },
-    "twitch": { "title": "Twitch", "description": "直播与实验。", "meta": "TWITCH" },
-    "steam": { "title": "Steam", "description": "游戏与社区主页。", "meta": "STEAM" },
-    "gitee": { "title": "Gitee", "description": "代码与国内开源主页。", "meta": "GITEE" },
-    "medium": { "title": "Medium", "description": "长文写作与记录。", "meta": "MEDIUM" },
-    "devto": { "title": "DEV Community", "description": "开发者写作与讨论。", "meta": "DEV.TO" },
-    "substack": { "title": "Substack", "description": "长文记录和通讯。", "meta": "SUBSTACK" },
-    "line": { "title": "LINE", "description": "公开社交主页。", "meta": "LINE" },
-    "kakaotalk": { "title": "KakaoTalk", "description": "公开社交主页。", "meta": "KAKAOTALK" },
-    "niconico": { "title": "ニコニコ", "description": "视频与创作者主页。", "meta": "NICONICO" },
-    "snapchat": { "title": "Snapchat", "description": "视觉社交主页。", "meta": "SNAPCHAT" },
-    "pinterest": { "title": "Pinterest", "description": "视觉参考与收藏。", "meta": "PINTEREST" },
+    "facebook": {
+      "title": "Facebook",
+      "description": "公开主页与动态。",
+      "meta": "FACEBOOK"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "短视频与实验。",
+      "meta": "TIKTOK"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "description": "职业主页与合作。",
+      "meta": "LINKEDIN"
+    },
+    "reddit": {
+      "title": "Reddit",
+      "description": "社区讨论与兴趣。",
+      "meta": "REDDIT"
+    },
+    "discord": {
+      "title": "Discord",
+      "description": "社区聊天与协作。",
+      "meta": "DISCORD"
+    },
+    "telegram": {
+      "title": "Telegram",
+      "description": "频道与直接联系。",
+      "meta": "TELEGRAM"
+    },
+    "threads": {
+      "title": "Threads",
+      "description": "公开短想法。",
+      "meta": "THREADS"
+    },
+    "bluesky": {
+      "title": "Bluesky",
+      "description": "公开短想法。",
+      "meta": "BLUESKY"
+    },
+    "mastodon": {
+      "title": "Mastodon",
+      "description": "联邦社交主页。",
+      "meta": "MASTODON"
+    },
+    "twitch": {
+      "title": "Twitch",
+      "description": "直播与实验。",
+      "meta": "TWITCH"
+    },
+    "steam": {
+      "title": "Steam",
+      "description": "游戏与社区主页。",
+      "meta": "STEAM"
+    },
+    "gitee": {
+      "title": "Gitee",
+      "description": "代码与国内开源主页。",
+      "meta": "GITEE"
+    },
+    "medium": {
+      "title": "Medium",
+      "description": "长文写作与记录。",
+      "meta": "MEDIUM"
+    },
+    "devto": {
+      "title": "DEV Community",
+      "description": "开发者写作与讨论。",
+      "meta": "DEV.TO"
+    },
+    "substack": {
+      "title": "Substack",
+      "description": "长文记录和通讯。",
+      "meta": "SUBSTACK"
+    },
+    "line": {
+      "title": "LINE",
+      "description": "公开社交主页。",
+      "meta": "LINE"
+    },
+    "kakaotalk": {
+      "title": "KakaoTalk",
+      "description": "公开社交主页。",
+      "meta": "KAKAOTALK"
+    },
+    "niconico": {
+      "title": "ニコニコ",
+      "description": "视频与创作者主页。",
+      "meta": "NICONICO"
+    },
+    "snapchat": {
+      "title": "Snapchat",
+      "description": "视觉社交主页。",
+      "meta": "SNAPCHAT"
+    },
+    "pinterest": {
+      "title": "Pinterest",
+      "description": "视觉参考与收藏。",
+      "meta": "PINTEREST"
+    },
     "pending": "待配置",
     "configured": "已配置"
   },
@@ -323,5 +435,25 @@
       "statementTitle": "把复杂的东西，做成有人愿意用的东西。",
       "statementDescription": "公开方向包括移动端产品、AI 与 agent 工具、研究型实验，也会给角色和故事留一块空间。"
     }
+  },
+  "ideal": {
+    "eyebrow": "生在彩旗下，自是斯黄人",
+    "title": "把理想投入现实，",
+    "accent": "让创造成为实践。",
+    "description": "我做产品、研究与创作，关注语言、智能、系统与尚未完成的世界。这里记录实践、求索与建设。",
+    "primary": "进入实践",
+    "secondary": "阅读关于我",
+    "practice": "实践",
+    "research": "求索",
+    "creations": "创作",
+    "journal": "行记",
+    "practiceDescription": "用产品连接理想与真实世界。",
+    "creationDescription": "以写作与艺术，延展可能的边界。",
+    "journalDescription": "在行走中观察，在世界里思考。",
+    "principles": "总纲",
+    "principle1": "认识世界，是为了获得行动的自由；",
+    "principle2": "创造产品，是为了让思想进入现实；",
+    "principle3": "写作与想象，则使尚不存在的世界先行显影。",
+    "signature": "求真 · 求索 · 求变"
   }
 }

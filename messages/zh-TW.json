@@ -36,7 +36,10 @@
     "empty": "聯絡方式即將更新，先在這個小宇宙裡逛逛吧。",
     "signature": "BUILD USEFUL THINGS. KEEP WONDER."
   },
-  "hero": { "about": "關於我", "footnote": "向下探索 · 隨好奇心出發" },
+  "hero": {
+    "about": "關於我",
+    "footnote": "向下探索 · 隨好奇心出發"
+  },
   "portals": {
     "aria": "個人內容入口",
     "products": "產品與實驗",
@@ -68,8 +71,14 @@
     "notFoundTitle": "這片宇宙還沒有座標。",
     "notFoundDescription": "頁面可能尚未發佈，或已經換了地址。"
   },
-  "preview": { "banner": "草稿預覽 · 僅登入管理員可見 · 關閉此頁返回編輯器" },
-  "contentKinds": { "projects": "技術專案", "creations": "同人創作", "journal": "文字手記" },
+  "preview": {
+    "banner": "草稿預覽 · 僅登入管理員可見 · 關閉此頁返回編輯器"
+  },
+  "contentKinds": {
+    "projects": "技術專案",
+    "creations": "同人創作",
+    "journal": "文字手記"
+  },
   "directory": {
     "links": {
       "eyebrow": "LINKS & WORK",
@@ -190,5 +199,25 @@
       "statementTitle": "把複雜的東西，做成有人願意使用的東西。",
       "statementDescription": "公開方向包括行動端產品、AI 與 agent 工具、研究型實驗，也會給角色和故事留一塊空間。"
     }
+  },
+  "ideal": {
+    "eyebrow": "生在彩旗下，自是斯黃人",
+    "title": "把理想投入現實，",
+    "accent": "讓創造成為實踐。",
+    "description": "我做產品、研究與創作，關注語言、智能、系統與尚未完成的世界。這裡記錄實踐、求索與建設。",
+    "primary": "進入實踐",
+    "secondary": "閱讀關於我",
+    "practice": "實踐",
+    "research": "求索",
+    "creations": "創作",
+    "journal": "行記",
+    "practiceDescription": "用產品連接理想與真實世界。",
+    "creationDescription": "以寫作與藝術，延展可能的邊界。",
+    "journalDescription": "在行走中觀察，在世界裡思考。",
+    "principles": "總綱",
+    "principle1": "認識世界，是為了獲得行動的自由；",
+    "principle2": "創造產品，是為了讓思想進入現實；",
+    "principle3": "寫作與想像，則使尚不存在的世界先行顯影。",
+    "signature": "求真 · 求索 · 求變"
   }
 }

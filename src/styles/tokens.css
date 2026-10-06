@@ -2,32 +2,25 @@
 
 /* 设计令牌是唯一配色入口；后台可切换强调色，无需修改组件。 */
 :root {
-  --paper: #f8f9fc;
-  --surface: #ffffff;
-  --ink: #17243c;
-  --muted: #657086;
-  --line: #dfe4ee;
-  --accent: #254ce5;
-  --accent-soft: #e9eeff;
-  --font-body: 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-display: 'Avenir Next', 'Helvetica Neue', 'PingFang SC', sans-serif;
+  --paper: #f5f2eb;
+  --surface: #fbf9f4;
+  --ink: #201f1b;
+  --muted: #746f65;
+  --line: #ded9ce;
+  --accent: #ad1421;
+  --accent-soft: #f4e5df;
+  --font-body: 'Songti SC', 'Noto Serif CJK SC', 'SimSun', Georgia, serif;
+  --font-display: 'Songti SC', 'Noto Serif CJK SC', 'SimSun', Georgia, serif;
   --font-mono: 'SFMono-Regular', Consolas, monospace;
 }
 [data-theme='dark'] {
-  --paper: #111722;
-  --surface: #182131;
-  --ink: #edf2ff;
-  --muted: #a7b1c5;
-  --line: #303b50;
-  --accent-soft: #202f62;
-}
-[data-accent='green'] {
-  --accent: #176354;
-  --accent-soft: #e4f3ec;
-}
-[data-accent='violet'] {
-  --accent: #7940b8;
-  --accent-soft: #f0e9fb;
+  --paper: #191a18;
+  --surface: #22231f;
+  --ink: #f1eadb;
+  --muted: #bcb4a6;
+  --line: #41413a;
+  --accent-soft: #44292a;
+  --accent: #ed7b73;
 }
 * {
   box-sizing: border-box;

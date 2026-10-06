@@ -5,6 +5,7 @@ import type { Page } from '@/payload-types';
 import { getEntries } from '@/lib/content';
 import { Link } from '@/i18n/navigation';
 import { Hero } from './hero';
+import { IdealHome } from '../ideal-home';
 import { Portals } from './portals';
 import { EntryList } from '../entry-list';
 
@@ -16,6 +17,7 @@ type BlockRendererProps = {
 /** 服务端区块分发器：schema 决定数据形状，各区块负责自己的 UI。 */
 export async function BlockRenderer({ blocks, pagePath }: BlockRendererProps) {
   const isHome = pagePath === '/';
+  if (isHome) return <IdealHome />;
   const locale = (await getLocale()) as Locale;
   const t = await getTranslations('common');
 

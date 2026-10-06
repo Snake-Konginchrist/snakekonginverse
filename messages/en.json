@@ -74,7 +74,11 @@
   "preview": {
     "banner": "Draft preview · Admin access only · Close this page to return to the editor"
   },
-  "contentKinds": { "projects": "Projects", "creations": "Creations", "journal": "Journal" },
+  "contentKinds": {
+    "projects": "Projects",
+    "creations": "Creations",
+    "journal": "Journal"
+  },
   "directory": {
     "links": {
       "eyebrow": "LINKS & WORK",
@@ -283,8 +287,16 @@
       "description": "Books, films and personal interests.",
       "meta": "DOUBAN"
     },
-    "wechat": { "title": "WeChat", "description": "Direct social profile.", "meta": "WECHAT" },
-    "qq": { "title": "QQ", "description": "Direct social profile.", "meta": "QQ" },
+    "wechat": {
+      "title": "WeChat",
+      "description": "Direct social profile.",
+      "meta": "WECHAT"
+    },
+    "qq": {
+      "title": "QQ",
+      "description": "Direct social profile.",
+      "meta": "QQ"
+    },
     "youtube": {
       "title": "YouTube",
       "description": "Video and project updates.",
@@ -325,8 +337,16 @@
       "description": "Channels and direct contact.",
       "meta": "TELEGRAM"
     },
-    "threads": { "title": "Threads", "description": "Short public thoughts.", "meta": "THREADS" },
-    "bluesky": { "title": "Bluesky", "description": "Short public thoughts.", "meta": "BLUESKY" },
+    "threads": {
+      "title": "Threads",
+      "description": "Short public thoughts.",
+      "meta": "THREADS"
+    },
+    "bluesky": {
+      "title": "Bluesky",
+      "description": "Short public thoughts.",
+      "meta": "BLUESKY"
+    },
     "mastodon": {
       "title": "Mastodon",
       "description": "Federated social profile.",
@@ -337,7 +357,11 @@
       "description": "Live streams and experiments.",
       "meta": "TWITCH"
     },
-    "steam": { "title": "Steam", "description": "Games and community profile.", "meta": "STEAM" },
+    "steam": {
+      "title": "Steam",
+      "description": "Games and community profile.",
+      "meta": "STEAM"
+    },
     "gitee": {
       "title": "Gitee",
       "description": "Code and Chinese open-source profile.",
@@ -358,7 +382,11 @@
       "description": "Long-form notes and newsletters.",
       "meta": "SUBSTACK"
     },
-    "line": { "title": "LINE", "description": "Direct social profile.", "meta": "LINE" },
+    "line": {
+      "title": "LINE",
+      "description": "Direct social profile.",
+      "meta": "LINE"
+    },
     "kakaotalk": {
       "title": "KakaoTalk",
       "description": "Direct social profile.",
@@ -406,5 +434,25 @@
       "statementTitle": "Turn complicated things into things people want to use.",
       "statementDescription": "My public directions include mobile products, AI and agent tools, research experiments, and a little room for characters and stories."
     }
+  },
+  "ideal": {
+    "eyebrow": "Beneath the four-colour flag",
+    "title": "Bring ideals into reality.",
+    "accent": "Make creation a practice.",
+    "description": "I build products, research and create—exploring language, intelligence, systems and a world still taking shape. This is a record of inquiry and building.",
+    "primary": "Explore my work",
+    "secondary": "About me",
+    "practice": "Practice",
+    "research": "Inquiry",
+    "creations": "Creations",
+    "journal": "Journal",
+    "practiceDescription": "Products connect ideals with the real world.",
+    "creationDescription": "Writing and art extend the boundaries of possibility.",
+    "journalDescription": "Observe on the road. Think within the world.",
+    "principles": "Principles",
+    "principle1": "Understand the world to gain the freedom to act.",
+    "principle2": "Build products to bring ideas into reality.",
+    "principle3": "Writing and imagination make a world not yet here visible.",
+    "signature": "Truth · Inquiry · Change"
   }
 }

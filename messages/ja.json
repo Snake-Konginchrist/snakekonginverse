@@ -36,7 +36,10 @@
     "empty": "連絡先は準備中です。まずはこの小さな宇宙を見ていってください。",
     "signature": "BUILD USEFUL THINGS. KEEP WONDER."
   },
-  "hero": { "about": "自分について", "footnote": "探索を続ける · 好奇心のままに" },
+  "hero": {
+    "about": "自分について",
+    "footnote": "探索を続ける · 好奇心のままに"
+  },
   "portals": {
     "aria": "個人コンテンツへの入口",
     "products": "プロダクトと実験",
@@ -71,7 +74,11 @@
   "preview": {
     "banner": "下書きプレビュー · 管理者のみ表示 · 編集画面に戻るにはこのページを閉じてください"
   },
-  "contentKinds": { "projects": "プロジェクト", "creations": "創作", "journal": "ノート" },
+  "contentKinds": {
+    "projects": "プロジェクト",
+    "creations": "創作",
+    "journal": "ノート"
+  },
   "directory": {
     "links": {
       "eyebrow": "LINKS & WORK",
@@ -192,5 +199,25 @@
       "statementTitle": "複雑なものを、人が使いたいものに変える。",
       "statementDescription": "モバイルプロダクト、AIとエージェントツール、研究実験、そしてキャラクターと物語のための余白を作っています。"
     }
+  },
+  "ideal": {
+    "eyebrow": "四色の旗のもとに",
+    "title": "理想を現実へ、",
+    "accent": "創造を実践へ。",
+    "description": "プロダクト、研究、創作を通じて、言語、知能、システム、そして未完成の世界を探ります。ここには実践と探究の歩みを記します。",
+    "primary": "実践を見る",
+    "secondary": "私について",
+    "practice": "実践",
+    "research": "探究",
+    "creations": "創作",
+    "journal": "行記",
+    "practiceDescription": "プロダクトで理想と現実をつなぐ。",
+    "creationDescription": "文章と芸術で、可能性の境界を広げる。",
+    "journalDescription": "歩きながら観察し、世界の中で考える。",
+    "principles": "理念",
+    "principle1": "世界を知ることは、行動の自由を得ること。",
+    "principle2": "プロダクトを創ることは、思想を現実にすること。",
+    "principle3": "文章と想像は、まだ存在しない世界を映し出す。",
+    "signature": "真理 · 探究 · 変革"
   }
 }

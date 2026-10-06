@@ -15,6 +15,7 @@ import '@/styles/home.css';
 import '@/styles/directory.css';
 import '@/styles/orbit.css';
 import '@/styles/content.css';
+import '@/styles/ideal.css';
 
 export const dynamic = 'force-dynamic';
 export function generateStaticParams() {
