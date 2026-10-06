@@ -6,45 +6,45 @@ export async function up({ db }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum__pages_v_published_locale" AS ENUM('zh-CN', 'zh-TW', 'en', 'ja');
   CREATE TYPE "public"."enum__entries_v_published_locale" AS ENUM('zh-CN', 'zh-TW', 'en', 'ja');
   CREATE TABLE "pages_locales" (
-  	"title" varchar,
-  	"seo_title" varchar,
-  	"seo_description" varchar,
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"_locale" "_locales" NOT NULL,
-  	"_parent_id" integer NOT NULL
+    "title" varchar,
+    "seo_title" varchar,
+    "seo_description" varchar,
+    "id" serial PRIMARY KEY NOT NULL,
+    "_locale" "_locales" NOT NULL,
+    "_parent_id" integer NOT NULL
   );
-  
+
   CREATE TABLE "_pages_v_locales" (
-  	"version_title" varchar,
-  	"version_seo_title" varchar,
-  	"version_seo_description" varchar,
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"_locale" "_locales" NOT NULL,
-  	"_parent_id" integer NOT NULL
+    "version_title" varchar,
+    "version_seo_title" varchar,
+    "version_seo_description" varchar,
+    "id" serial PRIMARY KEY NOT NULL,
+    "_locale" "_locales" NOT NULL,
+    "_parent_id" integer NOT NULL
   );
-  
+
   CREATE TABLE "entries_locales" (
-  	"title" varchar,
-  	"summary" varchar,
-  	"content" jsonb,
-  	"seo_title" varchar,
-  	"seo_description" varchar,
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"_locale" "_locales" NOT NULL,
-  	"_parent_id" integer NOT NULL
+    "title" varchar,
+    "summary" varchar,
+    "content" jsonb,
+    "seo_title" varchar,
+    "seo_description" varchar,
+    "id" serial PRIMARY KEY NOT NULL,
+    "_locale" "_locales" NOT NULL,
+    "_parent_id" integer NOT NULL
   );
-  
+
   CREATE TABLE "_entries_v_locales" (
-  	"version_title" varchar,
-  	"version_summary" varchar,
-  	"version_content" jsonb,
-  	"version_seo_title" varchar,
-  	"version_seo_description" varchar,
-  	"id" serial PRIMARY KEY NOT NULL,
-  	"_locale" "_locales" NOT NULL,
-  	"_parent_id" integer NOT NULL
+    "version_title" varchar,
+    "version_summary" varchar,
+    "version_content" jsonb,
+    "version_seo_title" varchar,
+    "version_seo_description" varchar,
+    "id" serial PRIMARY KEY NOT NULL,
+    "_locale" "_locales" NOT NULL,
+    "_parent_id" integer NOT NULL
   );
-  
+
   ALTER TABLE "pages_blocks_hero" ADD COLUMN "_locale" "_locales" DEFAULT 'zh-CN' NOT NULL;
   ALTER TABLE "pages_blocks_hero" ALTER COLUMN "_locale" DROP DEFAULT;
   ALTER TABLE "pages_blocks_portals" ADD COLUMN "_locale" "_locales" DEFAULT 'zh-CN' NOT NULL;
