@@ -42,9 +42,12 @@
   },
   "footer": {
     "eyebrow": "保持联系",
-    "headline": "如果你也在做东西，来聊聊。",
+    "headline": "对我或我的作品感兴趣？来聊聊。",
     "empty": "联系方式即将更新。先在这个小宇宙里逛逛吧。",
-    "signature": "创造有用之物，保留想象。"
+    "signature": "深度求索 创新创业",
+    "qqGroupTitle": "加入我的 QQ 群",
+    "qqGroupDescription": "聊产品、研究与创作，欢迎交流想法和开发经验。",
+    "qqGroupHint": "在 QQ 中搜索群号加入"
   },
   "hero": {
     "about": "关于我",

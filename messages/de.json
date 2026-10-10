@@ -42,9 +42,12 @@
   },
   "footer": {
     "eyebrow": "LASS UNS IN KONTAKT BLEIBEN",
-    "headline": "Du entwickelst auch etwas? Lass uns reden.",
+    "headline": "Interesse an mir oder meiner Arbeit? Lass uns reden.",
     "empty": "Kontaktlinks folgen bald. Schau dich bis dahin gern um.",
-    "signature": "NÜTZLICHES SCHAFFEN. DAS STAUNEN BEWAHREN."
+    "signature": "Tief forschen. Innovativ gründen.",
+    "qqGroupTitle": "Tritt meiner QQ-Gruppe bei",
+    "qqGroupDescription": "Tausche Ideen und Erfahrungen zu Produkten, Forschung und kreativem Arbeiten aus.",
+    "qqGroupHint": "Suche diese Gruppennummer in QQ"
   },
   "hero": {
     "about": "Über mich",

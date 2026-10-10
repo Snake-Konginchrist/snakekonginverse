@@ -1,7 +1,7 @@
-# SnakeKonginVerse 开发模式调试指南
+# Snake Konginverse 开发模式调试指南
 
-这份文档说明如何在本机启动、调试和停止 SnakeKonginVerse。
-项目是 Next.js 16.3.8 + React 19.3 + Payload CMS 3.90.2 + PostgreSQL，使用 pnpm 管理依赖；类型检查使用 TypeScript 7，代码规范检查使用 Oxlint。
+这份文档说明如何在本机启动、调试和停止 Snake Konginverse。
+项目是 Next.js 16.4.0 + React 19.3 + Payload CMS 3.90.2 + PostgreSQL，使用 pnpm 管理依赖；类型检查使用 TypeScript 7，代码规范检查使用 Oxlint。
 前台和 Payload 管理后台运行在同一个 Next.js 开发进程中。
 
 ## 一、准备开发环境

@@ -42,9 +42,12 @@
   },
   "footer": {
     "eyebrow": "HABLEMOS",
-    "headline": "Si tú también estás creando algo, conversemos.",
+    "headline": "¿Te intereso yo o mi trabajo? Hablemos.",
     "empty": "Pronto habrá enlaces de contacto. Mientras tanto, puedes echar un vistazo.",
-    "signature": "CREAR COSAS ÚTILES. CONSERVAR EL ASOMBRO."
+    "signature": "Explorar a fondo. Innovar y emprender.",
+    "qqGroupTitle": "Únete a mi grupo de QQ",
+    "qqGroupDescription": "Comparte ideas y experiencias sobre productos, investigación y creación.",
+    "qqGroupHint": "Busca este número de grupo en QQ para unirte"
   },
   "hero": {
     "about": "Sobre mí",

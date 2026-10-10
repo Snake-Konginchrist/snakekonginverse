@@ -1,4 +1,4 @@
-# SnakeKonginVerse
+# Snake Konginverse
 
 Snake + Kongin + Verse。Snake Konginchrist 的产品、研究、创作与个人记录网站。
 通过官方 `create-next-app` 在现有根目录初始化，前台与 Payload 后台同仓部署。

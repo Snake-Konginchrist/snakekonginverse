@@ -1,4 +1,4 @@
-import { ArrowUpRight, Asterisk, Link2, Mail } from 'lucide-react';
+import { Asterisk, Link2, Mail } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import type { SiteSetting } from '@/payload-types';
 import { Link } from '@/i18n/navigation';
@@ -6,6 +6,7 @@ import siteConfig from '@/config/site.json';
 import { socialPlatforms } from '@/data/socials';
 import { profileSocials } from '@/data/profile';
 import { SiBilibili, SiGithub, SiX, SiXiaohongshu } from 'react-icons/si';
+import { FaQq } from 'react-icons/fa6';
 
 function SocialIcon({ href }: { href: string }) {
   const Icon = socialPlatforms.find((platform) => platform.href === href)?.icon;
@@ -81,16 +82,39 @@ export async function SiteFooter({ settings }: { settings: SiteSetting }) {
         <div className="social-links flex flex-wrap gap-x-[20px] gap-y-[10px] [margin-block:24px_40px] text-[12px] text-[color:var(--muted)] [&_a]:flex [&_a]:items-center [&_a]:shrink-0 [&_a]:whitespace-nowrap [&_a]:gap-[7px] [&_a]:min-h-[32px] [&_a]:transition-colors [&_a:hover]:text-white">
           {socials.length ? (
             socials.map((item) => (
-              <a key={item.id} href={item.href} target="_blank" rel="noreferrer">
+              <a
+                key={item.id}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="justify-center w-[36px] [&_svg]:w-[20px] [&_svg]:h-[20px]"
+                title={item.label}
+                aria-label={item.label}
+              >
                 <SocialIcon href={item.href} />
-                {item.label}
-                <ArrowUpRight size={14} />
               </a>
             ))
           ) : (
             <p>{t('empty')}</p>
           )}
         </div>
+        {/* 群号是公开交流入口；没有官方邀请链接时，提供准确群号供用户搜索。 */}
+        <section
+          className="mb-10 flex flex-wrap items-center justify-between gap-6 rounded-lg border border-white/15 px-6 py-5"
+          aria-labelledby="footer-qq-title"
+        >
+          <div className="max-w-[620px]">
+            <h3 id="footer-qq-title" className="flex items-center gap-2 text-lg font-medium">
+              <FaQq size={20} aria-hidden="true" />
+              {t('qqGroupTitle')}
+            </h3>
+            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{t('qqGroupDescription')}</p>
+          </div>
+          <div>
+            <p className="select-all text-2xl font-medium tracking-wider">955148653</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">{t('qqGroupHint')}</p>
+          </div>
+        </section>
         {secondary.length > 0 && (
           <nav
             aria-label={commonT('mainNavigation')}
@@ -103,11 +127,14 @@ export async function SiteFooter({ settings }: { settings: SiteSetting }) {
             ))}
           </nav>
         )}
-        <div className="footer-bottom flex justify-between gap-[20px] border-t border-white/15 pt-[22px] text-[color:var(--muted)] text-[10px] [&_>_span:nth-child(2)]:font-[family-name:var(--font-mono)] [&_>_span:nth-child(2)]:text-[9px] [&_>_span:nth-child(2)]:tracking-[0.7px] max-[760px]:flex-wrap max-[760px]:leading-[1.8] max-[760px]:[&_>_span:nth-child(2)]:hidden">
+        {/* 版权、标语与管理入口保持同一行，手机端缩小间距和字号。 */}
+        <div className="footer-bottom flex items-center justify-between gap-[20px] border-t border-white/15 pt-[22px] text-[color:var(--muted)] text-[10px] max-[760px]:gap-[8px] max-[760px]:text-[9px] max-[760px]:leading-[1.8]">
           <span>
             © {year} {settings.author}
           </span>
-          <span>{t('signature')}</span>
+          <span className="text-center text-[12px] font-medium tracking-[0.06em] max-[760px]:text-[10px]">
+            {t('signature')}
+          </span>
           <Link href="/admin" prefetch={false}>
             {commonT('admin')} ↗
           </Link>

@@ -7,13 +7,17 @@ import siteConfig from '@/config/site.json';
 
 /** 仅缓存同一次服务端请求；发布后下一次访问立即读取新数据。 */
 export const cms = cache(() => getPayload({ config }));
-export const getSettings = cache(async (locale?: Locale) =>
-  (await cms()).findGlobal({
+export const getSettings = cache(async (locale?: Locale) => {
+  const settings = await (
+    await cms()
+  ).findGlobal({
     slug: 'site-settings',
     overrideAccess: false,
     ...(locale ? { locale } : {}),
-  }),
-);
+  });
+  // 品牌拼写由统一配置维护，避免旧 CMS 记录让导航与 SEO 显示不同名称。
+  return { ...settings, brand: siteConfig.brand };
+});
 
 export const getPage = cache(async (path: string, locale?: Locale) => {
   const result = await (

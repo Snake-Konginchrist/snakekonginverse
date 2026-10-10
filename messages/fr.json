@@ -42,9 +42,12 @@
   },
   "footer": {
     "eyebrow": "RESTONS EN CONTACT",
-    "headline": "Vous aussi, vous créez quelque chose ? Parlons-en.",
+    "headline": "Mon travail ou moi vous intéressons ? Parlons-en.",
     "empty": "Les liens de contact arrivent bientôt. En attendant, faites un tour.",
-    "signature": "CRÉER DES CHOSES UTILES. GARDER L’ÉMERVEILLEMENT."
+    "signature": "Explorer en profondeur. Innover et entreprendre.",
+    "qqGroupTitle": "Rejoignez mon groupe QQ",
+    "qqGroupDescription": "Échangeons sur les produits, la recherche et la création.",
+    "qqGroupHint": "Recherchez ce numéro de groupe dans QQ"
   },
   "hero": {
     "about": "À propos",

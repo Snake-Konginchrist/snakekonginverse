@@ -42,9 +42,12 @@
   },
   "footer": {
     "eyebrow": "LET’S CONNECT",
-    "headline": "If you are making something too, let’s talk.",
+    "headline": "Interested in me or my work? Let’s talk.",
     "empty": "Contact links are coming soon. Have a look around first.",
-    "signature": "BUILD USEFUL THINGS. KEEP WONDER."
+    "signature": "Explore deeply. Innovate and build.",
+    "qqGroupTitle": "Join my QQ group",
+    "qqGroupDescription": "Chat about products, research and creative work. Share ideas and development experiences.",
+    "qqGroupHint": "Search this group number in QQ to join"
   },
   "hero": {
     "about": "About me",

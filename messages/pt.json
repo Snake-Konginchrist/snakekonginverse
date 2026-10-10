@@ -42,9 +42,12 @@
   },
   "footer": {
     "eyebrow": "VAMOS CONVERSAR",
-    "headline": "Também estás a criar algo? Vamos falar.",
+    "headline": "Interesse em mim ou no meu trabalho? Vamos conversar.",
     "empty": "Em breve haverá ligações de contacto. Entretanto, fica à vontade para explorar.",
-    "signature": "CRIAR COISAS ÚTEIS. PRESERVAR O ESPANTO."
+    "signature": "Explorar a fundo. Inovar e empreender.",
+    "qqGroupTitle": "Junta-te ao meu grupo QQ",
+    "qqGroupDescription": "Partilha ideias e experiências sobre produtos, investigação e criação.",
+    "qqGroupHint": "Procura este número de grupo no QQ"
   },
   "hero": {
     "about": "Sobre mim",

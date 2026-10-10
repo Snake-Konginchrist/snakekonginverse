@@ -34,16 +34,18 @@ export function IdealHome() {
   ];
   return (
     <div className="ideal-home bg-[var(--paper)] text-[color:var(--ink)]">
-      <section className="ideal-hero relative [aspect-ratio:1800_/_1101] min-h-[0] overflow-hidden [border-bottom:1px_solid_var(--line)] [&::after]:[content:''] [&::after]:absolute [&::after]:[inset:0] [&::after]:[background:linear-gradient(_90deg,_rgba(250,_247,_239,_0.95)_0%,_rgba(250,_247,_239,_0.78)_34%,_rgba(250,_247,_239,_0)_62%_)] [&::after]:z-[1] [&::after]:[pointer-events:none] dark:[&::after]:[background:linear-gradient(_90deg,_rgba(25,_26,_24,_0.92),_rgba(25,_26,_24,_0.62)_38%,_rgba(25,_26,_24,_0)_70%_)] max-[760px]:[aspect-ratio:auto] max-[760px]:min-h-[680px]">
+      <section className="ideal-hero relative [aspect-ratio:1800_/_1101] min-h-[0] overflow-hidden [border-bottom:1px_solid_var(--line)] [&::after]:[content:''] [&::after]:absolute [&::after]:[inset:0] [&::after]:[background:linear-gradient(_90deg,_rgba(250,_247,_239,_0.95)_0%,_rgba(250,_247,_239,_0.78)_34%,_rgba(250,_247,_239,_0)_62%_)] [&::after]:z-[1] [&::after]:[pointer-events:none] dark:[&::after]:[background:linear-gradient(_90deg,_rgba(25,_26,_24,_0.92),_rgba(25,_26,_24,_0.62)_38%,_rgba(25,_26,_24,_0)_70%_)] max-[760px]:[aspect-ratio:auto] max-[760px]:[&::after]:hidden">
+        {/* 手机端按图片原始比例展示，文案排在下方，避免固定高度裁切头图。 */}
         <Image
-          className="ideal-landscape object-cover object-center z-[0]"
+          className="ideal-landscape absolute inset-0 block h-full w-full object-cover object-center z-[0] max-[760px]:static max-[760px]:h-auto"
           src="/images/hero.jpg"
           alt=""
-          fill
+          width={1604}
+          height={981}
           priority
           sizes="100vw"
         />
-        <div className="shell w-[min(1200px,_calc(100%_-_96px))] mx-[auto] max-[760px]:w-[calc(100%_-_40px)] ideal-copy relative z-[2] pt-[92px] [&_h1]:text-[clamp(48px,_5.2vw,_78px)] [&_h1]:leading-[1.25] [&_h1]:tracking-[0.04em] [&_h1]:font-[700] [&_h1]:[margin:0] [&_h1]:max-w-[760px] [&_h1_span]:block [&_h1_span]:text-[color:#b51c26] max-[760px]:pt-[54px] max-[760px]:[&_h1]:text-[42px]">
+        <div className="shell w-[min(1200px,_calc(100%_-_96px))] mx-[auto] max-[760px]:w-[calc(100%_-_40px)] ideal-copy relative z-[2] pt-[92px] [&_h1]:text-[clamp(48px,_5.2vw,_78px)] [&_h1]:leading-[1.25] [&_h1]:tracking-[0.04em] [&_h1]:font-[700] [&_h1]:[margin:0] [&_h1]:max-w-[760px] [&_h1_span]:block [&_h1_span]:text-[color:#b51c26] max-[760px]:py-[32px] max-[760px]:[&_h1]:text-[42px]">
           <p className="ideal-motto text-[16px] tracking-[0.38em] mb-[24px] max-[760px]:text-[13px] max-[760px]:tracking-[0.22em]">
             {t('eyebrow')}
           </p>
@@ -51,10 +53,10 @@ export function IdealHome() {
             {t('title')}
             <span>{t('accent')}</span>
           </h1>
-          <p className="ideal-intro w-[46%] max-w-[560px] max-[760px]:w-[56%] mt-[28px] text-[18px] leading-[2] tracking-[0.08em] max-[760px]:text-[15px]">
+          <p className="ideal-intro w-[46%] max-w-[560px] max-[760px]:w-full mt-[28px] text-[18px] leading-[2] tracking-[0.08em] max-[760px]:text-[15px]">
             {t('description')}
           </p>
-          <div className="ideal-actions flex gap-[16px] mt-[28px] [&_.button]:rounded-[5px] [&_.button]:min-h-[48px] [&_.button]:gap-[14px] [&_.button]:text-[17px]">
+          <div className="ideal-actions flex flex-wrap gap-[16px] mt-[28px] [&_.button]:rounded-[5px] [&_.button]:min-h-[48px] [&_.button]:gap-[14px] [&_.button]:text-[17px]">
             <Link
               className="button inline-flex items-center justify-center gap-[24px] min-h-[48px] p-[14px_23px] border border-transparent rounded-[7px] text-[14px] font-[600] [transition:background_0.2s,_transform_0.2s] button-primary bg-[var(--accent)] text-[color:#fff] [&:hover]:[filter:brightness(0.92)] [&:hover]:[transform:translateY(-2px)]"
               href="/projects"
