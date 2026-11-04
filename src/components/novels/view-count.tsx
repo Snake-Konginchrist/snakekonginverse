@@ -1,6 +1,31 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
+
+// 合并同页首次请求，避免开发模式重复 effect 同时创建两个访客 Cookie。
+const pending = new Map<string, Promise<number | undefined>>();
+function recordPage(book: string, chapter?: string) {
+  const key = `${book}/${chapter || ''}`;
+  const existing = pending.get(key);
+  if (existing) return existing;
+  const request = (async () => {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const response = await fetch('/api/novel-views', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ book, chapter }),
+      });
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data.retry) continue;
+      return typeof data.views === 'number' ? data.views : undefined;
+    }
+  })()
+    .catch(() => undefined)
+    .finally(() => pending.delete(key));
+  pending.set(key, request);
+  return request;
+}
 export function ViewCount({
   initial,
   book,
@@ -19,22 +44,8 @@ export function ViewCount({
     async function record() {
       if (document.visibilityState !== 'visible') return;
       document.removeEventListener('visibilitychange', record);
-      try {
-        for (let attempt = 0; attempt < 2; attempt++) {
-          const response = await fetch('/api/novel-views', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ book, chapter }),
-          });
-          if (!response.ok) return;
-          const data = await response.json();
-          if (data.retry) continue;
-          if (!cancelled && typeof data.views === 'number') setViews(data.views);
-          break;
-        }
-      } catch {
-        /* 统计失败不影响阅读，刷新后可以重试。 */
-      }
+      const count = await recordPage(book!, chapter);
+      if (!cancelled && count !== undefined) setViews(count);
     }
     void record();
     if (document.visibilityState !== 'visible')
@@ -43,7 +54,7 @@ export function ViewCount({
       cancelled = true;
       document.removeEventListener('visibilitychange', record);
     };
-  }, [book, chapter, initial]);
+  }, [book, chapter]);
   return (
     <span className="novel-view-count">
       {t('views', { count: new Intl.NumberFormat(locale).format(Math.max(initial, views ?? 0)) })}
