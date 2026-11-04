@@ -1,0 +1,250 @@
+.novel-shell {
+  max-width: 1080px;
+  margin: auto;
+  padding: 48px 24px 90px;
+}
+.novel-shelf {
+  padding: 20px 0 64px;
+}
+.novel-shelf h2,
+.novel-shell h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  margin: 10px 0 32px;
+}
+.novel-kicker {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  margin: 16px 0;
+}
+.novel-books {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 40px;
+}
+.novel-book {
+  max-width: 280px;
+}
+.novel-book h3 {
+  font-size: 20px;
+  line-height: 1.6;
+}
+.novel-heading > div {
+  min-width: 0;
+}
+.novel-heading h1,
+.novel-book h3,
+.novel-reader h1 {
+  overflow-wrap: anywhere;
+}
+.novel-cover {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 5px 8px 0 var(--line);
+  background: var(--surface);
+}
+.novel-cover img {
+  object-fit: cover;
+}
+.novel-book .novel-cover {
+  transition: transform 0.2s;
+}
+.novel-book:hover .novel-cover {
+  transform: translateY(-5px);
+}
+.novel-typographic-cover {
+  height: 100%;
+  padding: 24px;
+  border-left: 9px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.novel-typographic-cover strong {
+  font-family: 'Noto Serif SC Variable', serif;
+  font-size: 30px;
+}
+.novel-typographic-cover span {
+  color: var(--accent);
+  font-size: 12px;
+}
+.novel-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.novel-heading {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 50px 0 64px;
+}
+.novel-heading h1 {
+  font-size: clamp(32px, 5vw, 56px);
+}
+.novel-summary {
+  white-space: pre-wrap;
+  line-height: 2;
+  color: var(--muted);
+  margin: 24px 0;
+}
+.novel-start {
+  display: inline-block;
+  padding: 14px 24px;
+  background: var(--accent);
+  color: var(--surface);
+}
+.novel-contents {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.novel-contents a {
+  display: flex;
+  gap: 24px;
+  padding: 20px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.novel-contents a:hover {
+  color: var(--accent);
+  background: var(--surface);
+}
+.novel-contents span {
+  color: var(--muted);
+}
+.novel-contents span:last-child {
+  margin-left: auto;
+}
+.novel-reader {
+  max-width: 820px;
+  margin: auto;
+  padding: 32px 28px 80px;
+}
+.novel-reader header {
+  text-align: center;
+  padding: 64px 0 36px;
+}
+.novel-reader h1 {
+  font-size: clamp(28px, 4vw, 42px);
+}
+.novel-divider {
+  color: var(--accent);
+  margin-top: 36px;
+}
+.novel-reader-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.novel-bottom {
+  border-top: 1px solid var(--line);
+  margin-top: 64px;
+  padding-top: 28px;
+}
+.novel-prose {
+  font-family: 'Noto Serif SC Variable', 'Noto Serif TC Variable', 'Noto Serif JP Variable', serif;
+  font-size: 19px;
+  line-height: 2.15;
+  overflow-wrap: anywhere;
+}
+.novel-prose p,
+.novel-prose ul,
+.novel-prose ol {
+  margin: 1.4em 0;
+}
+.novel-prose ul {
+  list-style: disc;
+  padding-left: 1.5em;
+}
+.novel-prose ol {
+  list-style: decimal;
+  padding-left: 1.5em;
+}
+.novel-prose h1,
+.novel-prose h2,
+.novel-prose h3 {
+  margin: 1.8em 0 0.7em;
+}
+.novel-prose h2 {
+  font-size: 1.35em;
+  font-weight: 600;
+}
+.novel-prose h3 {
+  font-size: 1.15em;
+  font-weight: 600;
+}
+.novel-prose blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 24px;
+  color: var(--muted);
+}
+.novel-prose pre,
+.novel-prose .katex-display {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 14px 0;
+}
+.novel-prose pre {
+  background: var(--surface);
+  padding: 20px;
+  font-size: 14px;
+}
+.novel-prose a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.novel-prose img {
+  max-width: 100%;
+  height: auto;
+}
+.novel-prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+.novel-prose td,
+.novel-prose th {
+  border: 1px solid var(--line);
+  padding: 10px;
+}
+.novel-prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 40px 0;
+}
+@media (max-width: 600px) {
+  .novel-heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .novel-heading .novel-cover {
+    width: 180px;
+  }
+  .novel-books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .novel-typographic-cover {
+    padding: 14px;
+  }
+  .novel-typographic-cover strong {
+    font-size: 23px;
+  }
+  .novel-reader {
+    padding-inline: 22px;
+  }
+  .novel-prose {
+    font-size: 18px;
+  }
+}

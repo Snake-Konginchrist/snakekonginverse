@@ -383,5 +383,18 @@
       "description": "Protege tu privacidad aplicando mosaicos rectangulares a las zonas elegidas de una imagen.",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "Ficción",
+    "library": "Biblioteca de novelas",
+    "completed": "Completa",
+    "ongoing": "En curso",
+    "start": "Empezar a leer",
+    "contents": "Índice",
+    "empty": "Aún no hay capítulos publicados.",
+    "navigation": "Navegación de capítulos",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "end": "Fin de los capítulos publicados"
   }
 }

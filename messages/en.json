@@ -383,5 +383,18 @@
       "description": "Protect privacy by applying rectangular mosaics to selected image areas.",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "Fiction",
+    "library": "The bookshelf",
+    "completed": "Complete",
+    "ongoing": "In progress",
+    "start": "Begin reading",
+    "contents": "Contents",
+    "empty": "Chapters are coming soon.",
+    "navigation": "Chapter navigation",
+    "previous": "Previous",
+    "next": "Next",
+    "end": "End of available chapters"
   }
 }

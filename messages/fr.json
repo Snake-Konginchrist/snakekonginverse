@@ -383,5 +383,18 @@
       "description": "Protégez votre vie privée en appliquant une mosaïque rectangulaire aux zones choisies d’une image.",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "Fiction",
+    "library": "Bibliothèque de romans",
+    "completed": "Terminé",
+    "ongoing": "En cours",
+    "start": "Commencer la lecture",
+    "contents": "Sommaire",
+    "empty": "Aucun chapitre publié.",
+    "navigation": "Navigation des chapitres",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "end": "Fin des chapitres publiés"
   }
 }

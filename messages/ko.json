@@ -383,5 +383,18 @@
       "description": "이미지의 원하는 영역에 사각형 모자이크를 적용해 개인정보를 보호합니다.",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "이야기와 세계",
+    "library": "소설 책장",
+    "completed": "완결",
+    "ongoing": "연재 중",
+    "start": "읽기 시작",
+    "contents": "목차",
+    "empty": "아직 공개된 장이 없습니다.",
+    "navigation": "장 탐색",
+    "previous": "이전 장",
+    "next": "다음 장",
+    "end": "마지막 공개 장입니다"
   }
 }

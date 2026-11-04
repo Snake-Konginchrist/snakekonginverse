@@ -1,0 +1,13 @@
+diff --git a/dist/utilities/addLocalesToRequest.js b/dist/utilities/addLocalesToRequest.js
+index d8e805059bddbf4bb5d259e90dd7112381251260..0443c57506b79e04d8cf3e99017f957015fcc431 100644
+--- a/dist/utilities/addLocalesToRequest.js
++++ b/dist/utilities/addLocalesToRequest.js
+@@ -48,7 +48,7 @@ export const sanitizeLocales = ({ fallbackLocale, locale, localization })=>{
+         'all'
+     ].includes(locale)) {
+         locale = 'all';
+-    } else if (localization && !localization.localeCodes.includes(locale) && localization.fallback) {
++    } else if (localization && (!locale || (!localization.localeCodes.includes(locale) && localization.fallback))) {
+         locale = localization.defaultLocale;
+     }
+     return {

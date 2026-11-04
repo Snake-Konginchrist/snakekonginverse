@@ -383,5 +383,18 @@
       "description": "在图片选定区域添加矩形马赛克，保护隐私。",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "故事与世界",
+    "library": "小说书架",
+    "completed": "已完结",
+    "ongoing": "连载中",
+    "start": "开始阅读",
+    "contents": "章节目录",
+    "empty": "章节尚未发布。",
+    "navigation": "章节导航",
+    "previous": "上一章",
+    "next": "下一章",
+    "end": "已读至最新章节"
   }
 }

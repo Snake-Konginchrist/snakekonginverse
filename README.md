@@ -7,13 +7,13 @@ Snake + Kongin + Verse。Snake Konginchrist 的产品、研究、创作与个人
 
 对象存储选型与免费额度：[平台对照文档](docs/OBJECT_STORAGE.md)。
 
-Next.js 16.3.8、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Payload CMS 3.90.2、Lexical、PostgreSQL、Cloudflare R2 媒体存储。
+Next.js 16.4.5、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Payload CMS 3.93.0、Lexical、PostgreSQL、Cloudflare R2 媒体存储。
 使用 pnpm、Oxlint、Prettier、Node 测试与 Playwright；部署采用 Node.js + systemd + Nginx，无 Docker。
 具体版本以 lockfile 为准，GraphQL 保持在 Payload 支持的 16.x。
 
 ## 本地运行
 
-需要 Node.js 22.13+（推荐受支持的 LTS）、pnpm 12.9.1 和 PostgreSQL。
+需要 Node.js `^22.23.4 || >=24.22.1`（与 Payload 的运行要求一致）、pnpm 12.9.1 和 PostgreSQL。
 
 ```bash
 pnpm install --frozen-lockfile
@@ -24,6 +24,7 @@ createdb snakekonginverse_db
 pnpm r2:check
 pnpm cms:types
 pnpm cms:importmap
+pnpm db:migrate
 pnpm seed
 pnpm dev
 ```
@@ -40,7 +41,7 @@ pnpm dev
 - 停止服务：在运行终端按 `Ctrl+C`。
 
 `pnpm seed` 只补缺失的品牌页面，并为未改动的初始页面补齐尚未编辑的语言，不覆盖编辑内容，不创建帐号或虚构作品。
-开发模式自动同步数据库 schema，生产使用版本化迁移，不能在生产库运行 dev。
+开发和生产默认都使用版本化迁移。仅对可丢弃的开发库显式设置 `PAYLOAD_DB_PUSH=true` 才开启 schema push，不要对正式数据使用。
 
 ## 内容管理
 
@@ -66,11 +67,14 @@ pnpm build
 pnpm start          # 先构建并完成迁移
 pnpm test:e2e       # 需要已启动网站和 Playwright Chromium
 pnpm test:cms       # 本机真实 CMS 闭环；临时帐号、内容和媒体自动清理
+pnpm test:novels    # 本机真实小说导入、草稿隔离、公式和 R2 封面验证
 ```
 
 首次安装浏览器：`pnpm exec playwright install chromium`。
 修改 schema 后执行 `pnpm cms:types && pnpm cms:importmap`，然后生成迁移。
 手写代码不超过 300 行；生成的类型、导入映射、数据库迁移和 lockfile 不人为拆分。
+
+`patches/payload@3.93.0.patch` 通过官方 `pnpm patch` 管理：修正关闭语言回退时，未指定语言的 REST 请求未采用默认语言的问题。`pnpm install` 自动应用；升级 Payload 时需保留 `cms-locale.test.ts` 与 CMS 集成验证，确认上游修复后再移除补丁。
 
 Payload 的 Pages 与 Entries 支持以上十种语言；初始化脚本为内置页面和站点设置提供对应文案，不会自动翻译已有自定义内容，
 社交目录使用 `react-icons` 的品牌图标。未确认的社交账号只显示为待配置入口，避免生成错误链接。
@@ -85,3 +89,7 @@ Payload 的 Pages 与 Entries 支持以上十种语言；初始化脚本为内�
 
 首次开放公网前先创建管理员。当前未配置邮件投递，找回密码邮件不会真实发送。
 评论、搜索、自动 URL 重定向和更丰富的区块尚未接入，详见版本记录。
+
+## 小说发布
+
+创作页支持小说书架、封面、章节目录与 Markdown / LaTeX 阅读。批量导入命令和升级说明见 [小说导入指南](docs/NOVELS.md)。

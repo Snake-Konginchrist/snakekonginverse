@@ -383,5 +383,18 @@
       "description": "Schütze deine Privatsphäre, indem du ausgewählte Bildbereiche mit rechteckigem Mosaik versiehst.",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "Geschichten",
+    "library": "Romanbibliothek",
+    "completed": "Abgeschlossen",
+    "ongoing": "Fortlaufend",
+    "start": "Lesen beginnen",
+    "contents": "Inhalt",
+    "empty": "Noch keine Kapitel veröffentlicht.",
+    "navigation": "Kapitelnavigation",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "end": "Ende der veröffentlichten Kapitel"
   }
 }

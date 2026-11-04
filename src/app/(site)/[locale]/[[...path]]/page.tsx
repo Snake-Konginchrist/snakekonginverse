@@ -1,3 +1,5 @@
+import { Bookshelf } from '@/components/novels/bookshelf';
+import { getNovels } from '@/lib/novels';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
@@ -88,6 +90,7 @@ export default async function Page({ params, searchParams }: Props) {
     const page = Number(rawPage);
     if (!Number.isSafeInteger(page) || page < 1) notFound();
     const result = await getEntries(kind, siteConfig.contentPageSize, page, locale);
+    const hasNovels = kind === 'creations' && (await getNovels()).totalDocs > 0;
     if (page > 1 && page > result.totalPages) notFound();
     return (
       <>
@@ -99,7 +102,8 @@ export default async function Page({ params, searchParams }: Props) {
         />
         <section className="archive mx-auto min-h-[40vh] w-[min(1200px,calc(100%_-_96px))] py-10 max-[760px]:w-[calc(100%_-_40px)]">
           {kind === 'research' && <ResearchDirection />}
-          <EntryList entries={result.docs} />
+          {kind === 'creations' && <Bookshelf />}
+          {(result.docs.length > 0 || !hasNovels) && <EntryList entries={result.docs} />}
           {kind === 'projects' && <SelectedProducts />}
           <nav
             className="pagination flex justify-between mt-[30px] text-[color:var(--accent)]"

@@ -71,6 +71,8 @@ export interface Config {
     pages: Page;
     entries: Entry;
     media: Media;
+    novels: Novel;
+    chapters: Chapter;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +84,8 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     entries: EntriesSelect<false> | EntriesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    novels: NovelsSelect<false> | NovelsSelect<true>;
+    chapters: ChaptersSelect<false> | ChaptersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -303,6 +307,40 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "novels".
+ */
+export interface Novel {
+  id: number;
+  title: string;
+  slug: string;
+  description?: string | null;
+  cover?: (number | null) | Media;
+  language: string;
+  completed?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "chapters".
+ */
+export interface Chapter {
+  id: number;
+  novel: number | Novel;
+  slug: string;
+  title: string;
+  position: number;
+  /**
+   * 支持 Markdown、$行内公式$ 和 $$独立公式$$。
+   */
+  markdown: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -340,6 +378,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'novels';
+        value: number | Novel;
+      } | null)
+    | ({
+        relationTo: 'chapters';
+        value: number | Chapter;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -532,6 +578,35 @@ export interface MediaSelect<T extends boolean = true> {
               filename?: T;
             };
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "novels_select".
+ */
+export interface NovelsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  cover?: T;
+  language?: T;
+  completed?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "chapters_select".
+ */
+export interface ChaptersSelect<T extends boolean = true> {
+  novel?: T;
+  slug?: T;
+  title?: T;
+  position?: T;
+  markdown?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

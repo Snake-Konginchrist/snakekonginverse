@@ -383,5 +383,18 @@
       "description": "画像の選択した範囲に矩形モザイクをかけ、プライバシーを保護。",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "物語と世界",
+    "library": "小説の本棚",
+    "completed": "完結",
+    "ongoing": "連載中",
+    "start": "読み始める",
+    "contents": "目次",
+    "empty": "章はまだ公開されていません。",
+    "navigation": "章の移動",
+    "previous": "前の章",
+    "next": "次の章",
+    "end": "公開済みの章はここまでです"
   }
 }

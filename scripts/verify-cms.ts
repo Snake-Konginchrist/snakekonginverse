@@ -18,6 +18,7 @@ const password = randomUUID();
 let userId: number | undefined;
 let entryId: number | undefined;
 let pageId: number | undefined;
+let secondPageId: number | undefined;
 let mediaId: number | undefined;
 try {
   const user = await payload.create({
@@ -117,10 +118,22 @@ try {
     body: JSON.stringify({ path: '/admin' }),
   });
   assert.equal(reserved.status, 400, '后台不可占用系统保留路由');
-  const duplicate = await fetch(`${origin}/api/pages/${pageId}`, {
+  const secondPage = await fetch(`${origin}/api/pages`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      title: '临时路径约束验证',
+      path: `/lab/${slug}-second`,
+      _status: 'published',
+      layout: [{ blockType: 'statement', title: '唯一性验证', description: '验证后删除' }],
+    }),
+  });
+  assert.equal(secondPage.status, 201);
+  secondPageId = (await secondPage.json()).doc.id;
+  const duplicate = await fetch(`${origin}/api/pages/${secondPageId}`, {
     method: 'PATCH',
     headers,
-    body: JSON.stringify({ path: '/' }),
+    body: JSON.stringify({ path: `/lab/${slug}` }),
   });
   assert.equal(duplicate.status, 400, '路径唯一性由数据库和 CMS 共同保护');
   // 媒体走真实 multipart 上传，验证文件落盘与公开读取，随后删除。
@@ -160,6 +173,7 @@ try {
 } finally {
   if (entryId) await payload.delete({ collection: 'entries', id: entryId });
   if (pageId) await payload.delete({ collection: 'pages', id: pageId });
+  if (secondPageId) await payload.delete({ collection: 'pages', id: secondPageId });
   if (mediaId) await payload.delete({ collection: 'media', id: mediaId });
   if (userId) await payload.delete({ collection: 'users', id: userId });
   await payload.destroy();

@@ -13,6 +13,7 @@ import '@fontsource-variable/noto-serif-tc';
 import '@fontsource-variable/noto-serif-jp';
 import '@fontsource-variable/google-sans';
 import '@/styles/tokens.css';
+import '@/styles/novels.css';
 
 export const dynamic = 'force-dynamic';
 export function generateStaticParams() {

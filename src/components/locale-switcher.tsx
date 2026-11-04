@@ -16,9 +16,7 @@ function stripLocaleSuffix(pathname: string): string {
 function switchLocale(event: MouseEvent<HTMLAnchorElement>, locale: Locale) {
   event.preventDefault();
   document.cookie = `NEXT_LOCALE=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
-  window.location.assign(
-    window.location.pathname + window.location.search + window.location.hash,
-  );
+  window.location.assign(window.location.pathname + window.location.search + window.location.hash);
 }
 
 /** 客户端只负责保留当前路径并切换语言，页面内容仍由服务端渲染。 */

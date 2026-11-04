@@ -38,5 +38,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       page++;
     }
   }
+  const novels = await payload.find({
+    collection: 'novels',
+    pagination: false,
+    overrideAccess: false,
+    depth: 0,
+  });
+  for (const novel of novels.docs) {
+    const base = `${origin}/creations/novels/${novel.slug}`;
+    result.push({ url: base, lastModified: novel.updatedAt });
+    const chapters = await payload.find({
+      collection: 'chapters',
+      where: { novel: { equals: novel.id } },
+      pagination: false,
+      overrideAccess: false,
+      depth: 0,
+      select: { slug: true, updatedAt: true },
+    });
+    for (const chapter of chapters.docs)
+      result.push({ url: `${base}/${chapter.slug}`, lastModified: chapter.updatedAt });
+  }
   return result;
 }

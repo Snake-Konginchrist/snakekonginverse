@@ -26,7 +26,7 @@
 }
 .sk-admin-header strong {
   font-size: 13px;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 .sk-admin-header span,
 .sk-admin-header-note {
@@ -35,10 +35,13 @@
 }
 .sk-admin-header-note {
   margin-left: auto;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
 }
 @media (max-width: 700px) {
-  .sk-admin-header { padding-inline: 14px; }
-  .sk-admin-header-note { display: none; }
+  .sk-admin-header {
+    padding-inline: 14px;
+  }
+  .sk-admin-header-note {
+    display: none;
+  }
 }
-

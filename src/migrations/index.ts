@@ -5,6 +5,7 @@ import * as migration_20261006_120655_localized_settings from './20261006_120655
 import * as migration_20261006_120907_localized_defaults from './20261006_120907_localized_defaults';
 import * as migration_20261006_122433_research_section from './20261006_122433_research_section';
 import * as migration_20261006_220000_common_locales from './20261006_220000_common_locales';
+import * as migration_20261104_172842 from './20261104_172842';
 
 export const migrations = [
   {
@@ -41,5 +42,10 @@ export const migrations = [
     up: migration_20261006_220000_common_locales.up,
     down: migration_20261006_220000_common_locales.down,
     name: '20261006_220000_common_locales',
+  },
+  {
+    up: migration_20261104_172842.up,
+    down: migration_20261104_172842.down,
+    name: '20261104_172842'
   },
 ];

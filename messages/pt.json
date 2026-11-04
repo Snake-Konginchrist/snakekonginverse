@@ -383,5 +383,18 @@
       "description": "Protege a privacidade aplicando mosaicos retangulares às áreas escolhidas de uma imagem.",
       "meta": "rectmosaic.skstudio.cn"
     }
+  },
+  "novels": {
+    "eyebrow": "Ficção",
+    "library": "Biblioteca de romances",
+    "completed": "Concluído",
+    "ongoing": "Em andamento",
+    "start": "Começar a ler",
+    "contents": "Índice",
+    "empty": "Ainda não há capítulos publicados.",
+    "navigation": "Navegação de capítulos",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "end": "Fim dos capítulos publicados"
   }
 }
