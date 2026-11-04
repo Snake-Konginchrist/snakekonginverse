@@ -11,6 +11,7 @@ import { locales, localeLabels } from './i18n/routing';
 import sharp from 'sharp';
 import { s3Storage } from '@payloadcms/storage-s3';
 import { getR2Settings, requireR2Settings } from './lib/r2-config.mjs';
+import { NovelViewTotals, NovelViewVisits } from './cms/novel-views';
 import { Novels, Chapters } from './cms/novels';
 import { Entries, Media, Pages, Users } from './cms/collections';
 import { SiteSettings } from './cms/site-settings';
@@ -34,7 +35,7 @@ export default buildConfig({
     defaultLocale: siteConfig.defaultLocale as (typeof locales)[number],
     locales: locales.map((code) => ({ code, label: localeLabels[code] })),
   },
-  collections: [Users, Pages, Entries, Media, Novels, Chapters],
+  collections: [Users, Pages, Entries, Media, Novels, Chapters, NovelViewTotals, NovelViewVisits],
   plugins: [s3Storage({ collections: { media: true }, ...getR2Settings() })],
   // 类型及迁移生成无需访问 R2；应用初始化必须有真实的 R2 配置。
   onInit: async () => {

@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "views": "{count} 次瀏覽",
     "publishedAt": "發佈日期",
     "eyebrow": "故事與世界",
     "library": "小說書架",

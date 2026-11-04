@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "views": "{count} vues",
     "publishedAt": "Publié",
     "eyebrow": "Fiction",
     "library": "Bibliothèque de romans",

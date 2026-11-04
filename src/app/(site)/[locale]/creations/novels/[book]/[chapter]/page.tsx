@@ -1,3 +1,5 @@
+import { ViewCount } from '@/components/novels/view-count';
+import { viewCounts } from '@/lib/novel-views';
 import { PublicationDate } from '@/components/novels/publication-date';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
@@ -35,6 +37,7 @@ export default async function ChapterPage({ params }: Props) {
   const { docs } = await getChapters(book.id);
   const index = docs.findIndex((item) => item.id === chapter.id);
   const t = await getTranslations('novels');
+  const counts = await viewCounts(await cms(), [`chapter:${chapter.id}`]);
   const base = `/creations/novels/${book.slug}`;
   return (
     <article className="novel-reader" lang={book.language}>
@@ -48,6 +51,12 @@ export default async function ChapterPage({ params }: Props) {
         </p>
         <h1>{chapter.title}</h1>
         <PublicationDate value={chapter.publishedAt} />
+        <ViewCount
+          key={chapter.id}
+          initial={counts[`chapter:${chapter.id}`] ?? 0}
+          book={book.slug}
+          chapter={chapter.slug}
+        />
         <div className="novel-divider">✳</div>
       </header>
       <NovelMarkdown text={chapter.markdown} />

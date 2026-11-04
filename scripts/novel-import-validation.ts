@@ -9,6 +9,7 @@ type Manifest = {
   description?: string;
   language?: string;
   cover?: string;
+  completed?: boolean;
   publishedAt?: string;
   chapters: { file: string; id: string; title?: string; publishedAt?: string }[];
 };
@@ -38,6 +39,8 @@ export function validateManifest(value: unknown): Manifest {
   }
   if (!Array.isArray(value.chapters) || !value.chapters.length)
     throw new Error('Chapters must be a nonempty array');
+  if (value.completed !== undefined && typeof value.completed !== 'boolean')
+    throw new Error('completed must be a boolean');
   validatePublicationDate(value.publishedAt);
   const ids = new Set<string>();
   for (const chapter of value.chapters) {

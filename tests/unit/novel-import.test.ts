@@ -91,3 +91,13 @@ test('拒绝越界链接、伪图片和超限封面，接受有效图片', async
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test('完结状态接受布尔值并拒绝字符串', async () => {
+  const { validateManifest } = await import('../../scripts/novel-import-validation');
+  const manifest = { id: 'n-a', title: '书', chapters: [{ id: 'c-a', file: 'a.md' }] };
+  assert.equal(validateManifest(manifest).completed, undefined);
+  for (const completed of [true, false])
+    assert.equal(validateManifest({ ...manifest, completed }).completed, completed);
+  for (const completed of ['true', 1, null])
+    assert.throws(() => validateManifest({ ...manifest, completed }), /boolean/);
+});

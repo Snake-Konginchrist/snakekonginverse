@@ -248,3 +248,11 @@
     font-size: 18px;
   }
 }
+
+.novel-view-count {
+  display: inline-block;
+  margin-inline-start: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}

@@ -1,3 +1,6 @@
+import { cms } from '@/lib/content';
+import { ViewCount } from '@/components/novels/view-count';
+import { viewCounts } from '@/lib/novel-views';
 import { PublicationDate } from '@/components/novels/publication-date';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -19,6 +22,10 @@ export default async function NovelPage({ params }: Props) {
   const book = await getNovel((await params).book);
   if (!book) notFound();
   const { docs: chapters } = await getChapters(book.id);
+  const counts = await viewCounts(await cms(), [
+    `novel:${book.id}`,
+    ...chapters.map((chapter) => `chapter:${chapter.id}`),
+  ]);
   const t = await getTranslations('novels');
   const cover = typeof book.cover === 'object' ? book.cover : null;
   return (
@@ -40,6 +47,7 @@ export default async function NovelPage({ params }: Props) {
           <p className="novel-kicker">{t(book.completed ? 'completed' : 'ongoing')}</p>
           <h1>{book.title}</h1>
           <PublicationDate value={book.publishedAt} />
+          <ViewCount key={book.id} initial={counts[`novel:${book.id}`] ?? 0} book={book.slug} />
           <p className="novel-summary">{book.description}</p>
           {chapters[0] && (
             <Link
@@ -65,6 +73,7 @@ export default async function NovelPage({ params }: Props) {
                   {chapter.title}
                   <br />
                   <PublicationDate value={chapter.publishedAt} />
+                  <ViewCount initial={counts[`chapter:${chapter.id}`] ?? 0} />
                 </span>
                 <span>↗</span>
               </Link>

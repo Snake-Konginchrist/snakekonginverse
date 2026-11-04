@@ -22,6 +22,7 @@
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm check:lines",
     "test:cms": "tsx --env-file=.env scripts/verify-cms.ts",
     "import:novels": "tsx scripts/import-novels.ts",
+    "test:novel-views": "tsx --env-file=.env scripts/verify-novel-views.ts",
     "test:novels": "tsx --env-file=.env scripts/verify-novels.ts"
   },
   "dependencies": {

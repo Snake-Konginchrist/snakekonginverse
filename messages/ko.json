@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "views": "조회 {count}회",
     "publishedAt": "게시일",
     "eyebrow": "이야기와 세계",
     "library": "소설 책장",

@@ -106,6 +106,7 @@ if (args.includes('--publish') && existing)
   );
 let coverId = existing?.cover?.id ?? existing?.cover;
 const bookData = {
+  ...(manifest.completed !== undefined ? { completed: manifest.completed } : {}),
   ...(existing?.publishedAt || manifest.publishedAt
     ? { publishedAt: existing?.publishedAt || manifest.publishedAt }
     : {}),

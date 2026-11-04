@@ -7,6 +7,7 @@ import * as migration_20261006_122433_research_section from './20261006_122433_r
 import * as migration_20261006_220000_common_locales from './20261006_220000_common_locales';
 import * as migration_20261104_172842 from './20261104_172842';
 import * as migration_20261104_185055_novel_publication_dates from './20261104_185055_novel_publication_dates';
+import * as migration_20261104_194515_novel_views from './20261104_194515_novel_views';
 
 export const migrations = [
   {
@@ -52,6 +53,11 @@ export const migrations = [
   {
     up: migration_20261104_185055_novel_publication_dates.up,
     down: migration_20261104_185055_novel_publication_dates.down,
-    name: '20261104_185055_novel_publication_dates'
+    name: '20261104_185055_novel_publication_dates',
+  },
+  {
+    up: migration_20261104_194515_novel_views.up,
+    down: migration_20261104_194515_novel_views.down,
+    name: '20261104_194515_novel_views'
   },
 ];

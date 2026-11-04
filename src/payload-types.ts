@@ -73,6 +73,8 @@ export interface Config {
     media: Media;
     novels: Novel;
     chapters: Chapter;
+    'novel-view-totals': NovelViewTotal;
+    'novel-view-visits': NovelViewVisit;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +88,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     novels: NovelsSelect<false> | NovelsSelect<true>;
     chapters: ChaptersSelect<false> | ChaptersSelect<true>;
+    'novel-view-totals': NovelViewTotalsSelect<false> | NovelViewTotalsSelect<true>;
+    'novel-view-visits': NovelViewVisitsSelect<false> | NovelViewVisitsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -349,6 +353,27 @@ export interface Chapter {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "novel-view-totals".
+ */
+export interface NovelViewTotal {
+  id: number;
+  target: string;
+  views: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "novel-view-visits".
+ */
+export interface NovelViewVisit {
+  id: number;
+  key: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -394,6 +419,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'chapters';
         value: number | Chapter;
+      } | null)
+    | ({
+        relationTo: 'novel-view-totals';
+        value: number | NovelViewTotal;
+      } | null)
+    | ({
+        relationTo: 'novel-view-visits';
+        value: number | NovelViewVisit;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -617,6 +650,25 @@ export interface ChaptersSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "novel-view-totals_select".
+ */
+export interface NovelViewTotalsSelect<T extends boolean = true> {
+  target?: T;
+  views?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "novel-view-visits_select".
+ */
+export interface NovelViewVisitsSelect<T extends boolean = true> {
+  key?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

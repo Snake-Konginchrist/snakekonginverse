@@ -1,3 +1,6 @@
+import { cms } from '@/lib/content';
+import { ViewCount } from '@/components/novels/view-count';
+import { viewCounts } from '@/lib/novel-views';
 import { PublicationDate } from '@/components/novels/publication-date';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
@@ -6,6 +9,10 @@ import { getNovels } from '@/lib/novels';
 
 export async function Bookshelf() {
   const { docs } = await getNovels();
+  const counts = await viewCounts(
+    await cms(),
+    docs.map((book) => `novel:${book.id}`),
+  );
   const t = await getTranslations('novels');
   if (!docs.length) return null;
   return (
@@ -36,6 +43,7 @@ export async function Bookshelf() {
               <p className="novel-kicker">{t(book.completed ? 'completed' : 'ongoing')}</p>
               <h3>{book.title}</h3>
               <PublicationDate value={book.publishedAt} />
+              <ViewCount initial={counts[`novel:${book.id}`] ?? 0} />
               <p className="novel-description">{book.description}</p>
             </Link>
           );

@@ -65,6 +65,7 @@ test('十种语言有完整相同的键，所有文案可解析且不缺翻译',
           brand: 'SnakeKonginverse',
           section: 'Projects',
           kind: 'Projects',
+          count: '123',
         }).trim(),
         `${locale}: ${key}`,
       );
