@@ -4,7 +4,7 @@
 
 ## 开始开发
 
-按 [README](README.md) 配置专用开发数据库和 R2，然后阅读 [开发指南](DEVELOPMENT.md) 与 [架构说明](docs/ARCHITECTURE.md)。
+按 [README](README.zh-CN.md) 配置专用开发数据库和 R2，然后阅读 [开发指南](DEVELOPMENT.md) 与 [架构说明](docs/ARCHITECTURE.md)。
 
 提交问题时，请提供复现步骤、预期行为、实际行为和运行版本。配置示例中移除密码、密钥、管理员 token 和个人数据；疑似凭据泄露请通过作者 GitHub 资料页列出的联系方式沟通，不要在公开 Issue 粘贴凭据。
 
@@ -26,7 +26,7 @@ pnpm format:check
 pnpm build
 ```
 
-文档修改检查格式、路径与命令即可。前台交互改动补充桌面和手机验证；数据模型或权限改动应在专用数据库中验证迁移与访问边界。可用的浏览器与 CMS 集成命令见 [README](README.md#常用命令)。
+文档修改检查格式、路径与命令即可。前台交互改动补充桌面和手机验证；数据模型或权限改动应在专用数据库中验证迁移与访问边界。可用的浏览器与 CMS 集成命令见 [README](README.zh-CN.md#常用命令)。
 
 如果修改 Payload 相关配置：
 
