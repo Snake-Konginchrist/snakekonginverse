@@ -121,4 +121,8 @@ CMS 与小说集成验证会写入临时数据库记录及 R2 对象，并在结
 
 ## 许可证
 
-本仓库目前尚未指定许可证。
+本项目采用 [GNU General Public License v3.0](LICENSE)（`GPL-3.0-only`）。
+
+Copyright (C) 2026 Snake Konginchrist.
+
+第三方依赖与素材遵循各自的许可证和授权声明。
