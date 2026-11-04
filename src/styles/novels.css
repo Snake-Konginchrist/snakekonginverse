@@ -39,7 +39,7 @@
 }
 .novel-cover {
   position: relative;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border: 1px solid var(--line);
   box-shadow: 5px 8px 0 var(--line);

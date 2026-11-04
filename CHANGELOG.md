@@ -2,6 +2,7 @@
 
 ## 0.4.0 — 2026-11-05
 
+- 小说书架与书籍详情页封面统一为 3:4 竖版，推荐尺寸为 600 × 800 像素。
 - 提供英文默认 README 与独立简体中文版，加入语言切换和 Star History 星标历史图。
 - 添加 GPL-3.0-only 许可证，统一包信息、README 与贡献指南中的许可声明。
 - 新增仓库 Ko-fi 与 Buy Me a Coffee 打赏配置，提供 GitHub Sponsor 入口与 README 链接。

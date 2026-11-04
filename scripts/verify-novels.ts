@@ -88,7 +88,7 @@ try {
     '# 第三章 归途\n\n这是第三章，用于验证目录顺序及最后一章的边界。\n',
   );
   await sharp('public/images/creations.png')
-    .resize(480, 720, { fit: 'cover' })
+    .resize(600, 800, { fit: 'cover' })
     .png()
     .toFile(resolve(folder, coverName));
   await cli('--init');
