@@ -69,11 +69,12 @@ export default async function NovelPage({ params }: Props) {
             <li key={chapter.id}>
               <Link href={`/creations/novels/${book.slug}/${chapter.slug}`}>
                 <span>{String(index + 1).padStart(2, '0')}</span>
-                <span>
-                  {chapter.title}
-                  <br />
-                  <PublicationDate value={chapter.publishedAt} />
-                  <ViewCount initial={counts[`chapter:${chapter.id}`] ?? 0} />
+                <span className="novel-chapter-info">
+                  <span className="novel-chapter-title">{chapter.title}</span>
+                  <span className="novel-chapter-meta">
+                    <PublicationDate value={chapter.publishedAt} />
+                    <ViewCount initial={counts[`chapter:${chapter.id}`] ?? 0} />
+                  </span>
                 </span>
                 <span>↗</span>
               </Link>
