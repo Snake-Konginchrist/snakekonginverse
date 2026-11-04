@@ -250,9 +250,23 @@
 }
 
 .novel-view-count {
-  display: inline-block;
-  margin-inline-start: 12px;
+  display: block;
+  margin: 8px 0 0;
   font-size: 13px;
   color: var(--muted);
   white-space: nowrap;
+}
+
+.novel-publication-date {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.novel-reader header .novel-publication-date {
+  margin-top: 20px;
+}
+.novel-contents .novel-view-count {
+  margin: 6px 0 0;
 }
