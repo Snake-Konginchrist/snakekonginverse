@@ -10,7 +10,7 @@
 以下示例使用 `/var/www/snakekonginverse`、用户 `ubuntu`、服务 `snakekonginverse.service`。
 实际值必须与服务器一致，SSH 登录用户应为运行服务的用户。
 
-服务器必须能够从非交互 SSH 会话找到 Node.js 22.13+、pnpm 12.9.1、`pg_dump`、`flock`、`tar` 和 `curl`。
+服务器必须能够从非交互 SSH 会话找到 Node.js（`^22.23.4 || >=24.22.1`）、pnpm 12.9.1、`pg_dump`、`flock`、`tar` 和 `curl`。
 Node.js/pnpm 若仅在交互式终端通过 nvm 配置，须先使部署账户的非交互 PATH 可用。
 可在 `.deploy/runtime.env` 中保存 `PATH=/实际/node/bin:/usr/local/bin:/usr/bin:/bin`；部署脚本和 systemd 会使用该路径。
 
@@ -41,14 +41,14 @@ ubuntu ALL=(root) NOPASSWD: /usr/bin/systemctl stop snakekonginverse.service, /u
 
 在仓库 Settings → Secrets and variables → Actions 配置以下 Variables：
 
-| 名称                | 含义 / 示例                                       |
-| ------------------- | ------------------------------------------------- |
-| `DEPLOY_HOST`       | 实际服务器 IP 或域名                              |
-| `DEPLOY_PORT`       | SSH 实际端口，例如 `22`                           |
-| `DEPLOY_USER`       | SSH 登录用户，与 systemd 的 User 相同             |
-| `DEPLOY_PATH`       | `/var/www/snakekonginverse`                       |
-| `DEPLOY_SERVICE`    | `snakekonginverse.service`                        |
-| `DEPLOY_HEALTH_URL` | `http://127.0.0.1:3000/zh-CN`，按实际监听端口修改 |
+| 名称                | 含义 / 示例                                  |
+| ------------------- | -------------------------------------------- |
+| `DEPLOY_HOST`       | 实际服务器 IP 或域名                         |
+| `DEPLOY_PORT`       | SSH 实际端口，例如 `22`                      |
+| `DEPLOY_USER`       | SSH 登录用户，与 systemd 的 User 相同        |
+| `DEPLOY_PATH`       | `/var/www/snakekonginverse`                  |
+| `DEPLOY_SERVICE`    | `snakekonginverse.service`                   |
+| `DEPLOY_HEALTH_URL` | `http://127.0.0.1:3000/`，按实际监听端口修改 |
 
 再配置两个 Secrets：
 
@@ -58,7 +58,7 @@ ubuntu ALL=(root) NOPASSWD: /usr/bin/systemctl stop snakekonginverse.service, /u
 | `DEPLOY_KNOWN_HOSTS` | 已核对指纹的服务器 SSH 公钥记录（known_hosts 格式） |
 
 可用 `ssh-keyscan -p 端口 服务器地址` 获取公钥记录，但须与服务器控制台或现有可信 SSH 记录核对指纹。
-工作流强制校验服务器公钥。GitHub 提供已认证的私有仓库 checkout；服务器不需要额外保存仓库访问令牌。
+工作流强制校验服务器公钥。GitHub Actions 使用仓库 checkout；服务器不需要额外保存仓库访问令牌。
 数据库密码、Payload 密钥、R2 访问密钥等配置只保留在服务器环境文件中。
 
 ## 每次部署过程

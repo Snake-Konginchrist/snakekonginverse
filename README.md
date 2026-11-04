@@ -1,26 +1,61 @@
 # Snake Konginverse
 
-Snake + Kongin + Verse。Snake Konginchrist 的产品、研究、创作与个人记录网站。
-通过官方 `create-next-app` 在现有根目录初始化，前台与 Payload 后台同仓部署。
+Snake Konginchrist（斯黄）的个人主页，展示产品、研究、小说、创作与个人记录，也可作为多语言个人网站模板进行定制。
+
+**[在线站点](https://snakekongin.com) · [模板定制](docs/CUSTOMIZATION.md) · [开发指南](DEVELOPMENT.md) · [版本记录](CHANGELOG.md)**
+
+## 功能
+
+- **个人主页**：首页、实践、求索、创作、行记和关于页面，包含项目展示、社交入口与联系方式。
+- **内容管理**：Payload CMS 后台，支持作品与文章、可组合页面、草稿、认证预览和版本历史。
+- **小说阅读**：封面书架、书籍目录、章节导航，支持 Markdown、GFM 表格和 LaTeX 公式；可从本地批量导入章节。
+- **十种语言**：默认英文，按浏览器语言自动匹配，也支持手动选择并保存偏好。内容翻译由作者维护，小说保留原文。
+- **阅读体验**：响应式布局、深浅色主题、键盘焦点与跳转正文入口。
+- **自托管**：PostgreSQL、Cloudflare R2，以及 Node.js + systemd + Nginx 部署；可配置 GitHub Actions 自动发布。
+- **可选统计**：Microsoft Clarity 和 Google Analytics 4，未配置时不加载。
+
+当前不提供站内搜索、评论、公众注册、自动 URL 重定向或邮件投递。未配置邮件适配器时，找回密码邮件只写入服务端日志。
 
 ## 技术栈
 
-对象存储选型与免费额度：[平台对照文档](docs/OBJECT_STORAGE.md)。
+Next.js 16.4.5、React 19.3、TypeScript 7、Tailwind CSS 4.3、Payload CMS 3.93.0、Lexical、PostgreSQL 和 Cloudflare R2。使用 pnpm、Oxlint、Prettier 与 Playwright。
 
-Next.js 16.4.5、React 19.3、TypeScript 7 严格模式、Tailwind CSS 4.3、Payload CMS 3.93.0、Lexical、PostgreSQL、Cloudflare R2 媒体存储。
-使用 pnpm、Oxlint、Prettier、Node 测试与 Playwright；部署采用 Node.js + systemd + Nginx，无 Docker。
-具体版本以 lockfile 为准，GraphQL 保持在 Payload 支持的 16.x。
+依赖版本以 `package.json` 和 `pnpm-lock.yaml` 为准；GraphQL 保持在 Payload 支持的 16.x。
 
-## 本地运行
+## 快速开始
 
-需要 Node.js `^22.23.4 || >=24.22.1`（与 Payload 的运行要求一致）、pnpm 12.9.1 和 PostgreSQL。
+### 环境要求
+
+- Node.js `^22.23.4 || >=24.22.1`。
+- pnpm `12.9.1`。
+- PostgreSQL 数据库及具有建表权限的数据库用户。
+- Cloudflare R2 存储桶和仅授权该桶的对象读写凭据。本地开发同样需要 R2 配置。
+
+### 安装与配置
 
 ```bash
+git clone https://github.com/Snake-Konginchrist/snakekonginverse.git
+cd snakekonginverse
 pnpm install --frozen-lockfile
 cp .env.example .env
-createdb snakekonginverse_db
-# 编辑 .env 的数据库连接，用 openssl rand -hex 32 生成 PAYLOAD_SECRET
-# 填写 R2_BUCKET、R2_ENDPOINT、R2_ACCESS_KEY_ID、R2_SECRET_ACCESS_KEY
+```
+
+在 PostgreSQL 中创建数据库，例如 `createdb snakekonginverse_db`，并在 `.env` 中填写实际用户、密码和库名。数据库名与用户名可自行选择；特殊字符密码需要 URL 编码。
+
+| 配置                                                                   | 用途                                                                      |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `DATABASE_URL`                                                         | PostgreSQL 连接地址                                                       |
+| `PAYLOAD_SECRET`                                                       | CMS 密钥，可使用 `openssl rand -hex 32` 生成                              |
+| `R2_BUCKET`、`R2_ENDPOINT`、`R2_ACCESS_KEY_ID`、`R2_SECRET_ACCESS_KEY` | 媒体存储，详见 [R2 配置](docs/R2_STORAGE.md)                              |
+| `APP_HOST`、`APP_PORT`                                                 | 本地监听地址和端口，示例为 `127.0.0.1:3000`                               |
+| `NEXT_PUBLIC_SITE_URL`                                                 | 网站访问地址，本地为 `http://localhost:3000`，部署时填写自己的 HTTPS 域名 |
+| `CLARITY_PROJECT_ID`、`GA4_MEASUREMENT_ID`                             | 可选统计标识                                                              |
+
+保留已有环境文件中的实际配置；真实 `.env` 不应提交到仓库。
+
+### 初始化与启动
+
+```bash
 pnpm r2:check
 pnpm cms:types
 pnpm cms:importmap
@@ -29,67 +64,61 @@ pnpm seed
 pnpm dev
 ```
 
-本次初始化已经准备本机 `.env`、独立数据库及初始页面，不要重复覆盖 `.env`。生产环境域名为 `https://snakekongin.com`，部署时将 `NEXT_PUBLIC_SITE_URL` 设置为该地址。
-前台使用一个域名，支持英语（默认）、简体中文、繁体中文、日语、韩语、西班牙语、法语、德语、葡萄牙语和俄语。公开路径不带语言前缀，例如 `/projects`、`/about`。首次访问会按浏览器语言选择受支持的语言，未匹配时使用英语；用户也可以通过页头切换语言，选择会保存在浏览器中并优先使用。
-内容页包括 `/projects`、`/creations`、`/journal`、`/about`，资料与社交功能页包括
-`/links`、`/recommendations`、`/communities`、`/contact`、`/identities`、`/changelog`、`/discussion`。
-首页保持个人主页的密度，详细内容和公开入口在对应页面与页脚展开。
+打开 [网站](http://localhost:3000) 或 [管理后台](http://localhost:3000/admin)。首次访问后台创建管理员，开放公网前完成此步骤。
 
-- 前台：<http://localhost:3000>
-- 后台：<http://localhost:3000/admin>，首次访问创建你自己的管理员。
-- 健康检查：`curl -I http://localhost:3000`。
-- 停止服务：在运行终端按 `Ctrl+C`。
+`pnpm seed` 补充初始页面与站点设置，不创建管理员或示例作品；重复运行会保留已经编辑的内容。首页与关于页使用代码维护的品牌布局，定制这些页面请参阅 [模板定制指南](docs/CUSTOMIZATION.md)。
 
-`pnpm seed` 只补缺失的品牌页面，并为未改动的初始页面补齐尚未编辑的语言，不覆盖编辑内容，不创建帐号或虚构作品。
-开发和生产默认都使用版本化迁移。仅对可丢弃的开发库显式设置 `PAYLOAD_DB_PUSH=true` 才开启 schema push，不要对正式数据使用。
+开发和生产默认均使用版本化迁移。只有显式设置 `PAYLOAD_DB_PUSH=true` 才启用 schema push，这个选项仅用于可丢弃的开发数据库。
 
-## 内容管理
+## 使用与定制
 
-1. **站点设置**：修改品牌、简介、导航、社交链接和强调色。
-2. **页面搭建**：设置 `/`、`/about`、`/lab/notes` 等路径，添加区块并拖动排序。
-3. **作品与文章**：选择技术项目、同人创作或文字手记，编辑封面、标签与正文。
-4. 保存草稿后使用预览按钮查看，发布后前台下一次请求即可读取。
-5. **媒体库**：支持 JPEG / PNG / WebP / AVIF，最大 10 MB，必须填写图片描述。
+后台管理作品、文章、自定义页面、媒体、小说及章节。自定义页面可使用 `/lab/notes` 等路径，固定栏目与管理路由由系统保留。公开访问只读取已发布内容，草稿预览需要管理员会话。
 
-图片及缩略图上传到私有 R2 存储桶，通过 CMS 同源文件接口读取；不需要开启存储桶公开访问。
-本地开发同样使用 R2，缺少配置时不会回退本地文件。SDK 与接入步骤见 [R2 配置](docs/R2_STORAGE.md)。
+复用模板时，先替换品牌、个人资料、社交账号、十种语言文案与图片，再配置自己的数据库、R2 和域名。仓库自带的是作者个人站点内容，不会在安装时自动替换为使用者资料。
 
-首版提供品牌首屏、探索入口、个人宣言、富文本、内容列表五种区块。
-这是结构化区块编辑器，不是任意拖动像素的画布。
-所有公开内容查询都启用权限检查；草稿预览要求管理员登录。媒体 URL 公开可读。
+- [模板定制指南](docs/CUSTOMIZATION.md)：品牌、文案、页面、图片与配置位置。
+- [小说导入指南](docs/NOVELS.md)：一章一个 Markdown 文件，生成稳定清单并批量导入。
+- [开发与调试](DEVELOPMENT.md)：本地运行、数据库迁移和常见问题。
+- [贡献指南](CONTRIBUTING.md)：改动范围、生成文件与验证要求。
 
-## 工程检查
+## 常用命令
 
 ```bash
-pnpm check          # Lint、类型、URL 边界测试、手写文件行数检查
-pnpm format:check
-pnpm build
-pnpm start          # 先构建并完成迁移
-pnpm test:e2e       # 需要已启动网站和 Playwright Chromium
-pnpm test:cms       # 本机真实 CMS 闭环；临时帐号、内容和媒体自动清理
-pnpm test:novels    # 本机真实小说导入、草稿隔离、公式和 R2 封面验证
+pnpm dev             # 开发服务；Ctrl+C 停止
+pnpm check           # Lint、类型、单元测试与手写文件行数检查
+pnpm format:check    # 格式检查
+pnpm build           # 生产构建
+pnpm start           # 运行生产构建，需事先配置环境并完成迁移
 ```
 
-首次安装浏览器：`pnpm exec playwright install chromium`。
-修改 schema 后执行 `pnpm cms:types && pnpm cms:importmap`，然后生成迁移。
-手写代码不超过 300 行；生成的类型、导入映射、数据库迁移和 lockfile 不人为拆分。
+浏览器测试需要已启动的网站：
 
-`patches/payload@3.93.0.patch` 通过官方 `pnpm patch` 管理：修正关闭语言回退时，未指定语言的 REST 请求未采用默认语言的问题。`pnpm install` 自动应用；升级 Payload 时需保留 `cms-locale.test.ts` 与 CMS 集成验证，确认上游修复后再移除补丁。
+```bash
+pnpm exec playwright install chromium
+TEST_BASE_URL=http://127.0.0.1:3000 pnpm test:e2e
+TEST_BASE_URL=http://127.0.0.1:3000 pnpm test:cms
+pnpm test:novels
+```
 
-Payload 的 Pages 与 Entries 支持以上十种语言；初始化脚本为内置页面和站点设置提供对应文案，不会自动翻译已有自定义内容，
-社交目录使用 `react-icons` 的品牌图标。未确认的社交账号只显示为待配置入口，避免生成错误链接。
+CMS 与小说集成验证会写入临时数据库记录及 R2 对象，并在结束时清理；请使用专用开发环境。
 
+## 部署与维护
+
+- [Ubuntu 原生部署](docs/DEPLOYMENT.md)
+- [GitHub Actions 自动部署](docs/AUTO_DEPLOYMENT.md)
+- [Cloudflare R2](docs/R2_STORAGE.md)
+- [Clarity 与 GA4](docs/ANALYTICS.md)
 - [架构说明](docs/ARCHITECTURE.md)
-- [开发模式调试指南](DEVELOPMENT.md)
-- [原生服务器部署](docs/DEPLOYMENT.md)
-- [Clarity 与 GA4 配置](docs/ANALYTICS.md)
-- [Cloudflare R2 接入](docs/R2_STORAGE.md)
-- [对象存储免费额度对照](docs/OBJECT_STORAGE.md)
-- [版本记录](CHANGELOG.md)
+- [对象存储额度参考](docs/OBJECT_STORAGE.md)，保留原查询日期，实际额度以厂商为准。
 
-首次开放公网前先创建管理员。当前未配置邮件投递，找回密码邮件不会真实发送。
-评论、搜索、自动 URL 重定向和更丰富的区块尚未接入，详见版本记录。
+部署示例中的域名、路径、账户和存储桶名称均需按自己的环境调整。媒体由 R2 持久化，数据库、媒体和环境文件需要一起备份。
 
-## 小说发布
+`patches/payload@3.93.0.patch` 修复关闭内容语言回退时，未指定语言的 REST 请求没有采用默认语言的问题。`pnpm install` 自动应用补丁；升级 Payload 时应验证相关回归，再决定是否移除。
 
-创作页支持小说书架、封面、章节目录与 Markdown / LaTeX 阅读。批量导入命令和升级说明见 [小说导入指南](docs/NOVELS.md)。
+## 支持作者
+
+如果这个项目对你有所帮助，欢迎通过 [Ko-fi](https://ko-fi.com/snake_konginchrist) 或 [Buy Me a Coffee](https://www.buymeacoffee.com/snakekongin) 支持后续开发与创作。
+
+## 许可证
+
+本仓库目前尚未指定许可证。

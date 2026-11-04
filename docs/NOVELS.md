@@ -20,7 +20,7 @@ pnpm import:novels ./我的小说 --init
 
 ```bash
 pnpm import:novels ./我的小说 --dry-run
-export NOVEL_SITE_URL=https://snakekongin.com
+export NOVEL_SITE_URL=https://example.com
 # NOVEL_TOKEN 使用现有管理员通过 POST /api/users/login 获取的短期 JWT
 # 请在本地安全设置环境变量，不要提交 token 或密码到 Git
 pnpm import:novels ./我的小说

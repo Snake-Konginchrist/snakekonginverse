@@ -5,7 +5,7 @@
 
 ## 当前网站方案
 
-网站代码已切换为 Cloudflare R2；填入真实密钥并验证后，才能完成服务器切换：
+项目默认使用 Cloudflare R2；其他平台的额度仅作原查询日期的参考，切换适配器需修改代码：
 
 - 存储桶：`snakekonginverse-media`，通过 `.env` 中的 `R2_*` 字段配置。
 - PostgreSQL 保存文件元信息，Payload CMS 管理上传文件。

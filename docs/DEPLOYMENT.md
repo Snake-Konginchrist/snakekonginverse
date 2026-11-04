@@ -1,11 +1,11 @@
 # Ubuntu 原生部署（无 Docker）
 
 浏览器 → 可选 Cloudflare → Nginx HTTPS → Node.js 127.0.0.1:3000 → PostgreSQL。
-以下以 `/var/www/snakekonginverse`、系统用户 `ubuntu` 和域名 `snakekongin.com` 为例。请替换数据库密码。
+以下以 `/var/www/snakekonginverse`、系统用户 `ubuntu` 和域名 `snakekongin.com` 为例。请替换域名、路径、系统用户及数据库凭据。
 
 ## 环境与目录
 
-安装受支持的 Node.js LTS（22.13+）、pnpm 12.9.1、PostgreSQL 和 Nginx。
+安装受支持的 Node.js（`^22.23.4 || >=24.22.1`）、pnpm 12.9.1、PostgreSQL 和 Nginx。
 数据库只监听本机，为本站建立专属非超级用户。
 
 ```bash
@@ -22,6 +22,9 @@ sudo -u postgres createdb --owner=snakekongin snakekonginverse_db
 
 ```dotenv
 NODE_ENV=production
+APP_HOST=127.0.0.1
+APP_PORT=3000
+PAYLOAD_DB_PUSH=false
 DATABASE_URL=postgresql://snakekongin:URL_ENCODED_PASSWORD@127.0.0.1:5432/snakekonginverse_db
 PAYLOAD_SECRET=REPLACE_WITH_OPENSSL_RAND_HEX_32
 NEXT_PUBLIC_SITE_URL=https://snakekongin.com
@@ -38,6 +41,7 @@ pnpm install --frozen-lockfile
 pnpm r2:check
 NODE_ENV=production pnpm db:migrate
 NODE_ENV=production pnpm seed
+pnpm exec next typegen
 pnpm check
 pnpm build
 pnpm start
@@ -68,7 +72,7 @@ curl -I http://127.0.0.1:3000
 
 ## Nginx 与 HTTPS
 
-将 `deploy/snakekongin.com.conf` 安装为 `/etc/nginx/conf.d/snakekongin.com.conf`；配置已包含 `snakekongin.com` 和 `www.snakekongin.com`。
+将 `deploy/snakekongin.com.conf` 安装为 `/etc/nginx/conf.d/snakekongin.com.conf`；配置中的 `server_name` 需替换为自己的域名，并同步 `NEXT_PUBLIC_SITE_URL`。
 执行 `sudo nginx -t` 后 `sudo systemctl reload nginx`。
 示例先提供 HTTP。用服务器现有证书流程或 Certbot 配置 HTTPS，验证后将 HTTP 重定向至 HTTPS。
 Cloudflare 使用 Full (strict)，不要 Flexible，不要缓存 `/admin`、`/api`、`/preview` 或管理员会话。

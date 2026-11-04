@@ -1,17 +1,17 @@
 # Snake Konginverse 开发模式调试指南
 
 这份文档说明如何在本机启动、调试和停止 Snake Konginverse。
-项目是 Next.js 16.4.0 + React 19.3 + Payload CMS 3.90.2 + PostgreSQL，使用 pnpm 管理依赖；类型检查使用 TypeScript 7，代码规范检查使用 Oxlint。
+项目是 Next.js 16.4.5 + React 19.3 + Payload CMS 3.93.0 + PostgreSQL，使用 pnpm 管理依赖；类型检查使用 TypeScript 7，代码规范检查使用 Oxlint。
 前台和 Payload 管理后台运行在同一个 Next.js 开发进程中。
 
 ## 一、准备开发环境
 
 项目要求：
 
-- Node.js `>=22.13.0`；
-- pnpm `10.8.0`；
+- Node.js `^22.23.4 || >=24.22.1`；
+- pnpm `12.9.1`；
 - 本机 PostgreSQL；
-- 一个只供开发使用的数据库，例如 `snakekonginverse`。
+- 一个只供开发使用的数据库，例如 `snakekonginverse_db`。
 
 先确认版本：
 
@@ -27,7 +27,7 @@ psql --version
 pnpm self-update 12.9.1
 ```
 
-不要把生产数据库连接写进本机开发环境。开发模式会允许 Payload 自动同步 schema，连接生产数据库可能造成不可逆的数据结构变化。
+不要把生产数据库连接写进本机开发环境。开发和生产默认使用迁移；只有显式设置 `PAYLOAD_DB_PUSH=true` 才允许同步 schema。
 
 ## 二、第一次启动
 
@@ -71,9 +71,10 @@ pnpm cms:types
 pnpm cms:importmap
 ```
 
-然后初始化缺失的首页、关于页和站点设置：
+先执行迁移，再补充初始页面和站点设置：
 
 ```bash
+pnpm db:migrate
 pnpm seed
 ```
 
@@ -118,19 +119,14 @@ pnpm cms:types
 pnpm cms:importmap
 ```
 
-开发环境中的 Payload 配置会启用 schema 自动同步：
-
-```ts
-push: process.env.NODE_ENV !== 'production';
-```
-
-因此本机开发一般不需要手动执行迁移。修改完成并准备部署时，再创建并审阅迁移：
+数据库结构默认由版本化迁移管理。修改 schema 后，生成并审阅迁移，在专用开发数据库执行：
 
 ```bash
 pnpm db:migration
+pnpm db:migrate
 ```
 
-不要在开发阶段把自动同步当成生产迁移流程；生产环境必须使用版本化迁移。
+`PAYLOAD_DB_PUSH=true` 仅供可丢弃的开发库使用。不要将 schema push 作为正式数据的升级方式。
 
 ## 五、前台调试
 
@@ -144,13 +140,9 @@ src/lib/content.ts           Payload 服务端查询封装
 src/styles/                  设计令牌、布局和内容样式
 ```
 
-页面内容来自 PostgreSQL，不是写死在 React 页面里。调试首页时可以按这个顺序检查：
+首页和关于页由代码布局与翻译文件维护；作品、文章、小说及自定义 Pages 从 PostgreSQL 读取。定制入口见 [模板定制指南](docs/CUSTOMIZATION.md)。
 
-1. 浏览器打开 `/admin`，确认“页面搭建”中 `/` 页面已发布；
-2. 检查首页区块是否包含品牌首屏、探索入口等区块；
-3. 打开浏览器开发者工具的 Console 和 Network，查看是否有请求失败；
-4. 回到运行 `pnpm dev` 的终端查看 Payload 或 Next.js 错误堆栈；
-5. 修改内容后刷新页面，确认公开页面只读取已发布内容。
+调试内容时，先确认后台对应记录已发布，并检查实际访问路径与当前语言；再查看浏览器 Console、Network 和开发终端的错误堆栈。
 
 调试 API 时可以先做只读请求：
 
@@ -167,6 +159,7 @@ curl -i http://127.0.0.1:3000/api/entries?limit=1
 
 ```text
 src/cms/collections.ts       Users、Media、Pages、Entries
+src/cms/novels.ts            小说与章节
 src/cms/site-settings.ts     站点设置
 src/cms/blocks.ts             页面区块字段
 src/cms/fields.ts             SEO、路径和链接校验
@@ -195,8 +188,8 @@ psql "$DATABASE_URL"
 \dt
 \d pages
 \d entries
-SELECT id, title, path, _status FROM pages ORDER BY id;
-SELECT id, title, slug, kind, _status FROM entries ORDER BY id;
+SELECT id, path, _status FROM pages ORDER BY id;
+SELECT id, slug, kind, _status FROM entries ORDER BY id;
 ```
 
 只读排查优先使用 `SELECT`。删除或批量修改数据前先确认数据库名称和目标记录，避免误操作其他项目。
@@ -216,7 +209,7 @@ lsof -nP -iTCP:3000 -sTCP:LISTEN
 优先停止之前启动的开发服务。需要临时换端口时，可以直接运行：
 
 ```bash
-pnpm dev -- --port 3001
+APP_PORT=3001 pnpm dev
 ```
 
 这时访问 <http://localhost:3001>，并确保 `NEXT_PUBLIC_SITE_URL` 与实际访问地址一致。
@@ -268,7 +261,7 @@ pnpm dev
 
 ## 九、开发前的轻量检查
 
-你说后续会手动测试时，可以只做这些不启动浏览器的检查：
+不启动浏览器的静态检查：
 
 ```bash
 pnpm lint
@@ -280,13 +273,13 @@ pnpm check:lines
 完整检查命令 `pnpm check` 还会执行单元测试。浏览器回归测试需要已经运行的开发服务：
 
 ```bash
-pnpm test:e2e
+TEST_BASE_URL=http://127.0.0.1:3000 pnpm test:e2e
 ```
 
 CMS 真实闭环验证会创建并清理临时帐号、内容和媒体，仅建议在专用本地数据库执行：
 
 ```bash
-pnpm test:cms
+TEST_BASE_URL=http://127.0.0.1:3000 pnpm test:cms
 ```
 
 手动调试时可以不运行这些自动化命令；但提交代码前，至少确认 `pnpm dev` 能启动、首页能打开、后台能登录。
@@ -300,9 +293,10 @@ pnpm test:cms
 psql "$DATABASE_URL" -c 'select current_database();'
 ```
 
-确认是本地 `snakekonginverse` 后，停止开发服务，再由你手动删除并重新创建数据库，然后执行：
+确认是专用本地 `snakekonginverse_db` 后，停止开发服务，再由你手动删除并重新创建数据库，然后执行：
 
 ```bash
+pnpm db:migrate
 pnpm seed
 pnpm dev
 ```
