@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "publishedAt": "发布日期",
     "eyebrow": "故事与世界",
     "library": "小说书架",
     "completed": "已完结",

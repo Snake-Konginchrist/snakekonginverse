@@ -28,6 +28,6 @@ export const getChapters = cache(async (novel: number) =>
     pagination: false,
     sort: ['position', 'slug'],
     depth: 0,
-    select: { title: true, slug: true, position: true },
+    select: { publishedAt: true, title: true, slug: true, position: true },
   }),
 );

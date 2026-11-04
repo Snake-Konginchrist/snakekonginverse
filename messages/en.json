@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "publishedAt": "Published",
     "eyebrow": "Fiction",
     "library": "The bookshelf",
     "completed": "Complete",

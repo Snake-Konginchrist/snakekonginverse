@@ -311,6 +311,10 @@ export interface Media {
  */
 export interface Novel {
   id: number;
+  /**
+   * 未填写时首次发布自动记录；已有日期保持不变。
+   */
+  publishedAt?: string | null;
   title: string;
   slug: string;
   description?: string | null;
@@ -327,6 +331,10 @@ export interface Novel {
  */
 export interface Chapter {
   id: number;
+  /**
+   * 未填写时首次发布自动记录；已有日期保持不变。
+   */
+  publishedAt?: string | null;
   novel: number | Novel;
   slug: string;
   title: string;
@@ -584,6 +592,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "novels_select".
  */
 export interface NovelsSelect<T extends boolean = true> {
+  publishedAt?: T;
   title?: T;
   slug?: T;
   description?: T;
@@ -599,6 +608,7 @@ export interface NovelsSelect<T extends boolean = true> {
  * via the `definition` "chapters_select".
  */
 export interface ChaptersSelect<T extends boolean = true> {
+  publishedAt?: T;
   novel?: T;
   slug?: T;
   title?: T;

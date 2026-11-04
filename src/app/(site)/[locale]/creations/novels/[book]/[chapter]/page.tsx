@@ -1,3 +1,4 @@
+import { PublicationDate } from '@/components/novels/publication-date';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -46,6 +47,7 @@ export default async function ChapterPage({ params }: Props) {
           {String(index + 1).padStart(2, '0')} / {docs.length}
         </p>
         <h1>{chapter.title}</h1>
+        <PublicationDate value={chapter.publishedAt} />
         <div className="novel-divider">✳</div>
       </header>
       <NovelMarkdown text={chapter.markdown} />

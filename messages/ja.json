@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "publishedAt": "公開日",
     "eyebrow": "物語と世界",
     "library": "小説の本棚",
     "completed": "完結",

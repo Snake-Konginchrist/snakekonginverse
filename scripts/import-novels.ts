@@ -1,23 +1,19 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { resolve, basename, extname } from 'node:path';
 import { randomUUID } from 'node:crypto';
+import {
+  validateManifest,
+  insideFile,
+  readCover,
+  parseArgs,
+  checkPositions,
+} from './novel-import-validation';
 
-// A persisted manifest gives books and chapters stable, non-name-based URLs.
-type Manifest = {
-  id: string;
-  title: string;
-  description?: string;
-  language?: string;
-  cover?: string;
-  chapters: { file: string; id: string; title?: string }[];
-};
 const args = process.argv.slice(2);
-const directory = args.find((arg) => !arg.startsWith('--'));
-if (!directory || args.includes('--help')) {
-  console.info(
-    'pnpm import:novels <book-folder> [--init] [--publish] [--dry-run]\nSet NOVEL_SITE_URL and NOVEL_TOKEN (Payload administrator JWT). --init creates novel.json; edit it to set title, description, cover and chapter order.',
-  );
-  process.exit(directory ? 0 : 1);
+const directory = parseArgs(args);
+if (args.includes('--help')) {
+  console.info('pnpm import:novels <book-folder> [--init] [--publish] [--dry-run]');
+  process.exit(0);
 }
 const folder = resolve(directory);
 const manifestPath = resolve(folder, 'novel.json');
@@ -26,7 +22,7 @@ if (args.includes('--init')) {
     .filter((file) => /\.md$/i.test(file))
     .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
   if (!files.length) throw new Error('No Markdown chapters found.');
-  const manifest: Manifest = {
+  const manifest = {
     id: `n-${randomUUID().replaceAll('-', '').slice(0, 16)}`,
     title: basename(folder),
     language: 'zh-CN',
@@ -36,49 +32,32 @@ if (args.includes('--init')) {
   console.info('Created novel.json. Keep IDs stable; append new chapters with unused IDs.');
   process.exit(0);
 }
-const manifest: Manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
-if (
-  !/^n-[a-z0-9]+$/.test(manifest.id) ||
-  !manifest.title?.trim() ||
-  !Array.isArray(manifest.chapters) ||
-  !manifest.chapters.length
-)
-  throw new Error('Invalid novel.json');
+const manifest = validateManifest(JSON.parse(await readFile(manifestPath, 'utf8')));
 const ids = new Set<string>();
 const chapters = await Promise.all(
   manifest.chapters.map(async (chapter, position) => {
     if (!/^c-[a-z0-9]+$/.test(chapter.id) || ids.has(chapter.id))
       throw new Error('Invalid or duplicate chapter ID');
     ids.add(chapter.id);
-    const filename = resolve(folder, chapter.file);
-    if (!filename.startsWith(folder + '/') || !/\.md$/i.test(filename))
-      throw new Error('Chapter must be a Markdown file inside the book folder');
+    const filename = await insideFile(folder, chapter.file);
+    if (!/\.md$/i.test(filename)) throw new Error('Chapter must be Markdown');
     const source = (await readFile(filename, 'utf8')).replace(/^\uFEFF/, '');
-    const heading = /^#\s+(.+?)\r?\n/.exec(source);
+    const heading = /^#[ \t]+(.+?)(?:\r?\n|$)/.exec(source);
     const title = chapter.title || heading?.[1] || basename(filename, extname(filename));
     const markdown = heading ? source.slice(heading[0].length).trim() : source.trim();
     if (!markdown) throw new Error(`Empty chapter: ${chapter.file}`);
     if (Buffer.byteLength(markdown) > 900_000)
       throw new Error(`Chapter too large: ${chapter.file}`);
-    return { slug: chapter.id, title, markdown, position };
+    return {
+      slug: chapter.id,
+      title,
+      markdown,
+      position,
+      ...(chapter.publishedAt ? { publishedAt: chapter.publishedAt } : {}),
+    };
   }),
 );
-let cover: Blob | undefined;
-if (manifest.cover) {
-  const file = resolve(folder, manifest.cover);
-  if (!file.startsWith(folder + '/')) throw new Error('Cover must be inside the book folder');
-  const mime = (
-    {
-      '.jpg': 'image/jpeg',
-      '.jpeg': 'image/jpeg',
-      '.png': 'image/png',
-      '.webp': 'image/webp',
-      '.avif': 'image/avif',
-    } as Record<string, string>
-  )[extname(file).toLowerCase()];
-  if (!mime) throw new Error('Unsupported cover format');
-  cover = new Blob([new Uint8Array(await readFile(file))], { type: mime });
-}
+const cover = manifest.cover ? await readCover(folder, manifest.cover) : undefined;
 console.info(
   `${manifest.title}: ${chapters.length} chapters; ${args.includes('--publish') ? 'publish' : 'draft'}`,
 );
@@ -92,6 +71,7 @@ async function request(path: string, method = 'GET', data?: unknown) {
   const response = await fetch(new URL(`/api/${path}`, base), {
     method,
     redirect: 'error',
+    signal: AbortSignal.timeout(60_000),
     headers: {
       Authorization: `JWT ${token}`,
       ...(data instanceof FormData ? {} : { 'Content-Type': 'application/json' }),
@@ -107,19 +87,28 @@ async function request(path: string, method = 'GET', data?: unknown) {
 await request('users/me');
 const found = await request(`novels?where[slug][equals]=${manifest.id}&draft=true&limit=1`);
 const existing = found.docs[0];
-let coverId = existing?.cover?.id ?? existing?.cover;
-if (cover && !coverId) {
-  const form = new FormData();
-  form.set('file', cover, basename(manifest.cover!));
-  form.set('_payload', JSON.stringify({ alt: manifest.title }));
-  const uploaded = await request(
-    `media?locale=${encodeURIComponent(manifest.language || 'zh-CN')}`,
-    'POST',
-    form,
-  );
-  coverId = uploaded.doc.id;
+if (existing) {
+  const remote = [];
+  let page = 1;
+  for (;;) {
+    const result = await request(
+      `chapters?where[novel][equals]=${existing.id}&draft=true&depth=0&limit=100&page=${page}`,
+    );
+    remote.push(...result.docs);
+    if (!result.hasNextPage) break;
+    page++;
+  }
+  checkPositions(chapters, remote);
 }
+if (args.includes('--publish') && existing)
+  console.warn(
+    'Publishing updates chapters individually. A failure may leave partially published changes; rerun the same manifest to resume.',
+  );
+let coverId = existing?.cover?.id ?? existing?.cover;
 const bookData = {
+  ...(existing?.publishedAt || manifest.publishedAt
+    ? { publishedAt: existing?.publishedAt || manifest.publishedAt }
+    : {}),
   title: manifest.title,
   slug: manifest.id,
   description: manifest.description,
@@ -130,11 +119,37 @@ const bookData = {
 const book = existing
   ? (await request(`novels/${existing.id}?draft=true`, 'PATCH', bookData)).doc
   : (await request('novels', 'POST', bookData)).doc;
+if (cover && !coverId) {
+  const form = new FormData();
+  form.set('file', cover, basename(manifest.cover!));
+  form.set('_payload', JSON.stringify({ alt: manifest.title }));
+  const uploaded = await request(
+    `media?locale=${encodeURIComponent(manifest.language || 'zh-CN')}`,
+    'POST',
+    form,
+  );
+  coverId = uploaded.doc.id;
+  try {
+    await request(`novels/${book.id}?draft=true`, 'PATCH', { cover: coverId });
+  } catch (error) {
+    // 请求失败可能发生在服务端提交之后，不能贸然删除可能已被引用的封面。
+    console.error(
+      `Cover media ${coverId} uploaded, but attachment was not confirmed. Check this media and the book in the dashboard before retrying.`,
+    );
+    throw error;
+  }
+  Object.assign(bookData, { cover: coverId });
+}
 for (const chapter of chapters) {
   const query = `chapters?where[and][0][novel][equals]=${book.id}&where[and][1][slug][equals]=${chapter.slug}&draft=true&limit=1`;
   const old = (await request(query)).docs[0];
   const publish = args.includes('--publish');
-  const data = { ...chapter, novel: book.id, _status: publish ? 'published' : 'draft' };
+  const data = {
+    ...chapter,
+    ...(old?.publishedAt ? { publishedAt: old.publishedAt } : {}),
+    novel: book.id,
+    _status: publish ? 'published' : 'draft',
+  };
   await request(
     old
       ? `chapters/${old.id}${publish ? '' : '?draft=true'}`

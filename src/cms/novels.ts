@@ -1,6 +1,7 @@
 import type { CollectionConfig, AccessResult } from 'payload';
 import { editorialAccess } from './access';
 import { validSlug } from './fields';
+import { preservePublicationDate } from './publication-date';
 
 export const Novels: CollectionConfig = {
   slug: 'novels',
@@ -8,7 +9,14 @@ export const Novels: CollectionConfig = {
   admin: { useAsTitle: 'title', group: '内容' },
   access: editorialAccess,
   versions: { drafts: true, maxPerDoc: 20 },
+  hooks: { beforeChange: [preservePublicationDate] },
   fields: [
+    {
+      name: 'publishedAt',
+      type: 'date',
+      label: '发布日期',
+      admin: { description: '未填写时首次发布自动记录；已有日期保持不变。' },
+    },
     { name: 'title', type: 'text', required: true },
     { name: 'slug', type: 'text', required: true, unique: true, validate: validSlug },
     { name: 'description', type: 'textarea' },
@@ -47,8 +55,15 @@ export const Chapters: CollectionConfig = {
     },
   },
   versions: { drafts: true, maxPerDoc: 20 },
+  hooks: { beforeChange: [preservePublicationDate] },
   indexes: [{ fields: ['novel', 'slug'], unique: true }],
   fields: [
+    {
+      name: 'publishedAt',
+      type: 'date',
+      label: '发布日期',
+      admin: { description: '未填写时首次发布自动记录；已有日期保持不变。' },
+    },
     { name: 'novel', type: 'relationship', relationTo: 'novels', required: true, index: true },
     { name: 'slug', type: 'text', required: true, validate: validSlug },
     { name: 'title', type: 'text', required: true },

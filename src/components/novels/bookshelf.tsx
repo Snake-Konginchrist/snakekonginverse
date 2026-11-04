@@ -1,3 +1,4 @@
+import { PublicationDate } from '@/components/novels/publication-date';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -34,6 +35,7 @@ export async function Bookshelf() {
               </div>
               <p className="novel-kicker">{t(book.completed ? 'completed' : 'ongoing')}</p>
               <h3>{book.title}</h3>
+              <PublicationDate value={book.publishedAt} />
               <p className="novel-description">{book.description}</p>
             </Link>
           );

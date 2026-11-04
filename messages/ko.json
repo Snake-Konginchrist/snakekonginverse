@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "publishedAt": "게시일",
     "eyebrow": "이야기와 세계",
     "library": "소설 책장",
     "completed": "완결",

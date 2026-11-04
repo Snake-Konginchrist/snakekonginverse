@@ -385,6 +385,7 @@
     }
   },
   "novels": {
+    "publishedAt": "Veröffentlicht",
     "eyebrow": "Geschichten",
     "library": "Romanbibliothek",
     "completed": "Abgeschlossen",

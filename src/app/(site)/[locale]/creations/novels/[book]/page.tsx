@@ -1,3 +1,4 @@
+import { PublicationDate } from '@/components/novels/publication-date';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
@@ -38,6 +39,7 @@ export default async function NovelPage({ params }: Props) {
         <div>
           <p className="novel-kicker">{t(book.completed ? 'completed' : 'ongoing')}</p>
           <h1>{book.title}</h1>
+          <PublicationDate value={book.publishedAt} />
           <p className="novel-summary">{book.description}</p>
           {chapters[0] && (
             <Link
@@ -59,7 +61,11 @@ export default async function NovelPage({ params }: Props) {
             <li key={chapter.id}>
               <Link href={`/creations/novels/${book.slug}/${chapter.slug}`}>
                 <span>{String(index + 1).padStart(2, '0')}</span>
-                {chapter.title}
+                <span>
+                  {chapter.title}
+                  <br />
+                  <PublicationDate value={chapter.publishedAt} />
+                </span>
                 <span>↗</span>
               </Link>
             </li>

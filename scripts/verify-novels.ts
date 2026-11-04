@@ -24,6 +24,8 @@ const coverName = `novel-qa-${nonce}.png`;
 let userId: number | undefined;
 let bookSlug: string | undefined;
 let token = '';
+const bookSlugs: string[] = [];
+const historicalDate = '2020-06-02T02:00:00.000Z';
 const evidence: string[] = [];
 function passed(message: string) {
   evidence.push(message);
@@ -94,6 +96,8 @@ try {
   await cli('--init');
   const manifest = JSON.parse(await readFile(resolve(folder, 'novel.json'), 'utf8'));
   bookSlug = manifest.id;
+  bookSlugs.push(manifest.id);
+  manifest.chapters[0].publishedAt = historicalDate;
   manifest.title = '临时验证小说 · 星河手记';
   manifest.description =
     '关于一封信、一段旅程，以及人与世界之间尚未写下的可能。此书仅用于验证导入与阅读体验，验证后自动清理。';
@@ -109,12 +113,37 @@ try {
   assert.equal((await json(chapterQuery, false)).totalDocs, 0);
   assert.equal((await fetch(`${origin}/creations/novels/${bookSlug}`)).status, 404);
   passed('Draft novels and chapters are private through API and page');
+  assert.equal(draftBooks.docs[0].publishedAt, null);
+  const draftChapters = (await json(chapterQuery)).docs;
+  assert.equal(draftChapters[0].publishedAt, historicalDate);
+  assert.equal(draftChapters[1].publishedAt, null);
+  const firstPublishStart = Date.now();
   await cli('--publish');
+  const firstBook = await json(`novels/${bookId}`, false);
+  const firstChapters = (await json(chapterQuery, false)).docs;
+  assert.ok(Date.parse(firstBook.publishedAt) >= firstPublishStart);
+  assert.ok(Date.parse(firstBook.publishedAt) <= Date.now());
+  assert.equal(firstChapters[0].publishedAt, historicalDate);
+  assert.ok(Date.parse(firstChapters[1].publishedAt) >= firstPublishStart);
+  // 故意提供不同日期，验证重跑不会改写已确定的日期。
+  manifest.publishedAt = '2001-01-01T00:00:00Z';
+  manifest.chapters.forEach((chapter: { publishedAt?: string }) => {
+    chapter.publishedAt = '2001-01-01T00:00:00Z';
+  });
+  await writeFile(resolve(folder, 'novel.json'), JSON.stringify(manifest));
   await cli('--publish');
   const books = await json(`novels?where[slug][equals]=${bookSlug}`, false);
   const chapters = (await json(chapterQuery, false)).docs;
   assert.equal(books.totalDocs, 1);
   assert.equal(chapters.length, 3);
+  assert.equal(books.docs[0].publishedAt, firstBook.publishedAt);
+  assert.deepEqual(
+    chapters.map((c: { publishedAt: string }) => c.publishedAt),
+    firstChapters.map((c: { publishedAt: string }) => c.publishedAt),
+  );
+  passed(
+    'First publication assigns missing dates; explicit chapter date and all dates survive repeated imports',
+  );
   assert.deepEqual(
     chapters.map((chapter: { slug: string }) => chapter.slug),
     ['c-0001', 'c-0002', 'c-0003'],
@@ -134,7 +163,13 @@ try {
   const html = await page.text();
   assert.match(html, /katex-mathml/);
   assert.match(html, /katex-display/);
-  passed('Published reader renders inline and block formulas');
+  assert.ok(html.includes(`dateTime="${historicalDate}"`));
+  for (const route of ['/creations', `/creations/novels/${bookSlug}`]) {
+    const response = await fetch(`${origin}${route}`);
+    assert.equal(response.status, 200);
+    assert.ok((await response.text()).includes(`dateTime="${firstBook.publishedAt}"`));
+  }
+  passed('Published pages render publication dates and inline/block formulas');
   await writeFile(resolve(folder, '001.md'), firstText + '\n仅在草稿中新增的标记\n');
   await cli();
   const publishedChapter = await json(`chapters/${chapters[0].id}`, false);
@@ -142,7 +177,10 @@ try {
   assert.ok(
     (await json(`chapters/${chapters[0].id}?draft=true`)).markdown.includes('仅在草稿中新增的标记'),
   );
-  passed('Reimporting a published chapter as draft preserves its public text');
+  assert.equal(publishedChapter.publishedAt, historicalDate);
+  assert.equal((await json(`chapters/${chapters[0].id}?draft=true`)).publishedAt, historicalDate);
+  assert.equal((await json(`novels/${bookId}?draft=true`)).publishedAt, firstBook.publishedAt);
+  passed('Reimporting as draft preserves public text and book/chapter publication dates');
   await writeFile(resolve(folder, '001.md'), firstText);
   await cli('--publish');
   manifest.chapters.pop();
@@ -163,7 +201,22 @@ try {
     const denied = await api(collection, 'POST', {}, false);
     assert.ok([401, 403].includes(denied.status));
   }
-  passed('Anonymous clients cannot create novels or chapters');
+  assert.equal((await json(`novels/${bookId}`, false)).publishedAt, firstBook.publishedAt);
+  passed('Anonymous writes denied; unpublish/republish preserves book date');
+  // 独立小说覆盖首次显式指定小说发布日期的路径。
+  manifest.id = `n-${randomUUID().replaceAll('-', '').slice(0, 16)}`;
+  bookSlugs.push(manifest.id);
+  manifest.publishedAt = historicalDate;
+  delete manifest.cover;
+  await writeFile(resolve(folder, 'novel.json'), JSON.stringify(manifest));
+  await cli('--publish');
+  const explicitBook = (await json(`novels?where[slug][equals]=${manifest.id}`, false)).docs[0];
+  assert.equal(explicitBook.publishedAt, historicalDate);
+  delete manifest.publishedAt;
+  await writeFile(resolve(folder, 'novel.json'), JSON.stringify(manifest));
+  await cli('--publish');
+  assert.equal((await json(`novels/${explicitBook.id}`, false)).publishedAt, historicalDate);
+  passed('Explicit book date survives reimport with the date omitted');
   await writeFile(
     'test-results/novels/session.json',
     JSON.stringify({
@@ -189,10 +242,10 @@ try {
   }
 } finally {
   // Exact generated identifiers only; never use a broad deletion filter.
-  if (bookSlug) {
+  for (const cleanupSlug of bookSlugs) {
     const books = await payload.find({
       collection: 'novels',
-      where: { slug: { equals: bookSlug } },
+      where: { slug: { equals: cleanupSlug } },
       draft: true,
       pagination: false,
       depth: 0,
