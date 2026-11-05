@@ -1,3 +1,4 @@
+import { WordCount } from '@/components/novels/word-count';
 import { cms } from '@/lib/content';
 import { ViewCount } from '@/components/novels/view-count';
 import { viewCounts } from '@/lib/novel-views';
@@ -75,6 +76,7 @@ export default async function NovelPage({ params }: Props) {
                   <span className="novel-chapter-title">{chapter.title}</span>
                   <span className="novel-chapter-meta">
                     <PublicationDate value={chapter.publishedAt} />
+                    <WordCount markdown={chapter.markdown} />
                     <ViewCount initial={counts[`chapter:${chapter.id}`] ?? 0} />
                   </span>
                 </span>

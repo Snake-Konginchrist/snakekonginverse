@@ -21,3 +21,14 @@
   color: var(--muted);
   font-size: 0.875rem;
 }
+
+.novel-word-count {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.novel-chapter-meta .novel-word-count {
+  margin: 0;
+}
