@@ -7,7 +7,11 @@ import { toString } from 'mdast-util-to-string';
 export function countNovelWords(markdown: string) {
   const tree = unified().use(remarkParse).use(remarkGfm).parse(markdown);
   const text = toString(tree, { includeImageAlt: false, includeHtml: false });
-  return Array.from(text.replace(/\s/gu, '')).length;
+  return (
+    text.match(
+      /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]|[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*/gu,
+    )?.length ?? 0
+  );
 }
 
 export async function WordCount({ markdown }: { markdown: string }) {
