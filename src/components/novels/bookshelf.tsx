@@ -40,7 +40,9 @@ export async function Bookshelf() {
                   </div>
                 )}
               </div>
-              <p className="novel-kicker">{t(book.completed ? 'completed' : 'ongoing')}</p>
+              <p className="novel-kicker" data-status={book.completed ? 'completed' : 'ongoing'}>
+                {t(book.completed ? 'completed' : 'ongoing')}
+              </p>
               <h3>{book.title}</h3>
               <PublicationDate value={book.publishedAt} />
               <ViewCount initial={counts[`novel:${book.id}`] ?? 0} />

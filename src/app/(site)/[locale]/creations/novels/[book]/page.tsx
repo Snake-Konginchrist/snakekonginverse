@@ -44,7 +44,9 @@ export default async function NovelPage({ params }: Props) {
           )}
         </div>
         <div>
-          <p className="novel-kicker">{t(book.completed ? 'completed' : 'ongoing')}</p>
+          <p className="novel-kicker" data-status={book.completed ? 'completed' : 'ongoing'}>
+            {t(book.completed ? 'completed' : 'ongoing')}
+          </p>
           <h1>{book.title}</h1>
           <PublicationDate value={book.publishedAt} />
           <ViewCount key={book.id} initial={counts[`novel:${book.id}`] ?? 0} book={book.slug} />

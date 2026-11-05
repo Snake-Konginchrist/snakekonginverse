@@ -60,6 +60,7 @@ export default async function ChapterPage({ params }: Props) {
         <div className="novel-divider">✳</div>
       </header>
       <NovelMarkdown text={chapter.markdown} />
+      <p className="novel-rights">{t('rights')}</p>
       <nav className="novel-reader-nav novel-bottom" aria-label={t('navigation')}>
         {docs[index - 1] ? (
           <Link href={`${base}/${docs[index - 1].slug}`}>← {t('previous')}</Link>

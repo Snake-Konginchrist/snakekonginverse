@@ -1,0 +1,23 @@
+.novel-kicker[data-status='completed'] {
+  color: #21603e;
+}
+.novel-kicker[data-status='ongoing'] {
+  color: #904506;
+}
+[data-theme='dark'] .novel-kicker[data-status='completed'] {
+  color: #8dd9ac;
+}
+[data-theme='dark'] .novel-kicker[data-status='ongoing'] {
+  color: #ffc080;
+}
+
+.novel-prose {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.novel-rights {
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
